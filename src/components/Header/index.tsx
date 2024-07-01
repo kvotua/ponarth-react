@@ -4,7 +4,8 @@ import styles from "./header.module.css"
 const Header = () => {
   return (
     <div className={styles.content}>
-test
+
+upd 1
       
     </div>
   )
