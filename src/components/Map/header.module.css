@@ -1,4 +1,4 @@
-.map-container {
+.map_container {
     position: relative;
     width: 100%;
     height: 720px;
@@ -9,7 +9,7 @@
     height: 100%;
 }
 
-.map-overlay {
+.map_overlay {
     position: absolute;
     margin-top: 30px;
     border-radius: 5px;
@@ -28,6 +28,6 @@
     transition: 1s ease-in-out;
 }
 
-.map-container.active .map-overlay {
+.map-container.active .map_overlay {
     display: none;
 }
