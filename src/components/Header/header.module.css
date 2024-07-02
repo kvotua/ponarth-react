@@ -1,5 +1,6 @@
 /* first_page header */
 header {
+  display: flex;
   width: 20%;
   height: 110vh;
   border-radius: 2px;
@@ -7,7 +8,7 @@ header {
   top: 0;
   left: 0;
   position: sticky;
-  background-color: rgba(255, 255, 255, 0.93);
+  background-color: rgb(255, 255, 255);
 }
 
 @media only screen and (max-width: 1025px) {
@@ -47,6 +48,7 @@ header {
   left: 0;
   width: 189px;
   margin: 0 auto;
+  background-color: white;
 }
 
 .logo {
