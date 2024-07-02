@@ -1,4 +1,4 @@
-import styles from './header.module.css';
+import styles from "./header.module.css";
 
 const Header = () => {
   return (
@@ -27,15 +27,18 @@ const Header = () => {
       </div>
 
       <div className={styles.social}>
-      <a href="https://untappd.com/b/brauerei-ponarth-pivovarnya-ponart-pshenichnoe/2206518" target="_blank">
-            <div className={styles.social_circle1}></div>
-          </a>
-          <a href="https://vk.com/ponarth" target="_blank">
-            <div className={styles.social_circle2}></div>
-          </a>
-          <a href="https://t.me/ponarth_1849" target="_blank">
-            <div className={styles.social_circle3}></div>
-          </a>
+        <a
+          href="https://untappd.com/b/brauerei-ponarth-pivovarnya-ponart-pshenichnoe/2206518"
+          target="_blank"
+        >
+          <div className={styles.social_circle1}></div>
+        </a>
+        <a href="https://vk.com/ponarth" target="_blank">
+          <div className={styles.social_circle2}></div>
+        </a>
+        <a href="https://t.me/ponarth_1849" target="_blank">
+          <div className={styles.social_circle3}></div>
+        </a>
       </div>
     </div>
   );
