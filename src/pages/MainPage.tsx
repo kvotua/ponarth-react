@@ -5,6 +5,7 @@ const MainPage = () => {
   return (
     <div className={styles.wrapper}>
       <Header />
+      {/* Сюда добавляем компоненты главноей страницы */}
     </div>
   );
 };
