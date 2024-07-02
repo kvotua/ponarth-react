@@ -1,0 +1,33 @@
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 720px;
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+}
+
+.map-overlay {
+    position: absolute;
+    margin-top: 30px;
+    border-radius: 5px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 70%), rgba(0, 0, 0, 0.7) url('path_to_your_image.jpg') no-repeat center center;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: 1s ease-in-out;
+}
+
+.map-container.active .map-overlay {
+    display: none;
+}
