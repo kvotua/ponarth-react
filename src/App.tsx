@@ -1,11 +1,12 @@
-import styles from "./App.module.css";
-import Header from "./components/Header";
+// import styles from "./App.module.css";
+import { BrowserRouter } from "react-router-dom";
+import Router from "./pages/router";
 
 function App() {
   return (
-    <div className={styles.wrapper}>
-      <Header />
-    </div>
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   );
 }
 
