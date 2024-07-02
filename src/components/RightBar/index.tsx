@@ -1,4 +1,3 @@
-import useLocalStorage from 'use-local-storage';
 import styles from './RightBar.module.scss';
 
 function RightBar() {
