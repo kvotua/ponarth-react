@@ -1,19 +1,13 @@
-
-import './App.css'
-import Header from './components/Header'
-import RightBar from './components/RightBar'
+// import styles from "./App.module.css";
+import { BrowserRouter } from "react-router-dom";
+import Router from "./pages/router";
 
 function App() {
-
   return (
-    <>
-      <Header />
-
-      {/* </> между Header и RightBar должен быть <Content>, в котором уже должны находиться все компоненты  */}
-
-      <RightBar />
-    </>
-  )
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
