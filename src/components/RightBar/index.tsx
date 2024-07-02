@@ -3,12 +3,6 @@ import styles from './RightBar.module.scss';
 
 function RightBar() {
 
-    const [isDark, setIsDark] = useLocalStorage("isDark", false);
-
-    const themeToggler = () => {
-
-    }
-
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
