@@ -2,24 +2,29 @@
 header {
   display: flex;
   width: 20%;
-  height: 110vh;
+  height: 100vh;
+
   border-radius: 2px;
   box-shadow: 2px 0px 10px rgba(3, 3, 3, 0.1);
   top: 0;
   left: 0;
   position: sticky;
+
   background-color: rgb(255, 255, 255);
 }
 
 @media only screen and (max-width: 1025px) {
+
   header,
   .right_menu {
     display: none;
   }
+
   .footerButton {
     justify-content: center;
     text-align: center;
   }
+
   .menu_toggle {
     display: block !important;
     position: fixed;
@@ -42,23 +47,25 @@ header {
 
 .all_menu {
   display: grid;
-  gap: 30%;
+  gap: 15%;
   position: sticky;
   top: 96px;
   left: 0;
   width: 189px;
   margin: 0 auto;
+
   background-color: white;
 }
 
 .logo {
-  width: auto;
-  min-height: 180px;
-  background-repeat: no-repeat;
+  width: 0 auto;
+  min-height: 85px;
   cursor: pointer;
-  background-size: cover;
-  transition: 0.3s ease-in-out;
+  background-size: contain; /* Это убедится, что весь образ виден */
+  background-repeat: no-repeat;
+  background-position: center;
   background-image: url(../../assets/big_ponarth_logo_black.png);
+  transition: 0.3s ease-in-out;
 }
 
 .logo:hover {
@@ -74,9 +81,11 @@ header {
 .social_circle1:hover {
   background-image: url(../../assets/ponarthColor.png);
 }
+
 .social_circle2:hover {
   background-image: url(../../assets/vkColor.png);
 }
+
 .social_circle3:hover {
   background-image: url(../../assets/tgColor.png);
 }
@@ -92,6 +101,7 @@ header {
   transition: 0.5s ease-in-out;
   cursor: pointer;
 }
+
 .social_circle2 {
   width: 30px;
   height: 30px;
@@ -103,6 +113,7 @@ header {
   transition: 0.5s ease-in-out;
   cursor: pointer;
 }
+
 .social_circle3 {
   width: 30px;
   height: 30px;
@@ -118,8 +129,10 @@ header {
 .headerButton {
   transition: 0.1s ease-in-out;
 }
+
 .headerButton:hover {
   color: rgb(157, 20, 20);
   font-weight: bold;
   /* font-size: 20px; */
 }
+
