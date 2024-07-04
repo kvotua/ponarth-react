@@ -4,6 +4,7 @@ import Map from "../components/Map";
 import NewHistory from "../components/NewHistory";
 import Partnership from "../components/Partnership/Partnership";
 import RightBar from "../components/RightBar";
+import LookingPage from "../components/LookingPage/LookingPage";
 import styles from "./styles/mainpage.module.css";
 import { ThemeContext } from "../components/RightBar";
 
@@ -19,6 +20,7 @@ const MainPage: FC = () => {
   };
 
   return (
+
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div
         className={
@@ -33,6 +35,7 @@ const MainPage: FC = () => {
           <Partnership />
         </div>
         <RightBar />
+
       </div>
     </ThemeContext.Provider>
   );
