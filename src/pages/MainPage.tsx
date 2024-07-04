@@ -11,8 +11,8 @@ const MainPage = () => {
       <div className={styles.content}>
         {/* Сюда кладем компоненты */}
         <NewHistory />
-        <Partnership />
         <Map />
+        <Partnership />
       </div>
       <RightBar />
     </div>
