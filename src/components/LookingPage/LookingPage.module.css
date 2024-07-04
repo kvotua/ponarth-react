@@ -1,0 +1,45 @@
+.poisk {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Создаем грид с колонками шириной не менее 300px, которые заполняют доступное пространство */
+    grid-gap: 70px;
+    /* Добавляем промежутки между элементами */
+    height: auto;
+    width: auto;
+  margin: 10%;
+  }
+  .text_five {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    border-top: 2px solid #d3d3d3;
+    border-bottom: 2px solid #d3d3d3;
+    width: 100%;
+    height: 400px;
+    transition: opacity 2s ease-in-out, transform 1s ease-in-out;
+  }
+  .text {
+    transition: opacity 2s ease-in-out, transform 1s ease-in-out;
+    color: #030303;
+    font-size: 40px;
+    font-family: "Roboto";
+    line-height: 62px;
+    font-weight: normal;
+  }
+  .man {
+    height: 400px;
+    background-repeat: no-repeat;
+    background-image: url(../img/bREWING.png);
+    border-radius: 5px;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  }
+  
+  .man:hover {
+    transform: scale(1.05);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+  .man {
+    animation: appear cubic-bezier(0.42, 0, 0, 1.51);
+    animation-timeline: view();
+  }
+}
