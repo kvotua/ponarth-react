@@ -43,7 +43,3 @@ body.dark {
 .dark p {
   color: #fff;
 }
-
-.dark h2 {
-  transition: color 1s ease;
-}
