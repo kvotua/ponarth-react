@@ -43,7 +43,7 @@ footer{
     /* font-size: 20px; */
 }
 .practice{
-    background-image: url(../img/Practice.png);
+    background-image: url(../../assets/Practice.png);
     background-repeat: no-repeat;
     background-position: center center;
     background-size:cover;
