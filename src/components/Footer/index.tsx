@@ -23,7 +23,7 @@ const Footer = () =>{
         <a className={styles.footerButton} href="#excursion">Экскурсии</a>
         <a className={styles.footerButton} href="">СДЕЛАНО КОМАНДОЙ "PRACTICE"</a> 
       </div>
-      <div className="practice"></div>
+      <div className={styles.practice}></div>
 
     </div>
         </footer>
