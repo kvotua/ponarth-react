@@ -1,3 +1,4 @@
+
 import { FC, useState } from "react";
 import Header from "../components/Header";
 import Map from "../components/Map";
@@ -7,6 +8,7 @@ import RightBar from "../components/RightBar";
 import styles from "./styles/mainpage.module.css";
 import { ThemeContext } from "../components/RightBar";
 import Looking from "../components/LookingPage/LookingPage";
+  import Footer from "../components/Footer";
 
 const MainPage: FC = () => {
   const [theme, setTheme] = useState("light");
@@ -20,6 +22,7 @@ const MainPage: FC = () => {
   };
 
   return (
+
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div
         className={
@@ -35,6 +38,7 @@ const MainPage: FC = () => {
           <Looking />
         </div>
         <RightBar />
+        <Footer/>
       </div>
     </ThemeContext.Provider>
   );
