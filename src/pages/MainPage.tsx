@@ -4,11 +4,13 @@ import Map from "../components/Map";
 import NewHistory from "../components/NewHistory";
 import Partnership from "../components/Partnership/Partnership";
 import RightBar from "../components/RightBar";
+import Form from "../components/Form/Form";
 import styles from "./styles/mainpage.module.css";
 import { ThemeContext } from "../components/RightBar";
 import Looking from "../components/LookingPage/LookingPage";
 import Footer from "../components/Footer";
 import History from "../components/History/History";
+import PartnerForm from "../components/Form/Form";
 
 const MainPage: FC = () => {
   const [theme, setTheme] = useState("light");
@@ -31,10 +33,11 @@ const MainPage: FC = () => {
       >
         <Header />
         <div className={styles.content}>
-          <NewHistory />
           <History />
-          <Partnership />
           <Looking />
+          <Partnership />
+          <PartnerForm />
+          <NewHistory />
           <Map />
         </div>
         <RightBar />
