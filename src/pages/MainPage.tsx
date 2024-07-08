@@ -33,10 +33,9 @@ const MainPage: FC = () => {
         <div className={styles.content}>
           <NewHistory />
           <History />
-          <Map />
-
           <Partnership />
           <Looking />
+          <Map />
         </div>
         <RightBar />
       </div>
