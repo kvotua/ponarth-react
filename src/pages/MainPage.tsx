@@ -8,7 +8,7 @@ import RightBar from "../components/RightBar";
 import styles from "./styles/mainpage.module.css";
 import { ThemeContext } from "../components/RightBar";
 import Looking from "../components/LookingPage/LookingPage";
-  import Footer from "../components/Footer";
+import Footer from "../components/Footer";
 
 const MainPage: FC = () => {
   const [theme, setTheme] = useState("light");
