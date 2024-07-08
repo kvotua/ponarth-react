@@ -6,35 +6,43 @@ function BeforeAfter() {
     const [sliderPosition, setSliderPosition] = useState(50);
     const [isDragging, setIsDragging] = useState(false);
 
-    const handleMove = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-        if (!isDragging) return;
-
-        const rect = event.currentTarget.getBoundingClientRect();
-        const x = Math.max(0, Math.min(event.clientX - rect.left, rect.width));
+    const handleMove = (clientX: number, rect: DOMRect) => {
+        const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
         const percent = Math.max(0, Math.min((x / rect.width) * 100, 100));
-
         setSliderPosition(percent);
     };
 
-    const handleMouseDown = () => {
-        setIsDragging(true);
+    const handleMouseMove = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        if (!isDragging) return;
+        const rect = event.currentTarget.getBoundingClientRect();
+        handleMove(event.clientX, rect);
     };
 
-    const handleMouseUp = () => {
-        setIsDragging(false);
+    const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
+        if (!isDragging) return;
+        const rect = event.currentTarget.getBoundingClientRect();
+        if (event.touches.length > 0) {
+            const touch = event.touches[0];
+            handleMove(touch.clientX, rect);
+        }
     };
+
+    const handleInteractionStart = () => setIsDragging(true);
+    const handleInteractionEnd = () => setIsDragging(false);
 
     return (
-        <div className={styles.papawrapper} onMouseUp={handleMouseUp}>
+        <div className={styles.papawrapper} onMouseUp={handleInteractionEnd} onTouchEnd={handleInteractionEnd}>
             <div
                 className={styles.childwrapper}
-                onMouseMove={handleMove}
-                onMouseDown={handleMouseDown}
+                onMouseMove={handleMouseMove}
+                onTouchMove={handleTouchMove}
+                onMouseDown={handleInteractionStart}
+                onTouchStart={handleInteractionStart}
             >
-                <img src='https://www.highsnobiety.com/static-assets/dato/1632584514-silver-kanye-west-mary-opera-00.jpg' />
+                <img className={styles.firstimg} src='https://www.highsnobiety.com/static-assets/dato/1632584514-silver-kanye-west-mary-opera-00.jpg' />
 
                 <div className={styles.secondimgwrapper} style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}>
-                    <img src={ponarthNazi} />
+                    <img className={styles.secondimg} src={ponarthNazi} />
                 </div>
                 <div className={styles.movableshit} style={{ left: `calc(${sliderPosition}% - 1px)` }}>
                     <div className={styles.pointer} />
