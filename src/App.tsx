@@ -1,15 +1,12 @@
 // import styles from "./App.module.css";
-// import { BrowserRouter } from "react-router-dom";
-// import Router from "./pages/router";
-
-import Footer from "./components/Footer";
+import { BrowserRouter } from "react-router-dom";
+import Router from "./pages/router";
 
 function App() {
   return (
-    // <BrowserRouter>
-      <Footer></Footer>
-      
-    // </BrowserRouter>
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   );
 }
 
