@@ -20,7 +20,6 @@ const Partnership = () => {
           />
         </div>
       </div>
-
       <div className={styles.grid_item}>
         <div className={styles.kartinka1}>
           <img
