@@ -3,8 +3,8 @@ const Footer = () =>{
     return(
         <footer>
             <div className={styles.all_items_footer}>
-      <div className={styles.logo_footer}>
-        <img src="../../assets/big_ponarth_logo_black.png" alt=""/>
+      <div >
+        <img className={styles.logo_footer} src="../../assets/big_ponarth_logo_black.png" alt=""/>
       </div>
 
       <div className={styles.info_footer}>
@@ -25,8 +25,8 @@ const Footer = () =>{
         <a className={styles.footerButton} href="#excursion">Экскурсии</a>
         <a className={styles.footerButton} href="">СДЕЛАНО КОМАНДОЙ "PRACTICE"</a> 
       </div>
-      <div className={styles.practice}>
-        <img src="../../assets/Practice.png" alt="" />
+      <div >
+        <img className={styles.practice} src="../../assets/Practice.png" alt="" />
       </div>
 
     </div>
