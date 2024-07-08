@@ -1,0 +1,88 @@
+
+video {
+    position: absolute;
+    left: 0;
+    margin: 0 auto;
+    height: 1054px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+    width: 100%;
+  }
+  
+  .container2 {
+    height: 760px;
+    width: 100%;
+    /* background-color: #0b0e09; */
+  }
+  
+  .content1 {
+    padding: 15px;
+    margin-top: 40%;
+    margin-left: 50%;
+    position: absolute;
+    z-index: 2;
+    background-color: #33333332;
+    border-radius: 15px;
+    /* opacity: 0; */
+    /* Начальное значение непрозрачности */
+    transition: opacity 3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .bochka {
+    color: #ffffff;
+    font-size: 40px;
+    font-family: "Roboto";
+    line-height: 52px;
+    text-align: center;
+  }
+  .form_four {
+    width: 300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+  }
+  .form_group {
+    position: relative;
+    margin-top: 32px;
+  }
+  
+  .form_group input {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    border: none;
+  }
+  
+  .form_group input::placeholder {
+    color: transparent; /* Скрыть стандартный плейсхолдер */
+  }
+  
+  .form_group label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: grey;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+  
+  .form_group input:focus + label,
+  .form_group input:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 10px;
+    padding: 0 5px;
+    font-size: 12px;
+    color: #000000;
+  }
+  
+  input:hover {
+    color: #fff;
+    background-color: black;
+  }  
