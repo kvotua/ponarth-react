@@ -1,13 +1,12 @@
 import styles from "./Form.module.css";
 
+import video from "../../assets/final.mp4";
+
 const PartnerForm = () => {
   return (
     <div className={styles.container2}>
       <video autoPlay muted loop id="myVideo">
-        <source
-          src="./src/assets/pexels-cottonbro-5538281.mp4"
-          type="video/mp4"
-        />
+        <source src={video} type="video/mp4" />
       </video>
       <div id="block" className={styles.content1}>
         <h1 className={styles.bochka}>
