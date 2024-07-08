@@ -8,6 +8,7 @@ import styles from "./styles/mainpage.module.css";
 import { ThemeContext } from "../components/RightBar";
 import Looking from "../components/LookingPage/LookingPage";
 import Footer from "../components/Footer";
+import History from "../components/History/History";
 
 const MainPage: FC = () => {
   const [theme, setTheme] = useState("light");
@@ -31,7 +32,9 @@ const MainPage: FC = () => {
         <Header />
         <div className={styles.content}>
           <NewHistory />
+          <History />
           <Map />
+
           <Partnership />
           <Looking />
         </div>
