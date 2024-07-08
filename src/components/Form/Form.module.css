@@ -1,4 +1,3 @@
-
 video {
     position: absolute;
     left: 0;
@@ -11,16 +10,20 @@ video {
   }
   
   .container2 {
-    height: 760px;
+    height:   960px;
     width: 100%;
-    /* background-color: #0b0e09; */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+grid-template-rows: repeat(5, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
   }
   
   .content1 {
     padding: 15px;
-    margin-top: 40%;
-    margin-left: 50%;
-    position: absolute;
+    /* margin-top: 550px;
+    margin-left: 450px; */
+    grid-area: 3 / 4 / 5 / 6;
     z-index: 2;
     background-color: #33333332;
     border-radius: 15px;
@@ -28,16 +31,27 @@ video {
     /* Начальное значение непрозрачности */
     transition: opacity 3s cubic-bezier(0.4, 0, 0.2, 1);
   }
-
+/* 
+  @media screen and (max-width: 1155px) and (min-width:855px){
+    .content1{
+margin-top: 400px;
+    }
+  }
+  @media screen and (max-width: 854px){
+    .content1{
+margin-top: 350px;
+margin-left: 400px;
+    }
+  } */
   .bochka {
     color: #ffffff;
-    font-size: 40px;
+    font-size: 1.6rem;
     font-family: "Roboto";
-    line-height: 52px;
+    line-height: 42px;
     text-align: center;
   }
   .form_four {
-    width: 300px;
+    width: 250px;
     margin: 0 auto;
     display: flex;
     align-items: center;
