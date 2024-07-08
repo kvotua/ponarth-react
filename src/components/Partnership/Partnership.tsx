@@ -39,7 +39,6 @@ const Partnership = () => {
           </p>
         </div>
       </div>
-
       <div className={styles.grid_item}>
         <div className={styles.txt_four_page}>
           <h1 className={styles.big_text_four_page2}>03</h1>
@@ -49,7 +48,6 @@ const Partnership = () => {
           </p>
         </div>
       </div>
-
       <div className={styles.grid_item}>
         <div className={styles.kartinka1}>
           <img
