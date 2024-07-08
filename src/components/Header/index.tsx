@@ -1,10 +1,12 @@
 import styles from "./header.module.css";
-
+import Ponarth_firmenny_blok_01 from "../../assets/Ponarth_firmenny_blok_01.svg";
 const Header = () => {
   return (
     <header>
       <div className={styles.all_menu}>
-        <div className={styles.logo}></div>
+        <div className={styles.logo}>
+        <img className={styles.logo} src={Ponarth_firmenny_blok_01} alt="Логотип" />
+        </div>
 
         <div className={styles.header_menu}>
           <a className={styles.headerButton} href="#sorta">

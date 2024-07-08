@@ -16,7 +16,15 @@
     display: none;
   }
 }
-
+.dark-theme .logo{
+  width: auto;
+  height: 100px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  background-size: cover;
+  background-image: url(../../assets/Ponarth_firmenny_blok_01.svg);
+  filter: brightness(0) invert(1);
+}
 .expand_less {
   margin-top: 580px;
   width: 30px;
