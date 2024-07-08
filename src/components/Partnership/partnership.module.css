@@ -22,40 +22,33 @@
 .img_four_end {
   width: 100%;
   height: 100%;
-  transition: transform 2s ease-in-out; /* Плавный переход */
-  transform-origin: center center; /* Устанавливает центр масштабирования */
+  transition: transform 2s ease-in-out;
+  transform-origin: center center;
 }
-.big_text_four_page {
+.big_text_four_page,
+.big_text_four_right {
   font-size: 96px;
   opacity: 0;
-  /* Начальное значение непрозрачности */
   transform: translateY(20px);
-  /* Начальное положение */
   transition: opacity 2s ease-in-out, transform 1s ease-in-out;
 }
-.big_text_four_page2 {
+
+.fadeIn {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* .big_text_four_page2 {
   font-size: 96px;
   opacity: 0;
-  /* Начальное значение непрозрачности */
   transform: translateY(20px);
-  /* Начальное положение */
-  transition: opacity 2s ease-in-out, transform 1s ease-in-out;
-}
+} */
 
 .big_text_four_right {
   font-size: 96px;
   text-align: right;
-  opacity: 0;
-  /* Начальное значение непрозрачности */
-  transform: translateY(20px);
-  /* Начальное положение */
-  transition: opacity 2s ease-in-out, transform 1s ease-in-out;
 }
-.visible_text {
-  opacity: 1;
-  transform: translateX(0);
-  /* Появление текста в центре */
-}
+
 .text_four_right {
   text-align: right;
 }
