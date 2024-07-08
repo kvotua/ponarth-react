@@ -8,6 +8,7 @@ function App() {
   return (
     // <BrowserRouter>
       <Footer></Footer>
+      
     // </BrowserRouter>
   );
 }
