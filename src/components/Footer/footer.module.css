@@ -1,0 +1,67 @@
+footer {
+  height: 25%;
+  position: sticky;
+  width: 100%;
+  z-index: 2;
+}
+.footerButton {
+  margin: 5%;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  transition: 0.1s ease-in-out;
+}
+.logo_footer {
+  background-image: url(../../assets/big_ponarth_logo_black.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 130px;
+  height: 100px;
+  margin-left: 20%;
+  transition: 0.3s ease-in-out;
+}
+.logo_footer:hover,
+.practice:hover {
+  transform: scale(1.05);
+}
+
+.all_items_footer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  justify-content: center;
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: rgb(249 249 249);
+  box-shadow: 0px 7px 10px 5px rgba(3, 3, 3, 0.1);
+  transition: box-shadow, background-color 1s ease;
+}
+
+.footerButton:hover {
+  color: rgb(157, 20, 20);
+  font-weight: bold;
+  /* font-size: 20px; */
+}
+.practice {
+  background-image: url(../img/Practice.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 150px;
+  height: 30px;
+  margin: 0 auto;
+  transition: 0.3s ease-in-out;
+}
+
+.all_items_footer.dark {
+  background-color: #000;
+  color: #fff;
+  box-shadow: 2px 0px 10px rgba(255, 255, 255, 0.93);
+  transition: box-shadow, background-color 1s ease;
+}
+
+.all_items_footer.dark a {
+  color: #fff;
+  transition: box-shadow, background-color 1s ease;
+}
