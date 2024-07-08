@@ -31,12 +31,11 @@ const MainPage: FC = () => {
       >
         <Header />
         <div className={styles.content}>
-          <NewHistory />
           <History />
-          <Map />
-
-          <Partnership />
           <Looking />
+          <Partnership />
+          <NewHistory />
+          <Map />
         </div>
         <RightBar />
       </div>
