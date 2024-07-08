@@ -5,7 +5,7 @@ const PartnerForm = () => {
     <div className={styles.container2}>
       <video autoPlay muted loop id="myVideo">
         <source
-          src="./src/assets/pexels-cottonbro-5538281.mp4"
+          src="./src/assets/pexels-cottonbro-5538281final.mp4"
           type="video/mp4"
         />
       </video>
