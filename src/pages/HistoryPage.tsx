@@ -1,4 +1,8 @@
+import BeforeAfter from "../components/BeforeAfter";
+
 const HistoryPage = () => {
-  return <div>Ghbdtn</div>;
+  return (
+    <BeforeAfter />
+  )
 };
 export default HistoryPage;
