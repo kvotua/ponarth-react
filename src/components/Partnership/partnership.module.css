@@ -1,68 +1,68 @@
-.grid_container{
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    padding-bottom: 10%;
-    margin-bottom: 10%;
-    padding-top: 10%;
-    width: 100%;
-    border-bottom: 2px solid #d3d3d3;
-  }
-  
-  .grid_item{
-    margin: 0 auto;
-    max-width: 420px;
-    font-size: 1.5em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-  }
-  .img_four_end{
-    width: 100%;
-    height: 100%;
-    transition: transform 2s ease-in-out; /* Плавный переход */
-    transform-origin: center center; /* Устанавливает центр масштабирования */
-  }
-  .big_text_four_page{
-    font-size: 96px;
-    opacity: 0;
-    /* Начальное значение непрозрачности */
-    transform: translateY(20px);
-    /* Начальное положение */
-    transition: opacity 2s ease-in-out, transform 1s ease-in-out;
-  }
-  .big_text_four_page2{
-    font-size: 96px;
-    opacity: 0;
-    /* Начальное значение непрозрачности */
-    transform: translateY(20px);
-    /* Начальное положение */
-    transition: opacity 2s ease-in-out, transform 1s ease-in-out;
-  }
-  
-  .big_text_four_right{
-    font-size: 96px;
-    text-align: right;
-    opacity: 0;
-    /* Начальное значение непрозрачности */
-    transform: translateY(20px);
-    /* Начальное положение */
-    transition: opacity 2s ease-in-out, transform 1s ease-in-out;
-  }
-  .visible_text {
-    opacity: 1;
-    transform: translateX(0);
-    /* Появление текста в центре */
-  }
-  .text_four_right{
-    text-align: right;
-  }
-.txt_four{
+.grid_container {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  padding-bottom: 10%;
+  margin-bottom: 10%;
+  padding-top: 10%;
+  width: 100%;
+  border-bottom: 2px solid #d3d3d3;
+}
+
+.grid_item {
+  margin: 0 auto;
+  max-width: 420px;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+.img_four_end {
+  width: 100%;
+  height: 100%;
+  transition: transform 2s ease-in-out; /* Плавный переход */
+  transform-origin: center center; /* Устанавливает центр масштабирования */
+}
+.big_text_four_page {
+  font-size: 96px;
+  opacity: 0;
+  /* Начальное значение непрозрачности */
+  transform: translateY(20px);
+  /* Начальное положение */
+  transition: opacity 2s ease-in-out, transform 1s ease-in-out;
+}
+.big_text_four_page2 {
+  font-size: 96px;
+  opacity: 0;
+  /* Начальное значение непрозрачности */
+  transform: translateY(20px);
+  /* Начальное положение */
+  transition: opacity 2s ease-in-out, transform 1s ease-in-out;
+}
+
+.big_text_four_right {
+  font-size: 96px;
+  text-align: right;
+  opacity: 0;
+  /* Начальное значение непрозрачности */
+  transform: translateY(20px);
+  /* Начальное положение */
+  transition: opacity 2s ease-in-out, transform 1s ease-in-out;
+}
+.visible_text {
+  opacity: 1;
+  transform: translateX(0);
+  /* Появление текста в центре */
+}
+.text_four_right {
+  text-align: right;
+}
+.txt_four {
   justify-self: end;
 }
-.kartinka1{
+.kartinka1 {
   width: auto;
   height: auto;
   overflow: hidden; /* Скрыть части изображения, выходящие за пределы контейнера */

@@ -15,6 +15,7 @@ footer {
   img-repeat: no-repeat;
   img-position: center center;
   img-size: cover;
+
   width: 130px;
   height: 100px;
   margin-left: 20%;
@@ -49,4 +50,5 @@ footer {
   height: 30px;
   margin: 0 auto;
   transition: 0.3s ease-in-out;
+
 }
