@@ -1,7 +1,10 @@
 img {
     width: 100%;
+    height: 100%;
+}
+
+.firstimg {
     height: 925px;
-    max-width: 1440px auto;
 }
 
 .papawrapper {
@@ -27,7 +30,6 @@ img {
     right: 0;
     width: 100%;
     max-width: 1440px;
-    height: 925px;
     margin: auto;
     overflow: hidden;
     user-select: none;
@@ -37,7 +39,7 @@ img {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 3px;
+    width: 5px;
     background-color: #fff;
     cursor: ew-resize;
 }
@@ -46,8 +48,32 @@ img {
     background-color: #fff;
     position: absolute;
     border-radius: 0.25rem;
-    height: 0.75rem;
+    height: 1.5rem;
     width: 0.75rem;
     left: -0.275rem;
     top: calc((100% / 2) - 0.625rem);
+}
+
+@media screen and (max-width:600px) {
+    .movableshit {
+        width: 2px;
+    }
+
+    .pointer {
+        width: 0.4rem;
+        height: 1rem;
+        left: -0.1375rem;
+    }
+
+    .childwrapper {
+        height: auto;
+    }
+
+    img {
+        width: 100vw;
+    }
+
+    .firstimg {
+        height: auto;
+    }
 }
