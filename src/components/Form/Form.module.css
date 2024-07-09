@@ -11,7 +11,7 @@ video {
 
 .container2 {
   height:   660px;
-  width: 100%;
+  width: 90%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
 grid-template-rows: repeat(5, 1fr);
@@ -21,29 +21,16 @@ grid-row-gap: 0px;
 
 .content1 {
   padding: 15px;
-  /* margin-top: 550px;
-  margin-left: 450px; */
   grid-area: 3 / 4 / 5 / 6;
   z-index: 2;
-  background-color: #33333332;
-  border-radius: 15px;
   /* opacity: 0; */
   /* Начальное значение непрозрачности */
   transition: opacity 3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-/* 
-@media screen and (max-width: 1155px) and (min-width:855px){
-  .content1{
-margin-top: 400px;
-  }
-}
-@media screen and (max-width: 854px){
-  .content1{
-margin-top: 350px;
-margin-left: 400px;
-  }
-} */
+
 .bochka {
+  width: 250px;
+  margin: 0 auto;
   color: #ffffff;
   font-size: 1.4rem;
   font-family: "Roboto";
@@ -62,7 +49,9 @@ margin-left: 400px;
   position: relative;
   margin-top: 32px;
 }
-
+.stat_partner{
+  width: 250px;
+}
 .form_group input {
   padding: 10px;
   width: 100%;
@@ -99,4 +88,88 @@ margin-left: 400px;
 input:hover {
   color: #fff;
   background-color: black;
+}
+.learn_more {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  width: 100%;
+}
+
+button.learn_more {
+  height: auto;
+}
+button.learn_more .circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  background: white;
+  border-radius: 1.625rem;
+}
+button.learn_more .circle .icon {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+}
+button.learn_more .circle .icon.arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+}
+button.learn_more .circle .icon.arrow::before {
+  position: absolute;
+  content: '';
+  top: -0.25rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #000000;
+  border-right: 0.125rem solid #000000;
+  transform: rotate(45deg);
+}
+button.learn_more .button_text {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 0;
+  margin: 0 0 0 1.85rem;
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+button:hover .circle {
+  width: 100%;
+}
+
+button:hover .button_text {
+  color: black;
+}
+.button_text_two{
+  position: absolute;
+  top: 30%;
+  right: 20%;
+  font-weight: 700;
+  line-height: 1.6;
 }

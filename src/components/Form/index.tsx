@@ -14,7 +14,7 @@ const PartnerForm = () => {
           каждому новому партнеру от Понарт
         </h1>
         <div className={styles.form_four}>
-          <form id="stat_partner">
+          <form id="stat_partner" className={styles.stat_partner}>
             <div className={styles.form_group}>
               <input
                 type="text"
@@ -42,12 +42,12 @@ const PartnerForm = () => {
               className={styles.learn_more}
               type="submit"
               disabled
-              style={{ marginTop: 32 + "px", width: 100 + "%"  }}
+              style={{ marginTop: 32 + "px", width: 100 + "%" }}
             >
               <span className={styles.circle} aria-hidden="true">
-                <span className={styles.icon_arrow}></span>
+                <span className={`${styles.icon} ${styles.arrow}`}></span>
               </span>
-              <span className={styles.button_text} style={{ color: "white" }}>
+              <span className={styles.button_text} >
                 СТАТЬ ПАРТНЕРОМ
               </span>
             </button>
