@@ -34,6 +34,7 @@ header {
 }
 
 .header_menu {
+  transform: translateY(-10%);
   display: grid;
   gap: 20px;
   height: auto;
@@ -53,7 +54,7 @@ header {
 .logo {
   transform: scale(1.2); /* Увеличивает изображение на 20% */
   filter: brightness(0) invert(1); /*Меняет цвет с чёрного на белый */
-  filter: none;
+  filter: none; 
   cursor: pointer;
   background-size: contain; /* Это убедится, что весь образ виден */
   background-repeat: no-repeat;
