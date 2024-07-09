@@ -72,8 +72,8 @@ const Partnership = () => {
 
   return (
     <div className={styles.grid_container}>
-      <div className={styles.grid_item} ref={ref1}>
-        <div className={styles.txt_four_page}>
+      <div className={styles.grid_item}>
+        <div className={styles.txt_four_page} ref={ref1}>
           <h1
             className={`${styles.big_text_four_page} ${
               isVisible1 ? styles.fadeIn : ""
@@ -107,8 +107,8 @@ const Partnership = () => {
         </div>
       </div>
 
-      <div className={styles.grid_item} ref={ref2}>
-        <div className={styles.txt_four}>
+      <div className={styles.grid_item}>
+        <div className={styles.txt_four} ref={ref2}>
           <h1
             className={`${styles.big_text_four_right} ${
               isVisible2 ? styles.fadeIn : ""
@@ -123,8 +123,8 @@ const Partnership = () => {
         </div>
       </div>
 
-      <div className={styles.grid_item} ref={ref3}>
-        <div className={styles.txt_four_page}>
+      <div className={styles.grid_item}>
+        <div className={styles.txt_four_page} ref={ref3}>
           <h1
             className={`${styles.big_text_four_page} ${
               isVisible3 ? styles.fadeIn : ""
