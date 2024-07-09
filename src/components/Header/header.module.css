@@ -48,13 +48,10 @@ header {
   width: 189px;
   margin: 0 auto;
 }
-.dark-theme .logo {
-  filter: brightness(0) invert(1);
-}
 
 .logo {
   width: auto;
-  /* filter: brightness(0) invert(1); */ /*Меняет цвет с чёрного на белый */
+  filter: brightness(0) invert(1); /*Меняет цвет с чёрного на белый */
   filter: none;
   min-height: 160px;
   cursor: pointer;
@@ -62,6 +59,10 @@ header {
   background-repeat: no-repeat;
   background-position: center;
   transition: 0.3s ease-in-out;
+}
+
+.dark.logo {
+  filter: brightness(1) invert(1);
 }
 
 .logo:hover {
