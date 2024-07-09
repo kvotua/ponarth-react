@@ -11,7 +11,7 @@ const Header = () => {
       <div className={styles.all_menu}>
         <div className={styles.logo}>
           <img
-            className={`${styles.logo} ${theme === "dark" ? styles.dark : ""}`} // Добавьте класс 'dark', если тема темная
+            className={`${styles.logo} ${theme === "dark" ? styles.dark : ""}`}
             src={Ponarth_Logo}
             alt="Логотип"
           />
