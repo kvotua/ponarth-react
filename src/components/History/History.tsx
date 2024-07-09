@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router-dom';
 import styles from './history.module.css';
 
 function History() {
@@ -21,14 +22,14 @@ function History() {
           <h2 className={styles.litle_text_two} id="litle_text_two">
             {spannedText}
           </h2>
-          <a className={styles.history_a} href="PonarthHistory/list1.html">
+          <Link to="/history" className={styles.history_a}>
             <button className={styles.learn_more}>
               <span className={styles.circle} aria-hidden="true">
                 <span className={`${styles.icon} ${styles.arrow}`}></span>
               </span>
               <span className={styles.button_text_two}>УЗНАТЬ БОЛЬШЕ</span>
             </button>
-          </a>
+          </Link>
         </div>
       </div>
     </div>
