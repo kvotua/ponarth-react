@@ -5,7 +5,7 @@ const PartnerForm = () => {
     <div className={styles.container2}>
       <video autoPlay muted loop id="myVideo">
         <source
-          src="./src/assets/pexels-cottonbro-5538281.mp4"
+          src="./src/assets/pexels-cottonbro-5538281final.mp4"
           type="video/mp4"
         />
       </video>
@@ -43,7 +43,7 @@ const PartnerForm = () => {
               className={styles.learn_more}
               type="submit"
               disabled
-              style={{ marginTop: 32 + "px", width: 250 + "px" }}
+              style={{ marginTop: 32 + "px", width: 100 + "%" }}
             >
               <span className={styles.circle} aria-hidden="true">
                 <span className={styles.icon_arrow}></span>
