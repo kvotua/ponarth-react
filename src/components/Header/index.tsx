@@ -1,11 +1,20 @@
 import styles from "./header.module.css";
-import Ponarth_firmenny_blok_01 from "../../assets/Ponarth_firmenny_blok_01.svg";
+import Ponarth_Logo from "../../assets/Ponarth_firmenny_blok_01.svg";
+import { useContext } from "react";
+import { ThemeContext } from "../RightBar";
+
 const Header = () => {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <header>
       <div className={styles.all_menu}>
         <div className={styles.logo}>
-        <img className={styles.logo} src={Ponarth_firmenny_blok_01} alt="Логотип" />
+          <img
+            className={`${styles.logo} ${theme === "dark" ? styles.dark : ""}`} // Добавьте класс 'dark', если тема темная
+            src={Ponarth_Logo}
+            alt="Логотип"
+          />
         </div>
 
         <div className={styles.header_menu}>
