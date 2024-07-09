@@ -42,7 +42,7 @@ const PartnerForm = () => {
               className={styles.learn_more}
               type="submit"
               disabled
-              style={{ marginTop: 32 + "px", width: 250 + "px" }}
+              style={{ marginTop: 32 + "px", width: 100 + "%"  }}
             >
               <span className={styles.circle} aria-hidden="true">
                 <span className={styles.icon_arrow}></span>
