@@ -6,7 +6,19 @@ header {
   top: 0;
   left: 0;
   position: sticky;
-  background-color: rgba(255, 255, 255, 0.93); 
+  background-color: rgba(255, 255, 255, 0.93);
+  transition: background-color 1s ease;
+}
+
+.dark {
+  background-color: black;
+}
+
+.dark,
+header,
+.logo,
+.header_menu {
+  transition: box-shadow, background-color 1s ease;
 }
 
 @media only screen and (max-width: 1025px) {
@@ -54,12 +66,12 @@ header {
 .logo {
   transform: scale(1.2); /* Увеличивает изображение на 20% */
   filter: brightness(0) invert(1); /*Меняет цвет с чёрного на белый */
-  filter: none; 
+  filter: none;
   cursor: pointer;
   background-size: contain; /* Это убедится, что весь образ виден */
   background-repeat: no-repeat;
   background-position: center;
-  transition: 0.3s ease-in-out;
+  background: none;
 }
 
 .dark.logo {

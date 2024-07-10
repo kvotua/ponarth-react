@@ -7,16 +7,13 @@ const Header = () => {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <header>
+    <header className={theme === "dark" ? styles.dark : ""}>
       <div className={styles.all_menu}>
-        <div className={styles.logo}>
-          <img
-            className={`${styles.logo} ${theme === "dark" ? styles.dark : ""}`}
-            src={Ponarth_Logo}
-            alt="Логотип"
-          />
-        </div>
-
+        <img
+          className={`${styles.logo} ${theme === "dark" ? styles.dark : ""}`}
+          src={Ponarth_Logo}
+          alt="Логотип"
+        />
         <div className={styles.header_menu}>
           <a className={styles.headerButton} href="#sorta">
             Продукт
@@ -37,7 +34,6 @@ const Header = () => {
             На картах
           </a>
         </div>
-
         <div className={styles.social}>
           <a
             href="https://untappd.com/b/brauerei-ponarth-pivovarnya-ponart-pshenichnoe/2206518"
