@@ -28,14 +28,9 @@ const Map: React.FC = () => {
             ПОНАРТ <br />
             НА КАРТЕ
           </h2>
-          <div
-            style={{
-              position: "relative",
-              overflow: "hidden",
-              borderTop: "2px solid #d3d3d3",
-              paddingTop: "40px",
-            }}
-          >
+          
+            
+          
             <div className={styles.map_container}>
               <iframe
                 className={styles.map}
@@ -57,7 +52,7 @@ const Map: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    
   );
 };
 
