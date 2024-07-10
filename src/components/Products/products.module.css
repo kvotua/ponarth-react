@@ -1,0 +1,42 @@
+.wrapper {
+  display: flex;
+  min-height: 755px;
+}
+.images,
+.text_slider {
+  flex: 0 0 50%; /* Добавлено */
+  max-width: 50%;
+  width: 50%; /* Задаем явную ширину */
+  overflow: auto; /* Добавлено для предотвращения переполнения содержимого */
+}
+
+.images {
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  height: 500px; /* Добавьте эту строку */
+}
+
+.swiper-slide {
+  height: 100%; /* Добавьте эту строку */
+}
+
+.text_slider {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.text_in {
+  padding: 20px;
+  /* Добавляем отступы вокруг текста */
+  margin: 0 auto;
+  display: grid;
+  gap: 20px;
+}
+
+.gradual_appear {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
