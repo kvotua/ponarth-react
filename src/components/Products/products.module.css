@@ -2,12 +2,13 @@
   display: flex;
   min-height: 755px;
 }
+
 .images,
 .text_slider {
-  flex: 0 0 50%; /* Добавлено */
+  flex: 0 0 50%;
   max-width: 50%;
-  width: 50%; /* Задаем явную ширину */
-  overflow: auto; /* Добавлено для предотвращения переполнения содержимого */
+  width: 50%;
+  overflow: auto;
 }
 
 .images {
@@ -15,11 +16,11 @@
   box-sizing: border-box;
   justify-content: center;
   align-items: center;
-  height: 500px; /* Добавьте эту строку */
+  height: 500px;
 }
 
 .swiper-slide {
-  height: 100%; /* Добавьте эту строку */
+  height: 100%;
 }
 
 .text_slider {
@@ -30,7 +31,6 @@
 
 .text_in {
   padding: 20px;
-  /* Добавляем отступы вокруг текста */
   margin: 0 auto;
   display: grid;
   gap: 20px;
@@ -39,4 +39,38 @@
 .gradual_appear {
   opacity: 1;
   transition: opacity 1s ease-in-out;
+}
+
+.learn_more {
+  background-color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.circle {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin-right: 10px;
+}
+
+.icon_arrow {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #000;
+  border-right: 2px solid #000;
+  transform: rotate(45deg);
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.button_text {
+  font-size: 16px;
+  color: #000;
 }
