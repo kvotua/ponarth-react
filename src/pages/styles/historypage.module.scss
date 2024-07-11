@@ -1,0 +1,14 @@
+.historyPage {
+    transition: 1s all ease-in-out;
+}
+
+.pageContent {
+    transition: 1s all ease-in-out;
+}
+
+.pageContent {
+    &.menuopen {
+		opacity: .6;
+		filter: blur(20px);
+	}
+}
