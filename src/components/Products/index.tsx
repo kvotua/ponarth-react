@@ -1,28 +1,31 @@
-import styles from "../Products/products.module.css";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/pagination';
-import { EffectCoverflow, Pagination } from 'swiper/modules';
+import styles from "./products.module.css";
 import banka1 from "../../assets/Банки12-01.svg";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import { Swiper as SwiperClass, Navigation } from "swiper/core";
 
-export default function Products() {
+
+const Products: React.FC = () => {
+  const handleSlideChange = (swiper: SwiperClass) => {
+    const { activeIndex, slides } = swiper;
+    slides.forEach((slide, index) => {
+      slide.style.transform = index === activeIndex ? "scale(1)" : "scale(0.8)";
+    });
+  };
+
   return (
     <div className={styles.wrapper}>
       <Swiper
-        effect={'coverflow'}
-        grabCursor={true}
+        spaceBetween={0}
+        slidesPerView={3}
         centeredSlides={true}
-        slidesPerView={'auto'}
-        coverflowEffect={{
-          rotate: 50,
-          stretch: 0,
-          depth: 100,
-          modifier: 1,
-          slideShadows: true,
+        onSlideChangeTransitionEnd={handleSlideChange}
+        onSwiper={(swiper) => handleSlideChange(swiper)}
+        modules={[Navigation]}
+        navigation={{
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
         }}
-        pagination={true}
-        modules={[EffectCoverflow, Pagination]}
         className={styles.images}
       >
         <SwiperSlide>
@@ -60,6 +63,10 @@ export default function Products() {
           </a>
         </div>
       </div>
+      <div className={styles.swiper_button_prev}></div>
+      <div className={styles.swiper_button_next}></div>
     </div>
   );
-}
+};
+
+export default Products;
