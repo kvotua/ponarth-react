@@ -1,32 +1,30 @@
-import styles from "./products.module.css";
+import styles from "../Products/products.module.css";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import { EffectCoverflow, Pagination } from 'swiper/modules';
 import banka1 from "../../assets/Банки12-01.svg";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import { Swiper as SwiperClass } from "swiper/core";
 
-const Products: React.FC = () => {
-  const handleSlideChange = (swiper: SwiperClass) => {
-    const { activeIndex, slides } = swiper;
-    slides.forEach((slide, index) => {
-      slide.style.transform = index === activeIndex ? "scale(1)" : "scale(0.8)";
-    });
-  };
-
+export default function Products() {
   return (
     <div className={styles.wrapper}>
       <Swiper
-        spaceBetween={0}
-        slidesPerView={3}
+        effect={'coverflow'}
+        grabCursor={true}
         centeredSlides={true}
-        onSlideChangeTransitionEnd={handleSlideChange}
-        onSwiper={(swiper) => handleSlideChange(swiper)}
+        slidesPerView={'auto'}
+        coverflowEffect={{
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        }}
+        pagination={true}
+        modules={[EffectCoverflow, Pagination]}
         className={styles.images}
       >
-        <SwiperSlide>
-          <div>
-            <img src={banka1} alt="" />
-          </div>
-        </SwiperSlide>
         <SwiperSlide>
           <div>
             <img src={banka1} alt="" />
@@ -64,6 +62,4 @@ const Products: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default Products;
+}
