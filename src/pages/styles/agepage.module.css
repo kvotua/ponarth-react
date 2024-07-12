@@ -21,12 +21,12 @@
 }
 
 .text1 {
-  font-size: 26px;
+  font-size: 29px;
 }
 
 .text2 {
-  margin-top: 20px;
-  font-size: 22px;
+  margin-top: 23px;
+  font-size: 25px;
 }
 
 .text1,
@@ -34,6 +34,7 @@
 .button,
 .age {
   color: white;
+  font-family: "Roboto", sans-serif;
 }
 .logo {
   width: 250px;
@@ -45,12 +46,12 @@
   background: none;
   border: 0;
   margin-top: 2rem;
-  font-size: 20px;
+  font-size: 25px;
   cursor: pointer;
 }
 
 .age {
-  font-size: 40px;
+  font-size: 45px;
   margin-top: 3em;
 }
 

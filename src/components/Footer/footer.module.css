@@ -11,6 +11,7 @@ footer {
   display: flex;
   align-items: center;
   transition: 0.1s ease-in-out;
+  color: #000;
 }
 .logo_footer {
   background-repeat: no-repeat;
@@ -18,7 +19,7 @@ footer {
   background-size: cover;
   width: 220px;
   height: 200px;
-  
+
   transition: 0.3s ease-in-out;
 }
 .logo_footer:hover,
@@ -33,7 +34,7 @@ footer {
   justify-content: center;
   max-width: 1440px;
   margin: 0 auto;
-  background-color: rgba(255, 255, 255); 
+  background-color: rgba(255, 255, 255);
   box-shadow: 0px 7px 10px 0px rgba(3, 3, 3, 0.1);
   transition: box-shadow, background-color 1s ease;
 }
