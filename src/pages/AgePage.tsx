@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import styles from "./styles/agepage.module.css";
 import logo from "../assets/Ponarth_firmenny_blok_01.svg";
 
-const AgePage: React.FC = () => {
+const AgePage: React.FC<{ setAgeConfirmed: (confirmed: boolean) => void }> = ({
+  setAgeConfirmed,
+}) => {
   const [age, setAge] = useState<number>(0);
   const navigate = useNavigate();
 
@@ -13,6 +15,7 @@ const AgePage: React.FC = () => {
 
   const handleConfirmClick = () => {
     if (age >= 18) {
+      setAgeConfirmed(true);
       navigate("/home");
     } else {
       window.location.href = "https://www.detmir.ru/catalog/index/name/pure/";
@@ -28,7 +31,6 @@ const AgePage: React.FC = () => {
             Добро пожаловать на сайт пивоваренной компании Ponarth.
           </h1>
           <h1 className={styles.text2}>
-            {" "}
             Пожалуйста, подтвердите свой возраст.
           </h1>
         </div>
