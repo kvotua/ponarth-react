@@ -45,8 +45,11 @@ const AgePage: React.FC<{ setAgeConfirmed: (confirmed: boolean) => void }> = ({
           value={age}
           onChange={handleSliderChange}
         />
-        <button className={styles.button} onClick={handleConfirmClick}>
-          Подтвердить
+        <button className={styles.learn_more} onClick={handleConfirmClick}>
+          <span className={styles.circle} aria-hidden="true">
+            <span className={`${styles.icon} ${styles.arrow}`}></span>
+          </span>
+          <span className={styles.button_text_two}>ПРОДОЛЖИТЬ</span>
         </button>
       </div>
     </div>
