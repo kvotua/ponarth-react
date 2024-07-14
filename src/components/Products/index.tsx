@@ -5,6 +5,8 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 import banka1 from "../../assets/Банки12-01.svg";
+import banka2 from "../../assets/Банки1-01.svg";
+import banka3 from "../../assets/Банки-03.svg";
 
 export default function Products() {
   return (
@@ -26,18 +28,18 @@ export default function Products() {
         className={styles.images}
       >
         <SwiperSlide>
-          <div>
-            <img src={banka1} alt="" />
+          <div className={styles.swiperimg}>
+            <img src={banka1} alt=""/>
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div>
-            <img src={banka1} alt="" />
+          <div className={styles.swiperimg}>
+            <img src={banka2} alt="" />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div>
-            <img src={banka1} alt="" />
+          <div className={styles.swiperimg}>
+            <img src={banka3} alt="" />
           </div>
         </SwiperSlide>
       </Swiper>
@@ -53,7 +55,7 @@ export default function Products() {
           <a href="#maps" style={{ width: "250px" }}>
             <button className={styles.learn_more}>
               <span className={styles.circle} aria-hidden="true">
-                <span className={styles.icon_arrow}></span>
+                <span className={`${styles.icon} ${styles.arrow}`}></span>
               </span>
               <span className={styles.button_text}>Где попробовать?</span>
             </button>
