@@ -4,17 +4,28 @@
   margin-right: 10px;
 }
 
+:root {
+  --background-color: #c3d1d1;
+}
+
 .social,
 .audio_and_theme {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(5px);
+  background-color: var(--background-color);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 200px;
   padding: 5px 15px;
+  height: 4rem;
+  transition: background-color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0.6s;
 }
+
+.headerhistory.sticky .social,
+.headerhistory.sticky .audio_and_theme {
+  --background-color: transparent;
+}
+
 
 .social_circle1 {
   background-image: url(../../assets/ponarthBlack.png);
@@ -103,10 +114,10 @@ section {
 
   .logo {
     position: fixed;
-    top: 30px;
+    top: -7px;
     left: 0;
     right: 0;
-    width: 100px;
+    width: 170px;
     height: auto;
     margin: 0 auto;
     opacity: 1;
@@ -117,7 +128,6 @@ section {
   nav {
     display: flex;
     height: max-content;
-    justify-content: space-between;
     align-items: center;
     padding: 0 20px;
     position: fixed;
@@ -126,7 +136,7 @@ section {
     width: 100%;
     max-width: 720px;
     margin: 0 auto;
-    top: 120px;
+    top: 130px;
     background-color: transparent;
     z-index: 99;
 
@@ -142,27 +152,26 @@ section {
       text-transform: lowercase;
       transition: .3s all cubic-bezier(0.075, 0.82, 0.165, 1) .6s;
     }
-
+    
     button {
       background: rgba(0, 0, 0, .3);
       backdrop-filter: blur(5px);
       border: 1px solid rgba(255, 255, 255, .1);
-      position: absolute;
+      position: fixed;
       z-index: 99;
       left: 0;
-      margin: auto;
       right: 0;
-      top: 0;
-      bottom: 0;
+      margin: 0 auto;
+      top: 20px;
       width: 60px;
       height: 60px;
       border-radius: 100%;
       outline: 0;
       border: 0;
       cursor: pointer;
-      transition: .3s all cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s;
+      transition: opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s, transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s, background 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s;
       transform: scale(0);
-
+     
       span {
         width: 40%;
         background: #fff;
@@ -175,7 +184,6 @@ section {
 
       &:hover {
         border-color: rgba(255, 255, 255, .5);
-
         span {
           margin: 10px auto;
         }
@@ -199,11 +207,13 @@ section {
     width: 90px;
     height: 90px;
     transition-delay: 0.5s;
-
+.social,
+.audio_and_theme{
+  visibility: hidden;
+}
     button {
       transform: scale(1);
       transition-delay: 0.6s;
-
       span {
         transform: scalex(1);
         transition: .6s transform cubic-bezier(0.075, 0.82, 0.165, 1) .8s, .3s margin ease-in 0s;
@@ -220,12 +230,6 @@ section {
   }
 }
 
-.pageContent {
-  &.menuopen {
-    opacity: .6;
-    filter: blur(20px);
-  }
-}
 
 .toggle {
   transform: rotate(90deg) scale(2);
@@ -380,6 +384,7 @@ section {
 
 .playContainer {
   cursor: pointer;
+  color: #000;
 }
 
 .togglePlay {
@@ -396,6 +401,7 @@ section {
 .time {
   display: flex;
   align-items: center;
+  color: #000;
 }
 
 .current,
@@ -411,8 +417,10 @@ section {
   font-size: 16px;
   flex-grow: 1;
   text-align: center;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  color: #000;
+  white-space: nowrap;
 }
 
 .volumeContainer {
@@ -453,75 +461,142 @@ section {
   }
 }
 /* Стили для мобильных устройств */
-@media (max-width: 37.5rem) { /* 600px / 16px */
-  
+@media (max-width:600px) { /* 600px / 16px */
   .headerhistory {
-    flex-direction: column;
-    
-    nav {
-      flex-direction: column;
-      align-items: flex-start;
-     
+    display: block;
+    nav{
+   justify-content: center;
+   padding: 0;
     }
-
     .openmenu {
       width: 2.5rem; /* 40px / 16px */
       height: 2.5rem; /* 40px / 16px */
     }
-
-    .social,
-    .audio_and_theme {
+    .social{
+      width: 1.5rem;
+      height: 7.5rem;
       flex-direction: column;
-      padding: 0.625rem 0; /* 10px / 16px */
     }
-
-    .audioPlayer {
-      max-width: 18.75rem; /* 300px / 16px */
-    }
-
-    .volumeSlider {
-      width: 2.5rem; /* 40px / 16px */
-    }
-
-    a img {
-      margin-top: 6.25rem; /* 100% of the parent font size */
-      width: 10.625rem; /* 170px / 16px */
-      height: 10.625rem; /* 170px / 16px */
-
-    }
-
-    input {
-      margin: 2.5rem; /* 40% of the parent font size */
-      
-    }
-    .social,
     .audio_and_theme {
-     display: flex;
-     align-items: center;
-     background-color: transparent;
-     backdrop-filter: none;
+      height: 7rem;
+      width: 73%;
+      padding: 0;
+      border-radius: 100px;
+    }
+    .audio_and_theme a {
+     width: min-content;
+     padding: 0;
+    }
+    a{
+      width: min-content;
+    }
+    .current,
+    .length {
+       font-size: 11px;
+    }
+    .social_circle1,
+    .social_circle2,
+    .social_circle3 {
+      width: 23px;
+      height: 23px;
+    }
+    .audioPlayer{
+      align-items: flex-start;
+    }
+    .timeline {
+      width: 6.4rem; /* 300px / 16px */
+      height: 7px;
+    }
+    .volumeSlider {
+      width: 4.3rem; /* 40px / 16px */
+    }
+    .volumeContainer{
+      padding-top: 5px;
+    }
+    #themeToggle{
+      width: 1.5rem;
+      height: 1.6rem;
+    }
+    .name{
+      width: 3rem;
+      padding-left: 1rem;
+      padding-right: 0.5rem;
+      font-size: small;
+      white-space: wrap;
+    }
+    a img {
+      width: 7.630rem; /* 170px / 16px */
+      height: 10.625rem; /* 170px / 16px */
+    }
+    .logo{
+      width: max-content;
+    }
+    .controls{
+      width: 11rem;
+    flex-wrap: wrap;
     }
   }
 }
 
 
 /* Стили для планшетов */
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) and (min-height: 1024px) and (max-height:1368px) {
   .headerhistory {
-    nav {
+    display: block;
+    nav{
+      justify-content: center;
       padding: 0;
-  }
-  .social,
-    .audio_and_theme {
-     display: flex;
-     align-items: center;
-     background-color: none;
-    backdrop-filter: none;
     }
-    
+    .audio_and_theme{
+      width: 90%;
+      justify-content: stretch;
+      padding: 5px;
+    }
+    .social_circle1,
+    .social_circle2,
+    .social_circle3 {
+      width: 27px;
+      height: 27px;
+    } 
+    .current,
+    .length {
+       font-size: 13px;
+    }
+    .audioPlayer{
+      align-items: flex-start;
+    }
+    .volumeSlider {
+      width: 4rem; 
+    }
+    .volumeContainer{
+      padding-left: 55px;
+    }
+    #themeToggle{
+      width: 1.5rem;
+      height: 1.6rem;
+    }
+    .name{
+      width: 3rem;
+      padding-left: 1rem;
+      padding-right: 0.5rem;
+      font-size: 15px;
+    }
+    a img {
+      width: 10rem; 
+      height: 8.5rem; 
+    }
+    .logo{
+      width: max-content;
+    }
 }
 }
 /* Стили для настольных компьютеров */
-@media (min-width: 1025px) {
-  /* Стили специфичные для настольных компьютеров */
+@media (min-width: 1024px)  and (max-width: 1280px) and (min-height: 600px) and (max-height: 800px){
+  .headerhistory {
+    display: block;
+}
+nav{
+  justify-content: center;
+  padding: 0;
+}
 }
