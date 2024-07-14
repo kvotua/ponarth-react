@@ -10,11 +10,11 @@ video {
 }
 
 .container2 {
-  height:   660px;
+  height:   700px;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+grid-template-rows: repeat(3, 1fr);
 grid-column-gap: 0px;
 grid-row-gap: 0px;
 }
@@ -22,7 +22,7 @@ grid-row-gap: 0px;
 .content1 {
   width: 540px;
   padding: 15px;
-  grid-area: 3 / 4 / 5 / 6;
+  grid-area: 2 / 2 / 4 / 4;
   z-index: 2;
   /* opacity: 0; */
   /* Начальное значение непрозрачности */
@@ -52,6 +52,7 @@ grid-row-gap: 0px;
 .stat_partner{
   width: 250px;
 }
+
 .form_group input {
   padding: 10px;
   width: 100%;
@@ -172,4 +173,66 @@ button:hover .button_text {
   right: 20%;
   font-weight: 700;
   line-height: 1.6;
+}
+@media screen and (max-width:600px) {
+  video{
+   position: inherit;
+    left: 0;
+    margin: 0 auto;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+    width: 100%;
+    grid-area: 1 / 1 / 3 / 5;
+  }
+  .container2 {
+    height:   720px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  }
+  .content1 {
+    margin: 0 auto;
+    width: 100%;
+    padding: 0;
+    grid-area: 3 / 1 / 5 / 5;
+    z-index: 2;
+    background-color: #33333332;
+    /* opacity: 0; */
+    /* Начальное значение непрозрачности */
+    transition: opacity 3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .bochka{
+    color: black;
+  }
+  .form_four {
+    width: 250px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .stat_partner{
+    width: 250px;
+  }
+  button.learn_more .circle{
+    background: black;
+  }
+  button.learn_more .circle .icon {
+    background: black;
+  }
+  button.learn_more .circle .icon.arrow::before {
+    border-top: 0.125rem solid #ffffff;
+    border-right: 0.125rem solid #ffffff;
+  }
+  button.learn_more .button_text {
+    color: black;
+  }
+  button:hover .button_text {
+    color: rgb(255, 255, 255);
+  }
 }
