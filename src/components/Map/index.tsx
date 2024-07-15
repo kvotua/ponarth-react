@@ -24,10 +24,12 @@ const Map: React.FC = () => {
     <div className={styles.Map} onClick={deactivateMap}>
       <div className={styles.six_page} id="maps">
         <div className={styles.content_six_page}>
+          <div className={styles.div_text}>
           <h2 className={styles.texter_six}>
             ПОНАРТ <br />
             НА КАРТЕ
           </h2>
+          </div>
           
             
           
