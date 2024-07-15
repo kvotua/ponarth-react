@@ -235,19 +235,19 @@ button:hover .button_text {
     width: 250px;
   }
   button.learn_more .circle {
-    background: black;
+    background: rgb(255, 255, 255);
   }
   button.learn_more .circle .icon {
-    background: black;
+    background: rgb(255, 255, 255);
   }
   button.learn_more .circle .icon.arrow::before {
-    border-top: 0.125rem solid #ffffff;
-    border-right: 0.125rem solid #ffffff;
+    border-top: 0.125rem solid #000000;
+    border-right: 0.125rem solid #000000;
   }
   button.learn_more .button_text {
-    color: black;
+    color: rgb(255, 255, 255);
   }
   button:hover .button_text {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
   }
 }
