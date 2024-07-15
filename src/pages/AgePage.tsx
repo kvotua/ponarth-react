@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./styles/agepage.module.css";
 import logo from "../assets/Ponarth_firmenny_blok_01.svg";
@@ -9,12 +9,24 @@ const AgePage: React.FC<{ setAgeConfirmed: (confirmed: boolean) => void }> = ({
   const [age, setAge] = useState<number>(0);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const ageConfirmedTime = localStorage.getItem("ageConfirmedTime");
+    if (
+      ageConfirmedTime &&
+      new Date().getTime() - Number(ageConfirmedTime) < 24 * 60 * 60 * 1000
+    ) {
+      setAgeConfirmed(true);
+      navigate("/home");
+    }
+  }, [navigate, setAgeConfirmed]);
+
   const handleSliderChange = (event: ChangeEvent<HTMLInputElement>) => {
     setAge(Number(event.target.value));
   };
 
   const handleConfirmClick = () => {
     if (age >= 18) {
+      localStorage.setItem("ageConfirmedTime", String(new Date().getTime()));
       setAgeConfirmed(true);
       navigate("/home");
     } else {
