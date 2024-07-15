@@ -13,7 +13,7 @@ video {
   height:   700px;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
 grid-template-rows: repeat(3, 1fr);
 grid-column-gap: 0px;
 grid-row-gap: 0px;
@@ -22,7 +22,7 @@ grid-row-gap: 0px;
 .content1 {
   width: 540px;
   padding: 15px;
-  grid-area: 2 / 2 / 4 / 4;
+  grid-area: 2 / 4 / 4 / 6;
   z-index: 2;
   /* opacity: 0; */
   /* Начальное значение непрозрачности */
