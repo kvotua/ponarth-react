@@ -1,11 +1,19 @@
 import styles from "./header.module.css";
+import Ponarth_Logo from "../../assets/Ponarth_firmenny_blok_01.svg";
+import { useContext } from "react";
+import { ThemeContext } from "../RightBar";
 
 const Header = () => {
-  return (
-    <header>
-      <div className={styles.all_menu}>
-        <div className={styles.logo}></div>
+  const { theme } = useContext(ThemeContext);
 
+  return (
+    <header className={theme === "dark" ? styles.dark : ""}>
+      <div className={styles.all_menu}>
+        <img
+          className={`${styles.logo} ${theme === "dark" ? styles.dark : ""}`}
+          src={Ponarth_Logo}
+          alt="Логотип"
+        />
         <div className={styles.header_menu}>
           <a className={styles.headerButton} href="#sorta">
             Продукт
@@ -26,7 +34,6 @@ const Header = () => {
             На картах
           </a>
         </div>
-
         <div className={styles.social}>
           <a
             href="https://untappd.com/b/brauerei-ponarth-pivovarnya-ponart-pshenichnoe/2206518"
