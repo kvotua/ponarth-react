@@ -53,7 +53,18 @@
   font-size: 45px;
   margin-top: 3em;
 }
-
+@media screen and (max-width: 340px) {
+  .text1{
+font-size: 25px;
+padding-left: 5%;
+padding-right: 5%;
+  }
+  .text2{
+font-size: 21px;
+padding-left: 5%;
+padding-right: 5%;
+  }
+}
 .input[type="range"] {
   -webkit-appearance: none; /* Необходимо для Chrome */
   width: 40%;
@@ -101,6 +112,7 @@
 }
 button.learn_more {
   height: auto;
+  min-width: 250px;
 }
 button.learn_more .circle {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
