@@ -35,9 +35,10 @@ const MainPage: FC = () => {
         <div className={styles.content}>
           <Products />
           <History />
-          <Looking />
+         
           <Partnership />
           <PartnerForm />
+          <Looking />
           <NewHistory />
           <Map />
         </div>
