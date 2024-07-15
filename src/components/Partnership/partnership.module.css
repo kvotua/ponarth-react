@@ -12,6 +12,7 @@
 
 .grid_item {
   margin: 0 auto;
+  width: 90%;
   max-width: 420px;
   font-size: 1.5em;
   display: flex;
@@ -27,6 +28,8 @@
 }
 .big_text_four_page,
 .big_text_four_right {
+  font-weight: bold;
+  padding-bottom: 20%;
   font-size: 96px;
   opacity: 0;
   transform: translateY(20px);
@@ -38,13 +41,16 @@
   transform: translateX(0);
 }
 
-/* .big_text_four_page2 {
+ .big_text_four_page2 {
   font-size: 96px;
   opacity: 0;
   transform: translateY(20px);
-} */
+  
+} 
 
 .big_text_four_right {
+  font-weight: bold;
+  padding-bottom: 20%;
   font-size: 96px;
   text-align: right;
 }
@@ -64,4 +70,10 @@
 }
 .kartinka1:hover .img_four_end {
   transform: scale(1.5); /* Увеличение в 2 раза */
+}
+@media (max-width: 600px) {
+  .grid_container{
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6,1fr);
+  }
 }
