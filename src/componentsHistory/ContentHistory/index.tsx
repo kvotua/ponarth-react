@@ -68,9 +68,8 @@ const ContentHistory = () => {
         </div>
       </div>
 
+      <div className={stylesKartinka.parallax + ' ' + stylesKartinka.panorama}></div>
 
-
-      <img src={panorama} alt="" />
       <div className={styles.img_grid}>
         <img src={negor} alt="" />
         <img src={tovZnak} alt="" />
@@ -95,7 +94,7 @@ const ContentHistory = () => {
 
 
 
-      <div className={stylesText.back_img}>
+      <div className={stylesText.back_img + ' ' + stylesText.iogan}>
         <h2 className={stylesText.stickytext}>В 28 лет Иоган уже был солидным владельцем пивоварни. Очень скоро подвалы в Лёбенихте
           стали слишком тесны, и с 1842 года были арендованы просторные подвалы под Замковой кирхой.
         </h2>
@@ -171,6 +170,14 @@ const ContentHistory = () => {
 
       </div>
 
+
+      <div className={stylesText.back_img + ' ' + stylesText.bottle}>
+        <h2 className={stylesText.stickytext}>В 28 лет Иоган уже был солидным владельцем пивоварни. Очень скоро подвалы в Лёбенихте
+          стали слишком тесны, и с 1842 года были арендованы просторные подвалы под Замковой кирхой.
+        </h2>
+      </div>
+
+
       <div className={styles.text}>
         <h2>2 августа 1849 года в имении Понарт Шиффердеккер приобрел большой участок в 260 моргенов земли за
           15
@@ -184,6 +191,12 @@ const ContentHistory = () => {
         <img className={styles.info_img} src={bochka} alt="" />
 
         <h2 className={styles.text}>В юбилейном 1939 году пивоварня со штатом 500 человек была крупнейшей в северо-восточной Германии. В 1906 году в честь основателя знаменитой пивоварни в Понарте назвали улицу (сейчас ул. маршала Новикова).
+        </h2>
+      </div>
+
+      <div className={stylesText.back_img + ' ' + stylesText.pivKorol}>
+        <h2 className={stylesText.stickytext}>В 28 лет Иоган уже был солидным владельцем пивоварни. Очень скоро подвалы в Лёбенихте
+          стали слишком тесны, и с 1842 года были арендованы просторные подвалы под Замковой кирхой.
         </h2>
       </div>
 
@@ -204,6 +217,9 @@ const ContentHistory = () => {
 
       <img src={solders} alt="" />
 
+      <div className={stylesText.texter_six}>
+        <h1>НОВЫЕИ ХОЗЯЕВА - <br /> СОВЕТСКИЙ ПЕРИОД</h1>
+      </div>
 
       <img src={ponarth} alt="" />
 

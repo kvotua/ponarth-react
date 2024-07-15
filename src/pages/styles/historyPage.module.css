@@ -9,8 +9,8 @@
   
   .content {
     display: flex;
+    margin: 0 auto;
     width: 100%;
     justify-self: center;
     flex-direction: column;
   }
-  
