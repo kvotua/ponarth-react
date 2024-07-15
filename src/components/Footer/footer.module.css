@@ -38,7 +38,16 @@ footer {
   box-shadow: 0px 7px 10px 0px rgba(3, 3, 3, 0.1);
   transition: box-shadow, background-color 1s ease;
 }
-
+@media screen and (max-width:768px) {
+  .all_items_footer{
+    grid-template-columns: none !important;
+    width: 100%;
+  }
+  .footerButton{
+    justify-content: center;
+    text-align: center;
+  }
+}
 .footerButton:hover {
   color: rgb(157, 20, 20);
   font-weight: bold;
