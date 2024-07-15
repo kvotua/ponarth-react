@@ -10,7 +10,7 @@ import Looking from "../components/LookingPage/LookingPage";
 import Footer from "../components/Footer";
 import History from "../components/History/History";
 import PartnerForm from "../components/Form/";
-import Products from "../components/Products";
+// import Products from "../components/Products";
 
 const MainPage: FC = () => {
   const [theme, setTheme] = useState("light");
@@ -33,9 +33,9 @@ const MainPage: FC = () => {
       >
         <Header />
         <div className={styles.content}>
-          <Products />
+          {/* <Products /> */}
           <History />
-         
+
           <Partnership />
           <PartnerForm />
           <Looking />
