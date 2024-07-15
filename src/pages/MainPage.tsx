@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import Header from "../components/Header";
 import Map from "../components/Map";
 import NewHistory from "../components/NewHistory";
@@ -10,17 +10,18 @@ import Looking from "../components/LookingPage/LookingPage";
 import Footer from "../components/Footer";
 import History from "../components/History/History";
 import PartnerForm from "../components/Form/";
-import Products from "../components/Products";
 
 const MainPage: FC = () => {
-  const [theme, setTheme] = useState("light");
+  const localTheme = window.localStorage.getItem("theme");
+  const [theme, setTheme] = useState(localTheme ? localTheme : "light");
+
+  useEffect(() => {
+    window.localStorage.setItem("theme", theme);
+    document.body.style.backgroundColor = theme === "dark" ? "#121212" : "#fff";
+  }, [theme]);
+
   const toggleTheme = () => {
-    setTheme((prevTheme) => {
-      const newTheme = prevTheme === "light" ? "dark" : "light";
-      document.body.style.backgroundColor =
-        newTheme === "dark" ? "#121212" : "#fff";
-      return newTheme;
-    });
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
   return (
@@ -33,11 +34,10 @@ const MainPage: FC = () => {
       >
         <Header />
         <div className={styles.content}>
-          <Products />
           <History />
-          <Looking />
           <Partnership />
           <PartnerForm />
+          <Looking />
           <NewHistory />
           <Map />
         </div>

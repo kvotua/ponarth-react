@@ -1,8 +1,8 @@
 import { FC, useContext } from "react";
 import styles from "./footer.module.css";
 import { ThemeContext } from "../RightBar";
-import Ponarth_firmenny_blok_01 from "../../assets/Ponarth_firmenny_blok_01.svg"
-import Practice_logo from "../../assets/Practice_logo.svg"
+import Ponarth_firmenny_blok_01 from "../../assets/Ponarth_firmenny_blok_01.svg";
+import Practice_logo from "../../assets/Practice_logo.svg";
 const Footer: FC = () => {
   const { theme } = useContext(ThemeContext);
   return (
@@ -13,7 +13,11 @@ const Footer: FC = () => {
         }`}
       >
         <div className={styles.logo_footer}>
-        <img className={styles.logo_footer} src={Ponarth_firmenny_blok_01} alt="logo_footer" />
+          <img
+            className={styles.logo_footer}
+            src={Ponarth_firmenny_blok_01}
+            alt="logo_footer"
+          />
         </div>
 
         <div className={styles.info_footer}>
@@ -56,9 +60,13 @@ const Footer: FC = () => {
           </a>
         </div>
         <div className={styles.practice}>
-        <a href="https://t.me/worldofpractice"   target="_blank">
-        <img className={styles.practice}  src={Practice_logo}  alt="logo_Practice" />
-        </a>
+          <a href="https://t.me/worldofpractice" target="_blank">
+            <img
+              className={styles.practice}
+              src={Practice_logo}
+              alt="logo_Practice"
+            />
+          </a>
         </div>
       </div>
     </footer>

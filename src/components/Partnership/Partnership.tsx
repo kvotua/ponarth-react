@@ -71,6 +71,13 @@ const Partnership = () => {
   }, []);
 
   return (
+    <>
+    <div className={styles.texter} id="partner">
+        <h2 className={styles.text}>
+          ПОНАРТ <br />
+          ДЛЯ ПАРТНЕРОВ
+        </h2>
+      </div>
     <div className={styles.grid_container}>
       <div className={styles.grid_item}>
         <div className={styles.txt_four_page} ref={ref1}>
@@ -149,6 +156,7 @@ const Partnership = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
