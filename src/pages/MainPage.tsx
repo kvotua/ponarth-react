@@ -11,6 +11,7 @@ import Footer from "../components/Footer";
 import History from "../components/History/History";
 import PartnerForm from "../components/Form/";
 import Products from "../components/Products";
+import NewsProduction from "../components/NewsProduction";
 
 const MainPage: FC = () => {
   const [theme, setTheme] = useState("light");
@@ -39,6 +40,7 @@ const MainPage: FC = () => {
           <Partnership />
           <PartnerForm />
           <NewHistory />
+          <NewsProduction/> 
           <Map />
         </div>
         <RightBar />

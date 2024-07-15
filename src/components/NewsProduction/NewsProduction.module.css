@@ -1,0 +1,17 @@
+.content_seven_page {
+    margin: 10%;
+    border-bottom: 2px solid #d3d3d3;
+  }
+  
+  .texter_seven {
+    transition: opacity 2s ease-in-out, transform 1s ease-in-out;
+    font-family: Roboto;
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 62px;
+    color: #000000;
+  
+    &:hover {
+      transform: translateY(-40px);
+    }
+  }
