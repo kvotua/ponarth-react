@@ -27,10 +27,11 @@
 
 .mark {
     width: 80%;
-    height: 560px;
+    height: auto;
+    
     background-image: url(../../assets/image142.jpeg);
     /* Путь к вашей картинке */
-    background-size: cover;
+    background-size: contain;
     /* Масштабирование изображения */
     background-position: center;
     /* Центрирование изображения */
@@ -51,7 +52,8 @@
     width: 250px;
     border-radius: 5px;
     margin: 0 auto;
-    padding-top: 480px;
+    padding-top: 60%;
+    padding-bottom: 5%;
 }
 
 .learn_more {
