@@ -7,13 +7,23 @@
     padding: 10%;
 }
 .back_img {
-    height: 1000px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-color: rgba(0, 0, 0, 0.5);
-    max-width: 1440px;
 }
 .iogan{
     background-image: url(../img/iogan.png);
+    height: 90vh;
+    min-height: 1500px;
+}
+.bottle{
+    background-image: url(../img/bottle.jpeg);
+    height: 90vh;
+    min-height: 2000px;
+}
+.pivKorol{
+    background-image: url(../img/pivKorol.jpeg);
+    height: 90vh;
+    min-height: 1500px;
 }

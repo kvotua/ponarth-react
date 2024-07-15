@@ -1,12 +1,12 @@
 .parallax {
-    height: 50vh;
+    min-height: 70vh;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
   }
 
   .content {
-    height: 50vh;
+    min-height: 50vh;
     background-color: rgb(249 249 249); 
     display: flex;
     align-items: center;
@@ -19,4 +19,7 @@
 
   .ozero3{
     background-image: url(../img/ozero.png);
+  }
+  .panorama{
+    background-image: url(../img/panorama.png);
   }
