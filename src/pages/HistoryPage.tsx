@@ -1,8 +1,18 @@
 import ContentHistory from "../componentsHistory/ContentHistory";
-import styles from "./styles/historyPage.module.css";
+import BeforeAfter from '../components/BeforeAfter';
+import HeaderHistory from '../components/HeaderHistory/HeaderHistory';
+import styles from "./styles/historypage.module.scss";
+
 const HistoryPage = () => {
-  return <div className={styles.wrapper}>
-    <ContentHistory/>
-  </div>;
+    return (
+        <div className={styles.historyPage}>
+            <HeaderHistory />
+           <div className={styles.pageContent}>
+             <ContentHistory/>
+                <BeforeAfter />
+            </div>
+        </div>
+    );
 };
+
 export default HistoryPage;

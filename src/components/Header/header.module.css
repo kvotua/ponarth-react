@@ -6,6 +6,19 @@ header {
   top: 0;
   left: 0;
   position: sticky;
+  background-color: rgba(255, 255, 255, 0.93);
+  transition: background-color 1s ease;
+}
+
+.dark {
+  background-color: black;
+}
+
+.dark,
+header,
+.logo,
+.header_menu {
+  transition: box-shadow, background-color 1s ease;
 }
 
 @media only screen and (max-width: 1025px) {
@@ -33,10 +46,11 @@ header {
 }
 
 .header_menu {
+  transform: translateY(-10%);
   display: grid;
   gap: 20px;
   height: auto;
-  color: black;
+  color: rgb(0, 0, 0);
 }
 
 .all_menu {
@@ -50,18 +64,23 @@ header {
 }
 
 .logo {
-  width: 0 auto;
-  min-height: 85px;
+  transform: scale(1.2); /* Увеличивает изображение на 20% */
+  filter: brightness(0) invert(1); /*Меняет цвет с чёрного на белый */
+  filter: none;
   cursor: pointer;
   background-size: contain; /* Это убедится, что весь образ виден */
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url(../../assets/big_ponarth_logo_black.png);
-  transition: 0.3s ease-in-out;
+  background: none;
+  transition: transform 0.3s ease-in-out;
+}
+
+.dark.logo {
+  filter: brightness(1) invert(1);
 }
 
 .logo:hover {
-  transform: scale(1.05);
+  transform: scale(1.25);
 }
 
 .social {
@@ -120,6 +139,7 @@ header {
 
 .headerButton {
   transition: 0.1s ease-in-out;
+  color: black;
 }
 
 .headerButton:hover {
