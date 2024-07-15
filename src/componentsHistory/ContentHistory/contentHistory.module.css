@@ -69,3 +69,31 @@ h3 {
     border-radius: 5px;
 }
 
+.yaers {
+  display: grid;
+  border-bottom: 2px solid grey;
+}
+
+.block_yers {
+  padding: 5%;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  width: 90%;
+  margin: 0 auto;
+  border-top: 2px solid grey;
+}
+
+@media only screen and (max-width: 1025px) {
+  h2 {
+    font-size: 20px;
+    /* Уменьшаем размер шрифта на мобильных устройствах */
+    line-height: 22px;
+  }
+
+  h1 {
+    font-size: 24px;
+    /* Уменьшаем размер шрифта на мобильных устройствах */
+    line-height: 32px;
+  }
+
+}
