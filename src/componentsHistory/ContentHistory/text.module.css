@@ -1,0 +1,19 @@
+.stickytext {
+    color: #ffffff;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 30%;
+    margin: 0 auto;
+    padding: 10%;
+}
+.back_img {
+    height: 1000px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    max-width: 1440px;
+}
+.iogan{
+    background-image: url(../img/iogan.png);
+}
