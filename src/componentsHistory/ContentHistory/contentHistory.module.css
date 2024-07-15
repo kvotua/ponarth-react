@@ -83,7 +83,7 @@ h3 {
   border-top: 2px solid grey;
 }
 
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 525px) {
   h2 {
     font-size: 20px;
     /* Уменьшаем размер шрифта на мобильных устройствах */
@@ -91,7 +91,7 @@ h3 {
   }
 
   h1 {
-    font-size: 24px;
+    font-size: 27px;
     /* Уменьшаем размер шрифта на мобильных устройствах */
     line-height: 32px;
   }
