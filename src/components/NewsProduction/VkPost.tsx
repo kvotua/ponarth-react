@@ -13,6 +13,7 @@ type VkPostProps = {
 
 type Post = {
   id: number;
+  owner_id: number;
   text: string;
   attachments?: {
     type: string;
@@ -82,11 +83,11 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
     }).url;
   };
 
-  const handlePostClick = (postId: number) => {
+  const handlePostClick = (postId: number, ownerId: number) => {
     // Проверка на существование postId
     const postExists = posts.some(post => post.id === postId);
     if (postExists) {
-      const url = `https://vk.com/${groupId}?w=wall-${groupId}_${postId}`;
+      const url = `https://vk.com/wall${ownerId}_${postId}`;
       console.log('Открытие URL:', url); // Вывод URL в консоль для проверки
       window.open(url, '_blank');
     } else {
@@ -120,7 +121,7 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
     >
       {posts.map(post => (
         <SwiperSlide key={post.id}>
-          <div className="vk-post" onClick={() => handlePostClick(post.id)}>
+          <div className="vk-post" onClick={() => handlePostClick(post.id, post.owner_id)}>
             {post.attachments && post.attachments.map((attachment, index) => (
               <div key={index}>
                 {attachment.type === 'photo' && attachment.photo && (
@@ -128,7 +129,7 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
                 )}
               </div>
             ))}
-            <p className="vk-post-text">{truncateText(post.text, 20)}</p>
+            <p className="vk-post-text">{truncateText(post.text, 13)}</p>
           </div>
         </SwiperSlide>
       ))}
