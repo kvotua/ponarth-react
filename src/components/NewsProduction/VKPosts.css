@@ -1,32 +1,63 @@
-/* VKPosts.css */
-
 .mySwiper {
-  width: 1000px;
-}
-
-.vk-post {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  background-color: #f9f9f9;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.vk-post-image {
-  width: 100%; /* Устанавливаем одинаковую ширину для всех картинок */
-  height: 500px; /* Увеличиваем фиксированную высоту */
-  object-fit: cover; /* Обеспечиваем сохранение пропорций изображения */
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-.vk-post-text {
-  font-size: 16px;
-  color: #333;
-  text-align: left; /* Выравнивание текста по левому краю */
-  width: 100%; /* Ширина текста совпадает с шириной фотографии */
-  max-width: 100%; /* Ограничиваем ширину текста шириной фотографии */
-  margin-left: 0; /* Убираем отступ слева */
-}
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto; /* Центрируем слайдер */
+  }
+  
+  .vk-post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    background-color: transparent;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .vk-post-image {
+    width: 100%; /* Устанавливаем одинаковую ширину для всех картинок */
+    aspect-ratio: 1 / 1; /* Делаем изображение квадратным */
+    object-fit: cover; /* Обеспечиваем сохранение пропорций изображения */
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .vk-post-text {
+    font-size: 16px;
+    color: #333;
+    text-align: left; /* Выравнивание текста по левому краю */
+    width: 100%; /* Ширина текста совпадает с шириной фотографии */
+    max-width: 500px; /* Ограничиваем ширину текста шириной фотографии */
+    margin-left: 0; /* Убираем отступ слева */
+  }
+  
+  @media (max-width: 1024px) {
+    .mySwiper {
+      width: 100%;
+    }
+  
+    .vk-post {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .mySwiper {
+      width: 100%;
+    }
+  
+    .vk-post {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .mySwiper {
+      width: 100%;
+    }
+  
+    .vk-post {
+      width: 100%;
+    }
+  }
+  
