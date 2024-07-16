@@ -33,8 +33,7 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
       try {
         const response = await axios.get(`https://cors-anywhere.herokuapp.com/https://api.vk.com/method/wall.get`, {
           params: {
-            domain: "ponarth",
-            owner_id: `-${groupId}`,
+            domain: groupId,
             access_token: accessToken,
             v: '5.131',
             count: 10
@@ -77,6 +76,24 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
     return text;
   };
 
+  const getLargestPhotoUrl = (sizes: { url: string }[]) => {
+    return sizes.reduce((largest, current) => {
+      return current.url.length > largest.url.length ? current : largest;
+    }).url;
+  };
+
+  const handlePostClick = (postId: number) => {
+    // Проверка на существование postId
+    const postExists = posts.some(post => post.id === postId);
+    if (postExists) {
+      const url = `https://vk.com/${groupId}?w=wall-${groupId}_${postId}`;
+      console.log('Открытие URL:', url); // Вывод URL в консоль для проверки
+      window.open(url, '_blank');
+    } else {
+      console.error('Некорректный postId:', postId);
+    }
+  };
+
   return (
     <Swiper
       slidesPerView={3}
@@ -86,14 +103,28 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
       }}
       modules={[Pagination]}
       className="mySwiper"
+      breakpoints={{
+        640: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+      }}
     >
       {posts.map(post => (
-        <SwiperSlide key={post.id} >
-          <div className="vk-post">
+        <SwiperSlide key={post.id}>
+          <div className="vk-post" onClick={() => handlePostClick(post.id)}>
             {post.attachments && post.attachments.map((attachment, index) => (
               <div key={index}>
                 {attachment.type === 'photo' && attachment.photo && (
-                  <img src={attachment.photo.sizes[0].url} alt="Post attachment" className="vk-post-image" />
+                  <img src={getLargestPhotoUrl(attachment.photo.sizes)} alt="Post attachment" className="vk-post-image" />
                 )}
               </div>
             ))}
