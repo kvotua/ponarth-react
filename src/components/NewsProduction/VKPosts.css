@@ -1,17 +1,19 @@
 .mySwiper {
     width: 100%;
-    max-width: 1050px;
+    max-width: 1000px;
     margin: 0 auto; /* Центрируем слайдер */
   }
   
   .vk-post {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     padding: 5px;
     background-color: transparent;
     width: 100%;
     box-sizing: border-box;
+    min-height: 300px; /* Устанавливаем минимальную высоту для всех записей */
   }
   
   .vk-post-image {
@@ -19,7 +21,7 @@
     aspect-ratio: 1 / 1; /* Делаем изображение квадратным */
     object-fit: cover; /* Обеспечиваем сохранение пропорций изображения */
     border-radius: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
   
   .vk-post-text {
@@ -29,6 +31,9 @@
     width: 100%; /* Ширина текста совпадает с шириной фотографии */
     max-width: 500px; /* Ограничиваем ширину текста шириной фотографии */
     margin-left: 0; /* Убираем отступ слева */
+    padding: 10px;
+    line-height: 1.5;
+    word-wrap: break-word;
   }
   
   @media (max-width: 1024px) {
@@ -37,7 +42,7 @@
     }
   
     .vk-post {
-      width: 100%;
+      min-height: 250px; /* Устанавливаем минимальную высоту для планшетов */
     }
   }
   
@@ -47,7 +52,7 @@
     }
   
     .vk-post {
-      width: 100%;
+      min-height: 200px; /* Устанавливаем минимальную высоту для мобильных устройств */
     }
   }
   
@@ -57,7 +62,7 @@
     }
   
     .vk-post {
-      width: 100%;
+      min-height: 150px; /* Устанавливаем минимальную высоту для маленьких экранов */
     }
   }
   
