@@ -17,32 +17,37 @@
     padding: 0;
     z-index: 1;
     display: block;
+    max-width: 50%;
+    width: 100px;
+    perspective: 1200px;
   }
-  :global(.swiper-slide.swiper-slide-prev) {
-    width: 100%;
-  }
-  :global(.swiper-slide-prev) {
-    width: 100%;
-    transition-duration: 0ms;
-    transform: translate3d(59.8696px, 0px, -299.348px) rotateX(0deg)
-      rotateY(0deg) scale(1);
-    z-index: 0;
-  }
-  :global(.swiper-slide-active) {
-    width: 100%;
-    transition-duration: 0ms;
-    transform: translate3d(-0.130435px, 0px, -0.652174px) rotateX(0deg)
-      rotateY(0deg) scale(1);
-    z-index: 1;
-  }
-  :global(.swiper-slide-next) {
-    width: 100%;
-    transition-duration: 0ms;
-    transform: translate3d(-60.1304px, 0px, -300.652px) rotateX(0deg)
-      rotateY(0deg) scale(1);
-    z-index: 0;
+  :global(.swiper-slide){
+    transform: translateZ(0);
+    margin-right: 0;
+    margin-left: 0;
   }
 
+
+  :global(.swiper-slide-active) {
+
+    z-index: 2;
+    transform: scale(1);
+  }
+  :global(.swiper-3d){
+    perspective: 1200px;
+  }
+  :global(.swiper-slide-next) {
+    transition-duration: 0ms;
+  margin-left: 50px; /* Увеличиваем расстояние слева */
+  z-index: 1;
+  opacity: 50%;
+  }
+  :global(.swiper-slide-prev) {
+    transition-duration: 0ms;
+    margin-right: 50px; /* Увеличиваем расстояние справа */
+    z-index: 1;
+    opacity: 50%;
+  }
   :global(.swiper-button-next) {
     color: #000;
     top: var(--swiper-navigation-top-offset, 96%);
@@ -154,25 +159,25 @@
 .images,
 .text_slider {
   flex: 0 0 50%;
-  max-width: 50%;
-  width: 100px;
   overflow: auto;
+  margin-right: 0;
 }
+
 .images {
   display: flex;
   box-sizing: border-box;
   justify-content: center;
   align-items: center;
   height: 755px;
+  margin-right: 0;
 }
 .swiperimg img {
-  height: 604px;
-  padding-top: 14%;
-}
-.swiper-slide {
   height: 755px;
-}
+ top:50%;
+  width: 180% ;
+  margin-right: 0;
 
+}
 .text_slider {
   margin: 0 auto;
   display: flex;

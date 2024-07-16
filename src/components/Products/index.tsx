@@ -16,7 +16,7 @@ export default function Products() {
         grabCursor={true}
         centeredSlides={true}
         slidesPerView={3} // Показывать три слайда одновременно
-        spaceBetween={30} // Промежуток между слайдами
+        spaceBetween={50} // Промежуток между слайдами
         coverflowEffect={{
           rotate: 50,
           stretch: 0,
