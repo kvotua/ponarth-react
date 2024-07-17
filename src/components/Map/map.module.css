@@ -51,3 +51,8 @@
 .map-container.active .map_overlay {
   display: none;
 }
+@media screen and (max-width: 600px) {
+  .map_container{
+    height: 520px;
+  }
+}
