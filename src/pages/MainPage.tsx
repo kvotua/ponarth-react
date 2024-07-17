@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import Header from "../components/Header";
 import Map from "../components/Map";
 import NewHistory from "../components/NewHistory";
@@ -13,15 +13,18 @@ import PartnerForm from "../components/Form/";
 import Products from "../components/Products";
 import NewsProduction from "../components/NewsProduction";
 
+
 const MainPage: FC = () => {
-  const [theme, setTheme] = useState("light");
+  const localTheme = window.localStorage.getItem("theme");
+  const [theme, setTheme] = useState(localTheme ? localTheme : "light");
+
+  useEffect(() => {
+    window.localStorage.setItem("theme", theme);
+    document.body.style.backgroundColor = theme === "dark" ? "#121212" : "#fff";
+  }, [theme]);
+
   const toggleTheme = () => {
-    setTheme((prevTheme) => {
-      const newTheme = prevTheme === "light" ? "dark" : "light";
-      document.body.style.backgroundColor =
-        newTheme === "dark" ? "#121212" : "#fff";
-      return newTheme;
-    });
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
   return (
@@ -34,11 +37,10 @@ const MainPage: FC = () => {
       >
         <Header />
         <div className={styles.content}>
-          <Products />
           <History />
-          <Looking />
           <Partnership />
           <PartnerForm />
+          <Looking />
           <NewHistory />
           <NewsProduction/> 
           <Map />

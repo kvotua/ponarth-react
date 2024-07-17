@@ -11,6 +11,7 @@ footer {
   display: flex;
   align-items: center;
   transition: 0.1s ease-in-out;
+  color: #000;
 }
 .logo_footer {
   background-repeat: no-repeat;
@@ -18,9 +19,13 @@ footer {
   background-size: cover;
   width: 220px;
   height: 200px;
-  
   transition: 0.3s ease-in-out;
 }
+
+.dark .logo_footer {
+  filter: brightness(0) invert(1); /*Меняет цвет с чёрного на белый */
+}
+
 .logo_footer:hover,
 .practice:hover {
   transform: scale(1.05);
@@ -33,11 +38,20 @@ footer {
   justify-content: center;
   max-width: 1440px;
   margin: 0 auto;
-  background-color: rgba(255, 255, 255); 
+  background-color: rgba(255, 255, 255);
   box-shadow: 0px 7px 10px 0px rgba(3, 3, 3, 0.1);
   transition: box-shadow, background-color 1s ease;
 }
-
+@media screen and (max-width: 768px) {
+  .all_items_footer {
+    grid-template-columns: none !important;
+    width: 100%;
+  }
+  .footerButton {
+    justify-content: center;
+    text-align: center;
+  }
+}
 .footerButton:hover {
   color: rgb(157, 20, 20);
   font-weight: bold;

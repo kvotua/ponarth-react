@@ -50,7 +50,7 @@ header,
   display: grid;
   gap: 20px;
   height: auto;
-  color: black;
+  color: rgb(0, 0, 0);
 }
 
 .all_menu {
@@ -72,6 +72,7 @@ header,
   background-repeat: no-repeat;
   background-position: center;
   background: none;
+  transition: transform 0.3s ease-in-out;
 }
 
 .dark.logo {
@@ -138,6 +139,7 @@ header,
 
 .headerButton {
   transition: 0.1s ease-in-out;
+  color: black;
 }
 
 .headerButton:hover {

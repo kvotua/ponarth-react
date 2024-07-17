@@ -8,7 +8,7 @@ function NewHistory() {
                     СТАНЬ ЧАСТЬЮ <br />НОВОЙ ИСТОРИИ
                 </h2>
             </div>
-
+                    
             <div className={styles.mark}>
                 <div className={styles.buy_action}>
                     <button className={styles.learn_more} type="submit" disabled>
@@ -19,6 +19,7 @@ function NewHistory() {
                     </button>
                 </div>
             </div>
+          
         </div>
     )
 }
