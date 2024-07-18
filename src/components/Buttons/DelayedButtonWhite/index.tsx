@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from './DelayedButton.module.css'
+import styles from './DelayedButtonWhite.module.css'
 interface DelayedButtonProps {
     to: string;
     delay: number;
     children: React.ReactNode;
     className?: string;
+    onClick?: ()=> void;
+style? : {MarginTop: string};
 }
 
-const DelayedButton: React.FC<DelayedButtonProps> = ({ to, delay, children, className }) => {
+const DelayedButtonWhite: React.FC<DelayedButtonProps> = ({ to, delay, children, className, onClick }) => {
     const [isClicked, setIsClicked] = useState(false);
     const navigate = useNavigate();
 
@@ -28,7 +30,7 @@ const DelayedButton: React.FC<DelayedButtonProps> = ({ to, delay, children, clas
 
     return (
         <button onClick={handleClick} disabled={isClicked} className={className}>
-           <button className={styles.learn_more}>
+           <button className={styles.learn_more} onClick={onClick}>
               <span className={styles.circle} aria-hidden="true">
                 <span className={`${styles.icon} ${styles.arrow}`}></span>
               </span>
@@ -38,4 +40,4 @@ const DelayedButton: React.FC<DelayedButtonProps> = ({ to, delay, children, clas
         </button>
     );
 };
-export default DelayedButton
+export default DelayedButtonWhite

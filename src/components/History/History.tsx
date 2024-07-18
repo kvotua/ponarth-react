@@ -1,10 +1,6 @@
-
-import { Link } from 'react-router-dom';
 import styles from './history.module.css';
-import DelayenButton from '../DelayedButton'
+import DelayenButton from '../Buttons/DelayedButton'
 function History() {
-
-  
   const text = 'Крупнейшей пивоваренной компанией в довоенной Восточной Пруссии был Кенигсбергский завод "Понарт", основанный Иоганном Филиппом Шиффердеккером 15 ноября 1839 года. Сейчас "Понарт" - это локальное акционерное общество по производству пива, в развитии которого может участвовать каждый желающий';
   const words = text.split(' ');
   const spannedText = words.map((word, index) => (
@@ -25,7 +21,7 @@ function History() {
           </h2>
           <div>
             <div className={styles.history_a}>
-            <DelayenButton to="/history" className={styles.history_a} delay={1000}>
+            <DelayenButton to="/history" className={styles.history_a} delay={450}>
           УЗНАТЬ БОЛЬШЕ
           </DelayenButton>
             </div>

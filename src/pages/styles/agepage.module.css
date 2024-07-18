@@ -94,7 +94,13 @@ padding-right: 5%;
   background: #ffffff;
   cursor: pointer;
 }
-
+.history_a {
+  margin: 0 auto;
+  margin-top: 40px;
+  width: 250px;
+  background: none;
+  border: none;
+}
 .learn_more {
   position: relative;
   display: inline-block;
