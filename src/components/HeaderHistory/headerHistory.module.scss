@@ -4,11 +4,6 @@
   margin-right: 10px;
 }
 
-header{
-  background-color: rgb(249,249,249);
-  height: 20vh;
-}
-
 :root {
   --background-color: #c3d1d1;
 }
@@ -116,6 +111,8 @@ section {
 .headerhistory {
   z-index: 99999;
   position: relative;
+  height: 20vh;
+  background-color: rgb(249,249,249);
 
   .logo {
     position: fixed;

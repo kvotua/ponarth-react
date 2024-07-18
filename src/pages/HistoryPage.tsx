@@ -9,7 +9,6 @@ const HistoryPage = () => {
             <HeaderHistory />
            <div className={styles.pageContent}>
              <ContentHistory/>
-                <BeforeAfter />
             </div>
         </div>
     );
