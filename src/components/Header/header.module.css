@@ -48,14 +48,14 @@ header,
 .header_menu {
   transform: translateY(-10%);
   display: grid;
-  gap: 20px;
+  gap: 15%;
   height: auto;
   color: rgb(0, 0, 0);
 }
 
 .all_menu {
   display: grid;
-  gap: 15%;
+  gap: 40%;
   position: sticky;
   top: 96px;
   left: 0;
@@ -87,6 +87,7 @@ header,
   display: grid;
   grid-template-columns: 33% 33% 33%;
   align-items: center;
+  padding-top: 50px;
 }
 
 .social_circle1:hover {

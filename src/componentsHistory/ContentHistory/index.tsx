@@ -1,6 +1,7 @@
 import styles from "./contentHistory.module.css";
 import stylesKartinka from "./kartinka.module.css"
 import stylesText from "./text.module.css";
+import BeforeAfter from '../../components/BeforeAfter'
 
 import Kartinka from "../img/zavod.png";
 import ozero from "../img/ozero.png";
@@ -75,7 +76,19 @@ const ContentHistory = () => {
         <img src={tovZnak} alt="" />
       </div>
 
-      <img src={afterZavod} alt="" />
+      <div className={styles.golovok}>
+        <h1 className={styles.text_golovok}>УЛОЧКИ ПОНАРТА <br />НАЧАЛО XX ВЕКА</h1>
+      </div>
+
+      ТУТ СЛАЙДЕР <br />
+      ТУТ КАЛЕНДАРЬ
+
+      <div className={styles.golovok}>
+        <h1 className={styles.text_golovok}>САМАЯ БОЛЬШАЯ <br /> ПИВОВАРНЯ В <br />ВОСТОЧНОЙ <br />ПРУССИИ</h1>
+      </div>
+
+      <BeforeAfter/>
+     
 
 
       <div className={stylesKartinka.content}>
@@ -217,8 +230,8 @@ const ContentHistory = () => {
 
       <img src={solders} alt="" />
 
-      <div className={stylesText.texter_six}>
-        <h1>НОВЫЕИ ХОЗЯЕВА - <br /> СОВЕТСКИЙ ПЕРИОД</h1>
+      <div className={styles.golovok}>
+        <h1 className={styles.text_golovok}>НОВЫЕИ ХОЗЯЕВА - <br /> СОВЕТСКИЙ ПЕРИОД</h1>
       </div>
 
       <img src={ponarth} alt="" />
@@ -253,6 +266,12 @@ const ContentHistory = () => {
         </h2>
       </div>
 
+      <div className={styles.golovok}>
+        <h1 className={styles.text_golovok}>СОХРАНЯЯ <br />СТАРИННЫЕ <br />ТРАДИЦИИ <br />ПИВОВАРЕНИЯ</h1>
+      </div>
+
+      ТУТ СЛАЙДЕР
+
       <div className={styles.text}>
         <h2>
           Новая история Понарта началась с приходом новой команды весной 2010 года. Молодой энтузиаст и предприниматель из
@@ -260,6 +279,12 @@ const ContentHistory = () => {
           "Понарт".
         </h2>
       </div>
+
+      <div className={styles.videocontainer}>
+        <iframe src="https://www.youtube.com/embed/mCLg4Q82oeA?si=YGL-_3154YtxDNu7" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen>
+        </iframe>
+      </div>
+
 
       <div className={styles.text}>
         <h2>Сейчас на пивоварне варят пиво по старинной немецкой рецептуре, используя пивоваренный солод
