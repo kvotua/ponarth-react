@@ -5,6 +5,7 @@ import { ThemeContext } from "../RightBar";
 
 const Header = () => {
   const { theme } = useContext(ThemeContext);
+  
 
   return (
     <header className={theme === "dark" ? styles.dark : ""}>
