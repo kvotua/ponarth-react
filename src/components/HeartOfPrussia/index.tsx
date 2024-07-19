@@ -1,6 +1,7 @@
 import styles from "./HearOfPrussia.module.scss";
 
 function HeartOfPrussia() {
+
   return (
     <div className={styles.content_tree_page} id="excursion">
       <div className={styles.only_text_tree_page}>
@@ -8,12 +9,7 @@ function HeartOfPrussia() {
           ПОСЕТИТИЕ <br />
           СЕРДЦЕ ПРУССИИ
         </h2>
-        <p
-          className={styles.pSchedule}
-          style="width: 320px;
-          border-top: 2px solid #d3d3d3;
-          padding-top: 40px; padding-bottom: 40px;"
-        >
+        <p className={styles.pSchedule}>
           Каждый вторник, среду и четверг <br />
           12.00 15.00. 19.00
         </p>
@@ -66,7 +62,6 @@ function HeartOfPrussia() {
                 type="submit"
                 id="submitButton"
                 disabled
-                style="margin-top: 32px;"
               >
                 <span className={styles.circle} aria-hidden="true">
                   <span className={`${styles.icon} ${styles.arrow}`}></span>
@@ -80,7 +75,6 @@ function HeartOfPrussia() {
         <div id="modal" className={styles.modal}>
           <div className={styles.modal_content}>
             <img
-              style="width: 200px; padding: 200px;"
               src="components/img/PonarthLogoBlack.png"
               alt=""
             />
@@ -93,17 +87,17 @@ function HeartOfPrussia() {
           <div className={styles.slides}>
             <div id="slide-1">
               <img
-                style="border-radius: 15px"
+                // style="border-radius: 15px"
                 src="components/img/Image (22).png"
                 alt=""
               />
-              <p className="text_slide_tree_page">
+              <p className={styles.text_slide_tree_page}>
                 #Знакомство с культурным наследием
               </p>
             </div>
             <div id="slide-2">
               <img
-                style="border-radius: 15px"
+                // style="border-radius: 15px"
                 src="components/img/Image (21).png"
                 alt=""
               />
@@ -113,7 +107,7 @@ function HeartOfPrussia() {
             </div>
             <div id="slide-3">
               <img
-                style="border-radius: 15px"
+                // style="border-radius: 15px"
                 src="components/img/Image (22).png"
                 alt=""
               />
@@ -128,4 +122,4 @@ function HeartOfPrussia() {
   );
 }
 
-export default HeartOfPrussia;
+export default HeartOfPrussia
