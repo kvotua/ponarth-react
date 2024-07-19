@@ -1,13 +1,10 @@
-// import styles from "./App.module.css";
-import { BrowserRouter } from "react-router-dom";
-import Router from "./pages/router";
+import './App.css'
+import Gasp from './components/Gasp'
 
 function App() {
   return (
-    <BrowserRouter>
-      <Router />
-    </BrowserRouter>
-  );
+    <Gasp />
+  )
 }
 
-export default App;
+export default App

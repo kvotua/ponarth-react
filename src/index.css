@@ -1,9 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-  font-family: "Roboto", sans-serif;
-  -webkit-tap-highlight-color: transparent;
+:root {
+  --second-can: #e6ffde;
+  --second-logo: #303a18;
+  --third-can: #f2675a;
+  --third-logo: #575334;
+  --first-can: #9590f1;
+  --black-color: #000000;
+  --white-color: #ffffff;
+  --first-logo: #6464ff;
+  --four-logo: #aa4124;
+  --second-background: #a0853b;
+  --third-background: #d8cd85;
+  --first-background: #c1bff2;
+  --four-background: #612b1b;
 }
