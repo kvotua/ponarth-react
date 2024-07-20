@@ -1,4 +1,3 @@
-# Этап сборки
 FROM node:20-alpine AS build
 RUN mkdir /app
 WORKDIR /app
