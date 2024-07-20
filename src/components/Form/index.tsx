@@ -1,6 +1,6 @@
 import styles from "./Form.module.css";
 import video from "../../assets/final.mp4";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef ,  FormEvent} from "react";
 
 const PartnerForm = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -27,6 +27,15 @@ const PartnerForm = () => {
     };
   }, []);
 
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log('!!!');
+    setIsFlipped(true);
+
+  };
+
   return (
     <div className={styles.container2} ref={containerRef}>
       <video autoPlay muted loop id="myVideo">
@@ -35,12 +44,15 @@ const PartnerForm = () => {
 
       {isVisible && (
         <div id="block" className={`${styles.content1} ${styles.fadeIn}`}>
+<div className={`${styles.flipper} ${isFlipped ? styles.flipped : ''}`}>
+<div className={styles.front}>
           <h1 className={styles.bochka}>
             Две гостевые бочки пива <br />
             каждому новому партнеру от Понарт
           </h1>
-          <div className={styles.form_four}>
-            <form id="stat_partner" className={styles.stat_partner}>
+          
+        <div className={styles.form_four }>
+            <form id="stat_partner" className={styles.stat_partner} onSubmit={handleSubmit}>
               <div className={styles.form_group}>
                 <input
                   type="text"
@@ -67,7 +79,7 @@ const PartnerForm = () => {
               <button
                 className={styles.learn_more}
                 type="submit"
-                disabled
+                // disabled
                 style={{ marginTop: 32 + "px", width: 100 + "%" }}
               >
                 <span className={styles.circle} aria-hidden="true">
@@ -77,6 +89,13 @@ const PartnerForm = () => {
               </button>
             </form>
           </div>
+
+          </div> 
+          <div className={styles.back}>
+          <p>Спасибо за отправку формы!</p>
+        </div>
+        </div>
+         
         </div>
       )}
     </div>
