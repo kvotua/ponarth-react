@@ -9,7 +9,11 @@
   width: auto;
   margin: 200px 5% 0 5%;
 }
-
+@media screen and (max-width: 600px) {
+  .poisk{
+    margin: 50px 5% 0 5%;
+  }
+}
 .text_five {
   display: flex;
   text-align: left;
