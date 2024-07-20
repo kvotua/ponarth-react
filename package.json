@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.7.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0",
@@ -18,7 +19,8 @@
     "react-router-dom": "^6.24.0",
     "react-slick": "^0.30.2",
     "swiper": "^11.1.4",
-    "use-local-storage": "^3.0.0"
+    "use-local-storage": "^3.0.0",
+    "vanilla-calendar-pro": "^2.9.6"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

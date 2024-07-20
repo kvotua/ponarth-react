@@ -3,10 +3,12 @@
   width: 100%;
   padding-bottom: 10%;
 }
+
 .history_a {
   margin: 0 auto;
   width: 250px;
 }
+
 .two_page {
   position: absolute;
   left: 0;
@@ -24,9 +26,11 @@
   /* Устанавливаем перенос для длинных слов */
   z-index: 2;
 }
+
 span {
   color: #ffffff;
 }
+
 .block_image {
   display: grid;
   margin: 0 auto;
@@ -57,6 +61,7 @@ span {
   overflow-wrap: break-word;
   /* Устанавливаем перенос для длинных слов */
 }
+
 .learn_more {
   position: relative;
   display: inline-block;
@@ -71,9 +76,11 @@ span {
   font-family: inherit;
   width: 100%;
 }
+
 button.learn_more {
   height: auto;
 }
+
 button.learn_more .circle {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   position: relative;
@@ -84,6 +91,7 @@ button.learn_more .circle {
   background: black;
   border-radius: 1.625rem;
 }
+
 button.learn_more .circle .icon {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   position: absolute;
@@ -92,6 +100,7 @@ button.learn_more .circle .icon {
   margin: auto;
   background: #fff;
 }
+
 button.learn_more .circle .icon.arrow {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   left: 0.625rem;
@@ -99,6 +108,7 @@ button.learn_more .circle .icon.arrow {
   height: 0.124rem;
   background: none;
 }
+
 button.learn_more .circle .icon.arrow::before {
   position: absolute;
   content: "";
@@ -110,6 +120,7 @@ button.learn_more .circle .icon.arrow::before {
   border-right: 0.125rem solid #fff;
   transform: rotate(45deg);
 }
+
 button.learn_more .button_text {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   position: absolute;
@@ -125,6 +136,7 @@ button.learn_more .button_text {
   text-align: center;
   text-transform: uppercase;
 }
+
 button:hover .circle {
   width: 100%;
 }
@@ -132,6 +144,7 @@ button:hover .circle {
 button:hover .button_text {
   color: #fff;
 }
+
 .button_text_two {
   position: absolute;
   top: 29%;
@@ -139,6 +152,7 @@ button:hover .button_text {
   font-weight: 700;
   line-height: 1.6;
 }
+
 .litle_text_two {
   color: #ffffff;
   text-align: justify;
@@ -182,7 +196,7 @@ button:hover .button_text {
 }
 
 .hoverable {
-  
+
   color: #ffffffc8;
   text-align: center;
   font-size: 40px;
@@ -195,6 +209,7 @@ button:hover .button_text {
   text-shadow: #ffffff -1px -1px 0px;
   color: #ffffff;
 }
+
 @media only screen and (max-width: 768px) {
   .litle_text_two {
     font-size: 16px;
@@ -233,12 +248,14 @@ button:hover .button_text {
 }
 
 @media only screen and (min-width: 1400px) {
+
   /* Стили для больших ноутбуков и мониторов */
   .text_two_page {
     font-size: 96px;
     /* Уменьшаем размер шрифта на мобильных устройствах */
   }
 }
+
 @keyframes appear {
   from {
     opacity: 0;

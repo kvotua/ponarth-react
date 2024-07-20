@@ -10,6 +10,7 @@ import Looking from "../components/LookingPage/LookingPage";
 import Footer from "../components/Footer";
 import History from "../components/History/History";
 import PartnerForm from "../components/Form/";
+import HeartOfPrussia from "../components/HeartOfPrussia";
 
 const MainPage: FC = () => {
   const localTheme = window.localStorage.getItem("theme");
@@ -35,6 +36,7 @@ const MainPage: FC = () => {
         <Header />
         <div className={styles.content}>
           <History />
+          <HeartOfPrussia />
           <Partnership />
           <PartnerForm />
           <Looking />

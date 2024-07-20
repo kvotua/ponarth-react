@@ -2,17 +2,360 @@
   margin-left: 10%;
 }
 
+h2 {
+  color: #393939;
+  font-size: 30px;
+  font-family: "Roboto";
+  font-weight: 300;
+  line-height: 52px;
+  text-align: justify;
+}
+
 .only_text_tree_page {
   display: grid;
   gap: 40px;
   padding-bottom: 40px;
+  font-size: 18px;
 }
 
 .line_text {
+  font-size: 40px;
   transform: translateY(40px);
   transition: opacity 2s ease-in-out, transform 1s ease-in-out;
 
-  &:hover{
-    transform: translateY(-40px);
+  &:hover {
+    transform: translateY(0px);
   }
+}
+
+.pSchedule {
+  width: 320px;
+  border-top: 2px solid #d3d3d3;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.karusel {
+  display: flex;
+  grid-gap: 40px;
+}
+
+.karusel_item {
+  width: 280px;
+  height: 431px;
+  border-Radius: 12px;
+  background-color: #c6d0dc;
+}
+
+.calendar_card {
+  height: auto;
+  width: 320px;
+}
+
+.form_group {
+  position: relative;
+  margin-top: 32px;
+}
+
+.inputs {
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  border: none;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:hover {
+    color: #fff;
+    background-color: black;
+  }
+
+  &:focus+label,
+  &:not(:placeholder-shown)+label {
+    top: -10px;
+    left: 10px;
+    padding: 0 5px;
+    font-size: 12px;
+    color: #000000;
+  }
+}
+
+label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: grey;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.learn_more {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  width: 100%;
+}
+
+button {
+  margin-top: 32px;
+}
+
+.circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  background: black;
+  border-radius: 1.625rem;
+}
+
+button:hover .circle {
+  width: 100%;
+}
+
+.icon {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+}
+
+.arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: -0.25rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    transform: rotate(45deg);
+  }
+}
+
+.button_text {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 0;
+  margin: 0 0 0 1.85rem;
+  color: #282936;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+  color: black;
+
+  &:hover {
+    color: white;
+  }
+}
+
+.modal {
+  display: none;
+  /* Скрываем модальное окно по умолчанию */
+  position: fixed;
+  z-index: 3;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal_content {
+  width: 100%;
+  height: 100%;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.modal_text {
+  text-align: center;
+  color: #030303;
+  font-size: 24px;
+  font-family: "Roboto";
+  line-height: 31px;
+}
+
+.modal_content__img {
+  width: 200px;
+  padding: 200px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+.slider_tree_page {
+  width: auto;
+  height: auto;
+  overflow: hidden;
+}
+
+.slides {
+  width: 550px;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  height: fit-content;
+  height: 100%;
+
+  div {
+    img {
+      border-radius: 15px;
+    }
+  }
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &>div {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    height: 80%;
+    margin-right: 50px;
+    border-radius: 10px;
+    transform-origin: center center;
+    transform: scale(1);
+    transition: transform 0.5s;
+    position: relative;
+    font-size: 20px;
+    width: 333px;
+  }
+}
+
+.text_slide_tree_page {
+  padding-top: 40px;
+}
+
+.vanilla_calendar_header__content {
+  flex-grow: 0 !important;
+  padding: 0 !important;
+}
+
+.vanilla_calendar_content {
+  position: relative !important;
+}
+
+.vanilla_calendar_arrow_prev {
+  position: absolute !important;
+  bottom: 40% !important;
+  z-index: 10 !important;
+  left: -10%;
+}
+
+.vanilla_calendar_arrow_next {
+  position: absolute !important;
+  bottom: 40% !important;
+  z-index: 10 !important;
+  right: -10%;
+}
+
+#calendar {
+  width: 320px !important;
+  height: 360px;
+}
+
+.vanilla_calendar_days {
+  row-gap: 10px !important;
+}
+
+.vanilla_calendar_day__btn {
+  margin-top: 0 !important;
+  padding: 0 !important;
+  min-height: 0 !important;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 14px !important;
+  aspect-ratio: 1/1 !important;
+  width: 0 !important;
+  border-radius: 16px !important;
+}
+
+.vanilla_calendar_day__btn_selected {
+  background-color: var(--back) !important;
+}
+
+.calendar_time {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 68px;
+}
+
+#calendar_+button {
+  background: white;
+  border: none;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 12px;
+  width: 40px;
+  height: 36px;
+  border-radius: 16px
+}
+
+#calendar_button:hover {
+  background: var(--back);
+  border: none;
+}
+
+#submitButton:disabled {
+  display: none;
 }
