@@ -3,6 +3,10 @@
   border-bottom: 2px solid #d3d3d3;
 }
 
+.text {
+  font-weight: 400;
+}
+
 .grid_container {
   margin-left: 10%;
   margin-right: 10%;
