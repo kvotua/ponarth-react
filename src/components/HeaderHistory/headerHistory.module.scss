@@ -26,7 +26,6 @@
   --background-color: transparent;
 }
 
-
 .social_circle1 {
   background-image: url(../../assets/ponarthBlack.png);
   &:hover {
@@ -47,7 +46,6 @@
     background-image: url(../../assets/tgColor.png);
   }
 }
-
 
 .social_circle1,
 .social_circle2,
@@ -76,7 +74,6 @@
 }
 
 .theme {
-
 }
 
 section {
@@ -95,7 +92,7 @@ section {
     left: 0;
     top: 0;
     background: #000;
-    opacity: .5;
+    opacity: 0.5;
     height: 100%;
     width: 100%;
   }
@@ -112,7 +109,7 @@ section {
   z-index: 99999;
   position: relative;
   height: 20vh;
-  background-color: rgb(249,249,249);
+  background-color: rgb(249, 249, 249);
 
   .logo {
     position: fixed;
@@ -123,7 +120,7 @@ section {
     height: auto;
     margin: 0 auto;
     opacity: 1;
-    transition: .3s all cubic-bezier(0.075, 0.82, 0.165, 1) .6s;
+    transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1) 0.6s;
     z-index: 100;
   }
 
@@ -152,13 +149,13 @@ section {
       font-size: 15px;
       letter-spacing: 2px;
       text-transform: lowercase;
-      transition: .3s all cubic-bezier(0.075, 0.82, 0.165, 1) .6s;
+      transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1) 0.6s;
     }
-    
+
     button {
-      background: rgba(0, 0, 0, .3);
+      background: rgba(0, 0, 0, 0.3);
       backdrop-filter: blur(5px);
-      border: 1px solid rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       position: fixed;
       z-index: 99;
       left: 0;
@@ -171,9 +168,11 @@ section {
       outline: 0;
       border: 0;
       cursor: pointer;
-      transition: opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s, transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s, background 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s;
+      transition: opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s,
+        transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s,
+        background 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s;
       transform: scale(0);
-     
+
       span {
         width: 40%;
         background: #fff;
@@ -181,11 +180,12 @@ section {
         display: block;
         margin: 5px auto;
         transform: scalex(0);
-        transition: .6s transform cubic-bezier(0.075, 0.82, 0.165, 1) 0s, .3s margin ease-in 0s;
+        transition: 0.6s transform cubic-bezier(0.075, 0.82, 0.165, 1) 0s,
+          0.3s margin ease-in 0s;
       }
 
       &:hover {
-        border-color: rgba(255, 255, 255, .5);
+        border-color: rgba(255, 255, 255, 0.5);
         span {
           margin: 10px auto;
         }
@@ -197,7 +197,7 @@ section {
 .headerhistory.sticky {
   .logo {
     top: 0;
-    transform: scale(.8);
+    transform: scale(0.8);
     opacity: 0;
     transition-delay: 0.5s;
     visibility: hidden;
@@ -209,16 +209,17 @@ section {
     width: 90px;
     height: 90px;
     transition-delay: 0.5s;
-.social,
-.audio_and_theme{
-  visibility: hidden;
-}
+    .social,
+    .audio_and_theme {
+      visibility: hidden;
+    }
     button {
       transform: scale(1);
       transition-delay: 0.6s;
       span {
         transform: scalex(1);
-        transition: .6s transform cubic-bezier(0.075, 0.82, 0.165, 1) .8s, .3s margin ease-in 0s;
+        transition: 0.6s transform cubic-bezier(0.075, 0.82, 0.165, 1) 0.8s,
+          0.3s margin ease-in 0s;
       }
     }
 
@@ -231,7 +232,6 @@ section {
     }
   }
 }
-
 
 .toggle {
   transform: rotate(90deg) scale(2);
@@ -392,11 +392,11 @@ section {
 .togglePlay {
   padding-right: 10px;
   &Play:before {
-    content: '▶';
+    content: "▶";
   }
 
   &Pause:before {
-    content: '❚❚';
+    content: "❚❚";
   }
 }
 
@@ -443,7 +443,6 @@ section {
   position: relative; /* Add position relative */
 }
 
-
 .volumePercentage {
   width: 0; /* Ensure it starts from 0 */
   height: 5px;
@@ -455,26 +454,27 @@ section {
 
 .iconoVolume {
   &Medium:before {
-    content: '🔊';
+    content: "🔊";
   }
 
   &Mute:before {
-    content: '🔇';
+    content: "🔇";
   }
 }
 /* Стили для мобильных устройств */
-@media (max-width:600px) { /* 600px / 16px */
+@media (max-width: 600px) {
+  /* 600px / 16px */
   .headerhistory {
     display: block;
-    nav{
-   justify-content: center;
-   padding: 0;
+    nav {
+      justify-content: center;
+      padding: 0;
     }
     .openmenu {
       width: 2.5rem; /* 40px / 16px */
       height: 2.5rem; /* 40px / 16px */
     }
-    .social{
+    .social {
       width: 1.5rem;
       height: 7.5rem;
       flex-direction: column;
@@ -486,15 +486,15 @@ section {
       border-radius: 100px;
     }
     .audio_and_theme a {
-     width: min-content;
-     padding: 0;
+      width: min-content;
+      padding: 0;
     }
-    a{
+    a {
       width: min-content;
     }
     .current,
     .length {
-       font-size: 11px;
+      font-size: 11px;
     }
     .social_circle1,
     .social_circle2,
@@ -502,7 +502,7 @@ section {
       width: 23px;
       height: 23px;
     }
-    .audioPlayer{
+    .audioPlayer {
       align-items: flex-start;
     }
     .timeline {
@@ -512,14 +512,14 @@ section {
     .volumeSlider {
       width: 4.3rem; /* 40px / 16px */
     }
-    .volumeContainer{
+    .volumeContainer {
       padding-top: 5px;
     }
-    #themeToggle{
+    #themeToggle {
       width: 1.5rem;
       height: 1.6rem;
     }
-    .name{
+    .name {
       width: 3rem;
       padding-left: 1rem;
       padding-right: 0.5rem;
@@ -527,29 +527,28 @@ section {
       white-space: wrap;
     }
     a img {
-      width: 7.630rem; /* 170px / 16px */
+      width: 7.63rem; /* 170px / 16px */
       height: 10.625rem; /* 170px / 16px */
     }
-    .logo{
+    .logo {
       width: max-content;
     }
-    .controls{
+    .controls {
       width: 11rem;
-    flex-wrap: wrap;
+      flex-wrap: wrap;
     }
   }
 }
 
-
 /* Стили для планшетов */
-@media (min-width: 768px) and (max-width: 1024px) and (min-height: 1024px) and (max-height:1368px) {
+@media (min-width: 768px) and (max-width: 1024px) and (min-height: 1024px) and (max-height: 1368px) {
   .headerhistory {
     display: block;
-    nav{
+    nav {
       justify-content: center;
       padding: 0;
     }
-    .audio_and_theme{
+    .audio_and_theme {
       width: 90%;
       justify-content: stretch;
       padding: 5px;
@@ -559,46 +558,46 @@ section {
     .social_circle3 {
       width: 27px;
       height: 27px;
-    } 
+    }
     .current,
     .length {
-       font-size: 13px;
+      font-size: 13px;
     }
-    .audioPlayer{
+    .audioPlayer {
       align-items: flex-start;
     }
     .volumeSlider {
-      width: 4rem; 
+      width: 4rem;
     }
-    .volumeContainer{
+    .volumeContainer {
       padding-left: 55px;
     }
-    #themeToggle{
+    #themeToggle {
       width: 1.5rem;
       height: 1.6rem;
     }
-    .name{
+    .name {
       width: 3rem;
       padding-left: 1rem;
       padding-right: 0.5rem;
       font-size: 15px;
     }
     a img {
-      width: 10rem; 
-      height: 8.5rem; 
+      width: 10rem;
+      height: 8.5rem;
     }
-    .logo{
+    .logo {
       width: max-content;
     }
-}
+  }
 }
 /* Стили для настольных компьютеров */
-@media (min-width: 1024px)  and (max-width: 1280px) and (min-height: 600px) and (max-height: 800px){
+@media (min-width: 1024px) and (max-width: 1280px) and (min-height: 600px) and (max-height: 800px) {
   .headerhistory {
     display: block;
-}
-nav{
-  justify-content: center;
-  padding: 0;
-}
+  }
+  nav {
+    justify-content: center;
+    padding: 0;
+  }
 }

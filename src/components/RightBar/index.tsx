@@ -7,7 +7,7 @@ export const ThemeContext = createContext({
 });
 
 const RightBar: FC = () => {
-  const { toggleTheme } = useContext(ThemeContext);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -17,7 +17,9 @@ const RightBar: FC = () => {
   };
 
   return (
-    <div className={styles.right_menu}>
+    <div
+      className={`${styles.right_menu} ${theme === "dark" ? styles.dark : ""}`}
+    >
       <div className={styles.container_menu}>
         <input
           id="themeToggle"
