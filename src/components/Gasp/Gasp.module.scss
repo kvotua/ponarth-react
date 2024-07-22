@@ -7,6 +7,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 img {
@@ -49,7 +50,7 @@ i {
 h1 {
     text-align: center;
     font-family: "Lexend";
-    font-size: 350px !important;
+    font-size: 270px !important;
     line-height: normal !important;
     color: var(--white-color) !important;
     width: 99vw;
@@ -82,6 +83,7 @@ header {
 
 h1 {
     position: absolute;
+    
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -220,10 +222,10 @@ button {
     z-index: 99;
     transform: translateY(-50%);
     border-radius: 50%;
-    height: 80px;
-    width: 80px;
+    height: 30px;
+    width: 30px;
+    border: 1px solid black;
     background-color: var(--white-color);
-    border: none;
     font-size: 40px;
     color: var(--third-logo);
     transition: all ease-in-out 0.3s;
