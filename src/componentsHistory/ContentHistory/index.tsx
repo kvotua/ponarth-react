@@ -1,7 +1,7 @@
 import styles from "./contentHistory.module.css";
 import stylesKartinka from "./kartinka.module.css";
 import stylesText from "./text.module.css";
-import BeforeAfter from '../../components/BeforeAfter'
+import BeforeAfter from "../../components/BeforeAfter";
 
 import ozero1 from "../img/ozero1.jpeg";
 
@@ -9,7 +9,6 @@ import negor from "../img/RI5bpix8LSw.jpg";
 import tovZnak from "../img/tovZnak.png";
 import vagon from "../img/vagon.jpg";
 import vagon1 from "../img/vagon1.png";
-import afterZavod from "../img/afterZavod.png";
 import aduard from "../img/aduard.jpeg";
 import alcashMark from "../img/alcashMark.jpeg";
 import bochka from "../img/bochka.jpeg";
@@ -36,11 +35,9 @@ const ContentHistory = () => {
           </h2>
         </div>
       </div>
-
       <div
         className={stylesKartinka.parallax + " " + stylesKartinka.zavod}
       ></div>
-
       <div className={stylesKartinka.content}>
         <div className={styles.text}>
           <h2>
@@ -52,11 +49,9 @@ const ContentHistory = () => {
           </h2>
         </div>
       </div>
-
       <div
         className={stylesKartinka.parallax + " " + stylesKartinka.ozero3}
       ></div>
-
       <div className={stylesKartinka.content}>
         <div className={styles.text}>
           <h2>
@@ -67,30 +62,29 @@ const ContentHistory = () => {
           </h2>
         </div>
       </div>
-
       <div
         className={stylesKartinka.parallax + " " + stylesKartinka.panorama}
       ></div>
-
       <div className={styles.img_grid}>
         <img src={negor} alt="" />
         <img src={tovZnak} alt="" />
       </div>
-
       <div className={styles.golovok}>
-        <h1 className={styles.text_golovok}>УЛОЧКИ ПОНАРТА <br />НАЧАЛО XX ВЕКА</h1>
+        <h1 className={styles.text_golovok}>
+          УЛОЧКИ ПОНАРТА <br />
+          НАЧАЛО XX ВЕКА
+        </h1>
       </div>
-
       ТУТ СЛАЙДЕР <br />
       ТУТ КАЛЕНДАРЬ
-
       <div className={styles.golovok}>
-        <h1 className={styles.text_golovok}>САМАЯ БОЛЬШАЯ <br /> ПИВОВАРНЯ В <br />ВОСТОЧНОЙ <br />ПРУССИИ</h1>
+        <h1 className={styles.text_golovok}>
+          САМАЯ БОЛЬШАЯ <br /> ПИВОВАРНЯ В <br />
+          ВОСТОЧНОЙ <br />
+          ПРУССИИ
+        </h1>
       </div>
-
-      <BeforeAfter/>
-     
-
+      <BeforeAfter />
       <div className={stylesKartinka.content}>
         <div className={styles.text}>
           <h2>
@@ -106,7 +100,6 @@ const ContentHistory = () => {
           </h2>
         </div>
       </div>
-
       <div className={stylesText.back_img + " " + stylesText.iogan}>
         <h2 className={stylesText.stickytext}>
           В 28 лет Иоган уже был солидным владельцем пивоварни. Очень скоро
@@ -114,7 +107,6 @@ const ContentHistory = () => {
           просторные подвалы под Замковой кирхой.
         </h2>
       </div>
-
       <div className={styles.text}>
         <h2>
           2 августа 1849 года в имении Понарт Шиффердеккер приобрел большой
@@ -125,9 +117,7 @@ const ContentHistory = () => {
           Hubertusteich (сейчас – озера Пеньковое и Лебяжье).
         </h2>
       </div>
-
       <img src={ozero1} alt="" />
-
       <div className={styles.info}>
         <img className={styles.info_img} src={aduard} alt="" />
 
@@ -138,7 +128,6 @@ const ContentHistory = () => {
           в 1869 году выкупило производство.
         </h2>
       </div>
-
       <div className={styles.text}>
         <h2>
           Эдуард Шиффердеккер оставался техническим директором и после того, как
@@ -147,7 +136,6 @@ const ContentHistory = () => {
           смерти 1 октября 1887 года.
         </h2>
       </div>
-
       <div className={styles.info}>
         <h2 className={styles.text}>
           Для устранения дефицита жилья в 1871 году было построено два жилых
@@ -155,7 +143,6 @@ const ContentHistory = () => {
         </h2>
         <img className={styles.info_img} src={work} alt="" />
       </div>
-
       <div className={styles.text}>
         <h2>
           {" "}
@@ -164,9 +151,7 @@ const ContentHistory = () => {
           построенную в 1871 году.
         </h2>
       </div>
-
       <img src={shonbush} alt="" />
-
       <div className={styles.text}>
         <h2>
           {" "}
@@ -175,12 +160,10 @@ const ContentHistory = () => {
           железная дорога Германии){" "}
         </h2>
       </div>
-
       <div className={styles.img_grid}>
         <img src={vagon} alt="" />
         <img src={vagon1} alt="" />
       </div>
-
       <div className={styles.text}>
         <h2>
           {" "}
@@ -188,9 +171,7 @@ const ContentHistory = () => {
           с маркировкой пивоварни.{" "}
         </h2>
       </div>
-
       <img src={street} alt="" />
-
       <div className={styles.info}>
         <h2 className={styles.text}>
           Для рекламы продукции на территории зоопарка существовал специальный
@@ -213,7 +194,6 @@ const ContentHistory = () => {
         </h2>
         <img className={styles.info_img} src={myjick} alt="" />
       </div>
-
       <div className={stylesText.back_img + " " + stylesText.bottle}>
         <h2 className={stylesText.stickytext}>
           В 28 лет Иоган уже был солидным владельцем пивоварни. Очень скоро
@@ -221,7 +201,6 @@ const ContentHistory = () => {
           просторные подвалы под Замковой кирхой.
         </h2>
       </div>
-
       <div className={styles.text}>
         <h2>
           2 августа 1849 года в имении Понарт Шиффердеккер приобрел большой
@@ -232,7 +211,6 @@ const ContentHistory = () => {
           Hubertusteich (сейчас – озера Пеньковое и Лебяжье).
         </h2>
       </div>
-
       <div className={styles.info}>
         <img className={styles.info_img} src={bochka} alt="" />
 
@@ -242,7 +220,6 @@ const ContentHistory = () => {
           пивоварни в Понарте назвали улицу (сейчас ул. маршала Новикова).
         </h2>
       </div>
-
       <div className={stylesText.back_img + " " + stylesText.pivKorol}>
         <h2 className={stylesText.stickytext}>
           В 28 лет Иоган уже был солидным владельцем пивоварни. Очень скоро
@@ -250,7 +227,6 @@ const ContentHistory = () => {
           просторные подвалы под Замковой кирхой.
         </h2>
       </div>
-
       <div className={styles.text}>
         <h2>
           Пастор, председатель общины, рабочие железнодорожной мастерской и
@@ -258,9 +234,7 @@ const ContentHistory = () => {
           виде монет номиналом 1 литр
         </h2>
       </div>
-
       <img src={money} alt="" />
-
       <div className={styles.text}>
         <h2>
           С началом Первой мировой войны оборот значительно снизился. Уже второй
@@ -268,16 +242,13 @@ const ContentHistory = () => {
           урон, что очень затруднило восстановление.
         </h2>
       </div>
-
       <img src={solders} alt="" />
-
-
       <div className={styles.golovok}>
-        <h1 className={styles.text_golovok}>НОВЫЕИ ХОЗЯЕВА - <br /> СОВЕТСКИЙ ПЕРИОД</h1>
+        <h1 className={styles.text_golovok}>
+          НОВЫЕИ ХОЗЯЕВА - <br /> СОВЕТСКИЙ ПЕРИОД
+        </h1>
       </div>
-
       <img src={ponarth} alt="" />
-
       <div className={styles.text}>
         <h2>
           После второй мировой войны город Кёнигсберг включен в состав СССР и
@@ -286,7 +257,6 @@ const ContentHistory = () => {
           завод производил только солод.
         </h2>
       </div>
-
       <div className={styles.yaers}>
         <div className={styles.block_yers}>
           <h3>1954</h3>{" "}
@@ -314,7 +284,6 @@ const ContentHistory = () => {
           <h2>Зарегистрирована компания ООО "Калининградский пивкомбинат"</h2>
         </div>
       </div>
-
       <div className={styles.text}>
         <h2>
           После развала Советского Союза производственные мощности переходили из
@@ -323,13 +292,15 @@ const ContentHistory = () => {
           разрушению.
         </h2>
       </div>
-
       <div className={styles.golovok}>
-        <h1 className={styles.text_golovok}>СОХРАНЯЯ <br />СТАРИННЫЕ <br />ТРАДИЦИИ <br />ПИВОВАРЕНИЯ</h1>
+        <h1 className={styles.text_golovok}>
+          СОХРАНЯЯ <br />
+          СТАРИННЫЕ <br />
+          ТРАДИЦИИ <br />
+          ПИВОВАРЕНИЯ
+        </h1>
       </div>
-
       ТУТ СЛАЙДЕР
-
       <div className={styles.text}>
         <h2>
           Новая история Понарта началась с приходом новой команды весной 2010
@@ -338,13 +309,16 @@ const ContentHistory = () => {
           подвальных помещений пивоварни "Понарт".
         </h2>
       </div>
-
       <div className={styles.videocontainer}>
-        <iframe src="https://www.youtube.com/embed/mCLg4Q82oeA?si=YGL-_3154YtxDNu7" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen>
-        </iframe>
+        <iframe
+          src="https://www.youtube.com/embed/mCLg4Q82oeA?si=YGL-_3154YtxDNu7"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        ></iframe>
       </div>
-
-
       <div className={styles.text}>
         <h2>
           Сейчас на пивоварне варят пиво по старинной немецкой рецептуре,
