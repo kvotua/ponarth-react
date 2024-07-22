@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./styles/agepage.module.css";
 import logo from "../assets/Ponarth_firmenny_blok_01.svg";
 import DelayedButton from '../components/Buttons/DelayedButton';
+
 const AgePage: React.FC<{ setAgeConfirmed: (confirmed: boolean) => void }> = ({
   setAgeConfirmed,
 }) => {
@@ -15,9 +16,9 @@ const AgePage: React.FC<{ setAgeConfirmed: (confirmed: boolean) => void }> = ({
       ageConfirmedTime &&
       new Date().getTime() - Number(ageConfirmedTime) < 24*60*60*1000
      ) {
+
       setAgeConfirmed(true);
-        navigate("/home");
-      
+      navigate("/home");
     }
   }, [navigate, setAgeConfirmed]);
 
@@ -31,12 +32,11 @@ const AgePage: React.FC<{ setAgeConfirmed: (confirmed: boolean) => void }> = ({
       setAgeConfirmed(true);
       setTimeout(() => {
         navigate("/home");
-    }, 750);
+      }, 750);
     } else {
       setTimeout(() => {
         window.location.href = "https://www.detmir.ru/catalog/index/name/pure/";
       }, 750);
-     
     }
   };
 
@@ -64,6 +64,7 @@ const AgePage: React.FC<{ setAgeConfirmed: (confirmed: boolean) => void }> = ({
           onChange={handleSliderChange}
         />
         <DelayedButton to='' className={styles.history_a} delay={450} onClick={handleConfirmClick} style="white">ПРОДОЛЖИТЬ</DelayedButton>
+
       </div>
     </div>
   );
