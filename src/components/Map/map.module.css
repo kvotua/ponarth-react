@@ -2,25 +2,19 @@
   position: relative;
   width: 100%;
   height: 720px;
+  margin-bottom: 10%;
 }
 
 .div_text {
   margin: 10%;
   border-bottom: 2px solid #d3d3d3;
-  transform: translateY(40px);
-  transition: opacity 2s ease-in-out, transform 1s ease-in-out;
   color: #000000;
 }
 .texter_six {
-  transition: opacity 2s ease-in-out, transform 1s ease-in-out;
     font-family: Roboto;
     font-size: 40px;
     font-weight: 300;
     line-height: 62px;
-
-    &:hover {
-        transform: translateY(-40px);
-    }
 }
 .map,
 .map_overlay {
@@ -45,7 +39,6 @@
   font-size: 24px;
   color: rgb(255, 255, 255);
   cursor: pointer;
-  transition: 1s ease-in-out;
 }
 
 .map-container.active .map_overlay {
