@@ -92,7 +92,7 @@ const PartnerForm = () => {
                     delay={450}
                     dopstyle={{ marginTop: "32px", width: "100%" }}
                   >
-                    УЗНАТЬ БОЛЬШЕ
+                    СТАТЬ ПАРТНЕРОМ
                   </DelayedButton>
                 </form>
               </div>
