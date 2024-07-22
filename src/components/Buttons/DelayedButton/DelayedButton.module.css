@@ -73,35 +73,15 @@
   button:hover .button_text {
     color: #fff;
   }
-  .button_text_two {
+  .button_text {
     position: absolute;
     top: 29%;
     right: 20%;
     font-weight: 700;
     line-height: 1.6;
-  }
-  .litle_text_two {
-    color: #ffffff;
-    text-align: justify;
-    padding: 10%;
-    max-width: 1440px;
-    margin: 0 auto;
-    font-weight: 500;
-    word-wrap: break-word;
-    /* или overflow-wrap: break-word; */
-    white-space: pre-line;
-    /* Устанавливаем перенос для пробелов */
-    overflow-wrap: break-word;
-    /* Устанавливаем перенос для длинных слов */
-    animation: appear cubic-bezier(0.42, 0, 0, 1);
-    animation-timeline: view();
-    color: #000000;
-    font-size: 40px;
-    font-family: "Roboto";
-    line-height: 62px;
-  }
-  
-  .button_text_two {
+    font-size: 13px !important;
+  }  
+  .button_text {
     color: white !important;
   }
   
