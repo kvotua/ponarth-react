@@ -7,17 +7,14 @@ function NewsProduction() {
 
   return (
     <div className={styles.seven_page} id="news">
-    <div className={styles.content_seven_page}>
-      <h2 className={styles.texter_seven}>
-        НОВОСТИ <br />
-        ПРОИЗВОДСТВА
-      </h2>
-      
+      <div className={styles.content_seven_page}>
+        <h2 className={styles.texter_seven}>
+          НОВОСТИ <br />
+          ПРОИЗВОДСТВА
+        </h2>
+      </div>
+      <VKPosts groupId={groupId} accessToken={accessToken} />
     </div>
-    <VKPosts groupId={groupId} accessToken={accessToken} />
-  </div>
-
-
   );
 }
 

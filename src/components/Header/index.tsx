@@ -1,11 +1,10 @@
 import styles from "./header.module.css";
-import Ponarth_Logo from "../../assets/Ponarth_firmenny_blok_01.svg";
+import Ponarth_Logo from "../../assets/logo.svg";
 import { useContext } from "react";
 import { ThemeContext } from "../RightBar";
 
 const Header = () => {
   const { theme } = useContext(ThemeContext);
-  
 
   return (
     <header className={theme === "dark" ? styles.dark : ""}>

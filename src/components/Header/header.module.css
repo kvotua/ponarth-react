@@ -8,6 +8,9 @@ header {
   position: sticky;
   background-color: rgba(255, 255, 255, 0.93);
   transition: background-color 1s ease;
+  -webkit-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+  -moz-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
 }
 
 .dark {
@@ -19,6 +22,9 @@ header,
 .logo,
 .header_menu {
   transition: box-shadow, background-color 1s ease;
+}
+.header_menu {
+  padding-left: 0px;
 }
 
 @media only screen and (max-width: 1025px) {
@@ -45,26 +51,113 @@ header,
   }
 }
 
+@media (max-width: 599px) {
+  .header,
+  .right_menu {
+    display: none;
+  }
+
+  .footerButton {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .burger_checkbox {
+    position: absolute;
+    visibility: hidden;
+  }
+
+  .burger {
+    position: fixed;
+    top: 20px;
+    left: 25px;
+    z-index: 2;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    border: none;
+    background: transparent;
+    width: 40px;
+    height: 26px;
+  }
+
+  .burger::before,
+  .burger::after {
+    content: "";
+    left: 0;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 4px;
+    border-radius: 10px;
+    background: #000;
+  }
+
+  .burger::before {
+    top: 0;
+    box-shadow: 0 11px 0 #000;
+    transition: box-shadow 0.3s 0.15s, top 0.3s 0.15s, transform 0.3s;
+  }
+
+  .burger::after {
+    bottom: 0;
+    transition: bottom 0.3s 0.15s, transform 0.3s;
+  }
+  .burger_checkbox:checked + .burger::before {
+    top: 11px;
+    transform: rotate(45deg);
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0);
+    transition: box-shadow 0.15s, top 0.3s, transform 0.3s 0.15s;
+  }
+
+  .burger_checkbox:checked + .burger::after {
+    bottom: 11px;
+    transform: rotate(-45deg);
+    transition: bottom 0.3s, transform 0.3s 0.15s;
+  }
+  .all_menu {
+    display: grid;
+    gap: 15%;
+    position: sticky;
+    left: 0;
+    width: 189px;
+    margin: 0 auto;
+    padding: 42px 0;
+    z-index: 1;
+    list-style-type: none;
+    transform: translateX(-100%);
+    transition: 0.3s;
+  }
+
+  .burger_checkbox:checked ~ .all_menu {
+    transform: translateX(0);
+  }
+}
+
 .header_menu {
   transform: translateY(-10%);
   display: grid;
   gap: 15%;
   height: auto;
+  width: 60%;
   color: rgb(0, 0, 0);
 }
 
 .all_menu {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 40%;
   position: sticky;
   top: 96px;
   left: 0;
-  width: 189px;
+  width: 100%;
+  height: 30%;
   margin: 0 auto;
+  justify-content: space-between;
 }
 
 .logo {
-  transform: scale(1.2); /* Увеличивает изображение на 20% */
   filter: brightness(0) invert(1); /*Меняет цвет с чёрного на белый */
   filter: none;
   cursor: pointer;
@@ -72,7 +165,9 @@ header,
   background-repeat: no-repeat;
   background-position: center;
   background: none;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.7s ease-in-out;
+  width: 60%;
+  height: 70%;
 }
 
 .dark.logo {
@@ -80,11 +175,13 @@ header,
 }
 
 .logo:hover {
-  transform: scale(1.25);
+  transform: scale(1.05);
 }
 
 .social {
-  display: grid;
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
   grid-template-columns: 33% 33% 33%;
   align-items: center;
   padding-top: 50px;
@@ -141,8 +238,6 @@ header,
 .headerButton {
   transition: 0.1s ease-in-out;
   color: black;
-  
-
 }
 
 .headerButton:hover {
@@ -150,8 +245,3 @@ header,
   font-weight: bold;
   /* font-size: 20px; */
 }
-
-
-
-
-

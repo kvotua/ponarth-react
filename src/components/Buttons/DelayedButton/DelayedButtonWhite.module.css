@@ -12,6 +12,7 @@
   font-family: inherit;
   width: 100%;
 }
+
 div.learn_more {
   height: auto;
 }
@@ -22,7 +23,7 @@ div.learn_more .circle {
   margin: 0;
   width: 3rem;
   height: 3rem;
-  background: black;
+  background: white;
   border-radius: 1.625rem;
 }
 div.learn_more .circle .icon {
@@ -37,7 +38,7 @@ div.learn_more .circle .icon.arrow {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   left: 0.625rem;
   width: 1.125rem;
-  height: 0.124rem;
+  height: 0.125rem;
   background: none;
 }
 div.learn_more .circle .icon.arrow::before {
@@ -47,8 +48,8 @@ div.learn_more .circle .icon.arrow::before {
   right: 0.0625rem;
   width: 0.625rem;
   height: 0.625rem;
-  border-top: 0.125rem solid #fff;
-  border-right: 0.125rem solid #fff;
+  border-top: 0.125rem solid #000000;
+  border-right: 0.125rem solid #000000;
   transform: rotate(45deg);
 }
 div.learn_more .button_text {
@@ -60,24 +61,23 @@ div.learn_more .button_text {
   bottom: 0;
   padding: 0.75rem 0;
   margin: 0 0 0 1.85rem;
-  color: #282936;
+  color: #fff;
   font-weight: 700;
   line-height: 1.6;
   text-align: center;
   text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
   font-size: 13.3333px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 button:hover .circle {
   width: 100%;
 }
 
 button:hover .button_text {
-  color: #fff;
-}
-
-.button_text {
-  color: white !important;
+  color: black;
+  transition: color 0.5s ease-in-out;
 }
