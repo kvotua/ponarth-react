@@ -66,22 +66,18 @@
     line-height: 1.6;
     text-align: center;
     text-transform: uppercase;
+    font-family: "Roboto", sans-serif;
+    font-size: 13.3333px;
+display: flex;
+align-items: center;
+justify-content: center;
   }
   
   button:hover .circle {
     width: 100%;
   }
   
-  button:hover .button_text_two {
+  button:hover .button_text {
     color: black;
     transition: color 0.5s ease-in-out;
-  }
-  .button_text_two {
-    font-family: "Roboto", sans-serif;
-    position: absolute;
-    top: 29%;
-    right: 20%;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.6;
   }
