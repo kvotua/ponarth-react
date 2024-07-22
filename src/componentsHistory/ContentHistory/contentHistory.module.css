@@ -1,13 +1,13 @@
-*{
-    margin: 0 auto;
-    padding: 0 auto;
-    gap: 0;
+* {
+  margin: 0 auto;
+  padding: 0 auto;
+  gap: 0;
 }
 
- img{
-    width: 100%;
-    height: 100%;
-    max-width: 1440px;
+img {
+  width: 100%;
+  height: 100%;
+  max-width: 1440px;
 }
 
 .text {
@@ -45,32 +45,35 @@ h3 {
   text-align: center;
 }
 
-.img_grid{
-    display: grid;
-    grid-template-columns: 50% 50%;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
+.img_grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .info {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    border-bottom: solid 2px #d3d3d3;
-    border-top: solid 2px #d3d3d3;
-    font-size: 3vh;
-    color: #000000;
-    margin: 5%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  border-bottom: solid 2px #d3d3d3;
+  border-top: solid 2px #d3d3d3;
+  font-size: 3vh;
+  color: #000000;
+  margin: 5%;
 }
+
 .info_img {
-    width: 80%;
-    padding: 10%;
-    height: auto;
-    border-radius: 5px;
+  width: 80%;
+  padding: 10%;
+  height: auto;
+  border-radius: 5px;
 }
 
 .yaers {
   display: grid;
+  width: 70%;
+  margin: 0 auto;
   border-bottom: 2px solid grey;
 }
 
@@ -83,22 +86,43 @@ h3 {
   border-top: 2px solid grey;
 }
 
-
-.texter_six {
+.golovok {
   margin: 10%;
   border-bottom: 2px solid #d3d3d3;
-  transform: translateY(40px);
+}
+
+.text_golovok {
   transition: opacity 2s ease-in-out, transform 1s ease-in-out;
+  font-family: Roboto;
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 62px;
   color: #000000;
+}
+
+.text_golovok:hover {
+  transform: translateY(-40px);
+}
+
+.videocontainer {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background: #000;
+}
+.videocontainer iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 @media only screen and (max-width: 1025px) {
 
-  h2 {
-    font-size: 20px;
-    /* Уменьшаем размер шрифта на мобильных устройствах */
-    line-height: 22px;
-  }
+
 
   h1 {
     font-size: 27px;
@@ -109,7 +133,10 @@ h3 {
 }
 
 @media only screen and (max-width:610px) {
-  .info, .img_grid, .block_yers{
+
+  .info,
+  .img_grid,
+  .block_yers {
     grid-template-columns: none;
     grid-template-rows: 2 1fr;
   }
