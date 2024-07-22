@@ -23,7 +23,11 @@ function Gasp() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentPosition, setCurrentPosition] = useState(0);
 
-  const h1Texts = ["Пшен f ичное", "Пил а снер", "Тыкве &nbsp;&nbsp;нный эль"];
+  const h1Texts = [
+    "Пшен f ичное",
+    "Пил а снер",
+    "Тыкве&nbsp;&nbsp;..&nbsp; нный&nbsp;&nbsp; &nbsp;&nbsp;э&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ль",
+  ];
   let logoColors = [
     "var(--first-logo)",
     "var(--third-logo)",
