@@ -13,14 +13,10 @@
 }
 .texter_six {
   transition: opacity 2s ease-in-out, transform 1s ease-in-out;
-    font-family: Roboto;
-    font-size: 40px;
-    font-weight: 300;
-    line-height: 62px;
-
-    &:hover {
-        transform: translateY(-40px);
-    }
+  font-family: Roboto;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 62px;
 }
 .map,
 .map_overlay {
@@ -32,12 +28,13 @@
 }
 
 .map {
-  background: url('path_to_your_image.jpg') no-repeat center center;
+  background: url("path_to_your_image.jpg") no-repeat center center;
   z-index: 5;
 }
 
 .map_overlay {
-  background: radial-gradient(circle, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 70%), rgba(0, 0, 0, 0.7);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 70%),
+    rgba(0, 0, 0, 0.7);
   z-index: 10;
   display: flex;
   align-items: center;
@@ -52,7 +49,7 @@
   display: none;
 }
 @media screen and (max-width: 600px) {
-  .map_container{
+  .map_container {
     height: 520px;
   }
 }
