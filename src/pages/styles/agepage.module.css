@@ -5,6 +5,7 @@
   background-color: black;
   min-height: 100vh;
   flex-direction: column;
+  overflow-y: hidden;
 }
 
 .content {
@@ -54,15 +55,15 @@
   margin-top: 3em;
 }
 @media screen and (max-width: 340px) {
-  .text1{
-font-size: 25px;
-padding-left: 5%;
-padding-right: 5%;
+  .text1 {
+    font-size: 25px;
+    padding-left: 5%;
+    padding-right: 5%;
   }
-  .text2{
-font-size: 21px;
-padding-left: 5%;
-padding-right: 5%;
+  .text2 {
+    font-size: 21px;
+    padding-left: 5%;
+    padding-right: 5%;
   }
 }
 .input[type="range"] {

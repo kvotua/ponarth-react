@@ -31,7 +31,10 @@ footer {
 .practice:hover {
   transform: scale(1.05);
 }
-.info_footer{
+.info_footer {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  height: 120px;
   margin: 0 auto;
 }
 .all_items_footer {
