@@ -79,7 +79,7 @@ const Partnership = () => {
         </h2>
       </div>
     <div className={styles.grid_container}>
-      <div className={styles.grid_item}>
+      <div className={styles.grid_item_left}>
         <div className={styles.txt_four_page} ref={ref1}>
           <h1
             className={`${styles.big_text_four_page} ${
@@ -94,7 +94,7 @@ const Partnership = () => {
           </p>
         </div>
       </div>
-      <div className={styles.grid_item}>
+      <div className={styles.grid_item_right}>
         <div className={styles.kartinka1}>
           <img
             className={styles.img_four_end}
@@ -104,7 +104,7 @@ const Partnership = () => {
         </div>
       </div>
 
-      <div className={styles.grid_item}>
+      <div className={styles.grid_item_left}>
         <div className={styles.kartinka1}>
           <img
             className={styles.img_four_end}
@@ -114,7 +114,7 @@ const Partnership = () => {
         </div>
       </div>
 
-      <div className={styles.grid_item}>
+      <div className={styles.grid_item_right}>
         <div className={styles.txt_four} ref={ref2}>
           <h1
             className={`${styles.big_text_four_right} ${
@@ -130,7 +130,7 @@ const Partnership = () => {
         </div>
       </div>
 
-      <div className={styles.grid_item}>
+      <div className={styles.grid_item_left}>
         <div className={styles.txt_four_page} ref={ref3}>
           <h1
             className={`${styles.big_text_four_page} ${
@@ -146,7 +146,7 @@ const Partnership = () => {
         </div>
       </div>
 
-      <div className={styles.grid_item}>
+      <div className={styles.grid_item_right}>
         <div className={styles.kartinka1}>
           <img
             className={styles.img_four_end}

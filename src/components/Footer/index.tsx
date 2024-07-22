@@ -1,7 +1,7 @@
 import { FC, useContext } from "react";
 import styles from "./footer.module.css";
 import { ThemeContext } from "../RightBar";
-import Ponarth_firmenny_blok_01 from "../../assets/Ponarth_firmenny_blok_01.svg";
+import Ponarth_firmenny_blok_01 from "../../assets/logo.svg";
 import Practice_logo from "../../assets/Practice_logo.svg";
 const Footer: FC = () => {
   const { theme } = useContext(ThemeContext);
@@ -14,7 +14,7 @@ const Footer: FC = () => {
       >
         <div className={styles.logo_footer}>
           <img
-            className={styles.logo_footer}
+            className={styles.logo_footer_img}
             src={Ponarth_firmenny_blok_01}
             alt="logo_footer"
           />
