@@ -5,14 +5,9 @@ import { ThemeContext } from "../RightBar";
 
 const Header = () => {
   const { theme } = useContext(ThemeContext);
-  
 
   return (
     <header className={theme === "dark" ? styles.dark : ""}>
-
-     <input type={'checkbox'} className={styles.burger_checkbox} id={"burger_checkbox"}/>
-    <label htmlFor={'burger_checkbox'} className={styles.burger}></label>
-    
       <div className={styles.all_menu}>
         <img
           className={`${styles.logo} ${theme === "dark" ? styles.dark : ""}`}
