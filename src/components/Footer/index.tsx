@@ -34,6 +34,7 @@ const Footer: FC = () => {
             Telegram
           </a>
         </div>
+
         <div className={styles.info_footer}>
           <a className={styles.footerButton} href="#history">
             История
