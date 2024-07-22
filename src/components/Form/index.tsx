@@ -1,7 +1,7 @@
 import styles from "./Form.module.css";
 import video from "../../assets/final.mp4";
 import { useEffect, useState, useRef, FormEvent } from "react";
-import DelayedButton from "../Buttons/DelayedButton";
+
 const PartnerForm = () => {
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef(null);
@@ -60,6 +60,9 @@ const PartnerForm = () => {
                 >
                   <div className={styles.form_group}>
                     <input
+
+                      className={styles.input}
+
                       type="text"
                       id="userName"
                       name="userName"
@@ -71,6 +74,9 @@ const PartnerForm = () => {
 
                   <div className={styles.form_group}>
                     <input
+
+                      className={styles.input}
+
                       type="tel"
                       id="phoneNumber"
                       maxLength={11}
@@ -80,16 +86,20 @@ const PartnerForm = () => {
                     />
                     <label htmlFor="phoneNumber">Ваш номер телефона</label>
                   </div>
-                  <DelayedButton
-                    type="submit"
-                    to=""
-                    delay={450}
+
+
+                  <button
                     className={styles.learn_more}
-                    style="white"
-                    dopstyle={{ marginTop: "32px", width: "100%" }}
+                    type="submit"
+                    // disabled
+                    style={{ marginTop: 32 + "px", width: 100 + "%" }}
                   >
-                    СТАТЬ ПАРТНЕРОМ
-                  </DelayedButton>
+                    <span className={styles.circle} aria-hidden="true">
+                      <span className={`${styles.icon} ${styles.arrow}`}></span>
+                    </span>
+                    <span className={styles.button_text}>СТАТЬ ПАРТНЕРОМ</span>
+                  </button>
+
                 </form>
               </div>
             </div>
