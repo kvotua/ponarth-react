@@ -60,7 +60,9 @@ const PartnerForm = () => {
                 >
                   <div className={styles.form_group}>
                     <input
+
                       className={styles.input}
+
                       type="text"
                       id="userName"
                       name="userName"
@@ -72,7 +74,9 @@ const PartnerForm = () => {
 
                   <div className={styles.form_group}>
                     <input
+
                       className={styles.input}
+
                       type="tel"
                       id="phoneNumber"
                       maxLength={11}
@@ -82,6 +86,7 @@ const PartnerForm = () => {
                     />
                     <label htmlFor="phoneNumber">Ваш номер телефона</label>
                   </div>
+
 
                   <button
                     className={styles.learn_more}
@@ -94,6 +99,7 @@ const PartnerForm = () => {
                     </span>
                     <span className={styles.button_text}>СТАТЬ ПАРТНЕРОМ</span>
                   </button>
+
                 </form>
               </div>
             </div>

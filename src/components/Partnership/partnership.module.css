@@ -80,7 +80,7 @@
   border-radius: 5px;
 }
 .kartinka1:hover .img_four_end {
-  transform: scale(1.5); /* Увеличение в 2 раза */
+  transform: scale(1.1); /* Увеличение в 2 раза */
 }
 @media (max-width: 600px) {
   .grid_container {
