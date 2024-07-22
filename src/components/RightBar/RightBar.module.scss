@@ -9,6 +9,9 @@
   position: sticky;
   top: 1px;
   padding-top: 96px;
+  -webkit-box-shadow: -4px 0px 8px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: -4px 0px 8px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: -4px 0px 8px 0px rgba(34, 60, 80, 0.2);
 }
 
 @media (max-width: 768px) {
