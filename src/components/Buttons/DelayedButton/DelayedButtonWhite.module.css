@@ -13,10 +13,10 @@
     width: 100%;
   }
   
-  button.learn_more {
+  div.learn_more {
     height: auto;
   }
-  button.learn_more .circle {
+  div.learn_more .circle {
     transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
     position: relative;
     display: block;
@@ -26,7 +26,7 @@
     background: white;
     border-radius: 1.625rem;
   }
-  button.learn_more .circle .icon {
+  div.learn_more .circle .icon {
     transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
     position: absolute;
     top: 0;
@@ -34,14 +34,14 @@
     margin: auto;
     background: #fff;
   }
-  button.learn_more .circle .icon.arrow {
+  div.learn_more .circle .icon.arrow {
     transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
     left: 0.625rem;
     width: 1.125rem;
     height: 0.125rem;
     background: none;
   }
-  button.learn_more .circle .icon.arrow::before {
+  div.learn_more .circle .icon.arrow::before {
     position: absolute;
     content: "";
     top: -0.25rem;
@@ -52,7 +52,7 @@
     border-right: 0.125rem solid #000000;
     transform: rotate(45deg);
   }
-  button.learn_more .button_text {
+  div.learn_more .button_text {
     transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
     position: absolute;
     top: 0;
