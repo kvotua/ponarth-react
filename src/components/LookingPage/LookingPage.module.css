@@ -1,5 +1,4 @@
 .poisk {
-
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   /* Создаем грид с колонками шириной не менее 300px, которые заполняют доступное пространство */
@@ -10,7 +9,7 @@
   margin: 200px 5% 0 5%;
 }
 @media screen and (max-width: 600px) {
-  .poisk{
+  .poisk {
     margin: 50px 5% 0 5%;
   }
 }
@@ -30,6 +29,7 @@
   transition: opacity 2s ease-in-out, transform 1s ease-in-out;
   color: #030303;
   font-size: 40px;
+  font-weight: 400;
   font-family: "Roboto";
   line-height: 62px;
   font-weight: normal;
