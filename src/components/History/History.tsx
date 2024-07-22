@@ -1,10 +1,7 @@
-
-import { Link } from 'react-router-dom';
 import styles from './history.module.css';
-
+import DelayenButton from '../Buttons/DelayedButton'
 function History() {
   const text = 'Крупнейшей пивоваренной компанией в довоенной Восточной Пруссии был Кенигсбергский завод "Понарт", основанный Иоганном Филиппом Шиффердеккером 15 ноября 1839 года. Сейчас "Понарт" - это локальное акционерное общество по производству пива, в развитии которого может участвовать каждый желающий';
-
   const words = text.split(' ');
   const spannedText = words.map((word, index) => (
     <span key={index} className={styles.hoverable}>
@@ -22,14 +19,15 @@ function History() {
           <h2 className={styles.litle_text_two} id="litle_text_two">
             {spannedText}
           </h2>
-          <Link to="/history" className={styles.history_a}>
-            <button className={styles.learn_more}>
-              <span className={styles.circle} aria-hidden="true">
-                <span className={`${styles.icon} ${styles.arrow}`}></span>
-              </span>
-              <span className={styles.button_text_two}>УЗНАТЬ БОЛЬШЕ</span>
-            </button>
-          </Link>
+          <div>
+            <div className={styles.history_a}>
+            <DelayenButton to="/history" className={styles.history_a} delay={450}>
+          УЗНАТЬ БОЛЬШЕ
+          </DelayenButton>
+            </div>
+          
+          </div>
+          
         </div>
       </div>
     </div>

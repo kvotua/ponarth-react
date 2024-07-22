@@ -1,3 +1,10 @@
+.history_a {
+  margin: 0 auto;
+  width: 250px;
+  background: none;
+  border: none;
+  font-size: 16px;
+}
 .setDirection {
     display: flex;
     flex-direction: column;
@@ -17,12 +24,8 @@
     transition: opacity 2s ease-in-out, transform 1s ease-in-out;
     font-family: Roboto;
     font-size: 40px;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 62px;
-
-    &:hover {
-        transform: translateY(-40px);
-    }
 }
 
 .mark {
@@ -41,10 +44,6 @@
     margin-left: 10%;
     margin-right: 10%;
     transition: 1s ease-in-out;
-
-    &:hover {
-        transform: scale(1.1);
-    }
 }
 
 .buy_action {
