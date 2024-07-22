@@ -7,16 +7,15 @@ const PonarthMap: React.FC = () => {
   const mapOverlayRef = useRef<HTMLDivElement>(null);
 
   const createPlacemark = () => {
-    const center = [54.68113632965351,20.487322667137775];
+    const center = [54.68113632965351, 20.487322667137775];
     const iconContent = "1";
-
 
     return (
       <YMaps>
         <YMapsMap defaultState={{ center, zoom: 18 }} className={styles.map}>
           <Placemark
             geometry={center}
-            properties={{ iconContent,}}
+            properties={{ iconContent }}
             options={{
               iconLayout: "default#image",
               iconImageHref: "src/assets/Tag_Ponart.svg", // Укажите путь к вашему изображению
@@ -54,10 +53,15 @@ const PonarthMap: React.FC = () => {
             </h2>
           </div>
           <div className={styles.map_container}>
-            <div className={styles.map_overlay} ref={mapOverlayRef} style={{
-              opacity: isActive ? "1" : "0",
-              pointerEvents: isActive ? "auto" : "none",
-            }} onClick={activateMap}>
+            <div
+              className={styles.map_overlay}
+              ref={mapOverlayRef}
+              style={{
+                opacity: isActive ? "1" : "0",
+                pointerEvents: isActive ? "auto" : "none",
+              }}
+              onClick={activateMap}
+            >
               Нажмите чтобы увидеть карту
             </div>
             {createPlacemark()}
