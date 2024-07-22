@@ -8,6 +8,9 @@ header {
   position: sticky;
   background-color: rgba(255, 255, 255, 0.93);
   transition: background-color 1s ease;
+  -webkit-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+  -moz-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
 }
 
 .dark {
@@ -62,7 +65,6 @@ header,
   .burger_checkbox {
     position: absolute;
     visibility: hidden;
-    
   }
 
   .burger {
@@ -80,57 +82,56 @@ header,
   }
 
   .burger::before,
-.burger::after {
-  content: '';
-  left: 0;
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 4px;
-  border-radius: 10px;
-  background: #000;
-}
+  .burger::after {
+    content: "";
+    left: 0;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 4px;
+    border-radius: 10px;
+    background: #000;
+  }
 
-.burger::before {
-  top: 0;
-  box-shadow: 0 11px 0 #000;
-  transition: box-shadow .3s .15s, top .3s .15s, transform .3s;
-}
+  .burger::before {
+    top: 0;
+    box-shadow: 0 11px 0 #000;
+    transition: box-shadow 0.3s 0.15s, top 0.3s 0.15s, transform 0.3s;
+  }
 
-.burger::after {
-  bottom: 0;
-  transition: bottom .3s .15s, transform .3s;
-}
-.burger_checkbox:checked + .burger::before {
-  top: 11px;
-  transform: rotate(45deg);
-  box-shadow: 0 6px 0 rgba(0,0,0,0);
-  transition: box-shadow .15s, top .3s, transform .3s .15s;
-}
+  .burger::after {
+    bottom: 0;
+    transition: bottom 0.3s 0.15s, transform 0.3s;
+  }
+  .burger_checkbox:checked + .burger::before {
+    top: 11px;
+    transform: rotate(45deg);
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0);
+    transition: box-shadow 0.15s, top 0.3s, transform 0.3s 0.15s;
+  }
 
-.burger_checkbox:checked + .burger::after {
-  bottom: 11px;
-  transform: rotate(-45deg);
-  transition: bottom .3s, transform .3s .15s;
-}
-.all_menu {
-  display: grid;
-  gap: 15%;
-  position: sticky;
-  left: 0;
-  width: 189px;
-  margin: 0 auto;
-  padding: 42px 0;
-  z-index: 1;
-  list-style-type: none;
-  transform: translateX(-100%);
-  transition: .3s;
-}
+  .burger_checkbox:checked + .burger::after {
+    bottom: 11px;
+    transform: rotate(-45deg);
+    transition: bottom 0.3s, transform 0.3s 0.15s;
+  }
+  .all_menu {
+    display: grid;
+    gap: 15%;
+    position: sticky;
+    left: 0;
+    width: 189px;
+    margin: 0 auto;
+    padding: 42px 0;
+    z-index: 1;
+    list-style-type: none;
+    transform: translateX(-100%);
+    transition: 0.3s;
+  }
 
-.burger_checkbox:checked ~ .all_menu  {
-  transform: translateX(0);
-}
- 
+  .burger_checkbox:checked ~ .all_menu {
+    transform: translateX(0);
+  }
 }
 
 .header_menu {

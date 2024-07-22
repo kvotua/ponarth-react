@@ -9,9 +9,19 @@
   position: sticky;
   top: 1px;
   padding-top: 96px;
-  -webkit-box-shadow: -4px 0px 8px 0px rgba(34, 60, 80, 0.2);
-  -moz-box-shadow: -4px 0px 8px 0px rgba(34, 60, 80, 0.2);
-  box-shadow: -4px 0px 8px 0px rgba(34, 60, 80, 0.2);
+  background-color: white;
+  -webkit-box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.16);
+  -moz-box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.16);
+}
+
+.dark {
+  background-color: black; /* Change to black for dark theme */
+}
+
+.dark,
+.right_menu {
+  transition: box-shadow, background-color 1s ease;
 }
 
 @media (max-width: 768px) {
