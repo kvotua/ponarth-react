@@ -19,6 +19,14 @@ const AgePage: React.FC<{ setAgeConfirmed: (confirmed: boolean) => void }> = ({
       setAgeConfirmed(true);
       navigate("/home");
     }
+
+    // Отключаем скролл при монтировании компонента
+    document.body.style.overflow = "hidden";
+
+    // Включаем скролл обратно при размонтировании компонента
+    return () => {
+      document.body.style.overflow = "auto";
+    };
   }, [navigate, setAgeConfirmed]);
 
   const handleSliderChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -70,12 +78,6 @@ const AgePage: React.FC<{ setAgeConfirmed: (confirmed: boolean) => void }> = ({
         >
           ПРОДОЛЖИТЬ
         </DelayedButtonWhite>
-        {/* <button className={styles.learn_more} onClick={handleConfirmClick}>
-          <span className={styles.circle} aria-hidden="true">
-            <span className={`${styles.icon} ${styles.arrow}`}></span>
-          </span>
-          <span className={styles.button_text_two}>ПРОДОЛЖИТЬ</span>
-        </button> */}
       </div>
     </div>
   );
