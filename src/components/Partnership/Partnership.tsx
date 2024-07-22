@@ -72,90 +72,90 @@ const Partnership = () => {
 
   return (
     <>
-    <div className={styles.texter} id="partner">
+      <div className={styles.texter} id="partner">
         <h2 className={styles.text}>
           ПОНАРТ <br />
           ДЛЯ ПАРТНЕРОВ
         </h2>
       </div>
-    <div className={styles.grid_container}>
-      <div className={styles.grid_item_left}>
-        <div className={styles.txt_four_page} ref={ref1}>
-          <h1
-            className={`${styles.big_text_four_page} ${
-              isVisible1 ? styles.fadeIn : ""
-            }`}
-          >
-            01
-          </h1>
-          <p>
-            Только натуральное сырье и<br />
-            качественный продукт
-          </p>
+      <div className={styles.grid_container}>
+        <div className={styles.grid_item_left}>
+          <div className={styles.txt_four_page} ref={ref1}>
+            <h1
+              className={`${styles.big_text_four_page} ${
+                isVisible1 ? styles.fadeIn : ""
+              }`}
+            >
+              01
+            </h1>
+            <p>
+              Только натуральное сырье и<br />
+              качественный продукт
+            </p>
+          </div>
         </div>
-      </div>
-      <div className={styles.grid_item_right}>
-        <div className={styles.kartinka1}>
-          <img
-            className={styles.img_four_end}
-            src="./src\assets\Image.png"
-            alt=""
-          />
+        <div className={styles.grid_item_right}>
+          <div className={styles.kartinka1}>
+            <img
+              className={styles.img_four_end}
+              src="./src\assets\Image.png"
+              alt=""
+            />
+          </div>
         </div>
-      </div>
 
-      <div className={styles.grid_item_left}>
-        <div className={styles.kartinka1}>
-          <img
-            className={styles.img_four_end}
-            src="./src\assets\Pivo2.png"
-            alt=""
-          />
+        <div className={styles.grid_item_left}>
+          <div className={styles.kartinka1}>
+            <img
+              className={styles.img_four_end}
+              src="./src\assets\Pivo2.png"
+              alt=""
+            />
+          </div>
         </div>
-      </div>
 
-      <div className={styles.grid_item_right}>
-        <div className={styles.txt_four} ref={ref2}>
-          <h1
-            className={`${styles.big_text_four_right} ${
-              isVisible2 ? styles.fadeIn : ""
-            }`}
-          >
-            02
-          </h1>
-          <p className={styles.text_four_right}>
-            Всесторонняя поддержка <br />
-            партнеров
-          </p>
+        <div className={styles.grid_item_right}>
+          <div className={styles.txt_four} ref={ref2}>
+            <h1
+              className={`${styles.big_text_four_right} ${
+                isVisible2 ? styles.fadeIn : ""
+              }`}
+            >
+              02
+            </h1>
+            <p className={styles.text_four_right}>
+              Всесторонняя поддержка <br />
+              партнеров
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div className={styles.grid_item_left}>
-        <div className={styles.txt_four_page} ref={ref3}>
-          <h1
-            className={`${styles.big_text_four_page} ${
-              isVisible3 ? styles.fadeIn : ""
-            }`}
-          >
-            03
-          </h1>{" "}
-          <p>
-            14 лет варим вкусное пиво по <br />
-            технологиям 19го века
-          </p>
+        <div className={styles.grid_item_left}>
+          <div className={styles.txt_four_page} ref={ref3}>
+            <h1
+              className={`${styles.big_text_four_page} ${
+                isVisible3 ? styles.fadeIn : ""
+              }`}
+            >
+              03
+            </h1>{" "}
+            <p>
+              14 лет варим вкусное пиво по <br />
+              технологиям 19го века
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div className={styles.grid_item_right}>
-        <div className={styles.kartinka1}>
-          <img
-            className={styles.img_four_end}
-            src="./src\assets\Pivo3.png"
-            alt=""
-          />
+        <div className={styles.grid_item_right}>
+          <div className={styles.kartinka1}>
+            <img
+              className={styles.img_four_end}
+              src="./src\assets\Pivo3.png"
+              alt=""
+            />
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 };
