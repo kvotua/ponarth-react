@@ -9,9 +9,11 @@ interface DelayedButtonProps {
     className?: string;
     onClick?: ()=> void;
     style?: string;
+    dopstyle?: {} ;
+    type?: 'button' | 'submit' | 'reset';
 }
 
-const DelayedButton: React.FC<DelayedButtonProps> = ({ to, delay, children, className, style, onClick }) => {
+const DelayedButton: React.FC<DelayedButtonProps> = ({ to, delay, children, className, style, onClick, dopstyle, type }) => {
     let styles = stylesDefault;
     if(style == null || style == 'black'){
         styles = stylesDefault;
@@ -35,14 +37,18 @@ const DelayedButton: React.FC<DelayedButtonProps> = ({ to, delay, children, clas
     const handleClick = () => {
         setIsClicked(true);
     };
+    let mergeStyles = styles;
+    if(dopstyle){
+        mergeStyles = {...styles, ...dopstyle};
+    }
 
     return (
-        <button onClick={handleClick} disabled={isClicked} className={className}>
-           <div className={styles.learn_more} onClick={onClick}>
-              <span className={styles.circle} aria-hidden="true">
-                <span className={`${styles.icon} ${styles.arrow}`}></span>
+        <button onClick={handleClick} disabled={isClicked} className={className} style={mergeStyles} type={type}>
+           <div className={mergeStyles.learn_more} onClick={onClick}>
+              <span className={mergeStyles.circle} aria-hidden="true">
+                <span className={`${mergeStyles.icon} ${mergeStyles.arrow}`}></span>
               </span>
-              <span className={styles.button_text}>{children}</span>
+              <span className={mergeStyles.button_text}>{children}</span>
             </div>
         </button>
     );
