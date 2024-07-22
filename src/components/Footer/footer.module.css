@@ -58,12 +58,22 @@ footer {
 }
 @media screen and (max-width: 768px) {
   .all_items_footer {
-    grid-template-columns: none !important;
+    flex-direction: column;
     width: 100%;
+    padding-bottom: 40px;
   }
   .footerButton {
     justify-content: center;
     text-align: center;
+  }
+
+  .logo_footer {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo_footer_img {
+    height: 60%;
   }
 }
 .footerButton:hover {
