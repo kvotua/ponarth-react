@@ -10,9 +10,8 @@ import Looking from "../components/LookingPage/LookingPage";
 import Footer from "../components/Footer";
 import History from "../components/History/History";
 import PartnerForm from "../components/Form/";
-import Products from "../components/Products";
-import NewsProduction from "../components/NewsProduction";
 
+import NewsProduction from "../components/NewsProduction";
 
 const MainPage: FC = () => {
   const localTheme = window.localStorage.getItem("theme");
@@ -42,7 +41,7 @@ const MainPage: FC = () => {
           <PartnerForm />
           <Looking />
           <NewHistory />
-          <NewsProduction/> 
+          <NewsProduction />
           <Map />
         </div>
         <RightBar />
