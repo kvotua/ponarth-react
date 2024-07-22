@@ -17,6 +17,7 @@ const RightBar: FC = () => {
   };
 
   return (
+
     <div className={styles.right_menu}>
       <div className={styles.container_menu}>
         <input
