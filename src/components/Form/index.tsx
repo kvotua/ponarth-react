@@ -1,6 +1,7 @@
 import styles from "./Form.module.css";
 import video from "../../assets/final.mp4";
 import { useEffect, useState, useRef, FormEvent } from "react";
+import DelayedButton from "../Buttons/DelayedButton";
 
 const PartnerForm = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,7 +12,7 @@ const PartnerForm = () => {
       if (entries[0].isIntersecting) {
         const timer = setTimeout(() => {
           setIsVisible(true);
-        }, 1.5 * 1000);
+        }, 0.3 * 1000);
         return () => clearTimeout(timer);
       }
     });
@@ -60,9 +61,7 @@ const PartnerForm = () => {
                 >
                   <div className={styles.form_group}>
                     <input
-
                       className={styles.input}
-
                       type="text"
                       id="userName"
                       name="userName"
@@ -74,9 +73,7 @@ const PartnerForm = () => {
 
                   <div className={styles.form_group}>
                     <input
-
                       className={styles.input}
-
                       type="tel"
                       id="phoneNumber"
                       maxLength={11}
@@ -87,19 +84,16 @@ const PartnerForm = () => {
                     <label htmlFor="phoneNumber">Ваш номер телефона</label>
                   </div>
 
-
-                  <button
-                    className={styles.learn_more}
+                  <DelayedButton
                     type="submit"
-                    // disabled
-                    style={{ marginTop: 32 + "px", width: 100 + "%" }}
+                    to=""
+                    className={styles.learn_more}
+                    style="white"
+                    delay={450}
+                    dopstyle={{ marginTop: "32px", width: "100%" }}
                   >
-                    <span className={styles.circle} aria-hidden="true">
-                      <span className={`${styles.icon} ${styles.arrow}`}></span>
-                    </span>
-                    <span className={styles.button_text}>СТАТЬ ПАРТНЕРОМ</span>
-                  </button>
-
+                    УЗНАТЬ БОЛЬШЕ
+                  </DelayedButton>
                 </form>
               </div>
             </div>

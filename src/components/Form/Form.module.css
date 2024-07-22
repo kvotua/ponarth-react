@@ -91,19 +91,6 @@ video {
   transition: all 0.3s ease;
 }
 
-.form_group input:focus + label,
-.form_group input:not(:placeholder-shown) + label {
-  top: -10px;
-  left: 10px;
-  padding: 0 5px;
-  font-size: 12px;
-  color: #000000;
-}
-
-.input:hover {
-  color: #fff;
-  background-color: black;
-}
 .learn_more {
   position: relative;
   display: inline-block;
