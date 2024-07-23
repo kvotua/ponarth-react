@@ -26,6 +26,7 @@ const RightBar: FC = () => {
           type="checkbox"
           role="switch"
           className={styles.toggle}
+          checked={theme === "dark" ? true : false}
           onClick={toggleTheme}
         />
         <button className={styles.expand_less} onClick={scrollToTop}></button>
