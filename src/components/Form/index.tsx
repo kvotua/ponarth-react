@@ -11,7 +11,7 @@ const PartnerForm = () => {
       if (entries[0].isIntersecting) {
         const timer = setTimeout(() => {
           setIsVisible(true);
-        }, 1.5 * 1000);
+        }, 0.3 * 1000);
         return () => clearTimeout(timer);
       }
     });
