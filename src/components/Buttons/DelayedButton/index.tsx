@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import stylesDefault from "./DelayedButton.module.css";
+import stylesMixed from "./DelayedButtonMixedBlack.module.css";
 import stylesWhite from "./DelayedButtonWhite.module.css";
+
 interface DelayedButtonProps {
   to: string;
   delay: number;
@@ -26,7 +28,10 @@ const DelayedButton: React.FC<DelayedButtonProps> = ({
   let styles = stylesDefault;
   if (style == null || style == "black") {
     styles = stylesDefault;
-  } else {
+  }else if(style == "mixed"){
+    styles = stylesMixed;
+  }
+   else {
     styles = stylesWhite;
   }
   const [isClicked, setIsClicked] = useState(false);
@@ -42,12 +47,14 @@ const DelayedButton: React.FC<DelayedButtonProps> = ({
     return () => clearTimeout(timer);
   }, [isClicked, delay, navigate, to]);
 
+  
+
   const handleClick = () => {
     setIsClicked(true);
   };
   let mergeStyles = styles;
   if (dopstyle) {
-    mergeStyles = { ...styles, ...dopstyle };
+    mergeStyles = { ...dopstyle, ...styles };
   }
 
   return (
