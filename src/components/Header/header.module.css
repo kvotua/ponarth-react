@@ -161,16 +161,11 @@ header,
   filter: brightness(0) invert(1); /*Меняет цвет с чёрного на белый */
   filter: none;
   cursor: pointer;
-<<<<<<< Updated upstream
-
-  transition: transform 0.7s ease-in-out;
-=======
   /* background-size: contain; Это убедится, что весь образ виден */
   background-repeat: no-repeat;
   background-position: center;
   background: none;
   transition: transform 0.5s ease-in-out;
->>>>>>> Stashed changes
   width: 60%;
   height: 70%;
 }
