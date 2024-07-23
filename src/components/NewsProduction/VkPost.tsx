@@ -32,12 +32,12 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get(`https://cors-anywhere.herokuapp.com/https://api.vk.com/method/wall.get`, {
+        const response = await axios.get(`https://api.vk.com/method/wall.get`, {
           params: {
-            domain: groupId,
+            domain: "ponarth",
             access_token: accessToken,
-            v: '5.131',
-            count: 10
+            v: '5.131', 
+            count: 10 
           }
         });
 
