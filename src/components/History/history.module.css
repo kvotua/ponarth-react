@@ -1,5 +1,8 @@
+.props{
+  --double-screen-height: 100vh;
+}
 .container_two_page {
-  height: 2048px;
+  height: var(--double-screen-height);
   width: 100%;
   padding-bottom: 10%;
 }
@@ -10,12 +13,12 @@
   border: none;
 }
 .two_page {
+  height: var(--double-screen-height);
   position: absolute;
   left: 0;
   margin: 0 auto;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 2048px;
   width: 100%;
   display: grid;
   align-items: center;
@@ -30,12 +33,16 @@ span {
   color: #ffffff;
 }
 .block_image {
-  display: grid;
+  height: var(--double-screen-height);
   margin: 0 auto;
   max-width: 1440px;
   width: 100%;
-  height: 2048px;
   background-image: url(../../assets/ponarthback.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: repeat(2, 1fr);
   filter: brightness(150%);
 }
 
@@ -45,10 +52,14 @@ span {
 }
 
 .text_two_page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
   font-weight: 500;
   color: #ffffff;
   text-align: center;
-  padding-top: 30%;
+  padding-top: 4%;
   max-width: 1100px;
   margin: 0 auto;
   line-height: 125px;
@@ -58,15 +69,19 @@ span {
   /* Устанавливаем перенос для пробелов */
   overflow-wrap: break-word;
   /* Устанавливаем перенос для длинных слов */
+  grid-area: 1 / 1 / 2 / 2;
 }
-
+.secondBlock{
+  grid-area: 2 / 1 / 3 / 2;
+}
 .litle_text_two {
+  height: auto;
   color: #ffffff;
   text-align: justify;
-  padding: 10%;
+  padding: 0% 10% 0% 10%;
   max-width: 1440px;
   margin: 0 auto;
-  font-weight: 500;
+  font-weight: 300;
   word-wrap: break-word;
   /* или overflow-wrap: break-word; */
   white-space: pre-line;
@@ -75,6 +90,7 @@ span {
   /* Устанавливаем перенос для длинных слов */
   animation: appear cubic-bezier(0.42, 0, 0, 1);
   animation-timeline: view();
+ 
 }
 
 .hoverable {
@@ -96,9 +112,6 @@ span {
     font-size: 16px;
     /* Уменьшаем размер шрифта на мобильных устройствах */
     line-height: 36px;
-    /* Уменьшаем высоту строки на мобильных устройствах */
-    padding-bottom: 20%;
-    /* Уменьшаем отступ снизу на мобильных устройствах */
   }
 
   .hoverable {
@@ -129,6 +142,13 @@ span {
 }
 
 @media only screen and (min-width: 1400px) {
+  /* Стили для больших ноутбуков и мониторов */
+  .text_two_page {
+    font-size: 96px;
+    /* Уменьшаем размер шрифта на мобильных устройствах */
+  }
+}
+@media only screen and (min-width: 1000px) {
   /* Стили для больших ноутбуков и мониторов */
   .text_two_page {
     font-size: 96px;
