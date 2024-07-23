@@ -4,7 +4,7 @@ import styles from "./NewsProduction.module.css";
 function NewsProduction() {
   const groupId = "ponarth"; // Замените на реальный ID группы
   const accessToken =
-    "02124e4202124e4202124e4271010b1ed20021202124e4264830a231c9cda8a7390d524"; // Замените на реальный сервисный ключ доступа
+    "386e0c85386e0c85386e0c85fe3b77fa743386e386e0c855ef1e75df3dabd817dbb743c"; // Замените на реальный сервисный ключ доступа
 
   return (
     <div className={styles.seven_page} id="news">
