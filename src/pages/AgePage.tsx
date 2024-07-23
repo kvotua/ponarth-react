@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./styles/agepage.module.css";
 import logo from "../assets/Ponarth_firmenny_blok_01.svg";
 
-import DelayedButton from '../components/Buttons/DelayedButton';
-
+import DelayedButton from "../components/Buttons/DelayedButton";
 
 const AgePage: React.FC<{ setAgeConfirmed: (confirmed: boolean) => void }> = ({
   setAgeConfirmed,
@@ -16,9 +15,8 @@ const AgePage: React.FC<{ setAgeConfirmed: (confirmed: boolean) => void }> = ({
     const ageConfirmedTime = localStorage.getItem("ageConfirmedTime");
     if (
       ageConfirmedTime &&
-      new Date().getTime() - Number(ageConfirmedTime) < 24*60*60*1000
-     ) {
-
+      new Date().getTime() - Number(ageConfirmedTime) < 1000
+    ) {
       setAgeConfirmed(true);
       navigate("/home");
     }
@@ -42,17 +40,21 @@ const AgePage: React.FC<{ setAgeConfirmed: (confirmed: boolean) => void }> = ({
     }
   };
 
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>
-        <img className={styles.logo} src={logo} alt="LOGO" />
+        <div className={styles.logo}>
+          <img src={logo} alt="LOGO" />
+        </div>
         <div className={styles.info}>
-          <h1 className={styles.text1}>
-            Добро пожаловать на сайт пивоваренной компании Ponarth.
-          </h1>
-          <h1 className={styles.text2}>
-            Пожалуйста, подтвердите свой возраст.
-          </h1>
+          <h1 className={styles.text2}>Пожалуйста, подтвердите ваш возраст.</h1>
         </div>
 
         <p className={styles.age}>{age}</p>
@@ -65,9 +67,15 @@ const AgePage: React.FC<{ setAgeConfirmed: (confirmed: boolean) => void }> = ({
           value={age}
           onChange={handleSliderChange}
         />
-        <DelayedButton to='' className={styles.history_a} delay={450} onClick={handleConfirmClick} style="white">ПРОДОЛЖИТЬ</DelayedButton>
-
-
+        <DelayedButton
+          to=""
+          className={styles.history_a}
+          delay={450}
+          onClick={handleConfirmClick}
+          style="white"
+        >
+          ПРОДОЛЖИТЬ
+        </DelayedButton>
       </div>
     </div>
   );
