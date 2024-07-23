@@ -2,13 +2,13 @@
   grid-template-columns: 1fr 1fr 1fr;
   width: max-content;
   margin-right: 10px;
+  display: flex;
 }
 
 :root {
   --background-color: #c3d1d1;
 }
 
-.social,
 .audio_and_theme {
   display: flex;
   align-items: center;
@@ -18,7 +18,6 @@
   border-radius: 200px;
   padding: 5px 15px;
   height: 4rem;
-  transition: background-color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0.6s;
 }
 
 .headerhistory.sticky .social,
@@ -56,7 +55,6 @@
   background-size: cover;
   background-repeat: no-repeat;
   margin: 0 5px;
-  transition: 0.5s ease-in-out;
   cursor: pointer;
 }
 
@@ -69,11 +67,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   margin: 0 auto;
-  transition: 0.5s ease-in-out;
   cursor: pointer;
-}
-
-.theme {
 }
 
 section {
@@ -120,7 +114,6 @@ section {
     height: auto;
     margin: 0 auto;
     opacity: 1;
-    transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1) 0.6s;
     z-index: 100;
   }
 
@@ -149,7 +142,6 @@ section {
       font-size: 15px;
       letter-spacing: 2px;
       text-transform: lowercase;
-      transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1) 0.6s;
     }
 
     button {
@@ -180,8 +172,8 @@ section {
         display: block;
         margin: 5px auto;
         transform: scalex(0);
-        transition: 0.6s transform cubic-bezier(0.075, 0.82, 0.165, 1) 0s,
-          0.3s margin ease-in 0s;
+        // transition: 0.6s transform cubic-bezier(0.075, 0.82, 0.165, 1) 0s,
+        //   0.3s margin ease-in 0s;
       }
 
       &:hover {
@@ -218,8 +210,8 @@ section {
       transition-delay: 0.6s;
       span {
         transform: scalex(1);
-        transition: 0.6s transform cubic-bezier(0.075, 0.82, 0.165, 1) 0.8s,
-          0.3s margin ease-in 0s;
+        // transition: 0.6s transform cubic-bezier(0.075, 0.82, 0.165, 1) 0.8s,
+        //   0.3s margin ease-in 0s;
       }
     }
 

@@ -1,5 +1,5 @@
 /* first_page header */
-header {
+.header {
   width: 20%;
   height: 110vh;
   border-radius: 2px;
@@ -18,7 +18,7 @@ header {
 }
 
 .dark,
-header,
+.header,
 .logo,
 .header_menu {
   transition: box-shadow, background-color 1s ease;
@@ -28,7 +28,7 @@ header,
 }
 
 @media only screen and (max-width: 1025px) {
-  header,
+  .header,
   .right_menu {
     display: none;
   }
