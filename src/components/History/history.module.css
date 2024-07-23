@@ -72,6 +72,10 @@ grid-template-rows: repeat(2, 1fr);
   grid-area: 1 / 1 / 2 / 2;
 }
 .secondBlock{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   grid-area: 2 / 1 / 3 / 2;
 }
 .litle_text_two {
