@@ -161,7 +161,7 @@ header,
   filter: brightness(0) invert(1); /*Меняет цвет с чёрного на белый */
   filter: none;
   cursor: pointer;
-  /* background-size: contain; Это убедится, что весь образ виден */
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   background: none;
