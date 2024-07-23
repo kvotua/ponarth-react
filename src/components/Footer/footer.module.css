@@ -23,7 +23,7 @@ footer {
   width: 230px;
   height: 100%;
   position: relative;
-  transition: 0.3s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 }
 
 .logo_footer_img {
@@ -36,7 +36,7 @@ footer {
 
 .logo_footer:hover,
 .practice:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 .info_footer {
   display: grid;
