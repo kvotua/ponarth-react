@@ -42,7 +42,7 @@ span {
   background-repeat: no-repeat;
 display: grid;
 grid-template-columns: 1fr;
-grid-template-rows: repeat(2, 1fr);
+grid-template-rows: repeat(2, calc(var(--double-screen-height) /2));
   filter: brightness(150%);
 }
 
@@ -112,15 +112,21 @@ grid-template-rows: repeat(2, 1fr);
   color: #ffffff;
 }
 @media only screen and (max-width: 768px) {
+  .text_two_page{
+    line-height: 50px;
+    padding: 3% 5% 0 5%;
+    font-size: 24px;
+  }
   .litle_text_two {
     font-size: 16px;
     /* Уменьшаем размер шрифта на мобильных устройствах */
-    line-height: 36px;
+    line-height: 16px;
   }
 
   .hoverable {
     font-size: 20px !important;
     width: 80% !important;
+    line-height: 26px ;
   }
 
   .block_image {
