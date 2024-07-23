@@ -38,7 +38,7 @@ function History() {
             {spannedText}
           </h2>
           <div className={styles.history_a}>
-            <DelayenButton to="/history" className={styles.history_a} delay={450}>
+            <DelayenButton to="/history" className={styles.history_a} delay={450} dopstyle={{marginTop: '32px'}}>
           УЗНАТЬ БОЛЬШЕ
           </DelayenButton>
             </div>
