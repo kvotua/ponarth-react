@@ -92,7 +92,7 @@ grid-template-rows: repeat(2, calc(var(--double-screen-height) /2));
   /* Устанавливаем перенос для пробелов */
   overflow-wrap: break-word;
   /* Устанавливаем перенос для длинных слов */
-  animation: appear cubic-bezier(0.42, 0, 0, 1);
+  animation: appear cubic-bezier(0.42, 0.5, 0, 1);
   animation-timeline: view();
  
 }

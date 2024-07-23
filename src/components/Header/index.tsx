@@ -41,13 +41,13 @@ const Header = () => {
             href="https://untappd.com/b/brauerei-ponarth-pivovarnya-ponart-pshenichnoe/2206518"
             target="_blank"
           >
-            <div className={styles.social_circle1}></div>
+            <div className={`${styles.social_circle1} ${theme === "dark" ? styles.dark : ""}`}></div>
           </a>
           <a href="https://vk.com/ponarth" target="_blank">
-            <div className={styles.social_circle2}></div>
+            <div className={`${styles.social_circle2} ${theme === "dark" ? styles.dark : ""}`}></div>
           </a>
           <a href="https://t.me/ponarth_1849" target="_blank">
-            <div className={styles.social_circle3}></div>
+            <div className={`${styles.social_circle3} ${theme === "dark" ? styles.dark : ""}`}></div>
           </a>
         </div>
       </div>
