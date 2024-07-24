@@ -2,16 +2,20 @@ video {
   position: absolute;
   left: 0;
   margin: 0 auto;
-  height: 834px;
+  height: 900px;
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 1;
   width: 100%;
+  object-fit: cover;
+  clip-path: inset(13% 0 13% 0);
 }
 
 .container2 {
   height: 700px;
   width: 100%;
+  overflow: hidden;
+ 
 }
 .form_grid_container{
   padding-top: 7%;
@@ -89,6 +93,7 @@ video {
   transition: background-color 0.3s ease, border-color 0.3s ease;
   font-size: 16px;
   font-weight: 350;
+  
 }
 .form_group input:focus{
   outline: none;

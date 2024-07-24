@@ -2,8 +2,10 @@ import styles from "./Form.module.css";
 import video from "../../assets/final.mp4";
 import { useEffect, useState, useRef, FormEvent } from "react";
 import DelayedButton from "../Buttons/DelayedButton";
-
+import InputMask from 'react-input-mask';
 const PartnerForm = () => {
+
+
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef(null);
 
@@ -75,17 +77,16 @@ const PartnerForm = () => {
                   </div>
 
                   <div className={styles.form_group}>
-                    <input
-                      className={styles.input}
-                      type="tel"
+                    <InputMask
+                    className={styles.input}
+                     name="phoneNumber"
+                    mask="+7 ( 999 ) 999 - 9999"
                       id="phoneNumber"
-                      maxLength={11}
-                      name="phoneNumber"
-                      placeholder=" "
-                      required
-                      autoComplete="off"
-                    />
-                    <label htmlFor="phoneNumber">Ваш номер телефона</label>
+                    placeholder=" "
+                    required
+                    autoComplete="off"
+                    ></InputMask>
+                    <label htmlFor="phoneNumber">Ваш номер телефона</label> 
                   </div>
 
                   <DelayedButton
