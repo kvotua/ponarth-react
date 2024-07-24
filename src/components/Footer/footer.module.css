@@ -119,16 +119,16 @@ footer {
   }
 
   footer {
-    height: 500px;
+    height: 600px;
   }
 
   .logo_footer {
-    height: 160px;
+    height: 200px;
     margin-bottom: 40px;
   }
 
   .info_footer {
-    height: 250px;
+    height: 180px;
 
     a {
       overflow: hidden;
@@ -138,6 +138,6 @@ footer {
   .practice {
     height: 140px;
     overflow: hidden;
-    margin-top: -5px;
+    margin-top: -15px;
   }
 }
