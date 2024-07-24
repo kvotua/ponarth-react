@@ -47,8 +47,10 @@
 .img_four_end {
   width: 100%;
   height: 100%;
-  transition: transform 1s ease-in-out;
-  object-fit: cover; /* Добавьте это свойство */
+  transform: translateY(20px);
+  opacity: 0;
+
+  transition: opacity 2s ease-in-out, transform 1s ease-in-out;
 }
 
 .big_text_four_page,
@@ -110,10 +112,12 @@
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 0.7fr);
   }
-  .grid_item_left, .grid_item_right{
+  .grid_item_left,
+  .grid_item_right {
     height: 300px;
   }
-  .grid_item_right1, .grid_item_right3{
+  .grid_item_right1,
+  .grid_item_right3 {
     height: 420px;
   }
   .grid_item1 {
