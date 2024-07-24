@@ -157,9 +157,8 @@ function Gasp() {
             }}
           >
             <i
-              className={`${
-                currentIndex == 1 ? styles.peach_color : styles.apple_color
-              } ${styles.prevButton}`}
+              className={`${currentIndex == 1 ? styles.peach_color : styles.apple_color
+                } ${styles.prevButton}`}
             ></i>
           </button>
           <button
@@ -170,14 +169,13 @@ function Gasp() {
             }}
           >
             <i
-              className={`${
-                currentIndex == 1 ? styles.exotic_color : styles.apple_color
-              }`}
+              className={`${currentIndex == 1 ? styles.exotic_color : styles.apple_color
+                }`}
             ></i>
           </button>
         </div>
         <div className={styles.text}>
-          <h1 className={styles.h1} id="h1">
+          <h1 className={styles.h1} id="h1" style={{ fontSize: currentIndex === 2 ? 200 : 280 }}>
             Пшен и ичное
           </h1>
           <div className={styles.cane_image}>
