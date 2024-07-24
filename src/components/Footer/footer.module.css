@@ -6,6 +6,7 @@ footer {
   width: 100%;
   z-index: 2;
 }
+
 .footerButton {
   padding-bottom: 5%;
   margin: 0 auto;
@@ -14,6 +15,7 @@ footer {
   transition: 0.1s ease-in-out;
   color: #000;
 }
+
 .logo_footer {
   display: flex;
   justify-content: center;
@@ -31,19 +33,22 @@ footer {
 }
 
 .dark .logo_footer {
-  filter: brightness(0) invert(1); /*Меняет цвет с чёрного на белый */
+  filter: brightness(0) invert(1);
+  /*Меняет цвет с чёрного на белый */
 }
 
 .logo_footer:hover,
 .practice:hover {
   transform: scale(1.05);
 }
+
 .info_footer {
   display: grid;
   grid-template-rows: repeat(4, 1fr);
   height: 120px;
   margin: 0 auto;
 }
+
 .all_items_footer {
   justify-self: center;
   display: flex;
@@ -56,12 +61,14 @@ footer {
   box-shadow: 0px 7px 10px 0px rgba(3, 3, 3, 0.1);
   transition: box-shadow, background-color 1s ease;
 }
+
 @media screen and (max-width: 768px) {
   .all_items_footer {
     flex-direction: column;
     width: 100%;
     padding-bottom: 40px;
   }
+
   .footerButton {
     justify-content: center;
     text-align: center;
@@ -76,11 +83,13 @@ footer {
     height: 60%;
   }
 }
+
 .footerButton:hover {
   color: rgb(157, 20, 20);
   font-weight: bold;
   /* font-size: 20px; */
 }
+
 .practice {
   background-repeat: no-repeat;
   background-position: center center;
@@ -101,4 +110,22 @@ footer {
 .all_items_footer.dark a {
   color: #fff;
   transition: box-shadow, background-color 1s ease;
+}
+
+@media screen and (max-width: 600px) {
+
+  .logo_footer {
+    height: 140px;
+    margin-bottom: 20px;
+  }
+
+  .info_footer {
+    height: 140px;
+  }
+
+  .practice {
+    margin-top: -20px;
+    height: 140px;
+    overflow: hidden;
+  }
 }
