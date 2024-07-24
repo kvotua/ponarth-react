@@ -53,7 +53,7 @@ const DelayedButton: React.FC<DelayedButtonProps> = ({
   return (
     <button
       onClick={handleClick}
-      disabled={isClicked}
+   //   disabled={isClicked}
       className={className}
       style={mergeStyles}
       type={type}
