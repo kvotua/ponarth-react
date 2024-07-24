@@ -16,3 +16,6 @@
   line-height: 23px;
   text-align: justify;
 }
+.react-calendar__navigation button[aria-label*="year"] {
+  display: none;
+}
