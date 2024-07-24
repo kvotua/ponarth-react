@@ -41,8 +41,8 @@ const PartnerForm = () => {
       <video autoPlay muted loop id="myVideo">
         <source src={video} type="video/mp4" />
       </video>
-
-      {isVisible && (
+<div className={styles.form_grid_container}>
+{isVisible && (
         <div id="block" className={`${styles.content1} ${styles.fadeIn}`}>
           <div
             className={`${styles.flipper} ${isFlipped ? styles.flipped : ""}`}
@@ -50,7 +50,9 @@ const PartnerForm = () => {
             <div className={styles.front}>
               <h1 className={styles.bochka}>
                 Две гостевые бочки пива <br />
-                каждому новому партнеру от Понарт
+                каждому новому партнеру <br />
+               <div style={{fontSize: '1rem', paddingBottom:'1%'}}> от </div>
+               <div style={{fontSize: '3rem'}}> PONARTH </div>
               </h1>
 
               <div className={styles.form_four}>
@@ -103,6 +105,8 @@ const PartnerForm = () => {
           </div>
         </div>
       )}
+</div>
+     
     </div>
   );
 };
