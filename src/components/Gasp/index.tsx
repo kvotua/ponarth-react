@@ -24,9 +24,12 @@ function Gasp() {
   const [currentPosition, setCurrentPosition] = useState(0);
 
   const h1Texts = [
-    "Пшен f ичное",
-    "Пил а снер",
-    "Тыкве&nbsp;&nbsp;..&nbsp; нный&nbsp;&nbsp; &nbsp;&nbsp;э&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ль",
+    "Пшен",
+    "ичное",
+    "Пил",
+    "снер",
+    "Тыкве\nэ",
+    "нный\nль"
   ];
   let logoColors = [
     "var(--first-logo)",
@@ -41,8 +44,12 @@ function Gasp() {
   const sectionContainer = document.getElementById("section_container");
   const logo = document.getElementById("logo");
   const h1 = document.getElementById("h1");
+  const h2 = document.getElementById("h2");
   const fruit_image = useRef<(HTMLDivElement | null)[]>([]);
   const fruit_image__img = useRef<(HTMLDivElement | null)[]>([]);
+
+  console.log(h1);
+  console.log(h2);
 
   // логика анимации фруктов на заднем фоне
   useEffect(() => {
@@ -61,7 +68,15 @@ function Gasp() {
     // логика текста h1 в зависимости от индекса
     if (currentIndex >= 0) {
       if (h1 !== null) {
-        h1.innerHTML = h1Texts[currentIndex];
+        h1.innerHTML = h1Texts[currentIndex * 2];
+      }
+      if (h2 !== null) {
+        if (currentIndex !== 0) {
+          h2.innerHTML = h1Texts[currentIndex * 2 + 1];
+        }
+        else {
+          h2.innerHTML = h1Texts[1];
+        }
       }
     }
 
@@ -71,12 +86,12 @@ function Gasp() {
     }
 
     // логика скрытия кнопки nextButton
-    if (currentIndex === h1Texts.length - 1 && nextButton !== null) {
+    if (currentIndex === h1Texts.length / 2 - 1 && nextButton !== null) {
       nextButton.style.display = "none";
     }
 
     // логика появления кнопки nextButton
-    if (currentIndex < h1Texts.length - 1 && nextButton !== null) {
+    if (currentIndex < h1Texts.length / 2 - 1 && nextButton !== null) {
       nextButton.style.display = "block";
     }
 
@@ -175,9 +190,13 @@ function Gasp() {
           </button>
         </div>
         <div className={styles.text}>
-          <h1 className={styles.h1} id="h1" style={{ fontSize: currentIndex === 2 ? 200 : 280 }}>
-            Пшен и ичное
+          <h1 className={`${styles.h1} ${styles.left}`} id="h1" style={{ fontSize: currentIndex === 2 ? 200 : 280, paddingRight: currentIndex === 2 ? 900 : 850 }}>
+            Пшен
           </h1>
+          <h1 className={`${styles.h1} ${styles.right}`} id="h2" style={{ fontSize: currentIndex === 2 ? 200 : 280, paddingLeft: currentIndex === 2 ? 800 : 850 }}>
+            ичное
+          </h1>
+
           <div className={styles.cane_image}>
             <img src={beercan} alt="" className={styles.can} />
             <img

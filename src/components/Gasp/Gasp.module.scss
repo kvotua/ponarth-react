@@ -53,7 +53,6 @@ h1 {
     font-size: 200px !important;
     line-height: normal !important;
     color: var(--white-color) !important;
-    width: 99vw;
     margin: 0 !important;
     user-select: none;
 }
@@ -83,10 +82,25 @@ header {
 
 h1 {
     position: absolute;
-    
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.text {
+    display: flex;
+}
+
+.left {
+    display: flex;
+    justify-content: right;
+    padding-right: 850px;
+    text-align: right;
+}
+
+.right {
+    padding-left: 850px;
+    text-align: left;
 }
 
 /* Cane Image and Wrapper Image */
