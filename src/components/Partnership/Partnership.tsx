@@ -146,7 +146,7 @@ const Partnership = () => {
         </h2>
       </div>
       <div className={styles.grid_container}>
-        <div className={styles.grid_item_left}>
+        <div className={`${styles.grid_item_left} ${styles.grid_item1}` }>
           <div
             className={`${styles.txt_four_page} ${
               isVisible1 ? styles.fadeIn : ""
@@ -166,7 +166,7 @@ const Partnership = () => {
             </p>
           </div>
         </div>
-        <div className={styles.grid_item_right}>
+        <div className={`${styles.grid_item_right} ${styles.grid_item2}` }>
           <div
             className={`${styles.kartinka1} ${
               isVisibleImage1 ? styles.fadeIn : ""
@@ -177,7 +177,7 @@ const Partnership = () => {
           </div>
         </div>
 
-        <div className={styles.grid_item_left}>
+        <div className={`${styles.grid_item_left} ${styles.grid_item3}` }>
           <div
             className={`${styles.kartinka1} ${
               isVisibleImage2 ? styles.fadeIn : ""
@@ -187,7 +187,7 @@ const Partnership = () => {
             <img className={styles.img_four_end} src={image2} alt="" />
           </div>
         </div>
-        <div className={styles.grid_item_right}>
+        <div className={`${styles.grid_item_right} ${styles.grid_item4}` }>
           <div
             className={`${styles.txt_four_page} ${
               isVisible2 ? styles.fadeIn : ""
@@ -208,7 +208,7 @@ const Partnership = () => {
           </div>
         </div>
 
-        <div className={styles.grid_item_left}>
+        <div className={`${styles.grid_item_left} ${styles.grid_item5}` }>
           <div
             className={`${styles.txt_four_page} ${
               isVisible3 ? styles.fadeIn : ""
@@ -229,7 +229,7 @@ const Partnership = () => {
           </div>
         </div>
 
-        <div className={styles.grid_item_right}>
+        <div className={`${styles.grid_item_right} ${styles.grid_item6}` }>
           <div
             className={`${styles.kartinka1} ${
               isVisibleImage3 ? styles.fadeIn : ""
