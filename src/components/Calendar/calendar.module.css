@@ -1,0 +1,18 @@
+.texter {
+  margin: 8%;
+  border-bottom: 2px solid #d3d3d3;
+}
+
+.text {
+  font-weight: 400;
+  padding-top: 30px;
+  font-size: 40px;
+}
+
+.mark {
+  margin-left: 8%;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 23px;
+  text-align: justify;
+}

@@ -12,6 +12,7 @@ import History from "../components/History/History";
 import PartnerForm from "../components/Form/";
 
 import NewsProduction from "../components/NewsProduction";
+import Calendar from "../components/Calendar";
 
 const MainPage: FC = () => {
   const localTheme = window.localStorage.getItem("theme");
@@ -37,6 +38,7 @@ const MainPage: FC = () => {
         <Header />
         <div className={styles.content}>
           <History />
+          <Calendar />
           <Partnership />
           <PartnerForm />
           <Looking />
