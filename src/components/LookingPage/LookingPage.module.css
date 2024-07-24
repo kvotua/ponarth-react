@@ -1,48 +1,12 @@
-.poisk {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  height: auto;
-  width: auto;
-  margin: 23% 5% 0 5%;
-}
-@media screen and (max-width: 600px) {
-  .poisk {
-    margin: 50px 5% 0 5%;
-  }
-}
-.text_five {
-  display: flex;
-  text-align: left;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  min-height: 400px;
-  transition: opacity 2s ease-in-out, transform 1s ease-in-out;
+.div_text {
+  margin: 23% 10% 0 10%;
+  border-bottom: 2px solid #d3d3d3;
+  color: #000000;
 }
 
-.text {
-  transition: opacity 2s ease-in-out, transform 1s ease-in-out;
-  color: #030303;
+.texter_six {
+  font-family: Roboto;
   font-size: 40px;
   font-weight: 400;
-  font-family: "Roboto";
   line-height: 62px;
-  font-weight: normal;
-  text-align: center;
-}
-
-.man {
-  width: 100%;
-  height: 100%;
-  background-image: url(./src/assets/bREWING.png);
-  background-repeat: no-repeat;
-  border-radius: 5px;
-  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .man {
-    animation: appear cubic-bezier(0.42, 0, 0, 1.51);
-    animation-timeline: view();
-  }
 }
