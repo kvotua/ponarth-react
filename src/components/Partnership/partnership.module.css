@@ -1,10 +1,11 @@
 .texter {
-  margin: 10%;
+  margin: 8%;
   border-bottom: 2px solid #d3d3d3;
 }
 
 .text {
   font-weight: 400;
+  padding-top: 30px;
 }
 
 .grid_container {
