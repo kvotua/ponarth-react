@@ -98,7 +98,6 @@ grid-template-rows: repeat(2, calc(var(--double-screen-height) /2));
 }
 
 .hoverable {
-  
   color: #ffffffc8;
   text-align: center;
   font-size: 40px;

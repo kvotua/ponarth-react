@@ -69,6 +69,7 @@ const PartnerForm = () => {
                       name="userName"
                       placeholder=" "
                       required
+                      autoComplete="off"
                     />
                     <label htmlFor="userName">Ваше имя</label>
                   </div>
@@ -82,6 +83,7 @@ const PartnerForm = () => {
                       name="phoneNumber"
                       placeholder=" "
                       required
+                      autoComplete="off"
                     />
                     <label htmlFor="phoneNumber">Ваш номер телефона</label>
                   </div>
