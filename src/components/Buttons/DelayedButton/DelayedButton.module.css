@@ -81,3 +81,8 @@ button:hover .button_text {
 .button_text {
   color: white !important;
 }
+@media screen and (max-width: 600px){
+  button .circle{
+    width: 100% !important;
+  }
+}
