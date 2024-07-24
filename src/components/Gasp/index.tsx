@@ -190,12 +190,14 @@ function Gasp() {
           </button>
         </div>
         <div className={styles.text}>
-          <h1 className={`${styles.h1} ${styles.left}`} id="h1" style={{ fontSize: currentIndex === 2 ? 200 : 280, paddingRight: currentIndex === 2 ? 900 : 850 }}>
-            Пшен
-          </h1>
-          <h1 className={`${styles.h1} ${styles.right}`} id="h2" style={{ fontSize: currentIndex === 2 ? 200 : 280, paddingLeft: currentIndex === 2 ? 800 : 850 }}>
-            ичное
-          </h1>
+          <div className={styles.headers}>
+            <h1 className={`${styles.h1} ${styles.left}`} id="h1">
+              Пшен
+            </h1>
+            <h1 className={`${styles.h1} ${styles.right}`} id="h2">
+              ичное
+            </h1>
+          </div>
 
           <div className={styles.cane_image}>
             <img src={beercan} alt="" className={styles.can} />
