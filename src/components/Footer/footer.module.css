@@ -12,8 +12,16 @@ footer {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  transition: 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out, color 0.1s ease-in-out;
   color: #000;
+  line-height: 1.5;
+  position: relative;
+}
+
+.footerButton:hover {
+  color: rgb(157, 20, 20);
+  transform: scale(1.05);
+  transform-origin: center; /* Устанавливает центр масштабирования */
 }
 
 .logo_footer {
