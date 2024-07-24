@@ -7,9 +7,7 @@ const Header = () => {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <header
-      className={`${styles.header} ${theme === "dark" ? styles.dark : ""}`}
-    >
+    <header className={theme === "dark" ? styles.dark : ""}>
       <div className={styles.all_menu}>
         <img
           className={`${styles.logo} ${theme === "dark" ? styles.dark : ""}`}

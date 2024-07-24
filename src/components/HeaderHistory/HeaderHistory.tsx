@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState, createContext, useContext } from "react";
-import styles from "./headerHistory.module.scss";
+import { useEffect, useRef, useState, createContext, useContext } from 'react';
+import styles from './headerHistory.module.scss';
 import Ponarth_Logo from "../../assets/Ponarth_firmenny_blok_01.svg";
 
 export const ThemeContext = createContext({
@@ -11,12 +11,8 @@ function HeaderHistory() {
   const headerRef = useRef<HTMLDivElement>(null);
   const openMenuButtonRef = useRef<HTMLButtonElement>(null);
   const { theme, toggleTheme } = useContext(ThemeContext);
-  const [isDarkTheme, setIsDarkTheme] = useState(theme === "dark");
-  const audioRef = useRef<HTMLAudioElement>(
-    new Audio(
-      "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3"
-    )
-  );
+  const [isDarkTheme, setIsDarkTheme] = useState(theme === 'dark');
+  const audioRef = useRef<HTMLAudioElement>(new Audio("https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3"));
   const timelineRef = useRef<HTMLDivElement>(null);
   const volumeSliderRef = useRef<HTMLDivElement>(null);
 
@@ -31,15 +27,13 @@ function HeaderHistory() {
   };
 
   useEffect(() => {
-    const volumePercentage = volumeSliderRef.current?.querySelector(
-      `.${styles.volumePercentage}`
-    ) as HTMLElement;
+    const volumePercentage = volumeSliderRef.current?.querySelector(`.${styles.volumePercentage}`) as HTMLElement;
     if (volumePercentage) {
       volumePercentage.style.width = `${volume * 100}%`;
     }
   }, [volume]);
   useEffect(() => {
-    document.body.classList.toggle("dark-theme", isDarkTheme);
+    document.body.classList.toggle('dark-theme', isDarkTheme);
   }, [isDarkTheme]);
   const togglePlayPause = () => {
     const audio = audioRef.current;
@@ -51,9 +45,7 @@ function HeaderHistory() {
     setIsPlaying(!isPlaying);
   };
 
-  const handleTimelineClick = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
+  const handleTimelineClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (timelineRef.current) {
       const timelineWidth = timelineRef.current.offsetWidth;
       const clickPosition = e.nativeEvent.offsetX;
@@ -63,9 +55,7 @@ function HeaderHistory() {
     }
   };
 
-  const handleVolumeClick = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
+  const handleVolumeClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const slider = volumeSliderRef.current as HTMLElement;
     if (!slider) return;
 
@@ -74,9 +64,7 @@ function HeaderHistory() {
     if (newVolume >= 0 && newVolume <= 1) {
       audioRef.current.volume = newVolume;
       setVolume(newVolume);
-      const volumePercentage = slider.querySelector(
-        `.${styles.volumePercentage}`
-      ) as HTMLElement;
+      const volumePercentage = slider.querySelector(`.${styles.volumePercentage}`) as HTMLElement;
       if (volumePercentage) {
         volumePercentage.style.width = `${newVolume * 100}%`;
       }
@@ -96,11 +84,8 @@ function HeaderHistory() {
     const hours = parseInt((minutes / 60).toString(), 10);
     minutes -= hours * 60;
 
-    if (hours === 0)
-      return `${minutes}:${String(seconds % 60).padStart(2, "0")}`;
-    return `${String(hours).padStart(2, "0")}:${minutes}:${String(
-      seconds % 60
-    ).padStart(2, "0")}`;
+    if (hours === 0) return `${minutes}:${String(seconds % 60).padStart(2, '0')}`;
+    return `${String(hours).padStart(2, '0')}:${minutes}:${String(seconds % 60).padStart(2, '0')}`;
   };
 
   useEffect(() => {
@@ -125,35 +110,29 @@ function HeaderHistory() {
 
     const handleLinkClick = (event: MouseEvent) => {
       event.preventDefault();
-      const targetId = (event.currentTarget as HTMLAnchorElement).getAttribute(
-        "href"
-      );
+      const targetId = (event.currentTarget as HTMLAnchorElement).getAttribute('href');
       const targetElement = targetId ? document.querySelector(targetId) : null;
 
       if (targetElement) {
         targetElement.scrollIntoView({
-          behavior: "smooth",
+          behavior: 'smooth'
         });
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    openMenuButton.addEventListener("click", handleMenuClick);
+    window.addEventListener('scroll', handleScroll);
+    openMenuButton.addEventListener('click', handleMenuClick);
 
     const links = document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]');
-    links.forEach((link) => {
-      link.addEventListener("click", (event) =>
-        handleLinkClick(event as unknown as MouseEvent)
-      );
+    links.forEach(link => {
+      link.addEventListener('click', (event) => handleLinkClick(event as unknown as MouseEvent));
     });
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      openMenuButton.removeEventListener("click", handleMenuClick);
-      links.forEach((link) => {
-        link.removeEventListener("click", (event) =>
-          handleLinkClick(event as unknown as MouseEvent)
-        );
+      window.removeEventListener('scroll', handleScroll);
+      openMenuButton.removeEventListener('click', handleMenuClick);
+      links.forEach(link => {
+        link.removeEventListener('click', (event) => handleLinkClick(event as unknown as MouseEvent));
       });
     };
   }, []);
@@ -173,12 +152,12 @@ function HeaderHistory() {
       }
     };
 
-    audio.addEventListener("timeupdate", updateTime);
-    audio.addEventListener("timeupdate", updateProgressColor);
+    audio.addEventListener('timeupdate', updateTime);
+    audio.addEventListener('timeupdate', updateProgressColor);
 
     return () => {
-      audio.removeEventListener("timeupdate", updateTime);
-      audio.removeEventListener("timeupdate", updateProgressColor);
+      audio.removeEventListener('timeupdate', updateTime);
+      audio.removeEventListener('timeupdate', updateProgressColor);
     };
   }, [currentTime, duration]);
 
@@ -188,63 +167,38 @@ function HeaderHistory() {
         <img src={Ponarth_Logo} alt="Ponarth Logo" />
       </a>
       <nav>
+        <div className={styles.social}>
+          <a href="https://untappd.com/b/brauerei-ponarth-pivovarnya-ponart-pshenichnoe/2206518" target="_blank">
+            <div className={styles.social_circle1}></div>
+          </a>
+          <a href="https://vk.com/ponarth" target="_blank">
+            <div className={styles.social_circle2}></div>
+          </a>
+          <a href="https://t.me/ponarth_1849" target="_blank">
+            <div className={styles.social_circle3}></div>
+          </a>
+        </div>
         <div className={styles.audio_and_theme}>
-          <div className={styles.social}>
-            <a
-              href="https://untappd.com/b/brauerei-ponarth-pivovarnya-ponart-pshenichnoe/2206518"
-              target="_blank"
-            >
-              <div className={styles.social_circle1}></div>
-            </a>
-            <a href="https://vk.com/ponarth" target="_blank">
-              <div className={styles.social_circle2}></div>
-            </a>
-            <a href="https://t.me/ponarth_1849" target="_blank">
-              <div className={styles.social_circle3}></div>
-            </a>
-          </div>
           <a>
             <div className={styles.audioPlayer}>
-              <div
-                className={styles.timeline}
-                ref={timelineRef}
-                onClick={handleTimelineClick}
-              >
+              <div className={styles.timeline} ref={timelineRef} onClick={handleTimelineClick}>
                 {/* Background will change based on the current time */}
               </div>
               <div className={styles.controls}>
                 <div className={styles.playContainer} onClick={togglePlayPause}>
-                  <div
-                    className={`${styles.togglePlay} ${
-                      isPlaying ? styles.togglePlayPause : styles.togglePlayPlay
-                    }`}
-                  ></div>
+                  <div className={`${styles.togglePlay} ${isPlaying ? styles.togglePlayPause : styles.togglePlayPlay}`}></div>
                 </div>
                 <div className={styles.time}>
-                  <div className={styles.current}>
-                    {getTimeCodeFromNum(currentTime)}
-                  </div>
+                  <div className={styles.current}>{getTimeCodeFromNum(currentTime)}</div>
                   <div className={styles.divider}>/</div>
-                  <div className={styles.length}>
-                    {getTimeCodeFromNum(duration)}
-                  </div>
+                  <div className={styles.length}>{getTimeCodeFromNum(duration)}</div>
                 </div>
                 <div className={styles.name}>Music Song</div>
                 <div className={styles.volumeContainer}>
                   <div className={styles.volumeButton} onClick={toggleMute}>
-                    <div
-                      className={`${styles.volume} ${
-                        isMuted
-                          ? styles.iconoVolumeMute
-                          : styles.iconoVolumeMedium
-                      }`}
-                    ></div>
+                    <div className={`${styles.volume} ${isMuted ? styles.iconoVolumeMute : styles.iconoVolumeMedium}`}></div>
                   </div>
-                  <div
-                    className={styles.volumeSlider}
-                    ref={volumeSliderRef}
-                    onClick={handleVolumeClick}
-                  >
+                  <div className={styles.volumeSlider} ref={volumeSliderRef} onClick={handleVolumeClick}>
                     <div className={styles.volumePercentage}></div>
                   </div>
                 </div>
@@ -252,21 +206,18 @@ function HeaderHistory() {
             </div>
           </a>
           <a>
-            <input
-              id="themeToggle"
-              type="checkbox"
-              role="switch"
-              className={styles.toggle}
-              checked={isDarkTheme}
-              onChange={handleThemeToggle}
-            />
+          <input
+      id="themeToggle"
+      type="checkbox"
+      role="switch"
+      className={styles.toggle}
+      checked={isDarkTheme}
+      onChange={handleThemeToggle}
+/>
+
           </a>
         </div>
-        <button
-          id="openmenu"
-          ref={openMenuButtonRef}
-          className={styles.openmenu}
-        >
+        <button id="openmenu" ref={openMenuButtonRef} className={styles.openmenu}>
           <span></span>
           <span></span>
         </button>
