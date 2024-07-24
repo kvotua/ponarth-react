@@ -114,18 +114,30 @@ footer {
 
 @media screen and (max-width: 600px) {
 
+  * {
+    overflow-x: hidden;
+  }
+
+  footer {
+    height: 500px;
+  }
+
   .logo_footer {
-    height: 140px;
-    margin-bottom: 20px;
+    height: 160px;
+    margin-bottom: 40px;
   }
 
   .info_footer {
-    height: 140px;
+    height: 250px;
+
+    a {
+      overflow: hidden;
+    }
   }
 
   .practice {
-    margin-top: -20px;
     height: 140px;
     overflow: hidden;
+    margin-top: -5px;
   }
 }
