@@ -79,9 +79,8 @@ const ContentHistory = () => {
       ТУТ КАЛЕНДАРЬ
       <div className={styles.golovok}>
         <h1 className={styles.text_golovok}>
-          САМАЯ БОЛЬШАЯ <br /> ПИВОВАРНЯ В <br />
-          ВОСТОЧНОЙ <br />
-          ПРУССИИ
+          САМАЯ БОЛЬШАЯ ПИВОВАРНЯ В <br />
+          ВОСТОЧНОЙ ПРУССИИ
         </h1>
       </div>
       <BeforeAfter />
@@ -294,10 +293,8 @@ const ContentHistory = () => {
       </div>
       <div className={styles.golovok}>
         <h1 className={styles.text_golovok}>
-          СОХРАНЯЯ <br />
-          СТАРИННЫЕ <br />
-          ТРАДИЦИИ <br />
-          ПИВОВАРЕНИЯ
+          СОХРАНЯЯ СТАРИННЫЕ <br />
+          ТРАДИЦИИ ПИВОВАРЕНИЯ
         </h1>
       </div>
       ТУТ СЛАЙДЕР
