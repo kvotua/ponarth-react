@@ -9,6 +9,13 @@ const Partnership = () => {
   const ref2 = useRef(null);
   const ref3 = useRef(null);
 
+  const [isVisibleImage1, setIsVisibleImage1] = useState(false);
+  const [isVisibleImage2, setIsVisibleImage2] = useState(false);
+  const [isVisibleImage3, setIsVisibleImage3] = useState(false);
+  const refImage1 = useRef(null);
+  const refImage2 = useRef(null);
+  const refImage3 = useRef(null);
+
   useEffect(() => {
     const observer1 = new IntersectionObserver(
       ([entry]) => {
@@ -42,6 +49,39 @@ const Partnership = () => {
         threshold: 0.1,
       }
     );
+    
+    const observerImage1 = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisibleImage1(entry.isIntersecting);
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+      }
+    );
+
+    const observerImage2 = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisibleImage2(entry.isIntersecting);
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+      }
+    );
+
+    const observerImage3 = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisibleImage3(entry.isIntersecting);
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+      }
+    );
 
     if (ref1.current) {
       observer1.observe(ref1.current);
@@ -53,6 +93,18 @@ const Partnership = () => {
 
     if (ref3.current) {
       observer3.observe(ref3.current);
+    }
+
+    if (refImage1.current) {
+      observerImage1.observe(refImage1.current);
+    }
+
+    if (refImage2.current) {
+      observerImage2.observe(refImage2.current);
+    }
+
+    if (refImage3.current) {
+      observerImage3.observe(refImage3.current);
     }
 
     return () => {
@@ -67,6 +119,18 @@ const Partnership = () => {
       if (ref3.current) {
         observer3.unobserve(ref3.current);
       }
+
+      if (refImage1.current) {
+        observerImage1.unobserve(refImage1.current);
+      }
+
+      if (refImage2.current) {
+        observerImage2.unobserve(refImage2.current);
+      }
+
+      if (refImage3.current) {
+        observerImage3.unobserve(refImage3.current);
+      }
     };
   }, []);
 
@@ -80,7 +144,7 @@ const Partnership = () => {
       </div>
       <div className={styles.grid_container}>
         <div className={styles.grid_item_left}>
-          <div className={styles.txt_four_page} ref={ref1}>
+          <div className={`${styles.txt_four_page} ${ isVisible1 ? styles.fadeIn : "" }`} ref={ref1}>
             <h1
               className={`${styles.big_text_four_page} ${
                 isVisible1 ? styles.fadeIn : ""
@@ -95,7 +159,7 @@ const Partnership = () => {
           </div>
         </div>
         <div className={styles.grid_item_right}>
-          <div className={styles.kartinka1}>
+          <div className={`${styles.kartinka1} ${ isVisibleImage1 ? styles.fadeIn : "" }`} ref={refImage1}>
             <img
               className={styles.img_four_end}
               src="./src\assets\Image.png"
@@ -105,7 +169,7 @@ const Partnership = () => {
         </div>
 
         <div className={styles.grid_item_left}>
-          <div className={styles.kartinka1}>
+          <div className={`${styles.kartinka1} ${ isVisibleImage2 ? styles.fadeIn : "" }`} ref={refImage2}>
             <img
               className={styles.img_four_end}
               src="./src\assets\Pivo2.png"
@@ -115,7 +179,7 @@ const Partnership = () => {
         </div>
 
         <div className={styles.grid_item_right}>
-          <div className={styles.txt_four} ref={ref2}>
+          <div className={`${styles.txt_four_page} ${ isVisible2 ? styles.fadeIn : "" }`} ref={ref2}>
             <h1
               className={`${styles.big_text_four_right} ${
                 isVisible2 ? styles.fadeIn : ""
@@ -131,7 +195,7 @@ const Partnership = () => {
         </div>
 
         <div className={styles.grid_item_left}>
-          <div className={styles.txt_four_page} ref={ref3}>
+          <div className={`${styles.txt_four_page} ${ isVisible3 ? styles.fadeIn : "" }`} ref={ref3}>
             <h1
               className={`${styles.big_text_four_page} ${
                 isVisible3 ? styles.fadeIn : ""
@@ -147,7 +211,7 @@ const Partnership = () => {
         </div>
 
         <div className={styles.grid_item_right}>
-          <div className={styles.kartinka1}>
+          <div className={`${styles.kartinka1} ${ isVisibleImage3 ? styles.fadeIn : "" }`} ref={refImage3}>
             <img
               className={styles.img_four_end}
               src="./src\assets\Pivo3.png"
