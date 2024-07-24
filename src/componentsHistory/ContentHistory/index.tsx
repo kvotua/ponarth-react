@@ -173,26 +173,28 @@ const ContentHistory = () => {
       </div>
       <img src={street} alt="" />
       <div className={styles.info}>
-        <h2 className={styles.text}>
-          Для рекламы продукции на территории зоопарка существовал специальный
-          павильон, кроме того, было открыто торговое заведение типа закусочной
-          на территории пивоварни, существовала небольшая сеть собственных баров
-          на территории Кёнигсберга
-        </h2>
-        <img className={styles.info_img} src={alcashMark} alt="" />
-        <img className={styles.info_img} src={promo} alt="" />
+        <div className={styles.grid}>
+          <h2 className={`${styles.text} ${styles.grid1}`}>
+            Для рекламы продукции на территории зоопарка существовал специальный
+            павильон, кроме того, было открыто торговое заведение типа закусочной
+            на территории пивоварни, существовала небольшая сеть собственных баров
+            на территории Кёнигсберга
+          </h2>
+          <img className={`${styles.info_img} ${styles.grid2}`} src={alcashMark} alt="" />
 
-        <h2 className={styles.text}>
-          Реклама Мартовского пива Оно славилось в северо-восточной Германии и
-          вывозилось в огромных объемах
-        </h2>
-        <h2 className={styles.text}>
-          Для собственной розничной торговли недалеко от пивоварни был
-          оборудован кабачок «Gambrinus-Halle». Потребление все увеличивалось, и
-          уже было трудно справиться со всеми заказами. Так появился план
-          перенести производство за город.
-        </h2>
-        <img className={styles.info_img} src={myjick} alt="" />
+          <img className={`${styles.info_img} ${styles.grid3}`} src={promo} alt="" />
+          <h2 className={`${styles.text} ${styles.grid4}`}>
+            Реклама Мартовского пива Оно славилось в северо-восточной Германии и
+            вывозилось в огромных объемах
+          </h2>
+          <h2 className={`${styles.text} ${styles.grid5}`}>
+            Для собственной розничной торговли недалеко от пивоварни был
+            оборудован кабачок «Gambrinus-Halle». Потребление все увеличивалось, и
+            уже было трудно справиться со всеми заказами. Так появился план
+            перенести производство за город.
+          </h2>
+          <img className={`${styles.info_img} ${styles.grid6}`} src={myjick} alt="" />
+        </div>
       </div>
       <div className={stylesText.back_img + " " + stylesText.bottle}>
         <h2 className={stylesText.stickytext}>
