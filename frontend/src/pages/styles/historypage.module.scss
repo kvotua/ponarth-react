@@ -1,0 +1,17 @@
+.historyPage {
+    transition: 1s all ease-in-out;
+    background-color: rgb(249, 249, 249);
+}
+
+.pageContent {
+    transition: 1s all ease-in-out;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.pageContent {
+    &.menuopen {
+		opacity: .6;
+		filter: blur(20px);
+	}
+}

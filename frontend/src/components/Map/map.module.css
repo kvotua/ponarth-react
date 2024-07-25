@@ -1,0 +1,55 @@
+.map_container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+
+  margin-bottom: 5%;
+  border-radius: 10px;
+}
+.map_pin {
+  width: 30px;
+  height: 30px;
+}
+.div_text {
+  margin: 10%;
+  border-bottom: 2px solid #d3d3d3;
+  color: #000000;
+}
+
+.texter_six {
+  font-family: Roboto;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 62px;
+  padding-top: 30px;
+}
+.map,
+.map_overlay {
+  border-radius: 10px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 100%;
+}
+
+.map {
+  background: url("path_to_your_image.jpg") no-repeat center center;
+  z-index: 5;
+}
+
+.map_overlay {
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 70%),
+    rgba(0, 0, 0, 0.7);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.map-container.active .map_overlay {
+  display: none;
+}
