@@ -2,7 +2,7 @@ import styles from "./Form.module.css";
 import video from "../../assets/final.mp4";
 import { useEffect, useState, useRef, FormEvent } from "react";
 import DelayedButton from "../Buttons/DelayedButton";
-
+import InputMask from 'react-input-mask';
 const PartnerForm = () => {
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef(null);
@@ -52,7 +52,7 @@ const PartnerForm = () => {
                 Две гостевые бочки пива <br />
                 каждому новому партнеру <br />
                <div style={{fontSize: '1rem', paddingBottom:'1%'}}> от </div>
-               <div style={{fontSize: '3rem'}}> PONARTH </div>
+               <div style={{fontSize: '3rem', paddingTop:'1%'}}> PONARTH </div>
               </h1>
 
               <div className={styles.form_four}>
@@ -75,16 +75,15 @@ const PartnerForm = () => {
                   </div>
 
                   <div className={styles.form_group}>
-                    <input
-                      className={styles.input}
-                      type="tel"
+                  <InputMask
+                    className={styles.input}
+                     name="phoneNumber"
+                    mask="+7 ( 999 ) 999 - 9999"
                       id="phoneNumber"
-                      maxLength={11}
-                      name="phoneNumber"
                       placeholder=" "
                       required
                       autoComplete="off"
-                    />
+                      ></InputMask>
                     <label htmlFor="phoneNumber">Ваш номер телефона</label>
                   </div>
 

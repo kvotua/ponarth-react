@@ -81,4 +81,11 @@
     color: rgb(255, 255, 255);
     transition: color 0.5s ease-in-out;
   }
-  
+  @media screen and (max-width: 600px){
+    button .circle{
+      width: 100% !important;
+    }
+    button .button_text{
+      color: white !important;
+    }
+  }
