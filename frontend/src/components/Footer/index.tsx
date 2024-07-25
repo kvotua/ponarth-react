@@ -60,7 +60,7 @@ const Footer: FC = () => {
             Экскурсии
           </a>
         </div>
-        <div className={styles.practice}>
+        <div className={styles.practice_logo}>
           <a href="https://t.me/worldofpractice" target="_blank">
             <img
               className={styles.practice}
