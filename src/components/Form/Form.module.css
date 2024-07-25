@@ -2,16 +2,19 @@ video {
   position: absolute;
   left: 0;
   margin: 0 auto;
-  height: 834px;
+  height: 900px;
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 1;
   width: 100%;
+  object-fit: cover;
+  clip-path: inset(13% 0 13% 0);
 }
 
 .container2 {
   height: 700px;
   width: 100%;
+  overflow: hidden;
 }
 .form_grid_container{
   padding-top: 7%;
