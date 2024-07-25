@@ -5,8 +5,13 @@ import cors from 'cors';
 const app = express();
 const port = 3002;
 
-app.use(express.json());
 app.use(cors());
+app.use((req, res, next) => {
+  res.setHeader("Content-Security-Policy", "connect-src 'self' http://localhost:3002 https:");
+  next();
+});
+
+app.use(express.json());
 
 app.get('/api/posts', async (req, res) => {
   try {
