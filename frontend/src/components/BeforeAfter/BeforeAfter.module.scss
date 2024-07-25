@@ -1,0 +1,143 @@
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.firstimg {
+    height: 925px;
+}
+
+.papawrapper {
+    position: relative;
+    width: 100%;
+}
+
+.childwrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1440px;
+    height: 925px;
+    aspect-ratio: 14.2 / 7.5;
+    margin: auto;
+    overflow: hidden;
+    user-select: none;
+}
+
+.secondimgwrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 1440px;
+    margin: auto;
+    overflow: hidden;
+    user-select: none;
+}
+
+.movableshit {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background-color: #fff;
+    cursor: ew-resize;
+}
+
+.pointer {
+    background-color: #fff;
+    position: absolute;
+    border-radius: 0.25rem;
+    height: 1.5rem;
+    width: 0.75rem;
+    left: -0.275rem;
+    top: calc((100% / 2) - 0.625rem);
+}
+
+// под мобилки
+
+@media screen and (max-width:600px) {
+    .movableshit {
+        width: 2px;
+    }
+
+    .pointer {
+        width: 0.4rem;
+        height: 1rem;
+        left: -0.1375rem;
+    }
+
+    .childwrapper {
+        height: 250px;
+    }
+
+
+    img {
+        width: 100%;
+        height: 250px;
+    }
+
+    .firstimg {
+        height: auto;
+    }
+
+    .firstimg {
+        height: 262px !important;
+    }
+
+    .secondimg {
+        height: 262px !important;
+    }
+
+    .childwrapper {
+        height: 262px;
+    }
+
+    .papawrapper {
+        height: 262px;
+    }
+}
+
+// под айпады
+
+@media screen and (min-width: 768px) and (max-width: 1024px) and (min-height: 1024px) and (max-height:1368px) {
+    .pointer {
+        width: 0.65rem;
+        height: 1rem;
+        left: -0.1425rem;
+    }
+
+    .childwrapper {
+        height: 600px;
+    }
+
+    .firstimg {
+        height: 529px;
+    }
+
+    .secondimg {
+        height: 529px;
+    }
+}
+
+// я хз что такое Nest Hub и Next Hub Max,но это под них
+
+@media screen and (min-width: 1024px) and (max-width: 1280px) and (min-height: 600px) and (max-height: 800px) {
+    .pointer {
+        width: 0.65rem;
+        height: 1rem;
+        left: -0.1425rem;
+    }
+
+    .childwrapper {
+        height: 600px;
+    }
+
+    .firstimg {
+        height: 600px;
+    }
+
+    .secondimg {
+        height: 600px;
+    }
+}
