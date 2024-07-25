@@ -1,0 +1,11 @@
+{
+  "name": "ponarth-proxy",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "axios": "^1.7.2",
+    "express": "^4.19.2"
+  }
+}
