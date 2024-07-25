@@ -13,6 +13,12 @@
   box-shadow: 0px 4px 12px 5px rgba(0, 0, 0, 0.13);
 }
 
+.react-calendar__navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .react-calendar__navigation span {
   font-size: 17px;
   color: #000000;

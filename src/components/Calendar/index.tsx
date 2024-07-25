@@ -37,10 +37,20 @@ const CalendarComp: React.FC = () => {
         onChange={onChange}
         value={date}
         locale="ru-RU"
-        formatMonthYear={(locale, date) =>
-          format(date, "LLLL yyyy", { locale: ru })
+        formatMonthYear={(_, date) =>
+          format(date, "dd.MM.yyyy", { locale: ru })
         }
         tileDisabled={tileDisabled}
+        navigationLabel={({ view, label }) => {
+          if (view === "month") {
+            return (
+              <span className="react-calendar__navigation__label">{label}</span>
+            );
+          }
+          return null;
+        }}
+        prev2Label={null} // Убираем стрелку для предыдущего года
+        next2Label={null} // Убираем стрелку для следующего года
       />
     </>
   );
