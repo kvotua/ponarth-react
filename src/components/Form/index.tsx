@@ -52,7 +52,7 @@ const PartnerForm = () => {
                 Две гостевые бочки пива <br />
                 каждому новому партнеру <br />
                <div style={{fontSize: '1rem', paddingBottom:'1%'}}> от </div>
-               <div style={{fontSize: '3rem'}}> PONARTH </div>
+               <div style={{fontSize: '3rem', paddingTop:'1%'}}> PONARTH </div>
               </h1>
 
               <div className={styles.form_four}>
