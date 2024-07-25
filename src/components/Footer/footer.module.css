@@ -122,9 +122,9 @@ footer {
 
 @media screen and (max-width: 600px) {
 
-  * {
+  /* * {
     overflow-x: hidden;
-  }
+  } */
 
   footer {
     height: 600px;

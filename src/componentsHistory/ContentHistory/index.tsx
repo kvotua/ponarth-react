@@ -27,7 +27,7 @@ const ContentHistory = () => {
     <>
       <div className={stylesKartinka.content}>
         <div className={styles.text}>
-          <h2>
+          <h2 className={styles.texth2}>
             Крупнейшей пивоваренной компанией в довоенной Восточной Пруссии был
             кёнигсбергский пивзавод «Понарт», основанный Иоганном Филиппом
             Шиффердеккером 15 ноября 1839 года. Понарт - это прусская деревушка,
@@ -40,7 +40,7 @@ const ContentHistory = () => {
       ></div>
       <div className={stylesKartinka.content}>
         <div className={styles.text}>
-          <h2>
+          <h2 className={styles.texth2}>
             После военного конфликта с Польшей, угрозы со стороны шведов и
             вторжения французов, кажется, неприятности оставили деревню. В 1849
             году в Понарт переместилась пивоварня Филиппа Шифердеккера, что
@@ -54,7 +54,7 @@ const ContentHistory = () => {
       ></div>
       <div className={stylesKartinka.content}>
         <div className={styles.text}>
-          <h2>
+          <h2 className={styles.texth2}>
             Население Понарта к 1900 году достигло 8000 человек. В 1905 году
             Понарт объединился с Кенигсбергом. Прекрасный пруд Шванен
             (Лебединый, а ныне Летний), ресторан Зюд-парк дополняли картину в
@@ -66,11 +66,11 @@ const ContentHistory = () => {
         className={stylesKartinka.parallax + " " + stylesKartinka.panorama}
       ></div>
       <div className={styles.img_grid}>
-        <img src={negor} alt="" />
-        <img src={tovZnak} alt="" />
+        <img src={negor} alt="" className={styles.historyimg}/>
+        <img src={tovZnak} alt="" className={styles.historyimg} />
       </div>
       <div className={styles.golovok}>
-        <h1 className={styles.text_golovok}>
+        <h1 className={`${styles.text_golovok} ${styles.texth1}`}>
           УЛОЧКИ ПОНАРТА <br />
           НАЧАЛО XX ВЕКА
         </h1>
@@ -78,7 +78,7 @@ const ContentHistory = () => {
       ТУТ СЛАЙДЕР <br />
       ТУТ КАЛЕНДАРЬ
       <div className={styles.golovok}>
-        <h1 className={styles.text_golovok}>
+        <h1 className={`${styles.text_golovok} ${styles.texth1}`}>
           САМАЯ БОЛЬШАЯ <br /> ПИВОВАРНЯ В <br />
           ВОСТОЧНОЙ <br />
           ПРУССИИ
@@ -87,7 +87,7 @@ const ContentHistory = () => {
       <BeforeAfter />
       <div className={stylesKartinka.content}>
         <div className={styles.text}>
-          <h2>
+          <h2 className={styles.texth2}>
             Сам Шиффердеккер происходил из старого рода, зaнимавшегося
             пивоварением с XII века, ведущего свою историю из города Мосбаха в
             Баварии. Его дядя с 1804 года работал в кенигсбергской винной фирме
@@ -101,14 +101,14 @@ const ContentHistory = () => {
         </div>
       </div>
       <div className={stylesText.back_img + " " + stylesText.iogan}>
-        <h2 className={stylesText.stickytext}>
+        <h2 className={`${stylesText.stickytext} ${styles.texth2}`}>
           В 28 лет Иоган уже был солидным владельцем пивоварни. Очень скоро
           подвалы в Лёбенихте стали слишком тесны, и с 1842 года были арендованы
           просторные подвалы под Замковой кирхой.
         </h2>
       </div>
       <div className={styles.text}>
-        <h2>
+        <h2 className={styles.texth2}>
           2 августа 1849 года в имении Понарт Шиффердеккер приобрел большой
           участок в 260 моргенов земли за 15 тысяч талеров, и сразу же началось
           строительство подвалов. Вскоре была построена пивоварня, отвечающая
@@ -117,11 +117,11 @@ const ContentHistory = () => {
           Hubertusteich (сейчас – озера Пеньковое и Лебяжье).
         </h2>
       </div>
-      <img src={ozero1} alt="" />
+      <img src={ozero1} alt="" className={styles.historyimg} />
       <div className={styles.info}>
-        <img className={styles.info_img} src={aduard} alt="" />
+        <img className={`${styles.info_img} ${styles.historyimg}`} src={aduard} alt=""/>
 
-        <h2 className={styles.text}>
+        <h2 className={`${styles.text} ${styles.texth2}`} >
           Поскольку дети основателя пивоварни не желали заниматься пивоварением,
           его брат Эдуард совместно с рядом кёнигсбергских коммерсантов основал
           коммандитное общество «Пивоварня Понарт Э. Шиффедеккер и Ко», которое
@@ -129,7 +129,7 @@ const ContentHistory = () => {
         </h2>
       </div>
       <div className={styles.text}>
-        <h2>
+        <h2 className={styles.texth2}>
           Эдуард Шиффердеккер оставался техническим директором и после того, как
           предприятие 11 ноября 1888 года стало акционерным. Основатель, Иоганн
           Филипп Шиффердеккер, был членом наблюдательного совета вплоть до своей
@@ -137,23 +137,23 @@ const ContentHistory = () => {
         </h2>
       </div>
       <div className={styles.info}>
-        <h2 className={styles.text}>
+        <h2 className={`${styles.text} ${styles.texth2}`}>
           Для устранения дефицита жилья в 1871 году было построено два жилых
           дома общим объёмом в 32 квартиры.
         </h2>
-        <img className={styles.info_img} src={work} alt="" />
+        <img className={`${styles.info_img} ${styles.historyimg}`} src={work} alt="" />
       </div>
       <div className={styles.text}>
-        <h2>
+        <h2 className={styles.texth2}>
           {" "}
           Когда не было больше возможности расширять мощности, практически тот
           же состав владельцев «Понарта» основал «Акционерную пивоварню Шёнбуш»,
           построенную в 1871 году.
         </h2>
       </div>
-      <img src={shonbush} alt="" />
+      <img src={shonbush} alt="" className={styles.historyimg}/>
       <div className={styles.text}>
-        <h2>
+        <h2 className={styles.texth2}>
           {" "}
           Для продажи пива за пределы Восточной Пруссии в 1888 году к заводу
           была проведена железнодорожная ветка к Остбану (Ostbahn – Восточная
@@ -161,50 +161,50 @@ const ContentHistory = () => {
         </h2>
       </div>
       <div className={styles.img_grid}>
-        <img src={vagon} alt="" />
-        <img src={vagon1} alt="" />
+        <img src={vagon} alt="" className={styles.historyimg}/>
+        <img src={vagon1} alt="" className={styles.historyimg}/>
       </div>
       <div className={styles.text}>
-        <h2>
+        <h2 className={styles.texth2}>
           {" "}
           Для реализации пива в Кёнигсберге пользовались специальными повозками
           с маркировкой пивоварни.{" "}
         </h2>
       </div>
-      <img src={street} alt="" />
+      <img src={street} alt="" className={styles.historyimg}/>
       <div className={styles.info}>
         <div className={styles.grid}>
-          <h2 className={`${styles.text} ${styles.grid1}`}>
+          <h2 className={`${styles.text} ${styles.grid1} ${styles.texth2}`}>
             Для рекламы продукции на территории зоопарка существовал специальный
             павильон, кроме того, было открыто торговое заведение типа закусочной
             на территории пивоварни, существовала небольшая сеть собственных баров
             на территории Кёнигсберга
           </h2>
-          <img className={`${styles.info_img} ${styles.grid2}`} src={alcashMark} alt="" />
+          <img className={`${styles.info_img} ${styles.grid2} ${styles.historyimg}`} src={alcashMark} alt="" />
 
-          <img className={`${styles.info_img} ${styles.grid3}`} src={promo} alt="" />
-          <h2 className={`${styles.text} ${styles.grid4}`}>
+          <img className={`${styles.info_img} ${styles.grid3} ${styles.historyimg}`} src={promo} alt="" />
+          <h2 className={`${styles.text} ${styles.grid4} ${styles.texth2}`}>
             Реклама Мартовского пива Оно славилось в северо-восточной Германии и
             вывозилось в огромных объемах
           </h2>
-          <h2 className={`${styles.text} ${styles.grid5}`}>
+          <h2 className={`${styles.text} ${styles.grid5} ${styles.texth2}`}>
             Для собственной розничной торговли недалеко от пивоварни был
             оборудован кабачок «Gambrinus-Halle». Потребление все увеличивалось, и
             уже было трудно справиться со всеми заказами. Так появился план
             перенести производство за город.
           </h2>
-          <img className={`${styles.info_img} ${styles.grid6}`} src={myjick} alt="" />
+          <img className={`${styles.info_img} ${styles.grid6} ${styles.historyimg}`} src={myjick} alt="" />
         </div>
       </div>
       <div className={stylesText.back_img + " " + stylesText.bottle}>
-        <h2 className={stylesText.stickytext}>
+        <h2 className={`${stylesText.stickytext} ${styles.texth2}`}>
           В 28 лет Иоган уже был солидным владельцем пивоварни. Очень скоро
           подвалы в Лёбенихте стали слишком тесны, и с 1842 года были арендованы
           просторные подвалы под Замковой кирхой.
         </h2>
       </div>
       <div className={styles.text}>
-        <h2>
+        <h2 className={styles.texth2}>
           2 августа 1849 года в имении Понарт Шиффердеккер приобрел большой
           участок в 260 моргенов земли за 15 тысяч талеров, и сразу же началось
           строительство подвалов. Вскоре была построена пивоварня, отвечающая
@@ -214,45 +214,45 @@ const ContentHistory = () => {
         </h2>
       </div>
       <div className={styles.info}>
-        <img className={styles.info_img} src={bochka} alt="" />
+        <img className={`${styles.info_img} ${styles.historyimg}`} src={bochka} alt="" />
 
-        <h2 className={styles.text}>
+        <h2 className={`${styles.text} ${styles.texth2}`}>
           В юбилейном 1939 году пивоварня со штатом 500 человек была крупнейшей
           в северо-восточной Германии. В 1906 году в честь основателя знаменитой
           пивоварни в Понарте назвали улицу (сейчас ул. маршала Новикова).
         </h2>
       </div>
       <div className={stylesText.back_img + " " + stylesText.pivKorol}>
-        <h2 className={stylesText.stickytext}>
+        <h2 className={`${stylesText.stickytext} ${styles.texth2}`}>
           В 28 лет Иоган уже был солидным владельцем пивоварни. Очень скоро
           подвалы в Лёбенихте стали слишком тесны, и с 1842 года были арендованы
           просторные подвалы под Замковой кирхой.
         </h2>
       </div>
       <div className={styles.text}>
-        <h2>
+        <h2 className={styles.texth2}>
           Пастор, председатель общины, рабочие железнодорожной мастерской и
           многие другие каждую неделю получали свою восьмую часть тонны пива в
           виде монет номиналом 1 литр
         </h2>
       </div>
-      <img src={money} alt="" />
+      <img src={money} alt="" className={styles.historyimg}/>
       <div className={styles.text}>
-        <h2>
+        <h2 className={styles.texth2}>
           С началом Первой мировой войны оборот значительно снизился. Уже второй
           после 1885 года пожар случился 28 июня 1918 года и нанес колоссальный
           урон, что очень затруднило восстановление.
         </h2>
       </div>
-      <img src={solders} alt="" />
+      <img src={solders} alt="" className={styles.historyimg}/>
       <div className={styles.golovok}>
-        <h1 className={styles.text_golovok}>
+        <h1 className={`${styles.text_golovok} ${styles.texth1}`}>
           НОВЫЕИ ХОЗЯЕВА - <br /> СОВЕТСКИЙ ПЕРИОД
         </h1>
       </div>
-      <img src={ponarth} alt="" />
+      <img src={ponarth} alt="" className={styles.historyimg}/>
       <div className={styles.text}>
-        <h2>
+        <h2 className={styles.texth2}>
           После второй мировой войны город Кёнигсберг включен в состав СССР и
           переименован в Калининград. На территории пивзавода «Понарт» основан
           «Калининградский пивкомбинат №2». , который первые послевоенные годы
@@ -261,33 +261,33 @@ const ContentHistory = () => {
       </div>
       <div className={styles.yaers}>
         <div className={styles.block_yers}>
-          <h3>1954</h3>{" "}
-          <h2>
+          <h3 className={styles.texth3}>1954</h3>{" "}
+          <h2 className={styles.texth2}>
             Производство передано в ведение "Минестрерства промышленности
             продовольственных товаров РСФСР"
           </h2>
         </div>
         <div className={styles.block_yers}>
-          <h3>1988</h3>{" "}
-          <h2>
+          <h3 className={styles.texth3}>1988</h3>{" "}
+          <h2 className={styles.texth2}>
             Производство перешло Производственному объединени ликеро-водочной и
             пивобезалкогольной промышленности
           </h2>
         </div>
         <div className={styles.block_yers}>
-          <h3>1993</h3>{" "}
-          <h2>
+          <h3 className={styles.texth3}>1993</h3>{" "}
+          <h2 className={styles.texth2}>
             После развала СССР завод акционирован как АО "Калининградминводы", а
             позже преобразован в ОАО "Балминводы"
           </h2>
         </div>
         <div className={styles.block_yers}>
-          <h3>1995</h3>{" "}
-          <h2>Зарегистрирована компания ООО "Калининградский пивкомбинат"</h2>
+          <h3 className={styles.texth3}>1995</h3>{" "}
+          <h2 className={styles.texth2}>Зарегистрирована компания ООО "Калининградский пивкомбинат"</h2>
         </div>
       </div>
       <div className={styles.text}>
-        <h2>
+        <h2 className={styles.texth2}>
           После развала Советского Союза производственные мощности переходили из
           рук в руки, при этом производство фактически было остановлено.
           Помещения пивоварни пришли в запустение, что привело к их частичному
@@ -295,7 +295,7 @@ const ContentHistory = () => {
         </h2>
       </div>
       <div className={styles.golovok}>
-        <h1 className={styles.text_golovok}>
+        <h1 className={`${styles.text_golovok} ${styles.texth1}`}>
           СОХРАНЯЯ <br />
           СТАРИННЫЕ <br />
           ТРАДИЦИИ <br />
@@ -304,7 +304,7 @@ const ContentHistory = () => {
       </div>
       ТУТ СЛАЙДЕР
       <div className={styles.text}>
-        <h2>
+        <h2 className={styles.texth2}>
           Новая история Понарта началась с приходом новой команды весной 2010
           года. Молодой энтузиаст и предприниматель из Калининграда -
           Путятинский Ренат Валерьевич, нашел инвесторов и восстановил часть
@@ -322,7 +322,7 @@ const ContentHistory = () => {
         ></iframe>
       </div>
       <div className={styles.text}>
-        <h2>
+        <h2 className={styles.texth2}>
           Сейчас на пивоварне варят пиво по старинной немецкой рецептуре,
           используя пивоваренный солод высокого качества, лучшие сорта хмеля,
           элитные культуры пивных дрожжей и воду из понартовских артезианских
