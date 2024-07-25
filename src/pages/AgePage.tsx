@@ -15,7 +15,7 @@ const AgePage: React.FC<{ setAgeConfirmed: (confirmed: boolean) => void }> = ({
     const ageConfirmedTime = localStorage.getItem("ageConfirmedTime");
     if (
       ageConfirmedTime &&
-      new Date().getTime() - Number(ageConfirmedTime) < 1000
+      new Date().getTime() - Number(ageConfirmedTime) < 24 * 60 * 60 * 1000
     ) {
       setAgeConfirmed(true);
       navigate("/home");
