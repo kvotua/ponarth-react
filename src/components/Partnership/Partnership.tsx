@@ -1,5 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "./partnership.module.css";
+import image1 from "../../assets/Image.png";
+import image2 from "../../assets/Pivo2.png";
+import image3 from "../../assets/Pivo3.png";
 
 const Partnership = () => {
   const [isVisible1, setIsVisible1] = useState(false);
@@ -49,7 +52,7 @@ const Partnership = () => {
         threshold: 0.1,
       }
     );
-    
+
     const observerImage1 = new IntersectionObserver(
       ([entry]) => {
         setIsVisibleImage1(entry.isIntersecting);
@@ -143,8 +146,13 @@ const Partnership = () => {
         </h2>
       </div>
       <div className={styles.grid_container}>
-        <div className={styles.grid_item_left}>
-          <div className={`${styles.txt_four_page} ${ isVisible1 ? styles.fadeIn : "" }`} ref={ref1}>
+        <div className={`${styles.grid_item_left} ${styles.grid_item1}`}>
+          <div
+            className={`${styles.txt_four_page} ${
+              isVisible1 ? styles.fadeIn : ""
+            }`}
+            ref={ref1}
+          >
             <h1
               className={`${styles.big_text_four_page} ${
                 isVisible1 ? styles.fadeIn : ""
@@ -158,28 +166,46 @@ const Partnership = () => {
             </p>
           </div>
         </div>
-        <div className={styles.grid_item_right}>
-          <div className={`${styles.kartinka1} ${ isVisibleImage1 ? styles.fadeIn : "" }`} ref={refImage1}>
+        <div className={`${styles.grid_item_right} ${styles.grid_item2}`}>
+          <div
+            className={`${styles.kartinka1} ${
+              isVisibleImage1 ? styles.fadeIn : ""
+            }`}
+            ref={refImage1}
+          >
             <img
-              className={styles.img_four_end}
-              src="./src\assets\Image.png"
+              className={`${styles.img_four_end} ${
+                isVisibleImage1 ? styles.fadeIn : ""
+              }`}
+              src={image1}
               alt=""
             />
           </div>
         </div>
 
-        <div className={styles.grid_item_left}>
-          <div className={`${styles.kartinka1} ${ isVisibleImage2 ? styles.fadeIn : "" }`} ref={refImage2}>
+        <div className={`${styles.grid_item_left} ${styles.grid_item3}`}>
+          <div
+            className={`${styles.kartinka1} ${
+              isVisibleImage2 ? styles.fadeIn : ""
+            }`}
+            ref={refImage2}
+          >
             <img
-              className={styles.img_four_end}
-              src="./src\assets\Pivo2.png"
+              className={`${styles.img_four_end} ${
+                isVisibleImage2 ? styles.fadeIn : ""
+              }`}
+              src={image2}
               alt=""
             />
           </div>
         </div>
-
-        <div className={styles.grid_item_right}>
-          <div className={`${styles.txt_four_page} ${ isVisible2 ? styles.fadeIn : "" }`} ref={ref2}>
+        <div className={`${styles.grid_item_right} ${styles.grid_item4}`}>
+          <div
+            className={`${styles.txt_four_page} ${
+              isVisible2 ? styles.fadeIn : ""
+            }`}
+            ref={ref2}
+          >
             <h1
               className={`${styles.big_text_four_right} ${
                 isVisible2 ? styles.fadeIn : ""
@@ -194,8 +220,13 @@ const Partnership = () => {
           </div>
         </div>
 
-        <div className={styles.grid_item_left}>
-          <div className={`${styles.txt_four_page} ${ isVisible3 ? styles.fadeIn : "" }`} ref={ref3}>
+        <div className={`${styles.grid_item_left} ${styles.grid_item5}`}>
+          <div
+            className={`${styles.txt_four_page} ${
+              isVisible3 ? styles.fadeIn : ""
+            }`}
+            ref={ref3}
+          >
             <h1
               className={`${styles.big_text_four_page} ${
                 isVisible3 ? styles.fadeIn : ""
@@ -210,11 +241,18 @@ const Partnership = () => {
           </div>
         </div>
 
-        <div className={styles.grid_item_right}>
-          <div className={`${styles.kartinka1} ${ isVisibleImage3 ? styles.fadeIn : "" }`} ref={refImage3}>
+        <div className={`${styles.grid_item_right} ${styles.grid_item6}`}>
+          <div
+            className={`${styles.kartinka1} ${
+              isVisibleImage3 ? styles.fadeIn : ""
+            }`}
+            ref={refImage3}
+          >
             <img
-              className={styles.img_four_end}
-              src="./src\assets\Pivo3.png"
+              className={`${styles.img_four_end} ${
+                isVisibleImage3 ? styles.fadeIn : ""
+              }`}
+              src={image3}
               alt=""
             />
           </div>
