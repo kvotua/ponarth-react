@@ -25,7 +25,11 @@
 .right_menu {
   transition: box-shadow, background-color 1s ease;
 }
-
+@media screen and (max-width: 1060px) {
+  .right_menu{
+    display: none;
+  }
+}
 @media (max-width: 768px) {
   .right_menu {
     display: none;
