@@ -134,6 +134,8 @@
   }
 }
 
+
+
 .header_menu {
   transform: translateY(-10%);
   display: grid;
@@ -141,6 +143,14 @@
   height: auto;
   width: 60%;
   color: rgb(0, 0, 0);
+}
+
+.header_all_menu{
+  
+  width: 100%;
+  height: 50%;
+  margin: 0 auto;
+ 
 }
 
 .all_menu {
