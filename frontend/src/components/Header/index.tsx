@@ -10,6 +10,7 @@ const Header = () => {
     <header
       className={`${styles.header} ${theme === "dark" ? styles.dark : ""}`}
     >
+    <div className={styles.header_all_menu}>
       <div className={styles.all_menu}>
         <img
           className={`${styles.logo} ${theme === "dark" ? styles.dark : ""}`}
@@ -51,6 +52,7 @@ const Header = () => {
           </a>
         </div>
       </div>
+    </div>
     </header>
   );
 };

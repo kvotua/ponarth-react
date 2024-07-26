@@ -32,7 +32,7 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get(`http://localhost:3002/api/posts`);
+        const response = await axios.get(`https://proxy.ponarth.com/api/posts`);
 
         console.log(response.data); // Вывод ответа API в консоль
 
