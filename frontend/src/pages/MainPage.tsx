@@ -28,6 +28,9 @@ const MainPage: FC = () => {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <div className={styles.box_shadow}>
+
+     
       <div
         className={
           styles.wrapper +
@@ -47,6 +50,7 @@ const MainPage: FC = () => {
         <RightBar />
       </div>
       <Footer />
+      </div>
     </ThemeContext.Provider>
   );
 };
