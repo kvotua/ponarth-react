@@ -27,7 +27,7 @@
   padding-left: 0px;
 }
 
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1230px) {
   .header,
   .right_menu {
     display: none;
