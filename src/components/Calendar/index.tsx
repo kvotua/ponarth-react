@@ -5,9 +5,11 @@ import "react-calendar/dist/Calendar.css";
 import "./customCalendar.css";
 import { format } from "date-fns";
 import { ru } from "date-fns/locale";
+import InputMask from "react-input-mask";
 
 const CalendarComp: React.FC = () => {
   const [date, setDate] = useState<Date | null>(new Date());
+  const [persons, setPersons] = useState<number>(1);
 
   const onChange: CalendarProps["onChange"] = (value) => {
     setDate(value as Date);
@@ -16,9 +18,19 @@ const CalendarComp: React.FC = () => {
   const tileDisabled = ({ date, view }: { date: Date; view: string }) => {
     if (view === "month") {
       const day = date.getDay();
-      return day !== 2 && day !== 3 && day !== 4; // 2 - вторник, 3 - среда, 4 - четверг
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      return (day !== 2 && day !== 3 && day !== 4) || date < today;
     }
     return false;
+  };
+
+  const handleIncrement = () => {
+    setPersons((prev) => Math.min(prev + 1, 15));
+  };
+
+  const handleDecrement = () => {
+    setPersons((prev) => Math.max(prev - 1, 1));
   };
 
   return (
@@ -40,14 +52,14 @@ const CalendarComp: React.FC = () => {
           value={date}
           locale="ru-RU"
           formatMonthYear={(_, date) =>
-            format(date, "dd.MM.yyyy", { locale: ru })
+            format(date, "LLLL yyyy", { locale: ru })
           }
           tileDisabled={tileDisabled}
-          navigationLabel={({ view, label }) => {
+          navigationLabel={({ view, date }) => {
             if (view === "month") {
               return (
                 <span className="react-calendar__navigation__label">
-                  {label}
+                  {format(date, "LLLL yyyy", { locale: ru })}
                 </span>
               );
             }
@@ -62,12 +74,20 @@ const CalendarComp: React.FC = () => {
           type="text"
           placeholder="Ваше имя"
         />
-        <input
+        <InputMask
           className={styles.input_calendar}
-          type="tel"
+          mask="+7 (999) 999-99-99"
           placeholder="Контактный номер телефона"
         />
-        <input className={styles.input_calendar} type="text" />
+        <div className={styles.input_calendar}>
+          <label>Количество персон</label>
+          <div className={styles.persons_input}>
+            <button onClick={handleDecrement}>—</button>
+            <input type="text" value={persons} readOnly />
+            <button onClick={handleIncrement}>+</button>
+          </div>
+        </div>
+        <button className={styles.reserve_btn}>Забронировать</button>
       </div>
     </>
   );

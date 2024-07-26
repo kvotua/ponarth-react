@@ -17,6 +17,12 @@
   align-items: center;
 }
 
+.react-calendar__tile--now {
+  border-radius: 50%;
+  background-color: rgb(227, 227, 227) !important;
+  color: white; /* Optional: to make the text color white for better contrast */
+}
+
 .react-calendar__navigation span {
   font-size: 17px;
   color: #000000;
@@ -56,7 +62,7 @@
 }
 
 .react-calendar__tile--now {
-  background: none;
+  background-color: violet;
 }
 
 .react-calendar__tile--active {
