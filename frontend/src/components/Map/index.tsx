@@ -1,18 +1,27 @@
-import React, { useRef, useState, MouseEvent } from "react";
-import styles from "../Map/map.module.css";
-import { YMaps, Map as YMapsMap, Placemark, TrafficControl, ZoomControl, FullscreenControl } from "@pbe/react-yandex-maps";
+import React, { useRef, useState, MouseEvent } from 'react';
+import styles from '../Map/map.module.css';
+import {
+  YMaps,
+  Map as YMapsMap,
+  Placemark,
+  TrafficControl,
+  ZoomControl,
+  FullscreenControl,
+} from '@pbe/react-yandex-maps';
 
 const PonarthMap: React.FC = () => {
   const [isActive, setIsActive] = useState<boolean>(true);
   const mapOverlayRef = useRef<HTMLDivElement>(null);
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const [isBalloonOpen, setIsBalloonOpen] = useState<boolean>(false);
+  const [zoom,] = useState<number>(10); // Начальный зум
 
-    const iconContent = "1";
-  const center: [number, number] = [54.68113632965351, 20.487322667137775];
+  const center: [number, number] = [54.681612173134894, 20.486968735086027];
+  const additionalPlacemarkCenter: [number, number] = [54.681562787718505, 20.486080532135926];
+  const thirdPlacemarkCenter: [number, number] = [54.72457696830196, 20.541960143062454];
 
-  const iconContent = "Ponarth";
-  const hintContent = "Калининград, предприятие Ponarth";
+  const iconContent = 'Ponarth';
+  const hintContent = 'Калининград, предприятие Ponarth';
   const infoContent = `
     <div class="${styles.vitrine_content} ${isBalloonOpen ? styles.show : ''}">
       <h3>Пивоварня Ponarth</h3>
@@ -21,15 +30,20 @@ const PonarthMap: React.FC = () => {
     </div>
   `;
 
+  const thirdPlacemarkInfoContent = `
+    <div class="${styles.vitrine_content} ${isBalloonOpen ? styles.show : ''}">
+      <h3>Магазин Пивоварни Ponarth</h3>
+      <p style="color: black !important;">Калининград, ул. Кубышева 68</p>
+      <p style="color: black !important;">Режим работы: 11:00-00:00</p>
+    </div>
+  `;
+
   const activateMap = (): void => {
     setIsActive(false);
   };
 
   const deactivateMap = (event: MouseEvent): void => {
-    if (
-      mapContainerRef.current &&
-      !mapContainerRef.current.contains(event.target as Node)
-    ) {
+    if (mapContainerRef.current && !mapContainerRef.current.contains(event.target as Node)) {
       setIsActive(true);
     }
   };
@@ -57,25 +71,23 @@ const PonarthMap: React.FC = () => {
               className={styles.map_overlay}
               ref={mapOverlayRef}
               style={{
-                opacity: isActive ? "1" : "0",
-                pointerEvents: isActive ? "auto" : "none",
-                transition: "opacity 0.5s ease",
+                opacity: isActive ? '1' : '0',
+                pointerEvents: isActive ? 'auto' : 'none',
+                transition: 'opacity 0.5s ease',
               }}
-              onClick={activateMap}
-            >
+              onClick={activateMap}>
               Нажмите чтобы увидеть карту
             </div>
             <YMaps>
               <YMapsMap
-                defaultState={{ center, zoom: 20 }}
+                state={{ center, zoom }}
                 className={styles.map}
                 modules={[
                   'control.ZoomControl',
                   'control.FullscreenControl',
                   'control.SearchControl',
-                  'control.TrafficControl'
-                ]}
-              >
+                  'control.TrafficControl',
+                ]}>
                 <ZoomControl options={{ position: { right: 10, top: 70 } }} />
                 <FullscreenControl options={{ position: { left: 10, top: 10 } }} />
                 <TrafficControl />
@@ -85,7 +97,43 @@ const PonarthMap: React.FC = () => {
                   properties={{
                     iconContent: iconContent,
                     hintContent: hintContent,
-                    balloonContent: infoContent
+                    balloonContent: infoContent,
+                  }}
+                  options={{
+                    iconLayout: 'default#image',
+                    iconImageHref: 'src/assets/Group 8.svg',
+                    iconImageSize: [130, 130],
+                    iconImageOffset: [-32, -64],
+                    hideIconOnBalloonOpen: false,
+                  }}
+                  onBalloonOpen={handleBalloonOpen}
+                  onBalloonClose={handleBalloonClose}
+                />
+
+                <Placemark
+                  geometry={additionalPlacemarkCenter}
+                  properties={{
+                    iconContent: iconContent,
+                    hintContent: hintContent,
+                    balloonContent: infoContent,
+                  }}
+                  options={{
+                    iconLayout: 'default#image',
+                    iconImageHref: 'src/assets/Group 8.svg',
+                    iconImageSize: [130, 130],
+                    iconImageOffset: [-32, -64],
+                    hideIconOnBalloonOpen: false,
+                  }}
+                  onBalloonOpen={handleBalloonOpen}
+                  onBalloonClose={handleBalloonClose}
+                />
+
+                <Placemark
+                  geometry={thirdPlacemarkCenter}
+                  properties={{
+                    iconContent: 'Третья метка',
+                    hintContent: 'Без дополнительной информации',
+                    balloonContent: thirdPlacemarkInfoContent,
                   }}
                   options={{
                     iconLayout: 'default#image',
