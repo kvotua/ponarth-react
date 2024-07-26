@@ -119,12 +119,25 @@ span {
 }
 
 @media only screen and (max-width: 768px) {
+  .container_two_page{
+    height: calc(var(--double-screen-height) / 2);
+  }
+  .two_page{
+    height: calc(var(--double-screen-height) / 2);
+  }
+  .block_image{
+    height: calc(var(--double-screen-height) / 2);
+    grid-template-rows: repeat(2, calc(var(--double-screen-height) /4));
+  }
   .text_two_page {
     line-height: 50px;
     padding: 3% 5% 0 5%;
     font-size: 24px;
+    height: calc(var(--double-screen-height) / 4);
   }
-
+.secondBlock{
+  height: calc(var(--double-screen-height) / 4);
+}
   .litle_text_two {
     font-size: 16px;
     /* Уменьшаем размер шрифта на мобильных устройствах */
@@ -132,7 +145,7 @@ span {
   }
 
   .hoverable {
-    font-size: 20px !important;
+    font-size: 20px;
     width: 80% !important;
     line-height: 26px;
   }
@@ -159,6 +172,14 @@ span {
     } */
 }
 
+@media screen and (max-width: 475px) {
+  .secondBlock{
+    justify-content: start;
+  }
+ .hoverable{
+  font-size: 16px;
+ }
+}
 @media only screen and (min-width: 1400px) {
 
   /* Стили для больших ноутбуков и мониторов */
