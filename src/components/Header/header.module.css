@@ -1,7 +1,7 @@
 /* first_page header */
 header {
   width: 20%;
-  height: 110vh;
+  height: 90vh;
   border-radius: 2px;
   top: 0;
   left: 0;
@@ -133,6 +133,7 @@ header,
 .header_menu {
   transform: translateY(-10%);
   display: grid;
+
   gap: 15%;
   height: auto;
   color: rgb(0, 0, 0);
@@ -142,7 +143,6 @@ header,
   display: grid;
   gap: 40%;
   position: sticky;
-  top: 96px;
   left: 0;
   width: 189px;
   margin: 0 auto;
