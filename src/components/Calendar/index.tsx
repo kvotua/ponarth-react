@@ -29,29 +29,46 @@ const CalendarComp: React.FC = () => {
           <br /> СЕРДЦЕ ПРУССИИ
         </p>
       </div>
-      <p className={styles.mark}>
-        Каждый вторник, среду и четверг <br />
-        12.00 15.00. 19.00
-      </p>
-      <Calendar
-        onChange={onChange}
-        value={date}
-        locale="ru-RU"
-        formatMonthYear={(_, date) =>
-          format(date, "dd.MM.yyyy", { locale: ru })
-        }
-        tileDisabled={tileDisabled}
-        navigationLabel={({ view, label }) => {
-          if (view === "month") {
-            return (
-              <span className="react-calendar__navigation__label">{label}</span>
-            );
+
+      <div className={styles.calendar_block}>
+        <p className={styles.mark}>
+          Каждый вторник, среду и четверг <br />
+          12.00 15.00. 19.00
+        </p>
+        <Calendar
+          onChange={onChange}
+          value={date}
+          locale="ru-RU"
+          formatMonthYear={(_, date) =>
+            format(date, "dd.MM.yyyy", { locale: ru })
           }
-          return null;
-        }}
-        prev2Label={null} // Убираем стрелку для предыдущего года
-        next2Label={null} // Убираем стрелку для следующего года
-      />
+          tileDisabled={tileDisabled}
+          navigationLabel={({ view, label }) => {
+            if (view === "month") {
+              return (
+                <span className="react-calendar__navigation__label">
+                  {label}
+                </span>
+              );
+            }
+            return null;
+          }}
+          prev2Label={null} // Убираем стрелку для предыдущего года
+          next2Label={null} // Убираем стрелку для следующего года
+        />
+
+        <input
+          className={styles.input_calendar}
+          type="text"
+          placeholder="Ваше имя"
+        />
+        <input
+          className={styles.input_calendar}
+          type="tel"
+          placeholder="Контактный номер телефона"
+        />
+        <input className={styles.input_calendar} type="text" />
+      </div>
     </>
   );
 };

@@ -1,5 +1,11 @@
-.texter {
+.calendar_block {
+  display: flex;
+  flex-direction: column;
   margin: 8%;
+  align-items: center;
+}
+
+.texter {
   border-bottom: 2px solid #d3d3d3;
 }
 
@@ -10,9 +16,18 @@
 }
 
 .mark {
-  margin-left: 8%;
   font-size: 18px;
   font-weight: 300;
   line-height: 23px;
   text-align: justify;
+}
+
+.input_calendar {
+  padding: 10px 10px 10px 25px;
+  width: 230px !important;
+
+  height: 30px;
+  margin-top: 20px;
+  border: 1px solid black;
+  border-radius: 1.625rem;
 }
