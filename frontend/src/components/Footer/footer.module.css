@@ -4,7 +4,7 @@ footer {
   max-height: 20%;
   position: sticky;
   width: 100%;
-  z-index: 2;
+  z-index: 0;
 }
 
 .footerButton {
@@ -70,6 +70,10 @@ footer {
   transition: box-shadow, background-color 1s ease;
 }
 
+.practice_logo {
+  margin-right: 5%;
+}
+
 @media screen and (max-width: 768px) {
   .all_items_footer {
     flex-direction: column;
@@ -80,6 +84,11 @@ footer {
   .footerButton {
     justify-content: center;
     text-align: center;
+    margin-bottom: 5px;
+  }
+
+  .footerButton:last-child {
+    margin-bottom: 0px;
   }
 
   .logo_footer {
@@ -90,12 +99,9 @@ footer {
   .logo_footer_img {
     height: 60%;
   }
-}
-
-.footerButton:hover {
-  color: rgb(157, 20, 20);
-  font-weight: bold;
-  /* font-size: 20px; */
+  .practice_logo {
+    margin-right: 0;
+  }
 }
 
 .practice {
@@ -104,14 +110,15 @@ footer {
   background-size: cover;
   width: 150px;
   height: 30px;
-  margin: 0 auto;
   transition: 0.3s ease-in-out;
 }
 
 .all_items_footer.dark {
   background-color: #000;
   color: #fff;
-  box-shadow: 2px 0px 10px rgba(255, 255, 255, 0.93);
+  /* box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.93); */
+  /* box-shadow: -10px 1px 10px -10px rgba(255, 255, 255, 0.93), 
+              10px 1px 10px -10px rgba(255, 255, 255, 0.93); */
   transition: box-shadow, background-color 1s ease;
 }
 
@@ -121,13 +128,12 @@ footer {
 }
 
 @media screen and (max-width: 600px) {
-
-  /* * {
-    overflow-x: hidden;
-  } */
-
   footer {
     height: 600px;
+  }
+
+  .footerButton {
+    padding-bottom: 0;
   }
 
   .logo_footer {
