@@ -7,7 +7,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow: hidden;
 }
 
 img {
@@ -209,6 +208,8 @@ h1 {
 }
 
 .section {
+    position: fixed;
+    overflow: hidden !important;
     min-width: 100vw;
     height: 100vh;
     position: relative;
@@ -377,6 +378,10 @@ button {
 
 /*.......... Responsive.............. */
 @media screen and (max-width: 1550px) {
+    body {
+        width: 100vw;
+    }
+
     h1 {
         font-size: 350px !important;
     }
@@ -440,17 +445,19 @@ button {
     }
 
     .cane_image {
-        height: 620px;
+        height: 500px;
     }
 
     .cane_labels {
-        height: 570px;
+        height: 500px;
+        margin-top: 5px;
     }
 
     button {
+        left: 330px;
         height: 80px;
         width: 80px;
-        top: 90%;
+        top: 800px;
     }
 
     .image_one {
@@ -487,8 +494,8 @@ button {
     }
 
     button {
-        height: 60px;
-        width: 60px;
+        height: 30px;
+        width: 30px;
         font-size: 20px;
     }
 
