@@ -40,10 +40,10 @@ function BeforeAfter() {
                 onMouseDown={handleInteractionStart}
                 onTouchStart={handleInteractionStart}
             >
-                <img className={styles.firstimg} src={ponarthNaziMonochrome} />
+                <img className={`${styles.firstimg} ${styles.beforeAfterImg} `} src={ponarthNaziMonochrome} />
 
                 <div className={styles.secondimgwrapper} style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}>
-                    <img className={styles.secondimg} src={ponarthNazi} />
+                    <img className={`${styles.secondimg} ${styles.beforeAfterImg} `} src={ponarthNazi} />
                 </div>
                 <div className={styles.movableshit} style={{ left: `calc(${sliderPosition}% - 1px)` }}>
                     <div className={styles.pointer} />

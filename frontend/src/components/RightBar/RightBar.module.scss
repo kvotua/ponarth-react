@@ -25,7 +25,11 @@
 .right_menu {
   transition: box-shadow, background-color 1s ease;
 }
-
+@media screen and (max-width: 1060px) {
+  .right_menu{
+    display: none;
+  }
+}
 @media (max-width: 768px) {
   .right_menu {
     display: none;
@@ -62,7 +66,12 @@
     transform: scale(1.1);
   }
 }
-
+.expand_less.dark{
+  background-color: rgb(0, 0, 0);
+  background-image: url(../../assets/expand_less_white.svg);
+  box-shadow: 0px 2px 8px rgba(255, 255, 255, 0.16); 
+  border:  1px solid white;
+}
 .container_menu {
   position: sticky;
   top: 96px;
