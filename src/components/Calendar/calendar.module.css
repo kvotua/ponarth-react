@@ -1,3 +1,8 @@
+.content {
+  display: flex;
+  flex-direction: row;
+}
+
 .calendar_block {
   display: flex;
   flex-direction: column;
@@ -79,4 +84,69 @@
   justify-content: center;
   border: none;
   margin-top: 25px;
+}
+
+.photos_block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 8%;
+  margin-top: 8%;
+}
+
+.slides {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  width: 100%;
+  padding-bottom: 20px;
+  border-radius: 20px;
+}
+
+.slide {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  margin-right: 30px;
+  max-width: 280px;
+  height: 600px; /* Adjust height to ensure <p> tags are visible */
+  box-sizing: border-box;
+}
+
+.slide:last-child {
+  margin-right: 0;
+}
+
+.slide_p {
+  color: rgb(0, 0, 0);
+}
+
+.slides::-webkit-scrollbar {
+  height: 8px;
+}
+
+.slides::-webkit-scrollbar-thumb {
+  background-color: #000;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.slide img {
+  width: 100%;
+  height: 90%; /* Adjust height to ensure <p> tags are visible */
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+@media only screen and (max-width: 1025px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+  .slides {
+    max-width: 100vw;
+  }
+  .photos_block {
+    margin: 8%;
+  }
 }
