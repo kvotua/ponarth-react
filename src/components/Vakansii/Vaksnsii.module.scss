@@ -1,0 +1,66 @@
+.app {
+    padding: 10%;
+    height: 400px;
+    padding-top: 200px;
+
+    h2 {
+        text-align: left !important;
+        padding-top: 15%;
+    }
+   
+}
+.Govno{
+    border-bottom: 2px solid gray;
+}
+.app:focus {
+    color: red impo;
+}
+// .slider{
+
+// }
+.plate {
+    width: 80%;
+    max-width: 400px;
+    max-height: 400px;
+    height: fit-content;
+    margin: 0 5%;
+    background-color: black;
+    overflow: hidden;
+
+    h2 {
+        color: aliceblue;
+        margin: 16px;
+    }
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    padding-top: 10%;
+}
+
+.swiper_container {
+    width: 100%;
+    overflow: hidden;
+
+    h1 {
+        margin: 0 auto;
+    }
+}
+
+.text_container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    h1{
+        grid-area: 4 / 3 / 2 / 4;
+    }
+    p{
+        grid-area: 5 / 3 / 3 / 4;
+    }
+    form{
+        grid-area: 6 / 3 / 4 / 4; 
+    }
+}

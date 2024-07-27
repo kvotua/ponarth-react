@@ -9,7 +9,6 @@ import negor from "../img/RI5bpix8LSw.jpg";
 import tovZnak from "../img/tovZnak.png";
 import vagon from "../img/vagon.jpg";
 import vagon1 from "../img/vagon1.png";
-import afterZavod from "../img/afterZavod.png";
 import aduard from "../img/aduard.jpeg";
 import alcashMark from "../img/alcashMark.jpeg";
 import bochka from "../img/bochka.jpeg";
