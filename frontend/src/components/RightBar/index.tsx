@@ -29,7 +29,7 @@ const RightBar: FC = () => {
           checked={theme === "dark" ? true : false}
           onClick={toggleTheme}
         />
-        <button className={styles.expand_less} onClick={scrollToTop}></button>
+        <button className={`${styles.expand_less} ${theme === "dark" ? styles.dark : ""}`} onClick={scrollToTop} ></button>
       </div>
     </div>
   );
