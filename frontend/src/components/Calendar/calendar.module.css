@@ -26,6 +26,7 @@
   font-weight: 300;
   line-height: 23px;
   text-align: justify;
+  margin-left: 10%;
 }
 
 .input_calendar {
@@ -84,6 +85,7 @@
   justify-content: center;
   border: none;
   margin-top: 25px;
+  cursor: pointer;
 }
 
 .photos_block {
@@ -128,6 +130,7 @@
   background-color: #000;
   border-radius: 10px;
   margin-top: 20px;
+  cursor: col-resize;
 }
 
 .slide img {
