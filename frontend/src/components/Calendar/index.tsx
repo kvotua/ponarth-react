@@ -6,7 +6,9 @@ import "./customCalendar.css";
 import { format } from "date-fns";
 import { ru } from "date-fns/locale";
 import InputMask from "react-input-mask";
-import image1 from "../../assets/Pivo2.png";
+import image1 from "../../assets/calendar1.jpg";
+import image2 from "../../assets/calendar2.jpg";
+import image3 from "../../assets/calendar3.jpg";
 
 const CalendarComp: React.FC = () => {
   const [date, setDate] = useState<Date | null>(new Date());
@@ -99,13 +101,13 @@ const CalendarComp: React.FC = () => {
               </p>
             </div>
             <div className={styles.slide}>
-              <img src={image1} alt="" />
+              <img src={image2} alt="" />
               <p className={styles.slide_p}>
                 #Знакомство с культурным наследием
               </p>
             </div>
             <div className={styles.slide}>
-              <img src={image1} alt="" />
+              <img src={image3} alt="" />
               <p className={styles.slide_p}>
                 #Знакомство с культурным наследием
               </p>
