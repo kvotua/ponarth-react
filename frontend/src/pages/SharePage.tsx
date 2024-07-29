@@ -1,15 +1,36 @@
 import styles from './styles/SharePage.module.css';
 import DelayedButton from "../components/Buttons/DelayedButton";
 import InputMask from 'react-input-mask';
+import { Link } from "react-router-dom";
+import Ponarth_Logo from "../assets/logo.svg";
 const SharePage = () => {
   return (
    <>
    <div className={styles.margin_container}>
+    <div className={styles.outmask_content}>
+  <div className={styles.button_container}>
+  <Link to='/home'>
+  <button className={styles.button_back}></button>
+  </Link>
+        </div>
+        <div className={styles.share_logo}>
+        <img
+          className={`${styles.logo}`}
+          src={Ponarth_Logo}
+          alt="Логотип"
+        />
+</div>
+<div className={styles.share_title}>
+<h1>
+СТАНЬТЕ АКЦИОНЕРОМ 
+<br />
+НОВОЙ ИСТОРИИ ПОНАРТ
+</h1>
+</div>
+    </div>
    <div className={styles.masked_background}>
       <div className={styles.grid_container}>
-        {/* <div className={styles.button_container}>
-<button className={styles.button_back}></button>
-        </div> */}
+      
         <div className={styles.right_container}>
         <p className={styles.right_container_text}>
         Мы создали акционерное общество и открыли
@@ -81,6 +102,7 @@ const SharePage = () => {
                   </DelayedButton>
                 </form>
               </div>
+             
         </div>
       </div>
     
