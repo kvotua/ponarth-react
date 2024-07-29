@@ -1,0 +1,218 @@
+.margin_container{
+  margin: 0 2% 0 2%;
+  height: calc(var(--double-screen-height) / 2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.masked_background {
+    width:100%;
+    height: calc((var(--double-screen-height) / 2) - 4%);
+    background-image: url('../../assets/unionFull.png');
+    mask-image: url('../../assets/Union.png');
+    
+    -webkit-mask-image: url('../../assets/Union.png');
+    mask-size:100% 100%, cover, cover;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%, cover, cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center calc(100% - 10%);
+    background-attachment: fixed;
+  }
+  .grid_container{
+    width: 100%;
+    height: 100%;
+    display: grid;
+grid-template-columns: repeat(10, 1fr);
+grid-template-rows: repeat(4, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+z-index: 1;
+  }
+  .button_container{
+    grid-area: 1 / 1 / 2 / 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    background-color: black;
+  }
+  .button_back {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background-image: url(../../assets/expand_less.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #ffffff;
+    position: fixed;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+    z-index:5;
+    transition: 0.3s ease-in-out;
+  }
+  .right_container{
+    grid-area: 2 / 7 / 4 / 11;
+    backdrop-filter: blur(1px);
+    background: linear-gradient(269.59deg, rgba(0, 0, 0, 0.5) 75.31%, rgba(102, 102, 102, 0.1) 99.64%);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+  }
+  .right_container_text{
+    color: white;
+    text-align: right;
+    font-weight: 350;
+    font-size: 20px;
+    line-height: 31.2px;
+    width: 80%;
+    height: 30%;
+  }
+  .social{
+    grid-area: 1 / 2 / 2 / 4;
+    height: 86px;
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+    grid-template-columns: 33% 33% 33%;
+    align-items: center;
+  }
+  .social_circle1:hover {
+    background-image: url(../../assets/ponarthColor.png);
+  }
+  
+  .social_circle2:hover {
+    background-image: url(../../assets/vkColor.png);
+  }
+  
+  .social_circle3:hover {
+    background-image: url(../../assets/tgColor.png);
+  }
+  
+  .social_circle1 {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-image: url(../../assets/ponarthBlack.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .social_circle2 {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-image: url(../../assets/vkBlack.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .social_circle3 {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-image: url(../../assets/tgBlack.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  .form_container{
+    grid-area: 2 / 3 / 4 / 6;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+  }
+
+  .form_four {
+    width: 250px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .form_group {
+    position: relative;
+    margin-top: 32px;
+  }
+  .stat_partner {
+    width: 250px;
+  }
+  
+  .form_group input {
+    background-color: rgba(140, 140, 140, 0.5);
+    backdrop-filter: blur(5px);
+    color: white;
+    padding: 10px 10px 10px 9%;
+    width: 100%;
+    height: 3.09rem;
+    box-sizing: border-box;
+   border: 1px solid rgba(162, 162, 162, 0.76);
+    border-radius: 1.625rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    font-size: 16px;
+    font-weight: 350;
+  }
+  .form_group input:focus{
+    outline: none;
+    border: 2px rgba(190,190,190,0.76) solid;
+  }
+  .form_group input::placeholder {
+    color: transparent; /* Скрыть стандартный плейсхолдер */
+  }
+  
+  .form_group label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: rgb(224, 223, 223);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    padding-left: 5%;
+    font-weight: 350;
+    font-size: 16px;
+  }
+  .form_group input:valid + label{
+    display: none;
+  }
+  .learn_more {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 1235px) {
+    .masked-background {
+      mask-image: url('../../assets/UnionMobile.png');
+      -webkit-mask-image: url('../../assets/UnionMobile.png');
+      mask-size:100% 100%, cover, cover;
+      mask-repeat: no-repeat;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: 100% 100%, cover, cover;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center calc(100% - 10%);
+      background-attachment: fixed;
+    }
+  }
