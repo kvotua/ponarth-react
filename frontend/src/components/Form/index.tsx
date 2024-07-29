@@ -32,7 +32,6 @@ const PartnerForm = () => {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("!!!");
     setIsFlipped(true);
   };
 

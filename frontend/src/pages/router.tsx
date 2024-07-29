@@ -4,10 +4,11 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import MainPage from "./MainPage";
 import HistoryPage from "./HistoryPage";
 import AgePage from "./AgePage";
-
+import SharePage from "./SharePage";
 const routeConfig: RouteType[] = [
   { title: "MainPage", path: "/home", element: <MainPage /> },
   { title: "HistoryPage", path: "/history", element: <HistoryPage /> },
+  {title: "SharePage", path: "/share", element: <SharePage />}
 ];
 
 const Router: FC = () => {
