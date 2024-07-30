@@ -31,7 +31,7 @@ function Gasp() {
     "Тыкве\nэ",
     "нный\nль"
   ];
-  let logoColors = [
+  const logoColors = [
     "var(--first-logo)",
     "var(--third-logo)",
     "var(--second-logo)",
@@ -153,6 +153,8 @@ function Gasp() {
     // появление фруктов снизу
     gsap.from(fruit_image.current, { y: "100vh", delay: 0.5 });
   };
+
+  const isDesktop = true;
 
   return (
     <div className={styles.body}>

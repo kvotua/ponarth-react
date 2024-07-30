@@ -52,6 +52,7 @@ h1 {
     font-size: 200px !important;
     line-height: normal !important;
     color: var(--white-color) !important;
+    max-width: 50vw;
     margin: 0 !important;
     user-select: none;
 }
@@ -410,38 +411,24 @@ button {
     }
 }
 
-@media screen and (max-width: 1199px) {
+
+@media screen and (max-width: 767px) {
+    * {
+        overflow: hidden;
+    }
+
     h1 {
-        font-size: 300px !important;
+        font-size: 60px !important;
+        bottom: 10%;
+        width: 50vw;
     }
 
-    .cane_image::after {
-        width: 150%;
+    .headers {
+        top: 90%;
     }
 
-    .image_one {
-        max-width: 220px;
-    }
-
-    .image_two {
-        max-width: 185px;
-        left: 18%;
-        top: 10%;
-    }
-
-    .image_three {
-        max-width: 180px;
-        right: 18%;
-    }
-
-    .image_four {
-        max-width: 230px;
-    }
-}
-
-@media screen and (max-width: 991px) {
-    h1 {
-        font-size: 240px !important;
+    h2 {
+        font-size: 30px;
     }
 
     .cane_image {
@@ -451,46 +438,6 @@ button {
     .cane_labels {
         height: 500px;
         margin-top: 5px;
-    }
-
-    button {
-        left: 330px;
-        height: 80px;
-        width: 80px;
-        top: 800px;
-    }
-
-    .image_one {
-        max-width: 180px;
-    }
-
-    .image_two {
-        max-width: 165px;
-        left: 12%;
-        top: 12%;
-    }
-
-    .image_three {
-        max-width: 150px;
-        right: 12%;
-    }
-
-    .image_four {
-        max-width: 200px;
-    }
-}
-
-@media screen and (max-width: 767px) {
-    h1 {
-        font-size: 180px !important;
-    }
-
-    h2 {
-        font-size: 30px;
-    }
-
-    .cane_image {
-        max-width: 180px;
     }
 
     button {
@@ -519,34 +466,12 @@ button {
         max-width: 180px;
         bottom: 150px;
     }
-}
 
-@media screen and (max-width: 575px) {
-    h1 {
-        font-size: 140px !important;
+    .left {
+        padding-right: 0;
     }
 
-    .cane_image::after {
-        width: 100%;
-    }
-
-    .image_one {
-        max-width: 150px;
-    }
-
-    .image_two {
-        max-width: 115px;
-        left: 4%;
-        top: 18%;
-    }
-
-    .image_three {
-        max-width: 100px;
-        right: 4%;
-    }
-
-    .image_four {
-        max-width: 150px;
-        right: 0;
+    .right {
+        padding-left: 0;
     }
 }
