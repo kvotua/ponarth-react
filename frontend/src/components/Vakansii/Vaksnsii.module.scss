@@ -1,0 +1,61 @@
+.app {
+    padding: 10%;
+    height: 400px;
+}
+
+
+.plate {
+    width: 80%;
+    max-width: 400px;
+    max-height: 400px;
+    height: fit-content;
+    margin: 0 3%;
+    background-color: black;
+    overflow: hidden;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+
+    &.active {
+        transform: scale(2.5);
+    }
+
+    h2 {
+        color: aliceblue;
+        margin: 16px;
+    }
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+
+.swiper_container {
+    width: 100%;
+    overflow: hidden;
+
+    h1 {
+        margin: 0 auto;
+    }
+}
+
+.text_container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    height: 200px;
+
+    h1 {
+        grid-area: 4 / 3 / 1 / 4;
+    }
+
+    p {
+        grid-area: 5 / 3 / 2 / 4;
+    }
+
+    form {
+        grid-area: 6 / 3 / 3 / 4;
+    }
+}
