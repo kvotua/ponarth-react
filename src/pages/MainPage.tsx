@@ -10,6 +10,10 @@ import Looking from "../components/LookingPage/LookingPage";
 import Footer from "../components/Footer";
 import History from "../components/History/History";
 import PartnerForm from "../components/Form/";
+<<<<<<< Updated upstream:src/pages/MainPage.tsx
+=======
+
+>>>>>>> Stashed changes:frontend/src/pages/MainPage.tsx
 import NewsProduction from "../components/NewsProduction";
 import Vakansii from "../components/Vakansii";
 

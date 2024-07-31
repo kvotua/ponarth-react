@@ -1,25 +1,8 @@
 .app {
     padding: 10%;
     height: 400px;
-    padding-top: 200px;
+}
 
-    h2 {
-        text-align: left !important;
-        padding-top: 15%;
-    }
-   
-}
-.Govno{
-    border-bottom: 2px solid gray;
-}
-.app:focus {
-    color: red impo;
-}
-// .slider{
-
-<<<<<<< Updated upstream:src/components/Vakansii/Vaksnsii.module.scss
-// }
-=======
 .form_group {
     position: relative;
     margin-top: 32px;
@@ -79,15 +62,20 @@
     font-family: inherit;
     width: 100%;
   }
->>>>>>> Stashed changes:frontend/src/components/Vakansii/Vaksnsii.module.scss
 .plate {
     width: 80%;
     max-width: 400px;
     max-height: 400px;
     height: fit-content;
-    margin: 0 5%;
+    margin: 0 3%;
     background-color: black;
     overflow: hidden;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+
+    &.active {
+        transform: scale(2.5);
+    }
 
     h2 {
         color: aliceblue;
@@ -97,8 +85,7 @@
 
 .wrapper {
     display: grid;
-    grid-template-columns: 60% 40%;
-    padding-top: 10%;
+    grid-template-columns: 50% 50%;
 }
 
 .swiper_container {
@@ -113,24 +100,21 @@
 .text_container {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-<<<<<<< Updated upstream:src/components/Vakansii/Vaksnsii.module.scss
-    h1{
-        grid-area: 4 / 3 / 2 / 4;
-=======
     height: 200px;
 
     h1 {
         grid-area: 4 / 3 / 1 / 4;
         width: 300px;
->>>>>>> Stashed changes:frontend/src/components/Vakansii/Vaksnsii.module.scss
     }
-    p{
-        grid-area: 5 / 3 / 3 / 4;
+
+    p {
+        grid-area: 5 / 3 / 2 / 4;
     }
-    form{
-        grid-area: 6 / 3 / 4 / 4; 
+
+    form {
+        grid-area: 6 / 3 / 3 / 4;
     }
 }
