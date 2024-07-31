@@ -1,10 +1,8 @@
-import './App.css'
-import Gasp from './components/Gasp'
+import "./App.css";
+import Gasp from "./components/Gasp";
 
 function App() {
-  return (
-    <Gasp />
-  )
+  return <Gasp />;
 }
 
-export default App
+export default App;

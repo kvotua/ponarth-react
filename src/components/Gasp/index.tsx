@@ -144,7 +144,7 @@ function Gasp() {
   };
 
   return (
-    <div className={styles.body}>
+    <div>
       <header className={styles.newBlock}>
         <h2 className={`${styles.logo} ${styles.new}`} id="logo">
           Новинки
