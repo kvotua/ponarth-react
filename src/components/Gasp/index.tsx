@@ -143,12 +143,10 @@ function Gasp() {
     gsap.from(fruit_image.current, { y: "100vh", delay: 0.5 });
   };
 
-  const isDesktop = true;
-
   return (
     <div className={styles.body}>
-      <header className={styles.NewBlock}>
-        <h2 className={`${styles.logo} ${styles.New}`} id="logo">
+      <header className={styles.newBlock}>
+        <h2 className={`${styles.logo} ${styles.new}`} id="logo">
           Новинки
         </h2>
       </header>
@@ -161,13 +159,7 @@ function Gasp() {
             onClick={() => {
               prevButtonClick();
             }}
-          >
-            <i
-              className={`${
-                currentIndex == 1 ? styles.peach_color : styles.apple_color
-              } ${styles.prevButton} ${styles.i}`}
-            ></i>
-          </button>
+          ></button>
           <button
             id="nextButton"
             className={styles.button}
@@ -175,20 +167,17 @@ function Gasp() {
             onClick={() => {
               nextButtonClick();
             }}
-          >
-            <i
-              className={`${
-                currentIndex == 1 ? styles.exotic_color : styles.apple_color
-              }`}
-            ></i>
-          </button>
+          ></button>
         </div>
         <div className={styles.text}>
-          <div className={styles.headers}>
-            <h1 className={`${styles.beerFlavor} ${styles.left}`} id="h1">
+          <div className={styles.headersBlock}>
+            <h1 className={`${styles.beerFlavor} ${styles.leftHeader}`} id="h1">
               Пшен
             </h1>
-            <h1 className={`${styles.beerFlavor} ${styles.right}`} id="h2">
+            <h1
+              className={`${styles.beerFlavor} ${styles.rightHeader}`}
+              id="h2"
+            >
               ичное
             </h1>
           </div>
@@ -208,13 +197,13 @@ function Gasp() {
             />
           </div>
         </div>
-        <div className={styles.section_container_main}>
+        <div className={styles.imagesBlock_container_main}>
           <div
-            className={styles.section_container}
+            className={styles.imagesBlock_container}
             id="section_container"
             style={{ left: `${currentPosition}%` }}
           >
-            <section className={styles.section} id="section1">
+            <section className={styles.imagesBlock} id="section1">
               <div className={styles.fruit_images}>
                 <div
                   className={`${styles.backgroundImage_one} ${styles.fruit_image}`}
@@ -270,7 +259,7 @@ function Gasp() {
                 </div>
               </div>
             </section>
-            <section className={styles.section} id="section2">
+            <section className={styles.imagesBlock} id="section2">
               <div className={styles.fruit_images}>
                 <div
                   className={`${styles.backgroundImage_one} ${styles.fruit_image}`}
@@ -326,7 +315,7 @@ function Gasp() {
                 </div>
               </div>
             </section>
-            <section className={styles.section} id="section3">
+            <section className={styles.imagesBlock} id="section3">
               <div className={styles.fruit_images}>
                 <div
                   className={`${styles.backgroundImage_one} ${styles.fruit_image}`}
