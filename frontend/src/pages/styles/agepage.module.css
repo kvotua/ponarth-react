@@ -6,7 +6,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-
   background-color: black;
   min-height: 100vh;
   flex-direction: column;
@@ -20,6 +19,10 @@ body {
   flex-direction: column;
   gap: 10%;
   height: 80vh;
+}
+
+.safari .content {
+  padding-bottom: 20%; /* Adjust this value as needed */
 }
 
 .logo {
