@@ -145,7 +145,8 @@
     height: 420px;
     grid-area: 6 / 1 / 7 / 2;
   }
-  .big_text_four_page, .big_text_four_right{
+  .big_text_four_page,
+  .big_text_four_right {
     padding-bottom: 0;
   }
 }
