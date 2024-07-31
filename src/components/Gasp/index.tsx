@@ -168,7 +168,7 @@ function Gasp() {
             <i
               className={`${
                 currentIndex == 1 ? styles.peach_color : styles.apple_color
-              } ${styles.prevButton}`}
+              } ${styles.prevButton} ${styles.i}`}
             ></i>
           </button>
           <button
@@ -197,12 +197,16 @@ function Gasp() {
           </div>
 
           <div className={styles.cane_image}>
-            <img src={beercan} alt="" className={styles.can} />
+            <img
+              src={beercan}
+              alt=""
+              className={`${styles.can} ${styles.img}`}
+            />
             <img
               src={beerlables}
               alt=""
               id="cane_labels"
-              className={styles.cane_labels}
+              className={`${styles.cane_labels} ${styles.img}`}
               style={{ left: `${currentPosition}%` }}
             />
           </div>
@@ -223,6 +227,7 @@ function Gasp() {
                     ref={(ref) =>
                       fruit_image__img.current.push(ref as HTMLImageElement)
                     }
+                    className={styles.img}
                     src={malt1}
                     alt="pear-image"
                   />
@@ -232,6 +237,7 @@ function Gasp() {
                   ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}
                 >
                   <img
+                    className={styles.img}
                     ref={(ref) =>
                       fruit_image__img.current.push(ref as HTMLImageElement)
                     }
@@ -247,6 +253,7 @@ function Gasp() {
                     ref={(ref) =>
                       fruit_image__img.current.push(ref as HTMLImageElement)
                     }
+                    className={styles.img}
                     src={malt3}
                     alt="pear-image"
                   />
@@ -259,6 +266,7 @@ function Gasp() {
                     ref={(ref) =>
                       fruit_image__img.current.push(ref as HTMLImageElement)
                     }
+                    className={styles.img}
                     src={malt4}
                     alt="pear-image"
                   />
@@ -272,6 +280,7 @@ function Gasp() {
                   ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}
                 >
                   <img
+                    className={styles.img}
                     ref={(ref) =>
                       fruit_image__img.current.push(ref as HTMLImageElement)
                     }
@@ -284,6 +293,7 @@ function Gasp() {
                   ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}
                 >
                   <img
+                    className={styles.img}
                     ref={(ref) =>
                       fruit_image__img.current.push(ref as HTMLImageElement)
                     }
@@ -296,6 +306,7 @@ function Gasp() {
                   ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}
                 >
                   <img
+                    className={styles.img}
                     ref={(ref) =>
                       fruit_image__img.current.push(ref as HTMLImageElement)
                     }
@@ -308,6 +319,7 @@ function Gasp() {
                   ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}
                 >
                   <img
+                    className={styles.img}
                     ref={(ref) =>
                       fruit_image__img.current.push(ref as HTMLImageElement)
                     }
@@ -324,6 +336,7 @@ function Gasp() {
                   ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}
                 >
                   <img
+                    className={styles.img}
                     ref={(ref) =>
                       fruit_image__img.current.push(ref as HTMLImageElement)
                     }
@@ -336,6 +349,7 @@ function Gasp() {
                   ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}
                 >
                   <img
+                    className={styles.img}
                     ref={(ref) =>
                       fruit_image__img.current.push(ref as HTMLImageElement)
                     }
@@ -348,6 +362,7 @@ function Gasp() {
                   ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}
                 >
                   <img
+                    className={styles.img}
                     ref={(ref) =>
                       fruit_image__img.current.push(ref as HTMLImageElement)
                     }
@@ -360,6 +375,7 @@ function Gasp() {
                   ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}
                 >
                   <img
+                    className={styles.img}
                     ref={(ref) =>
                       fruit_image__img.current.push(ref as HTMLImageElement)
                     }

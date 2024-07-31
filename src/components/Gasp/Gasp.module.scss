@@ -9,7 +9,7 @@
     box-sizing: border-box;
 }
 
-img {
+.img {
     width: 100%;
     height: auto;
 }
@@ -18,30 +18,14 @@ img {
     overflow: hidden !important;
 }
 
-a:focus {
-    outline: none;
-    box-shadow: none;
-}
 
-input:focus {
-    outline: none;
-    border: none;
-    box-shadow: none;
-}
-
-input:focus-visible {
-    outline: none;
-    border: none;
-    box-shadow: none;
-}
-
-button:focus,
+.button:focus,
 :focus-visible {
     outline: none;
     border: none;
 }
 
-i {
+.i {
     font-size: 54px;
 }
 
@@ -255,130 +239,8 @@ i {
     background-image: url(../../assets/expand_less_left.svg);
 }
 
-.wave {
-    animation: wave-third-effect 4s linear infinite;
-    animation-direction: normal;
-}
-
-.wave_pear_effect {
-    animation: wave-pear-effect 4s linear infinite;
-    animation-direction: normal;
-}
-
-.pear_color {
-    color: var(--second-background);
-}
-
-.apple_color {
-    color: var(--third-background);
-}
-
-.exotic_color {
-    color: var(--first-background);
-}
-
-
-.wave_apple_effect {
-    animation: wave-third-effect 4s linear infinite;
-    animation-direction: normal;
-}
-
-.wave_exotic_effect {
-    animation: wave-first-effect 4s linear infinite;
-    animation-direction: normal;
-}
-
-.wave_pear_effect {
-    animation: wave-second-effect 4s linear infinite;
-    animation-direction: normal;
-}
-
-@keyframes wave-second-effect {
-    0% {
-        box-shadow: 0 0 0 0px var(--third-background),
-            0 0 0 0px var(--third-background);
-    }
-
-    40% {
-        box-shadow: 0 0 0 50px rgba(60, 41, 188, 0),
-            0 0 0 0px var(--third-background);
-    }
-
-    80% {
-        box-shadow: 0 0 0 50px rgba(60, 41, 188, 0), 0 0 0 30px rgba(0, 0, 0, 0);
-    }
-
-    100% {
-        box-shadow: 0 0 0 0px rgba(60, 41, 188, 0), 0 0 0 30px rgba(0, 230, 118, 0);
-    }
-}
-
-@keyframes wave-third-effect {
-    0% {
-        box-shadow: 0 0 0 0px var(--second-background),
-            0 0 0 0px var(--second-background);
-    }
-
-    40% {
-        box-shadow: 0 0 0 50px rgba(60, 41, 188, 0),
-            0 0 0 0px var(--second-background);
-    }
-
-    80% {
-        box-shadow: 0 0 0 50px rgba(60, 41, 188, 0), 0 0 0 30px rgba(0, 0, 0, 0);
-    }
-
-    100% {
-        box-shadow: 0 0 0 0px rgba(60, 41, 188, 0), 0 0 0 30px rgba(0, 230, 118, 0);
-    }
-}
-
-@keyframes wave-first-effect {
-    0% {
-        box-shadow: 0 0 0 0px var(--first-background),
-            0 0 0 0px var(--first-background);
-    }
-
-    40% {
-        box-shadow: 0 0 0 50px rgba(60, 41, 188, 0),
-            0 0 0 0px var(--first-background);
-    }
-
-    80% {
-        box-shadow: 0 0 0 50px rgba(60, 41, 188, 0), 0 0 0 30px rgba(0, 0, 0, 0);
-    }
-
-    100% {
-        box-shadow: 0 0 0 0px rgba(60, 41, 188, 0), 0 0 0 30px rgba(0, 230, 118, 0);
-    }
-}
-
-@keyframes wave-four-effect {
-    0% {
-        box-shadow: 0 0 0 0px var(--four-background),
-            0 0 0 0px var(--four-background);
-    }
-
-    40% {
-        box-shadow: 0 0 0 50px rgba(60, 41, 188, 0),
-            0 0 0 0px var(--four-background);
-    }
-
-    80% {
-        box-shadow: 0 0 0 50px rgba(60, 41, 188, 0), 0 0 0 30px rgba(0, 0, 0, 0);
-    }
-
-    100% {
-        box-shadow: 0 0 0 0px rgba(60, 41, 188, 0), 0 0 0 30px rgba(0, 230, 118, 0);
-    }
-}
-
 /*.......... Responsive.............. */
 @media screen and (max-width: 1550px) {
-    body {
-        width: 100vw;
-    }
-
     .h1 {
         font-size: 350px !important;
     }
