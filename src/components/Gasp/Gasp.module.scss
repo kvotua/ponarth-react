@@ -46,18 +46,18 @@ i {
 }
 
 /* Typography */
-h1 {
+.h1 {
     text-align: center;
-    font-family: "Lexend";
     font-size: 200px !important;
     line-height: normal !important;
     color: var(--white-color) !important;
     max-width: 50vw;
     margin: 0 !important;
     user-select: none;
+    font-family: "Roboto", sans-serif;
 }
 
-h2 {
+.h2 {
     font-family: "Lexend";
     font-size: 40px;
     line-height: normal;
@@ -66,7 +66,7 @@ h2 {
 }
 
 /* Header */
-header {
+.header {
     padding: 22px 28px 0;
     position: fixed;
     top: 0;
@@ -87,10 +87,6 @@ header {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-h1 {
-    font-family: "Roboto", sans-serif;
 }
 
 .left {
@@ -233,7 +229,7 @@ h1 {
 
 /* Add this to your CSS */
 /* Buttons */
-button {
+.button {
     position: fixed;
     top: 50%;
     right: 30px;
@@ -383,7 +379,7 @@ button {
         width: 100vw;
     }
 
-    h1 {
+    .h1 {
         font-size: 350px !important;
     }
 
@@ -417,7 +413,7 @@ button {
         overflow: hidden;
     }
 
-    h1 {
+    .h1 {
         font-size: 60px !important;
         bottom: 10%;
         width: 50vw;
@@ -427,7 +423,7 @@ button {
         top: 90%;
     }
 
-    h2 {
+    .h2 {
         font-size: 30px;
     }
 
@@ -440,7 +436,7 @@ button {
         margin-top: 5px;
     }
 
-    button {
+    .button {
         height: 30px;
         width: 30px;
         font-size: 20px;

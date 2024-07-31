@@ -23,14 +23,7 @@ function Gasp() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentPosition, setCurrentPosition] = useState(0);
 
-  const h1Texts = [
-    "Пшен",
-    "ичное",
-    "Пил",
-    "снер",
-    "Тыкве\nэ",
-    "нный\nль"
-  ];
+  const h1Texts = ["Пшен", "ичное", "Пил", "снер", "Тыкве\nэ", "нный\nль"];
   const logoColors = [
     "var(--first-logo)",
     "var(--third-logo)",
@@ -73,8 +66,7 @@ function Gasp() {
       if (h2 !== null) {
         if (currentIndex !== 0) {
           h2.innerHTML = h1Texts[currentIndex * 2 + 1];
-        }
-        else {
+        } else {
           h2.innerHTML = h1Texts[1];
         }
       }
@@ -158,8 +150,8 @@ function Gasp() {
 
   return (
     <div className={styles.body}>
-      <header>
-        <h2 className={styles.logo} id="logo">
+      <header className={styles.header}>
+        <h2 className={`${styles.logo} ${styles.h2}`} id="logo">
           Новинки
         </h2>
       </header>
@@ -168,26 +160,29 @@ function Gasp() {
           <button
             id="prevButton"
             ref={prevButtonRef}
-            className={`${styles.prevButton}`}
+            className={`${styles.prevButton} ${styles.button}`}
             onClick={() => {
               prevButtonClick();
             }}
           >
             <i
-              className={`${currentIndex == 1 ? styles.peach_color : styles.apple_color
-                } ${styles.prevButton}`}
+              className={`${
+                currentIndex == 1 ? styles.peach_color : styles.apple_color
+              } ${styles.prevButton}`}
             ></i>
           </button>
           <button
             id="nextButton"
+            className={styles.button}
             ref={nextButtonRef}
             onClick={() => {
               nextButtonClick();
             }}
           >
             <i
-              className={`${currentIndex == 1 ? styles.exotic_color : styles.apple_color
-                }`}
+              className={`${
+                currentIndex == 1 ? styles.exotic_color : styles.apple_color
+              }`}
             ></i>
           </button>
         </div>
