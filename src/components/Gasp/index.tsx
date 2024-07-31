@@ -41,9 +41,6 @@ function Gasp() {
   const fruit_image = useRef<(HTMLDivElement | null)[]>([]);
   const fruit_image__img = useRef<(HTMLDivElement | null)[]>([]);
 
-  console.log(h1);
-  console.log(h2);
-
   // логика анимации фруктов на заднем фоне
   useEffect(() => {
     gsap.to(fruit_image__img.current, {
@@ -150,8 +147,8 @@ function Gasp() {
 
   return (
     <div className={styles.body}>
-      <header className={styles.header}>
-        <h2 className={`${styles.logo} ${styles.h2}`} id="logo">
+      <header className={styles.NewBlock}>
+        <h2 className={`${styles.logo} ${styles.New}`} id="logo">
           Новинки
         </h2>
       </header>
@@ -188,10 +185,10 @@ function Gasp() {
         </div>
         <div className={styles.text}>
           <div className={styles.headers}>
-            <h1 className={`${styles.h1} ${styles.left}`} id="h1">
+            <h1 className={`${styles.beerFlavor} ${styles.left}`} id="h1">
               Пшен
             </h1>
-            <h1 className={`${styles.h1} ${styles.right}`} id="h2">
+            <h1 className={`${styles.beerFlavor} ${styles.right}`} id="h2">
               ичное
             </h1>
           </div>
@@ -200,13 +197,13 @@ function Gasp() {
             <img
               src={beercan}
               alt=""
-              className={`${styles.can} ${styles.img}`}
+              className={`${styles.can} ${styles.backgroundImgs}`}
             />
             <img
               src={beerlables}
               alt=""
               id="cane_labels"
-              className={`${styles.cane_labels} ${styles.img}`}
+              className={`${styles.cane_labels} ${styles.backgroundImgs}`}
               style={{ left: `${currentPosition}%` }}
             />
           </div>
@@ -220,24 +217,24 @@ function Gasp() {
             <section className={styles.section} id="section1">
               <div className={styles.fruit_images}>
                 <div
-                  className={`${styles.image_one} ${styles.fruit_image}`}
+                  className={`${styles.backgroundImage_one} ${styles.fruit_image}`}
                   ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}
                 >
                   <img
                     ref={(ref) =>
                       fruit_image__img.current.push(ref as HTMLImageElement)
                     }
-                    className={styles.img}
+                    className={styles.backgroundImgs}
                     src={malt1}
                     alt="pear-image"
                   />
                 </div>
                 <div
-                  className={`${styles.image_two} ${styles.fruit_image}`}
+                  className={`${styles.backgroundImage_two} ${styles.fruit_image}`}
                   ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}
                 >
                   <img
-                    className={styles.img}
+                    className={styles.backgroundImgs}
                     ref={(ref) =>
                       fruit_image__img.current.push(ref as HTMLImageElement)
                     }
@@ -246,27 +243,27 @@ function Gasp() {
                   />
                 </div>
                 <div
-                  className={`${styles.image_three} ${styles.fruit_image}`}
+                  className={`${styles.backgroundImage_three} ${styles.fruit_image}`}
                   ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}
                 >
                   <img
                     ref={(ref) =>
                       fruit_image__img.current.push(ref as HTMLImageElement)
                     }
-                    className={styles.img}
+                    className={styles.backgroundImgs}
                     src={malt3}
                     alt="pear-image"
                   />
                 </div>
                 <div
-                  className={`${styles.image_four} ${styles.fruit_image}`}
+                  className={`${styles.backgroundImage_four} ${styles.fruit_image}`}
                   ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}
                 >
                   <img
                     ref={(ref) =>
                       fruit_image__img.current.push(ref as HTMLImageElement)
                     }
-                    className={styles.img}
+                    className={styles.backgroundImgs}
                     src={malt4}
                     alt="pear-image"
                   />
@@ -276,11 +273,11 @@ function Gasp() {
             <section className={styles.section} id="section2">
               <div className={styles.fruit_images}>
                 <div
-                  className={`${styles.image_one} ${styles.fruit_image}`}
+                  className={`${styles.backgroundImage_one} ${styles.fruit_image}`}
                   ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}
                 >
                   <img
-                    className={styles.img}
+                    className={styles.backgroundImgs}
                     ref={(ref) =>
                       fruit_image__img.current.push(ref as HTMLImageElement)
                     }
@@ -289,11 +286,11 @@ function Gasp() {
                   />
                 </div>
                 <div
-                  className={`${styles.image_two} ${styles.fruit_image}`}
+                  className={`${styles.backgroundImage_two} ${styles.fruit_image}`}
                   ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}
                 >
                   <img
-                    className={styles.img}
+                    className={styles.backgroundImgs}
                     ref={(ref) =>
                       fruit_image__img.current.push(ref as HTMLImageElement)
                     }
@@ -302,11 +299,11 @@ function Gasp() {
                   />
                 </div>
                 <div
-                  className={`${styles.image_three} ${styles.fruit_image}`}
+                  className={`${styles.backgroundImage_three} ${styles.fruit_image}`}
                   ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}
                 >
                   <img
-                    className={styles.img}
+                    className={styles.backgroundImgs}
                     ref={(ref) =>
                       fruit_image__img.current.push(ref as HTMLImageElement)
                     }
@@ -315,11 +312,11 @@ function Gasp() {
                   />
                 </div>
                 <div
-                  className={`${styles.image_four} ${styles.fruit_image}`}
+                  className={`${styles.backgroundImage_four} ${styles.fruit_image}`}
                   ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}
                 >
                   <img
-                    className={styles.img}
+                    className={styles.backgroundImgs}
                     ref={(ref) =>
                       fruit_image__img.current.push(ref as HTMLImageElement)
                     }
@@ -332,11 +329,11 @@ function Gasp() {
             <section className={styles.section} id="section3">
               <div className={styles.fruit_images}>
                 <div
-                  className={`${styles.image_one} ${styles.fruit_image}`}
+                  className={`${styles.backgroundImage_one} ${styles.fruit_image}`}
                   ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}
                 >
                   <img
-                    className={styles.img}
+                    className={styles.backgroundImgs}
                     ref={(ref) =>
                       fruit_image__img.current.push(ref as HTMLImageElement)
                     }
@@ -345,11 +342,11 @@ function Gasp() {
                   />
                 </div>
                 <div
-                  className={`${styles.image_two} ${styles.fruit_image}`}
+                  className={`${styles.backgroundImage_two} ${styles.fruit_image}`}
                   ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}
                 >
                   <img
-                    className={styles.img}
+                    className={styles.backgroundImgs}
                     ref={(ref) =>
                       fruit_image__img.current.push(ref as HTMLImageElement)
                     }
@@ -358,11 +355,11 @@ function Gasp() {
                   />
                 </div>
                 <div
-                  className={`${styles.image_three} ${styles.fruit_image}`}
+                  className={`${styles.backgroundImage_three} ${styles.fruit_image}`}
                   ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}
                 >
                   <img
-                    className={styles.img}
+                    className={styles.backgroundImgs}
                     ref={(ref) =>
                       fruit_image__img.current.push(ref as HTMLImageElement)
                     }
@@ -371,11 +368,11 @@ function Gasp() {
                   />
                 </div>
                 <div
-                  className={`${styles.image_four} ${styles.fruit_image}`}
+                  className={`${styles.backgroundImage_four} ${styles.fruit_image}`}
                   ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}
                 >
                   <img
-                    className={styles.img}
+                    className={styles.backgroundImgs}
                     ref={(ref) =>
                       fruit_image__img.current.push(ref as HTMLImageElement)
                     }

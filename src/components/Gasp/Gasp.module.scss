@@ -9,7 +9,7 @@
     box-sizing: border-box;
 }
 
-.img {
+.backgroundImgs {
     width: 100%;
     height: auto;
 }
@@ -30,7 +30,7 @@
 }
 
 /* Typography */
-.h1 {
+.beerFlavor {
     text-align: center;
     font-size: 200px !important;
     line-height: normal !important;
@@ -41,7 +41,7 @@
     font-family: "Roboto", sans-serif;
 }
 
-.h2 {
+.New {
     font-family: "Lexend";
     font-size: 40px;
     line-height: normal;
@@ -50,7 +50,7 @@
 }
 
 /* Header */
-.header {
+.NewBlock {
     padding: 22px 28px 0;
     position: fixed;
     top: 0;
@@ -118,24 +118,24 @@
     position: absolute;
 }
 
-.image_one {
+.backgroundImage_one {
     max-width: 282px;
     bottom: 100px;
 }
 
-.image_two {
+.backgroundImage_two {
     max-width: 247px;
     top: 23%;
     left: 25%;
 }
 
-.image_three {
+.backgroundImage_three {
     max-width: 211px;
     top: 23%;
     right: 25%;
 }
 
-.image_four {
+.backgroundImage_four {
     max-width: 294px;
     bottom: 100px;
     right: 0;
@@ -154,21 +154,21 @@
     height: 30px;
 }
 
-.image_one::after {
+.backgroundImage_one::after {
     bottom: -50px;
 }
 
-.image_two::after {
+.backgroundImage_two::after {
     bottom: -200px;
     height: 22px;
 }
 
-.image_three::after {
+.backgroundImage_three::after {
     bottom: -280px;
     width: 103px;
 }
 
-.image_four::after {
+.backgroundImage_four::after {
     bottom: -50px;
 }
 
@@ -241,7 +241,7 @@
 
 /*.......... Responsive.............. */
 @media screen and (max-width: 1550px) {
-    .h1 {
+    .beerFlavor {
         font-size: 350px !important;
     }
 
@@ -249,21 +249,21 @@
         max-width: 280px;
     }
 
-    .image_one {
+    .backgroundImage_one {
         max-width: 250px;
     }
 
-    .image_two {
+    .backgroundImage_two {
         max-width: 215px;
         left: 22%;
         top: 10%;
     }
 
-    .image_three {
+    .backgroundImage_three {
         max-width: 180px;
     }
 
-    .image_four {
+    .backgroundImage_four {
         max-width: 260px;
         right: 40px;
     }
@@ -275,7 +275,7 @@
         overflow: hidden;
     }
 
-    .h1 {
+    .beerFlavor {
         font-size: 60px !important;
         bottom: 10%;
         width: 50vw;
@@ -285,7 +285,7 @@
         top: 90%;
     }
 
-    .h2 {
+    .New {
         font-size: 30px;
     }
 
@@ -304,23 +304,23 @@
         font-size: 20px;
     }
 
-    .image_one {
+    .backgroundImage_one {
         max-width: 180px;
         bottom: 150px;
     }
 
-    .image_two {
+    .backgroundImage_two {
         max-width: 145px;
         left: 12%;
         top: 15%;
     }
 
-    .image_three {
+    .backgroundImage_three {
         max-width: 130px;
         right: 10%;
     }
 
-    .image_four {
+    .backgroundImage_four {
         max-width: 180px;
         bottom: 150px;
     }
