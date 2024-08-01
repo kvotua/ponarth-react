@@ -8,7 +8,7 @@
 }
 .outmask_content{
   position: absolute;
-  z-index: 1;
+  z-index: unset;
   width: 100%;
   height: calc((var(--double-screen-height) / 2) - 4%);
   display: grid;
@@ -50,6 +50,11 @@ z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 3;
+  }
+  .button_back_link{
+    width: 30px;
+    height: 30px;
   }
   .button_back {
     width: 30px;
@@ -62,7 +67,7 @@ z-index: 1;
     position: fixed;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
     transition: 0.3s ease-in-out;
-    transform: rotate(-45deg);
+    transform: rotate(-90deg);
   }
   .right_container{
     grid-area: 2 / 7 / 4 / 11;
