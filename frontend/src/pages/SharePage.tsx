@@ -9,7 +9,7 @@ const SharePage = () => {
    <div className={styles.margin_container}>
     <div className={styles.outmask_content}>
   <div className={styles.button_container}>
-  <Link to='/home'>
+  <Link to='/home' className={styles.button_back}>
   <button className={styles.button_back}></button>
   </Link>
         </div>
