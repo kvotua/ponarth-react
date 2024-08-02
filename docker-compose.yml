@@ -12,6 +12,12 @@ services:
     ports:
       - "3000:3000"
 
+  frontend_admin:
+    build: ./frontend_admin
+    container_name: frontend_admin
+    ports:
+      - "3000:3000"
+
   bot_admin:
     container_name: bot_admin
     build:
