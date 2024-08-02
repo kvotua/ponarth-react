@@ -10,7 +10,6 @@ import Looking from "../components/LookingPage/LookingPage";
 import Footer from "../components/Footer";
 import History from "../components/History/History";
 import PartnerForm from "../components/Form/";
-import Vakansii from "../components/Vakansii"
 
 import NewsProduction from "../components/NewsProduction";
 
