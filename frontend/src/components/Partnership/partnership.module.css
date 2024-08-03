@@ -113,6 +113,16 @@
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 0.7fr);
   }
+  .kartinka1{
+    height: 100%;
+  }
+  .big_text_four_page,
+  .big_text_four_right{
+font-size: 60px;
+  }
+  .txt_four_page>p{
+font-size: 18px;
+  }
   .grid_item_left,
   .grid_item_right {
     height: 300px;
@@ -120,6 +130,11 @@
   .grid_item_right1,
   .grid_item_right3 {
     height: 420px;
+  }
+ .grid_item2,
+ .grid_item3,
+ .grid_item6{
+margin: 0 auto;
   }
   .grid_item1 {
     grid-area: 1 / 1 / 2 / 2;
@@ -143,9 +158,11 @@
   }
   .grid_item6 {
     height: 420px;
+
     grid-area: 6 / 1 / 7 / 2;
   }
-  .big_text_four_page, .big_text_four_right{
+  .big_text_four_page,
+  .big_text_four_right {
     padding-bottom: 0;
   }
 }

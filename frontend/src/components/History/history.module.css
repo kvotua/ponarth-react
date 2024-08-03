@@ -47,7 +47,7 @@ span {
   background-repeat: no-repeat;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(2, calc(var(--double-screen-height) /2));
+  grid-template-rows: repeat(2, calc(var(--double-screen-height) / 2));
   filter: brightness(150%);
 }
 
@@ -101,7 +101,6 @@ span {
   /* Устанавливаем перенос для длинных слов */
   animation: appear cubic-bezier(0.42, 0.5, 0, 1);
   animation-timeline: view();
-
 }
 
 .hoverable {
@@ -119,25 +118,25 @@ span {
 }
 
 @media only screen and (max-width: 768px) {
-  .container_two_page{
+  .container_two_page {
     height: calc(var(--double-screen-height) / 2);
   }
-  .two_page{
+  .two_page {
     height: calc(var(--double-screen-height) / 2);
   }
-  .block_image{
+  .block_image {
     height: calc(var(--double-screen-height) / 2);
-    grid-template-rows: repeat(2, calc(var(--double-screen-height) /4));
+    grid-template-rows: repeat(2, calc(var(--double-screen-height) / 4));
   }
   .text_two_page {
-    line-height: 50px;
+    line-height: 60px;
     padding: 3% 5% 0 5%;
-    font-size: 24px;
+    font-size: 38px;
     height: calc(var(--double-screen-height) / 4);
   }
-.secondBlock{
-  height: calc(var(--double-screen-height) / 4);
-}
+  .secondBlock {
+    height: calc(var(--double-screen-height) / 4);
+  }
   .litle_text_two {
     font-size: 16px;
     /* Уменьшаем размер шрифта на мобильных устройствах */
@@ -173,15 +172,14 @@ span {
 }
 
 @media screen and (max-width: 475px) {
-  .secondBlock{
+  .secondBlock {
     justify-content: start;
   }
- .hoverable{
-  font-size: 16px;
- }
+  .hoverable {
+    font-size: 16px;
+  }
 }
 @media only screen and (min-width: 1400px) {
-
   /* Стили для больших ноутбуков и мониторов */
   .text_two_page {
     font-size: 96px;
@@ -190,7 +188,6 @@ span {
 }
 
 @media only screen and (min-width: 1000px) {
-
   /* Стили для больших ноутбуков и мониторов */
   .text_two_page {
     font-size: 96px;
