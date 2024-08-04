@@ -1,0 +1,38 @@
+.slider_box {
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 60px;
+  max-width: 100vw; /* Устанавливаем максимальную ширину во весь экран */
+  overflow-x: auto; /* Возвращаем прокрутку */
+  white-space: nowrap; /* Предотвращаем перенос строк */
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 5px; /* Добавляем верхний отступ */
+  padding-bottom: 10px; /* Добавляем нижний отступ */
+  user-select: none;
+
+  /* Скрываем ползунок прокрутки */
+  scrollbar-width: none; /* Для Firefox */
+  -ms-overflow-style: none; /* Для Internet Explorer и Edge */
+  &::-webkit-scrollbar {
+    display: none; /* Для Chrome, Safari и Opera */
+  }
+
+  .slider_button,
+  .selected {
+    color: white;
+    height: 40px;
+    padding: 8px 16px 10px 16px;
+    background: none;
+    border: 0;
+    border-radius: 50px;
+    display: inline-block;
+    font-size: 17px; /* Делаем кнопки встроенными блоками */
+    transition: transform 0.2s, box-shadow 0.2s; /* Добавляем плавный переход */
+  }
+  .selected {
+    background-color: #ffffff;
+    color: black;
+    box-shadow: 0 4px 8px rgb(0, 0, 0); /* Добавляем тень */
+    transform: translateY(-2px); /* Поднимаем кнопку */
+  }
+}

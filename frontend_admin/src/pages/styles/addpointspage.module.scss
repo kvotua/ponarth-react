@@ -1,0 +1,78 @@
+.back_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: black;
+  border: 0;
+  align-self: self-start;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.address_input {
+  width: 100%;
+  height: 49px;
+  background: none;
+  color: white;
+  border: 1px solid rgb(145, 145, 145);
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 16px;
+  padding-left: 12px;
+  box-sizing: border-box;
+}
+
+.address_input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.address_input::placeholder {
+  margin: 0;
+  padding: 0;
+}
+.map {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.map_container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.add_image {
+  align-self: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 168px;
+  height: 168px;
+  background: linear-gradient(315deg, #494949, #00000000);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgb(145, 145, 145);
+  border-radius: 12px;
+
+  .circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 69px;
+    height: 69px;
+    border-radius: 50%;
+    background-color: white;
+  }
+}
