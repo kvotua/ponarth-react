@@ -3,7 +3,7 @@ import logging
 import aiohttp
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters.command import Command
-from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, KeyboardButton, BotCommand
+from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, BotCommand
 from dotenv import load_dotenv
 import os
 
@@ -45,12 +45,22 @@ async def cmd_start(message: types.Message):
             user_exists = await check_user_exists(session, username)
             if user_exists:
                 await send_welcome_message(message)
+                await set_main_menu(bot)  # Set login menu if user exists
             else:
                 await message.answer("Вас должны зарегистрировать")
         else:
             await message.answer("Сервер недоступен")
-        
-        await set_main_menu(bot)  # Устанавливаем главное меню в любом случае
+
+@dp.message(Command("regnewuser"))
+async def cmd_regnewuser(message: types.Message):
+    username = message.from_user.username  # Username
+
+    async with aiohttp.ClientSession() as session:
+        user_exists = await check_user_exists(session, username)
+        if user_exists:
+            await message.answer("Создание нового пользователя(ЗАГЛУШКА)")
+        else:
+            await message.answer("У вас нет прав на создание нового пользователя")
 
 async def set_main_menu(bot: Bot):
     # Создаем список с командами и их описанием для кнопки menu
