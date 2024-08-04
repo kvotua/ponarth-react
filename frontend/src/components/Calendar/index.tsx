@@ -38,37 +38,18 @@ const CalendarComp: React.FC = () => {
     setPersons((prev) => Math.max(prev - 1, 1));
   };
 
-  const handlers = useSwipeable({
-    onSwipedLeft: () => console.log("Swiped left"),
-    onSwipedRight: () => console.log("Swiped right"),
-  });
-
   const slidesRef = useRef<HTMLDivElement>(null);
-  const isDown = useRef(false);
-  const startX = useRef(0);
-  const scrollLeft = useRef(0);
 
-  const handleMouseDown = (e: React.MouseEvent) => {
-    isDown.current = true;
-    startX.current = e.pageX - slidesRef.current!.offsetLeft;
-    scrollLeft.current = slidesRef.current!.scrollLeft;
-  };
-
-  const handleMouseLeave = () => {
-    isDown.current = false;
-  };
-
-  const handleMouseUp = () => {
-    isDown.current = false;
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDown.current) return;
-    e.preventDefault();
-    const x = e.pageX - slidesRef.current!.offsetLeft;
-    const walk = (x - startX.current) * 3; // Adjust scroll speed
-    slidesRef.current!.scrollLeft = scrollLeft.current - walk;
-  };
+  const handlers = useSwipeable({
+    onSwipedLeft: () => {
+      slidesRef.current!.scrollLeft += slidesRef.current!.offsetWidth;
+    },
+    onSwipedRight: () => {
+      slidesRef.current!.scrollLeft -= slidesRef.current!.offsetWidth;
+    },
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true,
+  });
 
   return (
     <>
@@ -147,15 +128,7 @@ const CalendarComp: React.FC = () => {
           </button>
         </div>
 
-        <div
-          className={styles.photos_block}
-          {...handlers}
-          ref={slidesRef}
-          onMouseDown={handleMouseDown}
-          onMouseLeave={handleMouseLeave}
-          onMouseUp={handleMouseUp}
-          onMouseMove={handleMouseMove}
-        >
+        <div className={styles.photos_block} ref={slidesRef} {...handlers}>
           <div className={styles.slides}>
             <div className={styles.slide}>
               <img src={image1} alt="" />
