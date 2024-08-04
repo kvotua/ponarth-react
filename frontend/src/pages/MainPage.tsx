@@ -12,6 +12,7 @@ import History from "../components/History/History";
 import PartnerForm from "../components/Form/";
 
 import NewsProduction from "../components/NewsProduction";
+import CalendarComp from "../components/Calendar";
 
 const MainPage: FC = () => {
   const localTheme = window.localStorage.getItem("theme");
@@ -29,27 +30,28 @@ const MainPage: FC = () => {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className={styles.box_shadow}>
-
-     
-      <div
-        className={
-          styles.wrapper +
-          (theme === "dark" ? " " + styles.dark + " " + styles.darkWrapper : "")
-        }
-      >
-        <Header />
-        <div className={styles.content}>
-          <History />
-          <Partnership />
-          <PartnerForm />
-          <Looking />
-          <NewHistory />
-          <NewsProduction />
-          <Map />
+        <div
+          className={
+            styles.wrapper +
+            (theme === "dark"
+              ? " " + styles.dark + " " + styles.darkWrapper
+              : "")
+          }
+        >
+          <Header />
+          <div className={styles.content}>
+            <History />
+            <CalendarComp />
+            <Partnership />
+            <PartnerForm />
+            <Looking />
+            <NewHistory />
+            <NewsProduction />
+            <Map />
+          </div>
+          <RightBar />
         </div>
-        <RightBar />
-      </div>
-      <Footer />
+        <Footer />
       </div>
     </ThemeContext.Provider>
   );
