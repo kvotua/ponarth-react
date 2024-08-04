@@ -30,7 +30,7 @@ services:
     build: ./backend
     container_name: backend
     ports:
-      - 8082:8080
+      - 8443:8443
     depends_on:
       - postgresql
       - pgadmin
