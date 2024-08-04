@@ -3,7 +3,7 @@ import logging
 import aiohttp
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters.command import Command
-from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, BotCommand
+from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, BotCommand, KeyboardButton, ReplyKeyboardMarkup
 from dotenv import load_dotenv
 import os
 
@@ -20,11 +20,11 @@ bot = Bot(token=API_TOKEN)
 dp = Dispatcher()
 
 async def check_server_status(session):
-    async with session.get('https://backend.ponarth.com/api/settings/ping') as response:
+    async with session.get('https://backend:8443/api/settings/ping') as response:
         return response.status == 200
 
 async def check_user_exists(session, username):
-    async with session.post('https://backend.ponarth.com/api/auth/login', json={"username": username}) as response:
+    async with session.post('https://backend:8443/api/auth/login', json={"username": username}) as response:
         return response.status == 200
 
 async def send_welcome_message(message):
@@ -50,6 +50,8 @@ async def cmd_start(message: types.Message):
                 await message.answer("Вас должны зарегистрировать")
         else:
             await message.answer("Сервер недоступен")
+    
+    await set_main_menu(bot)  # Set the main menu in any case
 
 @dp.message(Command("regnewuser"))
 async def cmd_regnewuser(message: types.Message):
@@ -58,9 +60,11 @@ async def cmd_regnewuser(message: types.Message):
     async with aiohttp.ClientSession() as session:
         user_exists = await check_user_exists(session, username)
         if user_exists:
-            await message.answer("Создание нового пользователя(ЗАГЛУШКА)")
+            contact_button = InlineKeyboardButton(text="Отправить контакт", callback_data="send_contact")
+            keyboard = InlineKeyboardMarkup(inline_keyboard=[[contact_button]])
+            await message.answer("Пожалуйста, выберите контакт:", reply_markup=keyboard)
         else:
-            await message.answer("У вас нет прав на создание нового пользователя")
+            await message.answer("У вас нет прав на создание новых пользователей")
 
 async def set_main_menu(bot: Bot):
     # Создаем список с командами и их описанием для кнопки menu
