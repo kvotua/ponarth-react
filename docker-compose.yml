@@ -18,6 +18,7 @@ services:
     ports:
       - "3003:3003"
 
+
   bot_admin:
     container_name: bot_admin
     build:
