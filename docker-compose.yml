@@ -7,7 +7,7 @@ services:
       - "3002:3002"
 
   frontend:
-    build: ./frontend
+    build: ./frontendw
     container_name: frontend
     ports:
       - "3000:3000"
@@ -16,7 +16,8 @@ services:
     build: ./frontend_admin
     container_name: frontend_admin
     ports:
-      - "3000:3000"
+      - "3003:3003"
+
 
   bot_admin:
     container_name: bot_admin
