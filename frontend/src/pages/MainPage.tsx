@@ -17,6 +17,7 @@ import CalendarComp from "../components/Calendar";
 const MainPage: FC = () => {
   const localTheme = window.localStorage.getItem("theme");
   const [theme, setTheme] = useState(localTheme ? localTheme : "light");
+  const [isBurgerOpen, setIsBurgerOpen] = useState(false);
 
   useEffect(() => {
     window.localStorage.setItem("theme", theme);
@@ -25,6 +26,10 @@ const MainPage: FC = () => {
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
+
+  const toggleBurger = () => {
+    setIsBurgerOpen((prevIsBurgerOpen) => !prevIsBurgerOpen);
   };
 
   return (
@@ -38,7 +43,12 @@ const MainPage: FC = () => {
               : "")
           }
         >
-          <Header />
+          <div className={styles.burger} onClick={toggleBurger}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <Header className={isBurgerOpen ? styles.headerOpen : ""} />
           <div className={styles.content}>
             <History />
             <CalendarComp />
