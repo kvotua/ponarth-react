@@ -52,7 +52,9 @@
 }
 
 @media (max-width: 599px) {
-  .header,
+  .header {
+    display: none;
+  }
   .right_menu {
     display: none;
   }
