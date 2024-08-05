@@ -291,7 +291,11 @@ height: 400px;
     height: 880px;
     padding: 0;
   }
-
+.bochka{
+  font-size: 30px;
+  width: 100%;
+  line-height: 40px;
+}
 }
 @media screen and (max-width: 355px) {
   video {
