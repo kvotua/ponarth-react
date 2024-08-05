@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef } from "react";
+import React, { useState, useContext } from "react";
 import styles from "./calendar.module.css";
 import Calendar, { CalendarProps } from "react-calendar";
 import "react-calendar/dist/Calendar.css";
@@ -10,7 +10,6 @@ import image1 from "../../assets/calendar1.jpg";
 import image2 from "../../assets/calendar2.jpg";
 import image3 from "../../assets/calendar3.jpg";
 import { ThemeContext } from "../RightBar";
-import { useSwipeable } from "react-swipeable";
 
 const CalendarComp: React.FC = () => {
   const { theme } = useContext(ThemeContext);
@@ -37,19 +36,6 @@ const CalendarComp: React.FC = () => {
   const handleDecrement = () => {
     setPersons((prev) => Math.max(prev - 1, 1));
   };
-
-  const slidesRef = useRef<HTMLDivElement>(null);
-
-  const handlers = useSwipeable({
-    onSwipedLeft: () => {
-      slidesRef.current!.scrollLeft += slidesRef.current!.offsetWidth;
-    },
-    onSwipedRight: () => {
-      slidesRef.current!.scrollLeft -= slidesRef.current!.offsetWidth;
-    },
-    preventDefaultTouchmoveEvent: true,
-    trackMouse: true,
-  });
 
   return (
     <>
@@ -128,7 +114,7 @@ const CalendarComp: React.FC = () => {
           </button>
         </div>
 
-        <div className={styles.photos_block} ref={slidesRef} {...handlers}>
+        <div className={styles.photos_block}>
           <div className={styles.slides}>
             <div className={styles.slide}>
               <img src={image1} alt="" />
