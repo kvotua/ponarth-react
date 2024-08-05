@@ -124,3 +124,9 @@ button:hover .circle {
 button:hover .button-text {
   color: #fff;
 }
+@media screen and (max-width: 550px) {
+  .mark{
+    width: 100%;
+    margin: 0;
+  }
+}
