@@ -1,0 +1,20 @@
+.input {
+  width: 90%;
+  height: 49px;
+  border: 2px solid grey;
+  font-size: 20px;
+  border-radius: 4px;
+  background: url('../../assets/3844432-magnifier-search-zoom_110300.svg')
+    no-repeat 10px center;
+  background-size: 30px;
+  padding-left: 50px;
+  margin-top: 30px;
+}
+
+.input:focus {
+  border-color: rgb(97, 157, 248);
+  outline: none;
+}
+.input::-webkit-search-cancel-button {
+  margin-right: 20px;
+}

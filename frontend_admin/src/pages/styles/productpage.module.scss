@@ -1,0 +1,135 @@
+.title {
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 34px;
+  max-width: 100%;
+  margin: 0 5%;
+}
+
+.input {
+  width: 90%;
+  height: 49px;
+  border: 2px solid grey;
+  font-size: 20px;
+  border-radius: 4px;
+  background: url("../../assets/3844432-magnifier-search-zoom_110300.svg")
+    no-repeat 10px center;
+  background-size: 30px;
+  padding-left: 50px;
+  margin-top: 30px;
+}
+
+.input:focus {
+  border-color: rgb(97, 157, 248);
+  outline: none;
+}
+.input::-webkit-search-cancel-button {
+  margin-right: 20px;
+}
+
+.add_btn {
+  position: fixed;
+  bottom: 36px;
+  right: 36px;
+  width: 69px;
+  height: 69px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  border: none;
+  cursor: pointer;
+}
+
+.add_btn img {
+  width: 24px;
+  height: 24px;
+}
+
+.points_list {
+  width: 90%;
+  margin-top: 46px;
+  overflow: hidden;
+  
+  .point {
+    min-height: 70px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    .description_block{
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: end;
+      max-width: 60%;
+    }
+
+    h2 {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 22px;
+      margin-left: 10px;
+    }
+
+    p{
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 22px;
+      margin-left: 10px;
+      color: #717375;
+    }
+
+    .image_block {
+      align-self: flex-start;
+      width: 70px;
+      height: 70px;
+      margin-right: 10px;
+    }
+
+    .image_block img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .settings_btn {
+      background-color: rgb(255, 255, 255);
+      width: 31px;
+      height: 31px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-self: flex-start;
+      align-items: center;
+      justify-content: center;
+      margin-top: 14px;
+      margin-bottom: 20px;
+      margin-left: auto;
+    }
+
+    .delete_btn {
+      background-color: rgb(255, 255, 255);
+      width: 23px;
+      height: 23px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-self: flex-start;
+      align-items: center;
+      justify-content: center;
+      margin-top: 34px;
+      margin-right: 5px;
+    }
+    
+  }
+
+  .point:last-child {
+    margin-bottom: 20px;
+  }
+}

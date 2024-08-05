@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styles from "./calendar.module.css";
 import Calendar, { CalendarProps } from "react-calendar";
 import "react-calendar/dist/Calendar.css";
@@ -9,8 +9,10 @@ import InputMask from "react-input-mask";
 import image1 from "../../assets/calendar1.jpg";
 import image2 from "../../assets/calendar2.jpg";
 import image3 from "../../assets/calendar3.jpg";
+import { ThemeContext } from "../RightBar";
 
 const CalendarComp: React.FC = () => {
+  const { theme } = useContext(ThemeContext);
   const [date, setDate] = useState<Date | null>(new Date());
   const [persons, setPersons] = useState<number>(1);
   const onChange: CalendarProps["onChange"] = (value) => {
@@ -72,24 +74,44 @@ const CalendarComp: React.FC = () => {
           />
 
           <input
-            className={styles.input_calendar}
+            className={`${styles.input_calendar} ${
+              theme === "dark" ? styles.dark : ""
+            }`}
             type="text"
             placeholder="Ваше имя"
           />
           <InputMask
-            className={styles.input_calendar}
+            className={`${styles.input_calendar} ${
+              theme === "dark" ? styles.dark : ""
+            }`}
             mask="+7 (999) 999-99-99"
             placeholder="Контактный номер телефона"
           />
-          <div className={styles.input_calendar}>
+          <div
+            className={`${styles.input_calendar} ${
+              theme === "dark" ? styles.dark : ""
+            }`}
+          >
             <label>Количество персон</label>
             <div className={styles.persons_input}>
               <button onClick={handleDecrement}>—</button>
-              <input type="text" value={persons} readOnly />
+              <input
+                type="text"
+                value={persons}
+                readOnly
+                className={theme === "dark" ? styles.dark : ""}
+              />
               <button onClick={handleIncrement}>+</button>
             </div>
           </div>
-          <button className={styles.reserve_btn}>Забронировать</button>
+
+          <button
+            className={`${styles.reserve_btn} ${
+              theme === "dark" ? styles.dark : ""
+            }`}
+          >
+            Забронировать
+          </button>
         </div>
 
         <div className={styles.photos_block}>
