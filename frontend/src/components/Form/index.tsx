@@ -48,10 +48,10 @@ const PartnerForm = () => {
             >
               <div className={styles.front}>
                 <h1 className={styles.bochka}>
-                  Две гостевые бочки пива <br />
-                  каждому новому партнеру <br />
-                  <div style={{ fontSize: '1rem', paddingBottom: '1%' }}> от </div>
-                  <div style={{ fontSize: '3rem', paddingTop: '1%' }}> PONARTH </div>
+                  ДВЕ ГОСТЕВЫЕ <br />
+                   БОЧКИ ПИВА <br />
+                  НОВЫM
+                   ПАРТНЕРАМ <br />
                 </h1>
 
                 <div className={styles.form_four}>
