@@ -31,6 +31,51 @@ body.dark {
   transition: box-shadow, background-color 1s ease;
 }
 
+.burger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  min-width: 50px;
+  min-height: 50px;
+  border-radius: 50%;
+  z-index: 10;
+  border: 1px solid black;
+  background-color: #ffffff5f;
+  left: 10px;
+  top: 10px;
+  gap: 6px;
+}
+
+.burger span {
+  display: block; /* или inline-block */
+  width: 29px;
+  height: 2px;
+  position: relative;
+  background: #000000 !important;
+  border-radius: 3px;
+  transition: transform 0.3s ease; /* Add transition for smooth effect */
+}
+
+.burgerClosed span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burgerClosed span:nth-child(2) {
+  opacity: 0;
+}
+
+.burgerClosed span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+@media only screen and (min-width: 1230px) {
+  .burger {
+    display: none;
+  }
+}
+
 .content {
   display: flex;
   width: 100%;
@@ -48,10 +93,9 @@ body.dark {
 .dark p {
   color: #fff;
 }
-.box_shadow{
+.box_shadow {
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.93);
   max-width: 1440px;
   justify-self: center;
   margin: 0 auto;
-
 }
