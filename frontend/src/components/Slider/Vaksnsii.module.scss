@@ -17,12 +17,10 @@
     position: relative;
     max-width: 250px;
     margin: 0 auto;
+}
+.form_group:nth-child(2){
     margin-top: 32px;
 }
-
-// .stat_partner {
-//     width: 250px;
-// }
 
 .form_group input {
     background-color: white;
@@ -116,14 +114,18 @@
 .text_container {
     display: grid;
     grid-column-gap: 0px;
-    grid-row-gap: 5%;
+    grid-row-gap: 4%;
     max-width: 400px;
     margin: 0 auto;
-      
+    align-content: center;
 }
-
+.text_container>h1{
+    text-align: center;
+}
+.text_container>p{
+   text-align: justify;
+}
 .stat_partner{
     margin: 0 auto;
     width: 250px;
-    align-content: center;
 }
