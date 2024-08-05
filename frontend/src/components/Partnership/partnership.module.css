@@ -5,7 +5,6 @@
 
 .text {
   font-weight: 400;
-  padding-top: 30px;
 }
 
 .grid_container {
@@ -57,7 +56,7 @@
 .big_text_four_page,
 .big_text_four_right {
   font-weight: bold;
-  padding-bottom: 20%;
+  padding-bottom: 2%;
   font-size: 96px;
   opacity: 0;
   transform: translateY(20px);
@@ -84,7 +83,7 @@
 
 .big_text_four_right {
   font-weight: bold;
-  padding-bottom: 20%;
+  padding-bottom: 2%;
   font-size: 96px;
   text-align: right;
 }
@@ -112,7 +111,9 @@
 @media screen and (max-width: 600px) {
   .grid_container {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(6, 0.7fr);
+    grid-template-rows: repeat(6, 0.3fr);
+    margin-left: 3%;
+    margin-right: 3%;
   }
   .kartinka1{
     height: 100%;
@@ -126,7 +127,7 @@ font-size: 18px;
   }
   .grid_item_left,
   .grid_item_right {
-    height: 300px;
+    height: 140px;
   }
   .grid_item_right1,
   .grid_item_right3 {
@@ -139,7 +140,11 @@ margin: 0 auto;
   }
   .grid_item1 {
     grid-area: 1 / 1 / 2 / 2;
+    align-items: flex-end;
     padding-bottom: 5%;
+    justify-content: center;
+    width: 100%;
+    max-width: unset;
   }
   .grid_item2 {
     height: 420px;
@@ -148,14 +153,33 @@ margin: 0 auto;
   .grid_item3 {
     height: 250px;
     grid-area: 4 / 1 / 5 / 2 !important;
-    padding-bottom: 5%;
+  }
+  .grid_item3>div>img{
+    object-fit: cover;
   }
   .grid_item4 {
     grid-area: 3 / 1 / 4 / 2 !important;
+    margin-top: 8%;
+    align-items: flex-end;
+    padding-bottom: 5%;
+    justify-content: center;
+    width: 100%;
+    max-width: unset;
+  }
+  .big_text_four_right{
+    text-align: left;
+  }
+  .text_four_right{
+    text-align: left;
   }
   .grid_item5 {
     grid-area: 5 / 1 / 6 / 2;
+    margin-top: 8%;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
     padding-bottom: 5%;
+    max-width: unset;
   }
   .grid_item6 {
     height: 420px;
