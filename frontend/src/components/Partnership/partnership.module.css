@@ -109,6 +109,7 @@
 }
 
 @media screen and (max-width: 600px) {
+ 
   .grid_container {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 0.3fr);
@@ -120,11 +121,9 @@
   }
   .big_text_four_page,
   .big_text_four_right{
-font-size: 60px;
+font-size: 45px;
   }
-  .txt_four_page>p{
-font-size: 18px;
-  }
+
   .grid_item_left,
   .grid_item_right {
     height: 140px;
@@ -190,4 +189,10 @@ margin: 0 auto;
   .big_text_four_right {
     padding-bottom: 0;
   }
+}
+@media screen and (max-width: 450px){
+  .txt_four_page>p{
+    font-size: 18px;
+    letter-spacing: -0.5px;
+      }
 }

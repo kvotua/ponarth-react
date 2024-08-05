@@ -161,7 +161,7 @@ const Partnership = () => {
               01
             </h1>
             <p>
-              Только натуральное сырье и<br />
+              Только натуральное сырье и<br className={styles.br_partner}/>
               качественный продукт
             </p>
           </div>
@@ -214,7 +214,7 @@ const Partnership = () => {
               02
             </h1>
             <p className={styles.text_four_right}>
-              Всесторонняя поддержка <br />
+              Всесторонняя поддержка <br className={styles.br_partner} />
               партнеров
             </p>
           </div>
@@ -235,7 +235,7 @@ const Partnership = () => {
               03
             </h1>{" "}
             <p>
-              14 лет варим вкусное пиво по <br />
+              14 лет варим вкусное пиво по <br className={styles.br_partner} />
               технологиям 19го века
             </p>
           </div>
