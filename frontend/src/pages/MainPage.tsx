@@ -30,6 +30,8 @@ const MainPage: FC = () => {
 
   const toggleBurger = () => {
     setIsBurgerOpen((prevIsBurgerOpen) => !prevIsBurgerOpen);
+    console.log("Pressed");
+    console.log(isBurgerOpen);
   };
 
   return (
@@ -43,12 +45,17 @@ const MainPage: FC = () => {
               : "")
           }
         >
-          <div className={styles.burger} onClick={toggleBurger}>
+          <div
+            className={`${styles.burger} ${
+              isBurgerOpen ? styles.burgerClosed : ""
+            }`}
+            onClick={toggleBurger}
+          >
             <span></span>
             <span></span>
             <span></span>
           </div>
-          <Header className={isBurgerOpen ? styles.headerOpen : ""} />
+          <Header isBurgerOpen={isBurgerOpen} />
           <div className={styles.content}>
             <History />
             <CalendarComp />

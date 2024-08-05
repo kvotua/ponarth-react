@@ -3,12 +3,18 @@ import Ponarth_Logo from "../../assets/logo.svg";
 import { useContext } from "react";
 import { ThemeContext } from "../RightBar";
 
-const Header = () => {
+interface HeaderProps {
+  isBurgerOpen: boolean;
+}
+
+const Header: React.FC<HeaderProps> = ({ isBurgerOpen }) => {
   const { theme } = useContext(ThemeContext);
 
   return (
     <header
-      className={`${styles.header} ${theme === "dark" ? styles.dark : ""}`}
+      className={`${styles.header} ${theme === "dark" ? styles.dark : ""} ${
+        isBurgerOpen ? styles.headerOpen : styles.headerClosed
+      }`}
     >
       <div className={styles.header_all_menu}>
         <div className={styles.all_menu}>
