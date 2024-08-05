@@ -52,10 +52,28 @@ body.dark {
   display: block; /* или inline-block */
   width: 29px;
   height: 2px;
-
   position: relative;
   background: #000000 !important;
   border-radius: 3px;
+  transition: transform 0.3s ease; /* Add transition for smooth effect */
+}
+
+.burgerClosed span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burgerClosed span:nth-child(2) {
+  opacity: 0;
+}
+
+.burgerClosed span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+@media only screen and (min-width: 1230px) {
+  .burger {
+    display: none;
+  }
 }
 
 .content {
