@@ -12,10 +12,12 @@ import History from "../components/History/History";
 import PartnerForm from "../components/Form/";
 
 import NewsProduction from "../components/NewsProduction";
+import CalendarComp from "../components/Calendar";
 
 const MainPage: FC = () => {
   const localTheme = window.localStorage.getItem("theme");
   const [theme, setTheme] = useState(localTheme ? localTheme : "light");
+  const [isBurgerOpen, setIsBurgerOpen] = useState(false);
 
   useEffect(() => {
     window.localStorage.setItem("theme", theme);
@@ -26,30 +28,47 @@ const MainPage: FC = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
+  const toggleBurger = () => {
+    setIsBurgerOpen((prevIsBurgerOpen) => !prevIsBurgerOpen);
+    console.log("Pressed");
+    console.log(isBurgerOpen);
+  };
+
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className={styles.box_shadow}>
-
-     
-      <div
-        className={
-          styles.wrapper +
-          (theme === "dark" ? " " + styles.dark + " " + styles.darkWrapper : "")
-        }
-      >
-        <Header />
-        <div className={styles.content}>
-          <History />
-          <Partnership />
-          <PartnerForm />
-          <Looking />
-          <NewHistory />
-          <NewsProduction />
-          <Map />
+        <div
+          className={
+            styles.wrapper +
+            (theme === "dark"
+              ? " " + styles.dark + " " + styles.darkWrapper
+              : "")
+          }
+        >
+          <div
+            className={`${styles.burger} ${
+              isBurgerOpen ? styles.burgerClosed : ""
+            }`}
+            onClick={toggleBurger}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <Header isBurgerOpen={isBurgerOpen} />
+          <div className={styles.content}>
+            <History />
+            <CalendarComp />
+            <Partnership />
+            <PartnerForm />
+            <Looking />
+            <NewHistory />
+            <NewsProduction />
+            <Map />
+          </div>
+          <RightBar />
         </div>
-        <RightBar />
-      </div>
-      <Footer />
+        <Footer />
       </div>
     </ThemeContext.Provider>
   );

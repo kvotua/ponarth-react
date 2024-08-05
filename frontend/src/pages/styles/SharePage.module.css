@@ -8,7 +8,7 @@
 }
 .outmask_content{
   position: absolute;
-  z-index: 1;
+  z-index: unset;
   width: 100%;
   height: calc((var(--double-screen-height) / 2) - 4%);
   display: grid;
@@ -50,6 +50,11 @@ z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 3;
+  }
+  .button_back_link{
+    width: 30px;
+    height: 30px;
   }
   .button_back {
     width: 30px;
@@ -62,7 +67,7 @@ z-index: 1;
     position: fixed;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
     transition: 0.3s ease-in-out;
-    transform: rotate(-45deg);
+    transform: rotate(-90deg);
   }
   .right_container{
     grid-area: 2 / 7 / 4 / 11;
@@ -280,15 +285,34 @@ z-index: 1;
 }
 @media screen and (max-width: 800px) {
   .share_title{
-    grid-area: 1/6/2/11;
-    padding-right: 9%;
+    grid-area: 1/5/2/11;
+    padding-right: 3%;
+  }
+  .share_title > h1{
+    font-size: 28px;
   }
 }
-@media screen and (max-width: 500px){
+@media screen and (max-width: 630px){
+.right_container_text{
+  margin-bottom: 10%;
+}
+.share_title>h1{
+  font-size: 25px;
+  padding-left: 4%;
+  padding-right: 3%;
+}
+.social{
+  width: 75%;
+  flex-wrap: wrap;
+}
+}
+@media screen and (max-width: 518px){
   .margin_container{
     height: calc((var(--double-screen-height) / 2) - 8%);
 align-items: start;
 justify-content: start;
+margin: 0;
+padding: 0;
   }
   .masked_background{
     mask-image: url(../../assets/UnionMobile.png) !important; 
@@ -300,7 +324,7 @@ justify-content: start;
     background-position: -125px center;
   }
   .outmask_content{
-    height: calc((var(--double-screen-height) / 2) - -28%);
+    height: 800px;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(10, 1fr);
     grid-area: 1 / 1 / 2 / 2;
@@ -309,6 +333,7 @@ justify-content: start;
   .grid_container{
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(10, 1fr);
+    overflow-x: hidden;
   }
   .button_container{
     height: 100%;
@@ -322,15 +347,15 @@ justify-content: start;
 z-index: 1;
  }
  .share_title>h1{
-padding-left: 7%;
+margin-left: 8%;
 font-size: 28px;
 text-align: left;
+margin-right: 4%;
  }
  .social{
   grid-area: 1 / 2 / 2 / 5;
   width: 105%;
   justify-content: space-evenly;
-  overflow: hidden;
  }
  .right_container{
   grid-area: 2 / 1 / 6 / 5; 
@@ -344,12 +369,14 @@ text-align: left;
   font-size: 19px;
   line-height: 24px;
   text-align: right;
-  padding-right: 5%;
+  margin-right: 5%;
+margin-bottom: 0;
  }
  .share_logo{
   grid-area: 9 / 1 / 10 / 2;
   position: relative;
-  padding-left: 10%;
+  margin-left: 10%;
+  width: 92%;
  }
  .share_logo>img{
   width: 100%;

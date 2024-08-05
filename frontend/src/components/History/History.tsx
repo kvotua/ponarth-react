@@ -35,7 +35,7 @@ function History() {
       <div className={styles.two_page} id="history">
         <div className={styles.block_image}>
           <h1 className={styles.text_two_page}>
-            УЗНАЙТЕ МНОГОВЕКОВУЮ ИСТОРИЮ ПИВОВАРЕНИЯ
+            УЗНАЙТЕ <br /> МНОГОВЕКОВУЮ <br /> ИСТОРИЮ <br /> ПИВОВАРЕНИЯ
           </h1>
           <div className={styles.secondBlock}>
             <h2 className={styles.litle_text_two} id="litle_text_two">
@@ -46,7 +46,7 @@ function History() {
                 to="/history"
                 className={styles.history_a}
                 delay={450}
-                dopstyle={{ marginTop: "32px" }}
+                dopstyle={{ marginTop: "28px" }}
               >
                 УЗНАТЬ БОЛЬШЕ
               </DelayenButton>

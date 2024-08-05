@@ -1,0 +1,183 @@
+.content {
+  display: flex;
+  flex-direction: row;
+}
+
+.calendar_block {
+  display: flex;
+  flex-direction: column;
+  margin: 8% 8% 0 8%;
+  align-items: center;
+}
+
+.texter {
+  border-bottom: 2px solid #d3d3d3;
+  margin: 10%;
+}
+
+.text {
+  font-weight: 400;
+  padding-top: 30px;
+  font-size: 40px;
+}
+
+.mark {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 23px;
+  text-align: justify;
+  margin-left: 10%;
+}
+
+.input_calendar {
+  padding: 10px 10px 10px 25px;
+  width: 230px !important;
+  display: flex;
+  height: 30px;
+  margin-top: 20px;
+  border: 1px solid black;
+  font-size: 15px;
+  border-radius: 1.625rem;
+  align-items: center;
+}
+
+.persons_input {
+  display: flex;
+  justify-content: space-between;
+  width: 50px;
+  margin-left: 17px;
+}
+
+.persons_input button {
+  border: none;
+  background: none;
+  width: 30px;
+  font-size: 30px;
+  font-weight: 200;
+}
+
+.input_calendar label {
+  color: #676767;
+}
+
+.persons_input input {
+  border: none;
+  width: 30px;
+  text-align: center;
+  color: #676767;
+  font-size: 17px;
+}
+
+.persons_input input:focus {
+  outline: none;
+  border: none;
+}
+
+.reserve_btn {
+  width: 240px !important;
+  display: flex;
+  height: 50px;
+  color: white;
+  background-color: black;
+  font-size: 15px;
+  border-radius: 1.625rem;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  margin-top: 25px;
+  cursor: pointer;
+}
+
+.photos_block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 8%;
+  margin-top: 8%;
+  min-height: 300px; /* Ensure enough height for swipe detection */
+  width: 100%; /* Ensure full width for swipe detection */
+}
+
+.slides {
+  display: flex;
+  overflow-x: scroll; /* Change to horizontal scroll */
+  max-width: 100vw;
+  padding-bottom: 20px;
+  scroll-snap-type: x mandatory; /* Enable snap scrolling */
+}
+
+.slide {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  margin-right: 30px;
+  max-width: 300px;
+  height: 500px;
+  box-sizing: border-box;
+}
+
+.slide:first-child {
+  margin-left: 20px;
+}
+
+.slide:last-child {
+  margin-right: 20px;
+}
+
+.slide_p {
+  margin-top: 30px;
+  color: rgb(0, 0, 0);
+}
+
+.slides::-webkit-scrollbar {
+  display: none;
+}
+
+.slide img {
+  width: 100%;
+  height: 90%; /* Adjust height to ensure <p> tags are visible */
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+@media only screen and (max-width: 1025px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+  .slides {
+    max-width: 100vw;
+  }
+  .photos_block {
+    margin: 0;
+  }
+  .slide {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    margin-right: 30px;
+    max-width: 300px;
+    height: 400px;
+    box-sizing: border-box;
+  }
+}
+
+.reserve_btn.dark {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.input_calendar.dark {
+  background-color: #000000;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.input_calendar.dark label {
+  color: #8d8d8d; /* Change label color to white for dark theme */
+}
+.input_calendar.dark button {
+  color: #ffffff; /* Change label color to white for dark theme */
+}
+
+.persons_input input.dark {
+  background-color: #000000; /* Ensure input background matches dark theme */
+  color: #ffffff; /* Change input text color to white for better visibility */
+}

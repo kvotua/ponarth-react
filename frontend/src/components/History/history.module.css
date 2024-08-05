@@ -33,7 +33,7 @@
   z-index: 2;
 }
 
-span {
+.hoverable {
   color: #ffffff;
 }
 
@@ -116,7 +116,16 @@ span {
   text-shadow: #ffffff -1px -1px 0px;
   color: #ffffff;
 }
-
+@media screen and (max-width: 1000px) {
+  .hoverable {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 840px) {
+  .text_two_page{
+    font-size: 88px;
+  }
+}
 @media only screen and (max-width: 768px) {
   .container_two_page {
     height: calc(var(--double-screen-height) / 2);
@@ -129,9 +138,9 @@ span {
     grid-template-rows: repeat(2, calc(var(--double-screen-height) / 4));
   }
   .text_two_page {
-    line-height: 60px;
+    line-height: 90px;
     padding: 3% 5% 0 5%;
-    font-size: 38px;
+    font-size: 78px;
     height: calc(var(--double-screen-height) / 4);
   }
   .secondBlock {
@@ -148,7 +157,10 @@ span {
     width: 80% !important;
     line-height: 26px;
   }
-
+  .hoverable:hover {
+    text-shadow: #ffffff 0px 0px 0px;
+    color: #ffffff;
+  }
   .block_image {
     width: 100% auto !important;
   }
@@ -165,18 +177,33 @@ span {
   .visible {
     margin: 0 auto !important;
   }
-
-  /* .wrapper{
-      width: 100% !important;
-    } */
 }
-
+@media screen and (max-width: 683px){
+  .text_two_page{
+    font-size: 68px;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .hoverable {
+    font-size: 16px;
+  }
+  .text_two_page{
+    font-size: 50px;
+    line-height: 65px;
+  }
+}
 @media screen and (max-width: 475px) {
   .secondBlock {
     justify-content: start;
   }
   .hoverable {
     font-size: 16px;
+    line-height: 21px;
+  }
+  .text_two_page{
+    font-size: 38px;
+    line-height: 50px;
   }
 }
 @media only screen and (min-width: 1400px) {
@@ -187,7 +214,7 @@ span {
   }
 }
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 840px) {
   /* Стили для больших ноутбуков и мониторов */
   .text_two_page {
     font-size: 96px;
