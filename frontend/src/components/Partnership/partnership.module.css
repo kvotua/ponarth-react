@@ -13,7 +13,6 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  margin-bottom: 10%;
 }
 
 .grid_item {
@@ -107,7 +106,12 @@
 .img_four_end:hover {
   transform: scale(1.05); /* Увеличение в 2 раза */
 }
+@media screen and (max-width: 900px) {
+  .grid_container{
+    margin-bottom: 10%;
 
+  }
+}
 @media screen and (max-width: 600px) {
  
   .grid_container {
