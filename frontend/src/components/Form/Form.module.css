@@ -16,8 +16,9 @@ video {
   width: 100%;
   padding-bottom: 3%;
 }
-.form_grid_container {
-  padding-top: 7%;
+
+.form_grid_container{
+  padding-top: 7.33%;
   height: 650px;
   display: grid;
   position: absolute;
@@ -30,7 +31,7 @@ video {
   width: 540px;
   padding: 15px 15px 15px 15px;
   grid-area: 1 / 2 / 2 / 3;
-  height: 360px;
+  height: 420px;
   justify-self: center;
   align-self: center;
   z-index: 2;
@@ -46,10 +47,12 @@ video {
   justify-content: start;
   margin: 0 auto;
   color: #ffffff;
-  font-size: 1.9rem;
+  font-size: 40px;
+  font-weight: 400;
   font-family: "Roboto";
-  line-height: 30px;
+  line-height: 60px;
   text-align: center;
+  width: 450px;
 }
 .form_four {
   width: 250px;
@@ -174,6 +177,32 @@ video {
 .flipped {
   transform: rotateY(180deg);
 }
+@media screen and (max-width:1200px) {
+.form_grid_container{
+  padding-top: 8.2%;
+}
+}
+@media screen and (max-width:1120px){
+  .form_grid_container{
+    padding-top: 9.2%;
+    grid-template-columns: repeat(3, 1fr);
+  }
+.content1{
+  grid-area: 1/3/2/4;
+}
+}
+@media screen and (max-width:1020px){
+  .form_grid_container{
+   padding-top: 9.4%;
+  }
+  .bochka{
+    font-size: 36px;
+  }
+  .content1{
+    width: 460px;
+  }
+}
+
 @media screen and (max-width: 900px) {
   video {
     position: relative;
