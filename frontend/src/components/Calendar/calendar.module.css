@@ -6,7 +6,7 @@
 .calendar_block {
   display: flex;
   flex-direction: column;
-  margin: 8%;
+  margin: 8% 8% 0 8%;
   align-items: center;
 }
 
