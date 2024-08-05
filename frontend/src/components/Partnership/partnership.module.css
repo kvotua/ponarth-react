@@ -73,6 +73,7 @@
 .fadeIn {
   opacity: 1;
   transform: translateX(0);
+  border-radius: 5px;
 }
 
 .big_text_four_page2 {
