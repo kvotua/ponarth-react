@@ -116,7 +116,11 @@ span {
   text-shadow: #ffffff -1px -1px 0px;
   color: #ffffff;
 }
-
+@media screen and (max-width: 1000px) {
+  .hoverable{
+    font-size: 30px;
+  }
+}
 @media only screen and (max-width: 768px) {
   .container_two_page {
     height: calc(var(--double-screen-height) / 2);
@@ -170,13 +174,18 @@ span {
       width: 100% !important;
     } */
 }
-
+@media screen and (max-width: 600px){
+  .hoverable {
+    font-size: 16px;
+  }
+}
 @media screen and (max-width: 475px) {
   .secondBlock {
     justify-content: start;
   }
   .hoverable {
     font-size: 16px;
+    line-height: 21px;
   }
 }
 @media only screen and (min-width: 1400px) {

@@ -46,7 +46,7 @@ function History() {
                 to="/history"
                 className={styles.history_a}
                 delay={450}
-                dopstyle={{ marginTop: "32px" }}
+                dopstyle={{ marginTop: "28px" }}
               >
                 УЗНАТЬ БОЛЬШЕ
               </DelayenButton>
