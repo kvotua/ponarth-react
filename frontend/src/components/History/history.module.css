@@ -152,7 +152,10 @@ span {
     width: 80% !important;
     line-height: 26px;
   }
-
+  .hoverable:hover {
+    text-shadow: #ffffff 0px 0px 0px;
+    color: #ffffff;
+  }
   .block_image {
     width: 100% auto !important;
   }
