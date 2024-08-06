@@ -8,7 +8,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ isBurgerOpen }) => {
-  const { theme } = useContext(ThemeContext);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
     <header
@@ -16,6 +16,14 @@ const Header: React.FC<HeaderProps> = ({ isBurgerOpen }) => {
         isBurgerOpen ? styles.headerOpen : styles.headerClosed
       }`}
     >
+      <input
+        id="themeToggle"
+        type="checkbox"
+        role="switch"
+        className={styles.toggle}
+        checked={theme === "dark" ? true : false}
+        onClick={toggleTheme}
+      />
       <div className={styles.header_all_menu}>
         <div className={styles.all_menu}>
           <img
