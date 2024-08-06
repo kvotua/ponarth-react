@@ -30,8 +30,6 @@ const MainPage: FC = () => {
 
   const toggleBurger = () => {
     setIsBurgerOpen((prevIsBurgerOpen) => !prevIsBurgerOpen);
-    console.log("Pressed");
-    console.log(isBurgerOpen);
   };
 
   return (
