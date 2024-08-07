@@ -15,7 +15,7 @@ const AddTelegramNotificationPage = () => {
       </button>
       <section className={styles.add_notification_block}>
         <section>
-          <h2>Заполните данные пользователя</h2>
+          <h2 className={styles.title}>Заполните данные пользователя</h2>
           <div className={styles.add_notification_input}>
             <input type="text" placeholder="Имя пользователя" />
             <input type="text" placeholder="Фамилия пользователя" />
