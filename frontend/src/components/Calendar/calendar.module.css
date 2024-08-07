@@ -74,9 +74,9 @@
 }
 
 .reserve_btn {
-  width: 240px !important;
+  width: 250px !important;
   display: flex;
-  height: 50px;
+  height: 48px;
   color: white;
   background-color: black;
   font-size: 15px;
@@ -157,6 +157,12 @@
     max-width: 300px;
     height: 400px;
     box-sizing: border-box;
+  }
+  .calendar_block {
+    display: flex;
+    flex-direction: column;
+    margin: 8% 8% 8% 8%;
+    align-items: center;
   }
 }
 
