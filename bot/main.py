@@ -26,8 +26,8 @@ async def check_server_status(session):
 async def check_user_exists(session, username):
     async with session.post('https://backend.ponarth.com/api/auth/login', json={"username": username}) as response:
         if response.status == 200:
-            data = await response.json("accessToken")
-            token = data.get()
+            data = await response.json()
+            token = data.get("accessToken")
             print(f"Token: {token}")
             return token
         return None
@@ -35,7 +35,7 @@ async def check_user_exists(session, username):
 async def send_welcome_message(message, token):
     button_web_app = InlineKeyboardButton(
         text="Админ-панель", 
-        web_app=types.WebAppInfo(url=f"https://brauerei.ponarth.com/?token={token}")
+        web_app=types.WebAppInfo(url=f"https://admin.ponarth.com/?token={token}")
     )
 
     button_link = InlineKeyboardButton(text="Сайт пивоварни Ponarth", url="https://brauerei.ponarth.com/")
