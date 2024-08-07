@@ -8,6 +8,7 @@ import AddVacanciesPage from './pages/AddVacanciesPage'
 import AddPointsPage from './pages/AddPointPage'
 import AddTelegramNotificationPage from './pages/AddNotificationsPage'
 import AddLayout from './components/AddLayout'
+import AddProductPage from './pages/AddProductPage'
 
 function App() {
   return (
@@ -25,9 +26,8 @@ function App() {
         <Route path="/" element={<AddLayout />}>
           <Route path="vacancies/add" element={<AddVacanciesPage />} />
           <Route path="points/add" element={<AddPointsPage />} />
-          <Route
-            path="notifications/add"
-            element={<AddTelegramNotificationPage />}
+          <Route path="products/add" element={<AddProductPage />} />
+          <Route path="notifications/add"element={<AddTelegramNotificationPage />}
           />
         </Route>
       </Routes>
