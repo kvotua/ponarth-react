@@ -1,0 +1,130 @@
+.back_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: black;
+    border: 0;
+    align-self: self-start;
+  }
+  
+  .title {
+    font-weight: 700;
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+  
+  .big_input{
+    width: 100%;
+    height: 158px;
+    background: none;
+    color: white;
+    border: 1px solid rgb(145, 145, 145);
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 16px;
+    padding-left: 12px;
+    box-sizing: border-box;
+  }
+  
+  .input {
+    width: 100%;
+    height: 49px;
+    background: none;
+    color: white;
+    border: 1px solid rgb(145, 145, 145);
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 16px;
+    padding-left: 12px;
+    box-sizing: border-box;
+  }
+  
+  .input:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  .input::placeholder {
+    margin: 0;
+    padding: 0;
+  }
+
+  .image_and_properties_block{
+    display: flex;
+    height: 168px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .properties_container{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .img_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: gray 1px solid;
+    border-radius: 12%;
+    width: 168px;
+    height: 168px;
+  }
+  
+  .image_block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 50%;
+    width: 69px;
+    height: 69px;
+  }
+
+  .additional_information{
+    width: 100%;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .money_text{
+    text-align: center;
+    width: 60%;
+  }
+
+  .money_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .save_btn {
+    width: 158px;
+    height: 69px;
+    border-radius: 50px;
+    border: none;
+    margin: 10% 0;
+    font-weight: 700;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+  }
+  
+  .save_btn:disabled {
+    background-color: grey;
+  }
+  
+  .error {
+    color: red;
+    margin-top: 10px;
+  }
+  

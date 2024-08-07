@@ -7,10 +7,9 @@ import { Link } from 'react-router-dom'
 const NotificationPage = () => {
   return (
     <>
-      <section className={styles.notification_main}>
-        <h1>Управление уведомлениями</h1>
+        <h1 className={styles.title}>Управление уведомлениями</h1>
         <div className={styles.notification_filter}>
-          <input type="text" placeholder="Фильтр" />
+          <input className={styles.input} type="text" placeholder="Фильтр" />
         </div>
 
         <section className={styles.notification_block}>
@@ -27,7 +26,6 @@ const NotificationPage = () => {
             </div>
           </section>
         </section>
-      </section>
       <Link to="/notifications/add">
         <button className={styles.add_btn}>
           <img src={add_btn} alt="Add" />
