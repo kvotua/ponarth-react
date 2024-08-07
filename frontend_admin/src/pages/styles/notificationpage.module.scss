@@ -1,7 +1,29 @@
-.notification_filter input {
-  width: 100%;
+.title{
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 34px;
+  max-width: 100%;
+  margin: 0 5%;
+  text-align: center;
+}
+.notification_filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.notification_block{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.notification_element{
+  width: 90%;
+  margin-top: 46px;
+  overflow: hidden;
+}
+.input {
+  width: 90%;
   height: 49px;
-  padding-left: 3%;
   border: 2px solid grey;
   font-size: 20px;
   border-radius: 4px;
@@ -15,12 +37,7 @@
   color: rgb(24, 24, 24);
   padding-left: 0.01%;
 }
-.notification_filter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 5% 0 5% 0;
-}
+
 .notification_buttons {
   display: flex;
   margin: 10% 0 10% 0;
