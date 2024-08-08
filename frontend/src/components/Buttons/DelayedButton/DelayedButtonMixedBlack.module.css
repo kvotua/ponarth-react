@@ -82,10 +82,14 @@ button:hover .button_text {
   transition: color 0.5s ease-in-out;
 }
 @media screen and (max-width: 600px){
-  button .circle{
+  div.learn_more .circle {
+    transition: all 0.7s ease-out;
+  }
+  button.animate .circle{
     width: 100% !important;
   }
-  button .button_text{
+  button.animate .button_text{
     color: white !important;
+    transition: color 0.7 ease-in-out;
   }
 }
