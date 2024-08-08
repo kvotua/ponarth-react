@@ -231,7 +231,7 @@ video {
   .form_grid_container {
     display: inline;
     position: relative;
-    height: 550px;
+    height: 422px;
     padding: 0%;
   }
   .content1 {
@@ -245,10 +245,11 @@ video {
     /* opacity: 0; */
     /* Начальное значение непрозрачности */
     transition: opacity 3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 10% 0;
   }
   .bochka {
     color: rgb(255, 254, 254);
-    padding-top: 10%;
+
   }
   .form_four {
     width: 250px;
@@ -259,16 +260,12 @@ video {
   }
   .stat_partner {
     width: 250px;
-    padding-top: 25%;
   }
   .flipper {
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
   .front {
-    height: 450px;
+    height: 422px;
     background-color: #050906;
   }
   .back {
