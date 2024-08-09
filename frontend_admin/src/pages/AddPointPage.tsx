@@ -3,7 +3,7 @@ import back from '../assets/Icon.svg'
 import styles from './styles/addpointspage.module.scss'
 import add_icon from '../assets/Pluse.svg'
 import { FC, useState } from 'react'
-import { YMaps, Map, Placemark } from 'react-yandex-maps'
+import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 

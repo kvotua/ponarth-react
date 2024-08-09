@@ -5,6 +5,7 @@ import settings from '../assets/settings.svg'
 import delete_btn from '../assets/delete.svg'
 import add_btn from '../assets/Pluse.svg'
 import Search from '../components/Search'
+import { useNavigate } from 'react-router-dom'
 
 interface Point {
   id: string
@@ -16,6 +17,8 @@ interface Point {
 const ProductPage: React.FC = () => {
   const [points, setPoints] = useState<Point[]>([])
   const [searchQuery, setSearchQuery] = useState<string>('')
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     axios
@@ -62,7 +65,10 @@ const ProductPage: React.FC = () => {
           </div>
         ))}
       </div>
-      <button className={styles.add_btn}>
+      <button
+        className={styles.add_btn}
+        onClick={() => navigate('/products/add')}
+      >
         <img src={add_btn} alt="Add" />
       </button>
     </>
