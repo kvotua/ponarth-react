@@ -3,7 +3,7 @@ import logging
 import aiohttp
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters.command import Command
-from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, KeyboardButton, BotCommand
+from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, BotCommand
 from dotenv import load_dotenv
 import os
 
@@ -25,10 +25,19 @@ async def check_server_status(session):
 
 async def check_user_exists(session, username):
     async with session.post('https://backend.ponarth.com/api/auth/login', json={"username": username}) as response:
-        return response.status == 200
+        if response.status == 200:
+            data = await response.json()
+            token = data.get("accessToken")
+            print(f"Token: {token}")
+            return token
+        return None
 
-async def send_welcome_message(message):
-    button_web_app = InlineKeyboardButton(text="Админ-панель", web_app=types.WebAppInfo(url="https://www.figma.com/design/M934waBcvdJ3dlAuuCwcqO/Neumorphism-UI-Buttons-(Community)?node-id=0-1&t=5AWPjVnlQ6Ato5Mb-0"))
+async def send_welcome_message(message, token):
+    button_web_app = InlineKeyboardButton(
+        text="Админ-панель", 
+        web_app=types.WebAppInfo(url=f"https://admin.ponarth.com/?token={token}")
+    )
+
     button_link = InlineKeyboardButton(text="Сайт пивоварни Ponarth", url="https://brauerei.ponarth.com/")
     keyboard = InlineKeyboardMarkup(inline_keyboard=[[button_web_app], [button_link]])
     
@@ -42,9 +51,9 @@ async def cmd_start(message: types.Message):
     async with aiohttp.ClientSession() as session:
         server_status = await check_server_status(session)
         if server_status:
-            user_exists = await check_user_exists(session, username)
-            if user_exists:
-                await send_welcome_message(message)
+            token = await check_user_exists(session, username)
+            if token:
+                await send_welcome_message(message, token)
             else:
                 await message.answer("Вас должны зарегистрировать")
         else:
