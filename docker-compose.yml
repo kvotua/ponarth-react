@@ -18,7 +18,6 @@ services:
     ports:
       - "3003:3003"
 
-
   bot_admin:
     container_name: bot_admin
     build:
@@ -30,7 +29,7 @@ services:
     build: ./backend
     container_name: backend
     ports:
-      - 8443:8443
+      - 8082:8080
     depends_on:
       - postgresql
       - pgadmin

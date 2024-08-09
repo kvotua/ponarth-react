@@ -50,7 +50,9 @@ public class SiteService {
 
         for (Beer beer : beers) {
             BeerInfoDto beerInfoDto = mappingUtilsBeer.BeerToBeerInfoDto(beer);
-            beerInfoDto.setImage(storeService.uploadImage(beerInfoDto.getFileName()));
+            if(beerInfoDto.getFileName() != null) {
+                beerInfoDto.setImage(storeService.uploadImage(beerInfoDto.getFileName()));
+            }
             beersDto.add(beerInfoDto);
         }
         return beersDto;
@@ -103,7 +105,9 @@ public class SiteService {
 
         for (Vacancy vacancy : vacancies){
             VacancyInfoDto vacancyInfoDto = mappingUtilsVacancy.VacancyToVacancyInfoDto(vacancy);
-            vacancyInfoDto.setImage(storeService.uploadImage(vacancyInfoDto.getFileName()));
+            if(vacancyInfoDto.getFileName() != null) {
+                vacancyInfoDto.setImage(storeService.uploadImage(vacancyInfoDto.getFileName()));
+            }
             vacanciesInfoDto.add(vacancyInfoDto);
         }
 

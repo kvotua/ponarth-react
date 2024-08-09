@@ -1,6 +1,5 @@
 package com.solomennicova.AuthTemplate.Controller;
 
-import com.solomennicova.AuthTemplate.Dto.Authentication.TokensDto;
 import com.solomennicova.AuthTemplate.Dto.Exception.ErrorDto;
 import com.solomennicova.AuthTemplate.Dto.Site.BeerDto;
 import com.solomennicova.AuthTemplate.Dto.Site.BeerInfoDto;
@@ -18,6 +17,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -40,7 +40,7 @@ public class AdminController {
     })
     @SecurityRequirement(name = "Bearer Authentication")
     @PostMapping(path ="/beer/add")
-    public ResponseEntity<Long> addBeer(@RequestBody BeerDto beerDto)  {
+    public ResponseEntity<Long> addBeer(@RequestBody @Validated BeerDto beerDto)  {
         return ResponseEntity.ok(siteService.addBeer(beerDto));
     }
 
@@ -88,7 +88,7 @@ public class AdminController {
     })
     @SecurityRequirement(name = "Bearer Authentication")
     @PostMapping("/vacancy/add")
-    public ResponseEntity<Long> loadVacancy(@RequestBody VacancyDto vacancyDto) {
+    public ResponseEntity<Long> loadVacancy(@RequestBody @Validated VacancyDto vacancyDto) {
         return ResponseEntity.ok(siteService.addVacancy(vacancyDto));
     }
 
