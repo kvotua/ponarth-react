@@ -5,13 +5,14 @@ import styles from './slider.module.scss'
 export interface Button {
   label: string
   path: string
+  id: string
 }
 
 const buttons: Button[] = [
-  { label: 'Продукты', path: '/products' },
-  { label: 'Вакансии', path: '/vacancies' },
-  { label: 'Точки', path: '/points' },
-  { label: 'Уведомления', path: '/notifications' },
+  { label: 'Продукты', path: '/products', id: '1' },
+  { label: 'Вакансии', path: '/vacancies', id: '2' },
+  { label: 'Точки', path: '/points', id: '3' },
+  { label: 'Уведомления', path: '/notifications', id: '4' },
 ]
 
 const HeaderSlider: FC = () => {
@@ -55,10 +56,13 @@ const HeaderSlider: FC = () => {
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
     >
-      {buttons.map((button: Button, index: number) => (
-        <Link to={button.path} onDragStart={(e) => e.preventDefault()}>
+      {buttons.map((button: Button) => (
+        <Link
+          to={button.path}
+          onDragStart={(e) => e.preventDefault()}
+          key={button.id}
+        >
           <button
-            key={index}
             className={`${styles.slider_button} ${
               location.pathname === button.path ? styles.selected : ''
             }`}
