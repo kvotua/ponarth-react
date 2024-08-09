@@ -2,8 +2,7 @@ import styles from "./contentHistory.module.css";
 import stylesKartinka from "./kartinka.module.css";
 import stylesText from "./text.module.css";
 import BeforeAfter from "../../components/BeforeAfter";
-
-import ozero1 from "../img/ozero1.jpeg";
+import CalendarComp from "../../components/Calendar";
 
 import negor from "../img/RI5bpix8LSw.jpg";
 import tovZnak from "../img/tovZnak.png";
@@ -14,13 +13,20 @@ import alcashMark from "../img/alcashMark.jpeg";
 import bochka from "../img/bochka.jpeg";
 
 import work from "../img/work.jpeg";
-import shonbush from "../img/shonbush.jpeg";
-import street from "../img/street.jpeg";
 import promo from "../img/promo.jpeg";
 import myjick from "../img/myjick.png";
 import money from "../img/money.jpeg";
-import solders from "../img/solders.jpeg";
-import ponarth from "../img/ponarth.jpeg";
+
+import Flickity from 'react-flickity-component';
+import 'flickity/css/flickity.css';
+
+const flickityOptions = {
+  wrapAround: true, // Включаем wrapAround для бесконечной прокрутки
+  prevNextButtons: true, // Кнопки навигации
+  pageDots: true, // Отключаем точки навигации
+  imagesLoaded: true, // Обеспечивает загрузку изображений перед началом слайдера
+  initialIndex: 1, // Можно задать начальный индекс
+};
 
 const ContentHistory = () => {
   return (
@@ -66,7 +72,7 @@ const ContentHistory = () => {
         className={stylesKartinka.parallax + " " + stylesKartinka.panorama}
       ></div>
       <div className={styles.img_grid}>
-        <img src={negor} alt="" className={styles.historyimg}/>
+        <img src={negor} alt="" className={styles.historyimg} />
         <img src={tovZnak} alt="" className={styles.historyimg} />
       </div>
       <div className={styles.golovok}>
@@ -75,8 +81,21 @@ const ContentHistory = () => {
           НАЧАЛО XX ВЕКА
         </h1>
       </div>
-      ТУТ СЛАЙДЕР <br />
-      ТУТ КАЛЕНДАРЬ
+
+      <Flickity className={"carousel"} options={flickityOptions}>
+        <div className={"carousel-cell"}>
+          <div className={styles.ulocki + " " + styles.ulocki1}></div>
+        </div>
+        <div className={'carousel-cell'}>
+          <div className={styles.ulocki + " " + styles.ulocki2}></div>
+        </div>
+        <div className={'carousel-cell'}>
+          <div className={styles.ulocki + " " + styles.ulocki3}></div>
+        </div>
+      </Flickity>
+
+      <CalendarComp />
+      
       <div className={styles.golovok}>
         <h1 className={`${styles.text_golovok} ${styles.texth1}`}>
           САМАЯ БОЛЬШАЯ <br /> ПИВОВАРНЯ В <br />
@@ -117,9 +136,15 @@ const ContentHistory = () => {
           Hubertusteich (сейчас – озера Пеньковое и Лебяжье).
         </h2>
       </div>
-      <img src={ozero1} alt="" className={styles.historyimg} />
+      <div
+        className={stylesKartinka.parallax + " " + stylesKartinka.ozero1}
+      ></div>
+
       <div className={styles.info}>
-        <img className={`${styles.info_img} ${styles.historyimg}`} src={aduard} alt=""/>
+
+        <div className={styles.container_img}>
+          <img className={`${styles.info_img} ${styles.historyimg}`} src={aduard} alt="" />
+        </div>
 
         <h2 className={`${styles.text} ${styles.texth2}`} >
           Поскольку дети основателя пивоварни не желали заниматься пивоварением,
@@ -141,7 +166,9 @@ const ContentHistory = () => {
           Для устранения дефицита жилья в 1871 году было построено два жилых
           дома общим объёмом в 32 квартиры.
         </h2>
-        <img className={`${styles.info_img} ${styles.historyimg}`} src={work} alt="" />
+        <div className={styles.container_img}>
+          <img className={`${styles.info_img} ${styles.historyimg}`} src={work} alt="" />
+        </div>
       </div>
       <div className={styles.text}>
         <h2 className={styles.texth2}>
@@ -151,7 +178,10 @@ const ContentHistory = () => {
           построенную в 1871 году.
         </h2>
       </div>
-      <img src={shonbush} alt="" className={styles.historyimg}/>
+
+      <div
+        className={stylesKartinka.parallax + " " + stylesKartinka.shonbush}
+      ></div>
       <div className={styles.text}>
         <h2 className={styles.texth2}>
           {" "}
@@ -161,8 +191,8 @@ const ContentHistory = () => {
         </h2>
       </div>
       <div className={styles.img_grid}>
-        <img src={vagon} alt="" className={styles.historyimg}/>
-        <img src={vagon1} alt="" className={styles.historyimg}/>
+        <img src={vagon} alt="" className={styles.historyimg} />
+        <img src={vagon1} alt="" className={styles.historyimg} />
       </div>
       <div className={styles.text}>
         <h2 className={styles.texth2}>
@@ -171,30 +201,38 @@ const ContentHistory = () => {
           с маркировкой пивоварни.{" "}
         </h2>
       </div>
-      <img src={street} alt="" className={styles.historyimg}/>
+      <div
+        className={stylesKartinka.parallax + " " + stylesKartinka.street}
+      ></div>
       <div className={styles.info}>
-        <div className={styles.grid}>
-          <h2 className={`${styles.text} ${styles.grid1} ${styles.texth2}`}>
-            Для рекламы продукции на территории зоопарка существовал специальный
-            павильон, кроме того, было открыто торговое заведение типа закусочной
-            на территории пивоварни, существовала небольшая сеть собственных баров
-            на территории Кёнигсберга
-          </h2>
-          <img className={`${styles.info_img} ${styles.grid2} ${styles.historyimg}`} src={alcashMark} alt="" />
 
-          <img className={`${styles.info_img} ${styles.grid3} ${styles.historyimg}`} src={promo} alt="" />
-          <h2 className={`${styles.text} ${styles.grid4} ${styles.texth2}`}>
-            Реклама Мартовского пива Оно славилось в северо-восточной Германии и
-            вывозилось в огромных объемах
-          </h2>
-          <h2 className={`${styles.text} ${styles.grid5} ${styles.texth2}`}>
-            Для собственной розничной торговли недалеко от пивоварни был
-            оборудован кабачок «Gambrinus-Halle». Потребление все увеличивалось, и
-            уже было трудно справиться со всеми заказами. Так появился план
-            перенести производство за город.
-          </h2>
-          <img className={`${styles.info_img} ${styles.grid6} ${styles.historyimg}`} src={myjick} alt="" />
+        <h2 className={`${styles.text} ${styles.grid1} ${styles.texth2}`}>
+          Для рекламы продукции на территории зоопарка существовал специальный
+          павильон, кроме того, было открыто торговое заведение типа закусочной
+          на территории пивоварни, существовала небольшая сеть собственных баров
+          на территории Кёнигсберга
+        </h2>
+        <div className={styles.container_img}>
+          <img className={`${styles.info_img} ${styles.historyimg}`} src={alcashMark} alt="" />
         </div>
+
+        <div className={styles.container_img}>
+          <img className={`${styles.info_img} ${styles.historyimg}`} src={promo} alt="" />
+        </div>
+        <h2 className={`${styles.text} ${styles.grid4} ${styles.texth2}`}>
+          Реклама Мартовского пива Оно славилось в северо-восточной Германии и
+          вывозилось в огромных объемах
+        </h2>
+        <h2 className={`${styles.text} ${styles.grid5} ${styles.texth2}`}>
+          Для собственной розничной торговли недалеко от пивоварни был
+          оборудован кабачок «Gambrinus-Halle». Потребление все увеличивалось, и
+          уже было трудно справиться со всеми заказами. Так появился план
+          перенести производство за город.
+        </h2>
+        <div className={styles.container_img}>
+          <img className={`${styles.info_img} ${styles.historyimg}`} src={myjick} alt="" />
+        </div>
+
       </div>
       <div className={stylesText.back_img + " " + stylesText.bottle}>
         <h2 className={`${stylesText.stickytext} ${styles.texth2}`}>
@@ -214,7 +252,9 @@ const ContentHistory = () => {
         </h2>
       </div>
       <div className={styles.info}>
-        <img className={`${styles.info_img} ${styles.historyimg}`} src={bochka} alt="" />
+        <div className={styles.container_img}>
+          <img className={`${styles.info_img} ${styles.historyimg}`} src={bochka} alt="" />
+        </div>
 
         <h2 className={`${styles.text} ${styles.texth2}`}>
           В юбилейном 1939 году пивоварня со штатом 500 человек была крупнейшей
@@ -236,7 +276,7 @@ const ContentHistory = () => {
           виде монет номиналом 1 литр
         </h2>
       </div>
-      <img src={money} alt="" className={styles.historyimg}/>
+      <img src={money} alt="" className={styles.historyimg} />
       <div className={styles.text}>
         <h2 className={styles.texth2}>
           С началом Первой мировой войны оборот значительно снизился. Уже второй
@@ -244,13 +284,17 @@ const ContentHistory = () => {
           урон, что очень затруднило восстановление.
         </h2>
       </div>
-      <img src={solders} alt="" className={styles.historyimg}/>
+      <div
+        className={stylesKartinka.parallax + " " + stylesKartinka.solders}
+      ></div>
       <div className={styles.golovok}>
         <h1 className={`${styles.text_golovok} ${styles.texth1}`}>
-          НОВЫЕИ ХОЗЯЕВА - <br /> СОВЕТСКИЙ ПЕРИОД
+          НОВЫЕ ХОЗЯЕВА - <br /> СОВЕТСКИЙ ПЕРИОД
         </h1>
       </div>
-      <img src={ponarth} alt="" className={styles.historyimg}/>
+      <div
+        className={stylesKartinka.parallax + " " + stylesKartinka.ponarth}
+      ></div>
       <div className={styles.text}>
         <h2 className={styles.texth2}>
           После второй мировой войны город Кёнигсберг включен в состав СССР и
@@ -302,7 +346,20 @@ const ContentHistory = () => {
           ПИВОВАРЕНИЯ
         </h1>
       </div>
-      ТУТ СЛАЙДЕР
+
+      <Flickity className={"carousel"} options={flickityOptions}>
+        <div className={"carousel-cell"}>
+          <div className={styles.ulocki + " " + styles.velos}></div>
+        </div>
+        <div className={'carousel-cell'}>
+          <div className={styles.ulocki + " " + styles.velos1}></div>
+        </div>
+        <div className={'carousel-cell'}>
+          <div className={styles.ulocki + " " + styles.velos2}></div>
+        </div>
+
+      </Flickity>
+
       <div className={styles.text}>
         <h2 className={styles.texth2}>
           Новая история Понарта началась с приходом новой команды весной 2010
