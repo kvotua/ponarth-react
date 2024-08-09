@@ -1,8 +1,9 @@
 import { FC, useState, ChangeEvent } from 'react'
 import icon from '../assets/Icon.svg'
 import styles from './styles/addvacanciespage.module.scss'
-import { addVacancy } from '../api/requests' // Импортируем функцию addVacancy
+import { addVacancy, uploadVacancyImage } from '../api/vacancies/requests'
 import { useNavigate } from 'react-router-dom'
+import button_icon from '../assets/Pluse.svg'
 
 interface AddVacancy {
   vacanciesname: string
@@ -14,7 +15,9 @@ const AddVacanciesPage: FC = () => {
     vacanciesname: '',
     vacanciesdescription: '',
   })
+  const [image, setImage] = useState<File | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [imagePreview, setImagePreview] = useState<string | null>(null)
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
@@ -24,13 +27,26 @@ const AddVacanciesPage: FC = () => {
     }))
   }
 
+  const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files[0]) {
+      const file = event.target.files[0]
+      setImage(file)
+      setImagePreview(URL.createObjectURL(file))
+    }
+  }
+
   const handleSave = async () => {
     setIsSubmitting(true)
     try {
-      await addVacancy({
+      const vacancyId = await addVacancy({
         name: vacancy.vacanciesname,
         description: vacancy.vacanciesdescription,
       })
+
+      if (image) {
+        await uploadVacancyImage(vacancyId, image)
+      }
+
       alert('Вакансия добавлена!')
       window.location.href = '/vacancies'
     } catch (error) {
@@ -76,6 +92,30 @@ const AddVacanciesPage: FC = () => {
               placeholder="Описание вакансии"
             />
           </label>
+          <h2>Добавьте изображение вакансии</h2>
+          <section
+            className={styles.img_container}
+            style={{
+              backgroundImage: imagePreview ? `url(${imagePreview})` : 'none',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          >
+            <div>
+              <label>
+                <div className={styles.image_block}>
+                  <img src={button_icon} alt="" />
+                </div>
+                <input
+                  type="file"
+                  accept="image/*"
+                  name="vacanciesimg"
+                  onChange={handleImageChange}
+                  style={{ display: 'none' }}
+                />
+              </label>
+            </div>
+          </section>
         </div>
         <button
           className={styles.save_btn}
