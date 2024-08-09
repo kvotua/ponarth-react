@@ -15,6 +15,5 @@ public class VacancyDto {
     private String name;
 
     @NotEmpty(message = "Сообщение не должно быть пустым")
-
     private String description;
 }

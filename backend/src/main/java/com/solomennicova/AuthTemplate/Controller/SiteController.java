@@ -50,4 +50,5 @@ public class SiteController {
     public ResponseEntity<List<VacancyInfoDto>> getAllVacancy() throws IOException, DontImageException {
         return ResponseEntity.ok(siteService.getAllVacancy());
     }
+
 }
