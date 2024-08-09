@@ -1,8 +1,10 @@
 .parallax {
-  min-height: 70vh;
+  min-height: 100vh;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
+  /* background-size: contain; */
 }
 
 .content {
@@ -24,6 +26,26 @@
 
 .panorama {
   background-image: url(../img/panorama.png);
+}
+
+.ozero1 {
+  background-image: url(../img/ozero1.jpeg);
+}
+
+.shonbush{
+  background-image: url(../img/shonbush.jpeg);
+}
+
+.street{
+  background-image: url(../img/street.jpeg);
+}
+
+.solders{
+  background-image: url(../img/solders.jpeg);
+}
+
+.ponarth{
+  background-image: url(../img/ponarth.jpeg);
 }
 
 @media screen and (max-width:600px) {
