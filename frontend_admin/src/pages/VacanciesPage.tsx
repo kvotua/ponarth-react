@@ -4,14 +4,14 @@ import settings from '../assets/settings.svg'
 import delete_btn from '../assets/delete.svg'
 import add_btn from '../assets/Pluse.svg'
 import { useNavigate } from 'react-router-dom'
-import { getVacancies } from '../api/vacancies/requests'
+import { deleteVacancy, getVacancies } from '../api/vacancies/requests'
 
 export interface Vacancy {
-  id: number // Changed from string to number
+  id: number
   name: string
   description: string
   image: string
-  base64Image?: string // Added base64Image field
+  base64Image?: string
 }
 
 const VacanciesPage = () => {
@@ -35,6 +35,24 @@ const VacanciesPage = () => {
     fetchVacancies()
   }, [])
 
+  const handleDeleteClick = async (id: number) => {
+    const confirmed = window.confirm(
+      'Вы уверены что хотите удалить данную вакансию'
+    )
+    if (confirmed) {
+      try {
+        await deleteVacancy(id)
+        setVacancies(vacancies.filter((vacancy) => vacancy.id !== id))
+      } catch (error) {
+        console.error('Error deleting vacancy', error)
+      }
+    }
+  }
+
+  const handleSettingsClick = (vacancy: Vacancy) => {
+    navigate('/vacancies/add', { state: { vacancy } })
+  }
+
   return (
     <>
       <h1 className={styles.title}>Отображаемые вакансии</h1>
@@ -44,18 +62,23 @@ const VacanciesPage = () => {
           <div key={vacancy.id} className={styles.vacancies}>
             <div className={styles.image_block}>
               <img src={vacancy.base64Image} alt="image" />{' '}
-              {/* Use decoded image */}
             </div>
 
             <div className={styles.vacanciesblock}>
               <p className={styles.myParagraph}>{vacancy.name}</p>
             </div>
 
-            <button className={styles.settings_btn}>
+            <button
+              className={styles.settings_btn}
+              onClick={() => handleSettingsClick(vacancy)}
+            >
               <img src={settings} alt="" />
             </button>
 
-            <button className={styles.delete_btn}>
+            <button
+              className={styles.delete_btn}
+              onClick={() => handleDeleteClick(vacancy.id)}
+            >
               <img src={delete_btn} alt="" />
             </button>
           </div>
