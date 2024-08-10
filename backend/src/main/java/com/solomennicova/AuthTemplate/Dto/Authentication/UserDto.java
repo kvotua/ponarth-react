@@ -17,6 +17,8 @@ public class UserDto {
     @Size(min = 2, max = 15, message = "Имя должно быть от 2 до 25 символов длиной")
     private String username;
 
+    private String nameAndLastname;
+
     @NotEmpty(message = "Роль должна присутствовать")
     private Set<String> roles = new HashSet<>();
 

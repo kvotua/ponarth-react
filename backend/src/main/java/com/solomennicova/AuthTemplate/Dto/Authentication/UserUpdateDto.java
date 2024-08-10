@@ -14,6 +14,8 @@ public class UserUpdateDto {
 
     private String username;
 
+    private String nameAndLastname;
+
     private Set<String> roles = new HashSet<>();
 
 }
