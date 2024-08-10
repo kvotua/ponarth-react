@@ -280,6 +280,9 @@ video {
     height: 1000px;
     padding: 0;
   }
+  .form_grid_container{
+    height: 422px;
+  }
 }
 @media screen and (max-width: 440px) {
   video {
@@ -289,11 +292,15 @@ video {
     height: 880px;
     padding: 0;
   }
+  .form_grid_container{
+    height: 422px;
+  }
 .bochka{
   font-size: 30px;
   width: 100%;
   line-height: 40px;
 }
+
 }
 @media screen and (max-width: 355px) {
   video {
@@ -303,5 +310,8 @@ video {
   .container2 {
     height: 900px;
     padding: 0;
+  }
+  .form_grid_container{
+    height: 422px;
   }
 }
