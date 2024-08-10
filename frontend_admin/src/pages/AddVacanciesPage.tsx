@@ -1,8 +1,8 @@
-import { FC, useState, ChangeEvent } from 'react'
+import { FC, useState, ChangeEvent, useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import icon from '../assets/Icon.svg'
 import styles from './styles/addvacanciespage.module.scss'
 import { addVacancy, uploadVacancyImage } from '../api/vacancies/requests'
-import { useNavigate } from 'react-router-dom'
 import button_icon from '../assets/Pluse.svg'
 
 interface AddVacancy {
@@ -11,6 +11,8 @@ interface AddVacancy {
 }
 
 const AddVacanciesPage: FC = () => {
+  const location = useLocation()
+  const navigate = useNavigate()
   const [vacancy, setVacancy] = useState<AddVacancy>({
     vacanciesname: '',
     vacanciesdescription: '',
@@ -18,6 +20,17 @@ const AddVacanciesPage: FC = () => {
   const [image, setImage] = useState<File | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [imagePreview, setImagePreview] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (location.state && location.state.vacancy) {
+      const { name, description, base64Image } = location.state.vacancy
+      setVacancy({
+        vacanciesname: name,
+        vacanciesdescription: description,
+      })
+      setImagePreview(base64Image)
+    }
+  }, [location.state])
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
@@ -56,8 +69,6 @@ const AddVacanciesPage: FC = () => {
       setIsSubmitting(false)
     }
   }
-
-  const navigate = useNavigate()
 
   const handleBackClick = () => {
     navigate('/vacancies')

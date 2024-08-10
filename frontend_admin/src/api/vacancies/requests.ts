@@ -27,7 +27,6 @@ export const addVacancy = async (data: VacancyData): Promise<number> => {
         Authorization: `Bearer ${token}`,
       },
     })
-    console.log(response.data)
     return response.data
   } catch (error) {
     console.error('Error adding vacancy:', error)
@@ -88,6 +87,35 @@ export const getVacancies = async (): Promise<Vacancy[]> => {
     return response.data
   } catch (error) {
     console.error('Error fetching vacancies:', error)
+    throw error
+  }
+}
+
+export const deleteVacancy = async (id: number): Promise<void> => {
+  try {
+    const token = localStorage.getItem('token')
+    await api.delete(`/admin/vacancy/delete/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+  } catch (error) {
+    console.error('Error deleting vacancy', error)
+    throw error
+  }
+}
+
+export const updateVacancy = async (data: Vacancy): Promise<void> => {
+  try {
+    const token = localStorage.getItem('token')
+    await api.put('/admin/vacancy/update', data, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    })
+  } catch (error) {
+    console.error('Error updating vacancy:', error)
     throw error
   }
 }
