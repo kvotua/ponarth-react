@@ -8,7 +8,6 @@
   width: 100%;
   height: 100%;
   max-width: 1440px;
-  max-height: 720px;
 }
 
 .content {
@@ -17,11 +16,11 @@
 
 .text {
   display: flex;
+  padding: 20% 10% 20% 10%;
   justify-content: center;
   align-items: center;
   width: auto;
   height: auto;
-  margin: 10%;
   color: #393939;
 }
 
@@ -67,25 +66,31 @@
   font-size: 3vh;
   color: #000000;
   margin: 5%;
-  padding: 5%;
 }
 
 .info_img {
   width: 100%;
-  
-  transition: transform 1s ease-in-out; /* Добавляем плавный переход */
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
 .info_img:hover {
-  transform: scale(1.1); /* Увеличение изображения при наведении */
+  transform: scale(1.05);
+  /* Увеличение изображения при наведении */
 }
 
-.container_img{
-  width: 100%;
+/* .Horizont{
+
+} */
+
+.container_img {
+  width: 70%;
   border-radius: 5px;
-  overflow: hidden; /* Скрывает выходящее за границы содержимое */
+  margin: 0 auto;
+  overflow: hidden;
+  /* Скрывает выходящее за границы содержимое */
   display: flex;
-  justify-content: center; /* Центрируем изображение внутри контейнера */
+  justify-content: center;
+  /* Центрируем изображение внутри контейнера */
 }
 
 .yaers {
@@ -109,16 +114,8 @@
   }
 }
 
-@media screen and (max-width:720px){
-  .img_grid{
-    grid-gap:10px ;
-    grid-template-columns: 100%;
-  }
-  
-}
-
 .golovok {
-  margin: 10%;
+  margin: 20% 10% 20% 10%;
   border-bottom: 2px solid #d3d3d3;
 }
 
@@ -183,23 +180,65 @@
   grid-area: 3 / 2 / 4 / 3;
 }
 
+.box1 {
+  width: 100%;
+}
+
+
+
+@media screen and (max-width:720px) {
+  .img_grid {
+    grid-gap: 3vw;
+    grid-template-columns: 100%;
+  }
+}
 
 /* Под мобилки */
 @media screen and (max-width:1000px) {
+
   /* * {
     overflow-x: hidden;
   } */
-
-  .historyimg {
-    height: 100% !important;
+  .money {
+    margin: 0 auto;
+    padding: 0;
   }
+
+  .box {
+    border-radius: 5px;
+    width: 90vw;
+    height: 90vw;
+    margin: 0 auto;
+  }
+
+
+  .vertical {
+    width: 80vw;
+    border-radius: 5px;
+    height: 100vw;
+    margin: 0 auto;
+  }
+
+  .horizont {
+    width: 90vw;
+    height: 60vw;
+    margin: 0 auto;
+    padding: 0;
+  }
+
 
   .content {
     margin: 0 auto;
   }
 
+  .fix_text {
+    margin: 0;
+    /* padding-bottom: 5%;
+    padding-top: 5%; */
+  }
+
   .texth2 {
-    font-size: 24px !important;
+    font-size: 18px !important;
     line-height: 1.2;
   }
 
@@ -208,8 +247,24 @@
   }
 
   .info {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: 100%;
+    width: 90%;
+  }
+
+  .margin_top {
+    margin-top: 10%;
+  }
+
+  .margin_bottom {
+    margin-bottom: 10%;
+  }
+
+  .padding_top {
+    padding-top: 10%;
+  }
+
+  .padding_bottom {
+    margin-bottom: 10%;
   }
 
   .block_yers {
@@ -221,8 +276,6 @@
       margin-bottom: 20px;
       font-size: 64px;
     }
-
-   
   }
 
   .grid {
@@ -311,23 +364,26 @@
   background: #fff;
   overflow: hidden;
   margin: 0 auto;
-  width: 90%; 
-  height: 70vh; 
+  width: 90%;
+  height: 70vh;
 }
 
 .carousel_cell {
   width: 90%;
-  margin-right: -10%; 
-  height: 100%; 
+  margin-right: -10%;
+  height: 100%;
   display: flex;
-  align-items: center; 
-  justify-content: center; 
-  overflow: hidden; 
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
+:global(.flickity-page-dots) {
+  position: relative !important;
+  padding-bottom: 25px !important;
+}
 
-
-.ulocki{
+.ulocki {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -336,25 +392,27 @@
   max-width: 95%;
   height: 600px;
 }
-.ulocki1{
+
+.ulocki1 {
   background-image: url(../img/ulocki.jpeg) !important;
 }
-.ulocki2{
+
+.ulocki2 {
   background-image: url(../img/ulocki1.jpeg);
 }
-.ulocki3{
+
+.ulocki3 {
   background-image: url(../img/ulocki2.jpeg);
 }
-.velos{
+
+.velos {
   background-image: url(../img/velos.jpeg);
 }
-.velos1{
+
+.velos1 {
   background-image: url(../img/velos1.jpeg);
 }
-.velos2{
+
+.velos2 {
   background-image: url(../img/velos2.jpeg);
 }
-
-
-
-
