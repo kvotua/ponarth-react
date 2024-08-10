@@ -2,6 +2,7 @@
 CREATE TABLE "users"(
     "id" BIGINT NOT NULL,
     "username" VARCHAR(255) NOT NULL,
+    "nameAndLastname" VARCHAR(255) NULL,
     "date_registration" DATE NOT NULL,
     "enabled" BOOLEAN NOT NULL
 );
@@ -29,4 +30,4 @@ ALTER TABLE
 ALTER TABLE
     "user_roles" ADD CONSTRAINT "user_roles_role_id_foreign" FOREIGN KEY("role_id") REFERENCES "roles"("id");
 
-    INSERT INTO "roles"("name") VALUES ('ADMIN'), ('USER'), ('formOfExcursions'), ('formPartner'), ('formShareholder');
+    INSERT INTO "roles"("name") VALUES ('ADMIN'), ('USER'), ('formOfExcursions'), ('formPartner'), ('formShareholder'), ('formVacancy');

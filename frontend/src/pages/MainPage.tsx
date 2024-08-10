@@ -10,7 +10,7 @@ import Looking from "../components/LookingPage/LookingPage";
 import Footer from "../components/Footer";
 import History from "../components/History/History";
 import PartnerForm from "../components/Form/";
-
+import FirstScreenSlider from '../components/FirstScreenSlider/';
 import NewsProduction from "../components/NewsProduction";
 import CalendarComp from "../components/Calendar";
 
@@ -55,6 +55,7 @@ const MainPage: FC = () => {
           </div>
           <Header isBurgerOpen={isBurgerOpen} />
           <div className={styles.content}>
+            <FirstScreenSlider />
             <History />
             <CalendarComp />
             <Partnership />

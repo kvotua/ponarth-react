@@ -5,7 +5,7 @@
   max-width: 100%;
   margin: 0 5%;
 }
-.myParagraph{
+.myParagraph {
   font-size: 18px;
   font-weight: 500;
   line-height: 22px;
@@ -13,7 +13,7 @@
 }
 
 .vacancieslistblock {
-  max-width: 90%;
+  width: 90%;
   margin-top: 46px;
   color: black;
   .vacancies {
@@ -35,6 +35,9 @@
     height: 100%;
     object-fit: cover;
     border-radius: 12px;
+  }
+  .vacancies:last-child {
+    margin-bottom: 20px;
   }
 }
 

@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@types/yandex-maps": "^2.1.36"
+  }
+}

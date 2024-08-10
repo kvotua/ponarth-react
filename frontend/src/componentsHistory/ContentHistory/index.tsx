@@ -31,6 +31,9 @@ const flickityOptions = {
 const ContentHistory = () => {
   return (
     <>
+    <div className={`${styles.vertical}`}></div>
+    <div className={`${styles.horizont}`}></div>
+    <div className={`${styles.box}`}></div>
       <div className={stylesKartinka.content}>
         <div className={styles.text}>
           <h2 className={styles.texth2}>
@@ -72,8 +75,8 @@ const ContentHistory = () => {
         className={stylesKartinka.parallax + " " + stylesKartinka.panorama}
       ></div>
       <div className={styles.img_grid}>
-        <img src={negor} alt="" className={styles.historyimg} />
-        <img src={tovZnak} alt="" className={styles.historyimg} />
+        <img src={negor} alt="" className={`${styles.historyimg} ${styles.box}`} />
+        <img src={tovZnak} alt="" className={`${styles.historyimg} ${styles.box}`} />
       </div>
       <div className={styles.golovok}>
         <h1 className={`${styles.text_golovok} ${styles.texth1}`}>
@@ -142,11 +145,11 @@ const ContentHistory = () => {
 
       <div className={styles.info}>
 
-        <div className={styles.container_img}>
-          <img className={`${styles.info_img} ${styles.historyimg}`} src={aduard} alt="" />
+        <div className={`${styles.container_img} ${styles.vertical}`}>
+          <img className={`${styles.info_img} ${styles.historyimg} `} src={aduard} alt="" />
         </div>
 
-        <h2 className={`${styles.text} ${styles.texth2}`} >
+        <h2 className={`${styles.text} ${styles.texth2} ${styles.fix_text} `} >
           Поскольку дети основателя пивоварни не желали заниматься пивоварением,
           его брат Эдуард совместно с рядом кёнигсбергских коммерсантов основал
           коммандитное общество «Пивоварня Понарт Э. Шиффедеккер и Ко», которое
@@ -162,11 +165,11 @@ const ContentHistory = () => {
         </h2>
       </div>
       <div className={styles.info}>
-        <h2 className={`${styles.text} ${styles.texth2}`}>
+        <h2 className={`${styles.text} ${styles.texth2} ${styles.fix_text}`}>
           Для устранения дефицита жилья в 1871 году было построено два жилых
           дома общим объёмом в 32 квартиры.
         </h2>
-        <div className={styles.container_img}>
+        <div className={`${styles.container_img} ${styles.horizont}`}>
           <img className={`${styles.info_img} ${styles.historyimg}`} src={work} alt="" />
         </div>
       </div>
@@ -190,10 +193,11 @@ const ContentHistory = () => {
           железная дорога Германии){" "}
         </h2>
       </div>
-      <div className={styles.img_grid}>
-        <img src={vagon} alt="" className={styles.historyimg} />
-        <img src={vagon1} alt="" className={styles.historyimg} />
+      <div className={`${styles.container_img} ${styles.box} ${styles.box1}`}>
+      <img src={vagon1} alt="" className={styles.historyimg} />
       </div>
+        
+      
       <div className={styles.text}>
         <h2 className={styles.texth2}>
           {" "}
@@ -206,30 +210,30 @@ const ContentHistory = () => {
       ></div>
       <div className={styles.info}>
 
-        <h2 className={`${styles.text} ${styles.grid1} ${styles.texth2}`}>
+        <h2 className={`${styles.text} ${styles.grid1} ${styles.texth2} ${styles.fix_text}`}>
           Для рекламы продукции на территории зоопарка существовал специальный
           павильон, кроме того, было открыто торговое заведение типа закусочной
           на территории пивоварни, существовала небольшая сеть собственных баров
           на территории Кёнигсберга
         </h2>
-        <div className={styles.container_img}>
-          <img className={`${styles.info_img} ${styles.historyimg}`} src={alcashMark} alt="" />
+        <div className={`${styles.container_img} ${styles.horizont}`}>
+          <img className={`${styles.info_img} ${styles.historyimg} `} src={alcashMark} alt="" />
         </div>
 
-        <div className={styles.container_img}>
+        <div className={`${styles.container_img} ${styles.horizont}`} >
           <img className={`${styles.info_img} ${styles.historyimg}`} src={promo} alt="" />
         </div>
-        <h2 className={`${styles.text} ${styles.grid4} ${styles.texth2}`}>
+        <h2 className={`${styles.text} ${styles.grid4} ${styles.texth2} ${styles.fix_text}`}>
           Реклама Мартовского пива Оно славилось в северо-восточной Германии и
           вывозилось в огромных объемах
         </h2>
-        <h2 className={`${styles.text} ${styles.grid5} ${styles.texth2}`}>
+        <h2 className={`${styles.text} ${styles.grid5} ${styles.texth2} ${styles.fix_text}`}>
           Для собственной розничной торговли недалеко от пивоварни был
           оборудован кабачок «Gambrinus-Halle». Потребление все увеличивалось, и
           уже было трудно справиться со всеми заказами. Так появился план
           перенести производство за город.
         </h2>
-        <div className={styles.container_img}>
+        <div className={`${styles.container_img} ${styles.vertical}`}>
           <img className={`${styles.info_img} ${styles.historyimg}`} src={myjick} alt="" />
         </div>
 
@@ -251,12 +255,12 @@ const ContentHistory = () => {
           Hubertusteich (сейчас – озера Пеньковое и Лебяжье).
         </h2>
       </div>
-      <div className={styles.info}>
-        <div className={styles.container_img}>
+      <div className={`${styles.info}  ${styles.padding_bottom}`}>
+        <div className={`${styles.container_img} ${styles.vertical} ${styles.padding_top}`}>
           <img className={`${styles.info_img} ${styles.historyimg}`} src={bochka} alt="" />
         </div>
 
-        <h2 className={`${styles.text} ${styles.texth2}`}>
+        <h2 className={`${styles.text} ${styles.texth2} ${styles.fix_text}`}>
           В юбилейном 1939 году пивоварня со штатом 500 человек была крупнейшей
           в северо-восточной Германии. В 1906 году в честь основателя знаменитой
           пивоварни в Понарте назвали улицу (сейчас ул. маршала Новикова).
@@ -276,7 +280,10 @@ const ContentHistory = () => {
           виде монет номиналом 1 литр
         </h2>
       </div>
+      <div className={`${styles.container_img} ${styles.money}`}>
       <img src={money} alt="" className={styles.historyimg} />
+      </div>
+        
       <div className={styles.text}>
         <h2 className={styles.texth2}>
           С началом Первой мировой войны оборот значительно снизился. Уже второй
@@ -289,7 +296,7 @@ const ContentHistory = () => {
       ></div>
       <div className={styles.golovok}>
         <h1 className={`${styles.text_golovok} ${styles.texth1}`}>
-          НОВЫЕ ХОЗЯЕВА - <br /> СОВЕТСКИЙ ПЕРИОД
+          НОВЫЕ ХОЗЯЕВА-<br /> СОВЕТСКИЙ ПЕРИОД
         </h1>
       </div>
       <div
@@ -340,9 +347,9 @@ const ContentHistory = () => {
       </div>
       <div className={styles.golovok}>
         <h1 className={`${styles.text_golovok} ${styles.texth1}`}>
-          СОХРАНЯЯ <br />
+          СОХРАНЯЯ
           СТАРИННЫЕ <br />
-          ТРАДИЦИИ <br />
+          ТРАДИЦИИ
           ПИВОВАРЕНИЯ
         </h1>
       </div>
@@ -368,7 +375,7 @@ const ContentHistory = () => {
           подвальных помещений пивоварни "Понарт".
         </h2>
       </div>
-      <div className={styles.videocontainer}>
+      <div className={`${styles.videocontainer} ${styles.horizont}`}>
         <iframe
           src="https://www.youtube.com/embed/mCLg4Q82oeA?si=YGL-_3154YtxDNu7"
           title="YouTube video player"
