@@ -38,8 +38,9 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
 
         // Проверка на наличие данных
         if (response.data && response.data.response && response.data.response.items) {
-          // Фильтрация постов, чтобы оставить только те, у которых есть одна фотография
+          // Фильтрация постов, чтобы оставить только те, у которых есть одна фотография, исключая пост с id 4222 и owner_id -33086364
           const filteredPosts = response.data.response.items.filter((post: Post) =>
+            !(post.id === 4222 && post.owner_id === -33086364) &&
             post.attachments && post.attachments.filter(attachment => attachment.type === 'photo').length === 1
           );
           setPosts(filteredPosts);
@@ -98,6 +99,10 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
       modules={[Pagination]}
       className="mySwiper"
       breakpoints={{
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        },
         640: {
           slidesPerView: 1,
           spaceBetween: 10,

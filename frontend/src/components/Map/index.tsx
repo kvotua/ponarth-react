@@ -56,6 +56,10 @@ const PonarthMap: React.FC = () => {
     setIsBalloonOpen(false);
   };
 
+  const handleDelayedBalloonOpen = () => {
+    setTimeout(handleBalloonOpen, 300); // Задержка в 300 мс
+  };
+
   return (
     <div className={styles.Map} onClick={deactivateMap}>
       <div className={styles.six_page} id="maps">
@@ -105,8 +109,9 @@ const PonarthMap: React.FC = () => {
                     iconImageSize: [130, 130],
                     iconImageOffset: [-32, -64],
                     hideIconOnBalloonOpen: false,
+                    balloonPanelMaxMapArea: 0, // Отключает автоматическое центрирование карты
                   }}
-                  onBalloonOpen={handleBalloonOpen}
+                  onBalloonOpen={handleDelayedBalloonOpen}
                   onBalloonClose={handleBalloonClose}
                 />
 
@@ -123,8 +128,9 @@ const PonarthMap: React.FC = () => {
                     iconImageSize: [130, 130],
                     iconImageOffset: [-32, -64],
                     hideIconOnBalloonOpen: false,
+                    balloonPanelMaxMapArea: 0, // Отключает автоматическое центрирование карты
                   }}
-                  onBalloonOpen={handleBalloonOpen}
+                  onBalloonOpen={handleDelayedBalloonOpen}
                   onBalloonClose={handleBalloonClose}
                 />
 
@@ -141,8 +147,9 @@ const PonarthMap: React.FC = () => {
                     iconImageSize: [130, 130],
                     iconImageOffset: [-32, -64],
                     hideIconOnBalloonOpen: false,
+                    balloonPanelMaxMapArea: 0, // Отключает автоматическое центрирование карты
                   }}
-                  onBalloonOpen={handleBalloonOpen}
+                  onBalloonOpen={handleDelayedBalloonOpen}
                   onBalloonClose={handleBalloonClose}
                 />
               </YMapsMap>
