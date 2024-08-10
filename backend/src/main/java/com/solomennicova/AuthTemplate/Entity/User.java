@@ -22,6 +22,8 @@ public class User implements Serializable {
     @Column(nullable = false ,unique = true)
     private String username;
 
+    private String nameAndLastname;
+
     @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name ="user_id", unique = false),

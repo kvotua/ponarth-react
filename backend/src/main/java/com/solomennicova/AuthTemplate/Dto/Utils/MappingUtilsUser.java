@@ -25,6 +25,7 @@ public class MappingUtilsUser {
         User user = new User();
         user.setId(userDto.getId());
         user.setUsername(userDto.getUsername());
+        user.setNameAndLastname(userDto.getNameAndLastname());
 
         for (String role : userDto.getRoles()) {
             Role newRole = roleRepository.findByName(role);
@@ -40,6 +41,7 @@ public class MappingUtilsUser {
         UserDto userDto = new UserDto();
         userDto.setId(user.getId());
         userDto.setUsername(user.getUsername());
+        userDto.setNameAndLastname(user.getNameAndLastname());
 
         Set<String> rolesDto = new HashSet<>();
 
@@ -49,35 +51,4 @@ public class MappingUtilsUser {
         userDto.setRoles(rolesDto);
         return userDto;
     }
-
-    public User UserUpdateDtoToUser(UserUpdateDto userDto) throws RoleNotFoundException {
-
-        User user = new User();
-        user.setId(userDto.getId());
-        user.setUsername(userDto.getUsername());
-
-        for (String role : userDto.getRoles()) {
-            Role newRole = roleRepository.findByName(role);
-            if (newRole == null) {
-                throw new RoleNotFoundException("Role not found");
-            }
-            user.addRole(newRole);
-        }
-        return user;
-    }
-
-    public UserUpdateDto UserToUserUpdateDto(User user){
-        UserUpdateDto userDto = new UserUpdateDto();
-        userDto.setId(user.getId());
-        userDto.setUsername(user.getUsername());
-
-        Set<String> rolesDto = new HashSet<>();
-
-        for(Role role : user.getRoles()){
-            rolesDto.add(role.getName());
-        }
-        userDto.setRoles(rolesDto);
-        return userDto;
-    }
-
 }
