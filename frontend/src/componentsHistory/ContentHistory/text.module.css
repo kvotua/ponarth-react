@@ -14,16 +14,15 @@
 }
 .iogan{
     background-image: url(../img/iogan.png);
-    height: 90vh;
-    min-height: 1500px;
+    height: 105vh;
 }
 .bottle{
     background-image: url(../img/bottle.jpeg);
-    height: 90vh;
-    min-height: 2000px;
+    height: 105vh;
+    /* min-height: 2000px; */
 }
 .pivKorol{
     background-image: url(../img/pivKorol.jpeg);
-    height: 90vh;
-    min-height: 1500px;
+    height: 105vh;
+    /* min-height: 1500px; */
 }
