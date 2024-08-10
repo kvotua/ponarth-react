@@ -8,7 +8,18 @@ export const ThemeContext = createContext({
 
 const RightBar: FC = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
-
+if (theme=='dark') {
+  document.documentElement.style.setProperty(
+    "--swiper-theme-color",
+    `white`
+  );
+} 
+else{
+  document.documentElement.style.setProperty(
+    "--swiper-theme-color",
+    `black`
+  ); 
+}
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
