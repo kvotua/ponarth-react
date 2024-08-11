@@ -74,17 +74,17 @@
 }
 
 .reserve_btn {
-  width: 250px !important;
+
+  width: 266px !important;
   display: flex;
-  height: 48px;
-  color: white;
-  background-color: black;
+  height: 51px;
+background: none;
   font-size: 15px;
   border-radius: 1.625rem;
   align-items: center;
   justify-content: center;
   border: none;
-  margin-top: 25px;
+  margin-top: 20px;
   cursor: pointer;
 }
 
