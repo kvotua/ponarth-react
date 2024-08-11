@@ -9,11 +9,10 @@ import { ThemeContext } from "../components/RightBar";
 import Looking from "../components/LookingPage/LookingPage";
 import Footer from "../components/Footer";
 import History from "../components/History/History";
-import PartnerForm from "../components/Form/";
 import FirstScreenSlider from '../components/FirstScreenSlider/';
 import NewsProduction from "../components/NewsProduction";
 import CalendarComp from "../components/Calendar";
-
+import PartnerForm from "../components/Form";
 const MainPage: FC = () => {
   const localTheme = window.localStorage.getItem("theme");
   const [theme, setTheme] = useState(localTheme ? localTheme : "light");
