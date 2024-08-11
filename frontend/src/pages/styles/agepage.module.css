@@ -49,6 +49,7 @@ body {
 
 .text2 {
   font-size: 25px;
+  font-weight: 300;
 }
 
 .text1,
@@ -70,16 +71,23 @@ body {
   font-size: 45px;
   margin-bottom: -50px;
 }
+@media screen and (max-width: 500px) {
+  .text2{
+    text-align: center;
+    margin: 0 ;
+    font-size: 18px;
+  }
+}
 @media screen and (max-width: 340px) {
   .text1 {
     font-size: 25px;
-    padding-left: 5%;
-    padding-right: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
   }
   .text2 {
-    font-size: 21px;
-    padding-left: 5%;
-    padding-right: 5%;
+    font-size: 18px;
+    margin-left: 5%;
+    margin-right: 5%;
   }
 }
 .input[type="range"] {

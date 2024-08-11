@@ -3,7 +3,22 @@ import DelayedButton from "../components/Buttons/DelayedButton";
 import InputMask from 'react-input-mask';
 import { Link } from "react-router-dom";
 import Ponarth_Logo from "../assets/logo.svg";
+import { useContext , useEffect} from "react";
+import { ThemeContext } from "../components/RightBar";
+
 const SharePage = () => {
+  useEffect(() => {
+    const htmlElement = document.documentElement;
+    const originalScrollBehavior = htmlElement.style.scrollBehavior;
+    htmlElement.style.scrollBehavior = 'auto';
+    window.scrollTo(0, 0);
+    htmlElement.style.scrollBehavior = originalScrollBehavior;
+  }, []);
+  const { theme } = useContext(ThemeContext);
+  console.log(theme)
+  if(theme ==="dark"){
+    console.log('!!!')
+  }
   return (
    <>
    <div className={styles.margin_container}>
@@ -13,9 +28,9 @@ const SharePage = () => {
   <button className={styles.button_back}></button>
   </Link>
         </div>
-        <div className={styles.share_logo}>
+        <div className={`${styles.share_logo}`}>
         <img
-          className={`${styles.logo}`}
+          className={`${styles.logo} ${theme === "dark" ? styles.dark : ""}`}
           src={Ponarth_Logo}
           alt="Логотип"
         />
@@ -96,7 +111,7 @@ const SharePage = () => {
                     className={styles.learn_more}
                     style="white"
                     delay={450}
-                    dopstyle={{ marginTop: "32px", width: "100%" }}
+                    dopstyle={{ marginTop: "20px", width: "100%" }}
                   >
                     СТАТЬ ПАРТНЕРОМ
                   </DelayedButton>
