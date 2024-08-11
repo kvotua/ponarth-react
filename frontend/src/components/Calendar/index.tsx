@@ -130,13 +130,13 @@ const CalendarComp: React.FC = () => {
             <div className={styles.slide}>
               <img src={image2} alt="" />
               <p className={styles.slide_p}>
-                #Знакомство с культурным наследием
+                #Рецептуры довоенной восточной Пруссии
               </p>
             </div>
             <div className={styles.slide}>
               <img src={image3} alt="" />
               <p className={styles.slide_p}>
-                #Знакомство с культурным наследием
+                #8 дегустационных сортов пива
               </p>
             </div>
           </div>
