@@ -2,10 +2,15 @@ import { FC, useState, ChangeEvent, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import icon from '../assets/Icon.svg'
 import styles from './styles/addvacanciespage.module.scss'
-import { addVacancy, uploadVacancyImage } from '../api/vacancies/requests'
+import {
+  addVacancy,
+  uploadVacancyImage,
+  updateVacancy,
+} from '../api/vacancies/requests'
 import button_icon from '../assets/Pluse.svg'
 
 interface AddVacancy {
+  id?: number
   vacanciesname: string
   vacanciesdescription: string
 }
@@ -23,8 +28,9 @@ const AddVacanciesPage: FC = () => {
 
   useEffect(() => {
     if (location.state && location.state.vacancy) {
-      const { name, description, base64Image } = location.state.vacancy
+      const { id, name, description, base64Image } = location.state.vacancy
       setVacancy({
+        id,
         vacanciesname: name,
         vacanciesdescription: description,
       })
@@ -51,20 +57,32 @@ const AddVacanciesPage: FC = () => {
   const handleSave = async () => {
     setIsSubmitting(true)
     try {
-      const vacancyId = await addVacancy({
-        name: vacancy.vacanciesname,
-        description: vacancy.vacanciesdescription,
-      })
+      const base64Image = image ? await imageToBase64(image) : ''
+      if (vacancy.id) {
+        await updateVacancy({
+          id: vacancy.id,
+          name: vacancy.vacanciesname,
+          description: vacancy.vacanciesdescription,
+          image: base64Image,
+          fileName: image ? image.name : '',
+        })
+        alert('Вакансия обновлена!')
+      } else {
+        const vacancyId = await addVacancy({
+          name: vacancy.vacanciesname,
+          description: vacancy.vacanciesdescription,
+        })
 
-      if (image) {
-        await uploadVacancyImage(vacancyId, image)
+        if (image) {
+          await uploadVacancyImage(vacancyId, image)
+        }
+
+        alert('Вакансия добавлена!')
       }
-
-      alert('Вакансия добавлена!')
       window.location.href = '/vacancies'
     } catch (error) {
-      console.error('Error adding vacancy:', error)
-      alert('Ошибка добавления вакансии!')
+      console.error('Error saving vacancy:', error)
+      alert('Ошибка сохранения вакансии!')
     } finally {
       setIsSubmitting(false)
     }
@@ -72,6 +90,15 @@ const AddVacanciesPage: FC = () => {
 
   const handleBackClick = () => {
     navigate('/vacancies')
+  }
+
+  const imageToBase64 = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader()
+      reader.readAsDataURL(file)
+      reader.onload = () => resolve(reader.result as string)
+      reader.onerror = (error) => reject(error)
+    })
   }
 
   return (
