@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "./partnership.module.css";
-import image1 from "../../assets/Image.png";
-import image2 from "../../assets/Pivo2.png";
+import image1 from "../../assets/imagePartner1.jpg";
+import image2 from "../../assets/imagePartner2.png";
 import image3 from "../../assets/Pivo3.png";
 
 const Partnership = () => {

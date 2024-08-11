@@ -22,8 +22,21 @@
     margin: 0 auto;
 }
 .form_group:nth-child(2){
-    margin-top: 32px;
+    margin-top: 20px;
 }
+
+.form_group.dark input{
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
+.form_group.dark input:focus{
+    border: 2px solid white;
+}
+.form_group.dark label{
+    color: white;
+}
+
 
 .form_group input {
     background-color: white;
@@ -124,18 +137,23 @@
 .text_container {
     display: grid;
     grid-column-gap: 0px;
-    grid-row-gap: 4%;
+    grid-row-gap: 20px;
     max-width: 400px;
     margin: 0 auto;
     align-content: center;
 }
 .text_container>h1{
     text-align: center;
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 62px;
 }
 .text_container>p{
    text-align: justify;
+   font-size: 18px;
+   font-weight: 300;
 }
 .stat_partner{
-    margin: 0 auto;
+    margin: 11px auto 0 auto;
     width: 250px;
 }
