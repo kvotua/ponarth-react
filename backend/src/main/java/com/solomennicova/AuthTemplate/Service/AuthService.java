@@ -41,17 +41,19 @@ public class AuthService {
         this.userDetailsService = userDetailsService;
         this.mappingUtils = mappingUtils;
         try {
-            saveAdminUser(760785124L,"Kvotua");
+            saveAdminUser(760785124L,"kvotua", "Екатерина;Соломенникова");
+            saveAdminUser(695473622L,"tla_nnn", "Никита;Гилевский");
         }
         catch (Exception ignored){
 
         }
     }
 
-    public void saveAdminUser(Long id, String admin) throws ValidationException, MessagingException, RoleNotFoundException, UserAlreadyExistsException {
+    public void saveAdminUser(Long id, String admin, String fullName) throws ValidationException, MessagingException, RoleNotFoundException, UserAlreadyExistsException {
         UserDto userDto = new UserDto();
         userDto.setId(id);
         userDto.setUsername(admin);
+        userDto.setNameAndLastname(fullName);
         Set<String> roles = new HashSet<>();
         roles.add("ADMIN");
         userDto.setRoles(roles);
