@@ -2,7 +2,7 @@
 CREATE TABLE "users"(
     "id" BIGINT NOT NULL,
     "username" VARCHAR(255) NOT NULL,
-    "nameAndLastname" VARCHAR(255) NULL,
+    "name_and_lastname" VARCHAR(255) NULL,
     "date_registration" DATE NOT NULL,
     "enabled" BOOLEAN NOT NULL
 );

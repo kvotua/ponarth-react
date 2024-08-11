@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -110,5 +111,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             throw new UsernameNotFoundException("User not found");
         }
         return user;
+    }
+
+    public List<Long> getAllUserRole(String role) throws RoleNotFoundException {
+        Role roleUser = roleRepository.findByName(role);
+        if (roleUser == null) {
+            throw new RoleNotFoundException("Role not found");
+        }
+        return userRepository.findAllUsersByRole(role).stream().map(User::getId).collect(Collectors.toList());
     }
 }
