@@ -1,17 +1,18 @@
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import icon from '../assets/Icon.svg'
 import styles from './styles/addnotificationpage.module.scss'
 
 const AddTelegramNotificationPage = () => {
+  const navigate = useNavigate()
+
+  const handleBackClick = () => {
+    navigate('/notifications')
+  }
+
   return (
     <>
-      <button
-        className={styles.back_btn}
-        onClick={() => (window.location.href = '/notifications')}
-      >
-        <Link to="/notification">
-          <img src={icon} alt="" />
-        </Link>
+      <button className={styles.back_btn} onClick={handleBackClick}>
+        <img src={icon} alt="" />
       </button>
       <section className={styles.add_notification_block}>
         <section>
