@@ -74,7 +74,8 @@ body {
 @media screen and (max-width: 500px) {
   .text2{
     text-align: center;
-    margin: 0 5%;
+    margin: 0 ;
+    font-size: 18px;
   }
 }
 @media screen and (max-width: 340px) {
@@ -84,7 +85,7 @@ body {
     margin-right: 5%;
   }
   .text2 {
-    font-size: 21px;
+    font-size: 18px;
     margin-left: 5%;
     margin-right: 5%;
   }
