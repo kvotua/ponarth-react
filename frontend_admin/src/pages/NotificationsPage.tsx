@@ -1,36 +1,96 @@
 import styles from './styles/notificationpage.module.scss'
 import settings from '../assets/settings.svg'
 import delete_btn from '../assets/delete.svg'
-import add_btn from '../assets/Pluse.svg'
-import { Link } from 'react-router-dom'
+
+import { useEffect, useState } from 'react'
+import { deleteUser, getUsers, User } from '../api/notifications/requests'
+import { useNavigate } from 'react-router-dom'
+
+const roleSynonyms: Record<string, string> = {
+  formVacancy: 'Форма вакансии',
+  formOfExcursion: 'Форма экскурсий',
+  formPartner: 'Форма партнеров',
+}
 
 const NotificationPage = () => {
+  const [users, setUsers] = useState<User[]>([])
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const data: User[] = await getUsers()
+        const usersWithSynonyms = data.map((user) => ({
+          ...user,
+          nameAndLastname: user.nameAndLastname.replace(';', ' '),
+          roles: user.roles
+            .filter((role) => role !== 'ADMIN')
+            .map((role) => roleSynonyms[role] || role),
+        }))
+        setUsers(usersWithSynonyms)
+      } catch (error) {
+        console.error('Error fetching users', error)
+      }
+    }
+    fetchUsers()
+  }, [])
+
+  const handleDeleteClick = async (id: number) => {
+    const confirmed = window.confirm(
+      'Вы уверены что хотите удалить данного пользователя?'
+    )
+    if (confirmed) {
+      try {
+        await deleteUser(id)
+        setUsers(users.filter((user) => user.id !== id))
+      } catch (error) {
+        console.error('Error deleting user', error)
+      }
+    }
+  }
+
+  const handleSettingsClick = (user: User) => {
+    navigate('/notifications/add', { state: { user } })
+  }
+
   return (
     <>
-        <h1 className={styles.title}>Управление уведомлениями</h1>
-        <div className={styles.notification_filter}>
-          <input className={styles.input} type="text" placeholder="Фильтр" />
-        </div>
+      <h1 className={styles.title}>Управление уведомлениями</h1>
 
-        <section className={styles.notification_block}>
-          <section className={styles.notification_element}>
-            <div className={styles.notification_telegram_user_block}></div>
-            <div className={styles.notification_buttons}>
-              <button className={styles.settings_btn}>
-                <img src={settings} alt="" />
-              </button>
-
-              <button className={styles.delete_btn}>
-                <img src={delete_btn} alt="" />
-              </button>
+      <div className={styles.notifications_list}>
+        {users.map((user) => (
+          <div key={user.id} className={styles.notification}>
+            <div className={styles.image_block}>
+              <img alt="image" />
             </div>
-          </section>
-        </section>
-      <Link to="/notifications/add">
-        <button className={styles.add_btn}>
-          <img src={add_btn} alt="Add" />
-        </button>
-      </Link>
+            <div className={styles.description_block}>
+              <h2>{user.nameAndLastname}</h2>
+              <p>@{user.username}</p>
+              <br />
+              <h3>Роли:</h3>
+              <div>
+                {user.roles.length > 0 ? (
+                  user.roles.map((role) => <p key={role}>{role}</p>)
+                ) : (
+                  <p>—</p>
+                )}
+              </div>
+            </div>
+            <div
+              className={styles.settings_btn}
+              onClick={() => handleSettingsClick(user)}
+            >
+              <img src={settings} alt="settings" />
+            </div>
+            <div
+              className={styles.delete_btn}
+              onClick={() => handleDeleteClick(user.id)}
+            >
+              <img src={delete_btn} alt="delete" />
+            </div>
+          </div>
+        ))}
+      </div>
     </>
   )
 }
