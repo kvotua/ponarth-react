@@ -119,7 +119,7 @@ window.addEventListener('resize', WindowWidth);
         },
         1024: {
           slidesPerView: 3.2,
-          spaceBetween: 30,
+          spaceBetween: 20,
         },
       }}
     >

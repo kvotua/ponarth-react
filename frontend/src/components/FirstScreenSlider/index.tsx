@@ -14,7 +14,7 @@ const FirstScreenSlider = () => {
   const { theme } = useContext(ThemeContext);
   const themeButton = theme === "dark" ? "white" : "mixed";
   return (
-    <div className={styles.first_container} content='f'>
+    <div className={styles.first_container} content='f' id='sorta'>
         <Swiper
      effect={'coverflow'}
     grabCursor={true}
@@ -99,7 +99,9 @@ coverflowEffect: {
     <p>
             Пиво классическое. Сварено по рецептам 1849 года только с использованием натуральных высококачественных ингредиентов
           </p>
+          <a href="#maps">
           <DelayedButton to='' delay={1} className={styles.button_slider} style={themeButton}>ГДЕ ПОПРОБОВАТЬ?</DelayedButton>
+          </a>
     </div>
           
 </div>
