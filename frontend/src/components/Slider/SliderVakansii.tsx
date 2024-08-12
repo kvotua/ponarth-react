@@ -50,7 +50,7 @@ const SliderVakansii: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
-    <div className={stylesV.app}>
+    <div className={stylesV.app} >
       <div className={stylesV.swiper_container}>
         <Swiper
           effect="cards"
@@ -106,7 +106,7 @@ const SliderVakansii: React.FC = () => {
             delay={450}
             dopstyle={{margin:'0 auto', alignContent:'center', marginTop:  '20px', width: '100%' }}
           >
-            СТАТЬ ПАРТНЕРОМ
+            ОСТАВИТЬ ЗАЯВКУ
           </DelayedButton>
         </form>
       </div>
