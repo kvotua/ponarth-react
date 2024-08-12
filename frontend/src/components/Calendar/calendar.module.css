@@ -110,7 +110,7 @@ background: none;
   flex: 0 0 auto;
   scroll-snap-align: center;
   margin-right: 30px;
-  max-width: 300px;
+  max-width: 290px;
   height: 525px;
   box-sizing: border-box;
 }
@@ -135,6 +135,8 @@ background: none;
 .slide img {
   width: 100%;
   height: 90%; /* Adjust height to ensure <p> tags are visible */
+  max-height: 420px;
+  max-width: 290px;
   object-fit: cover;
   border-radius: 5px;
 }
