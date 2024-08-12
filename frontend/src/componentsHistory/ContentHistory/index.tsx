@@ -1,37 +1,37 @@
 import styles from "./contentHistory.module.css";
-import stylesKartinka from "./kartinka.module.css";
-import stylesText from "./text.module.css";
-import BeforeAfter from "../../components/BeforeAfter";
-import CalendarComp from "../../components/Calendar";
+// import stylesKartinka from "./kartinka.module.css";
+// import stylesText from "./text.module.css";
+// import BeforeAfter from "../../components/BeforeAfter";
+// import CalendarComp from "../../components/Calendar";
 
-import negor from "../img/RI5bpix8LSw.jpg";
-import tovZnak from "../img/tovZnak.png";
-import vagon from "../img/vagon.jpg";
-import vagon1 from "../img/vagon1.png";
-import aduard from "../img/aduard.jpeg";
-import alcashMark from "../img/alcashMark.jpeg";
-import bochka from "../img/bochka.jpeg";
+// import negor from "../img/RI5bpix8LSw.jpg";
+// import tovZnak from "../img/tovZnak.png";
+// import vagon from "../img/vagon.jpg";
+// import vagon1 from "../img/vagon1.png";
+// import aduard from "../img/aduard.jpeg";
+// import alcashMark from "../img/alcashMark.jpeg";
+// import bochka from "../img/bochka.jpeg";
 
-import work from "../img/work.jpeg";
-import promo from "../img/promo.jpeg";
-import myjick from "../img/myjick.png";
-import money from "../img/money.jpeg";
+// import work from "../img/work.jpeg";
+// import promo from "../img/promo.jpeg";
+// import myjick from "../img/myjick.png";
+// import money from "../img/money.jpeg";
 
-import Flickity from 'react-flickity-component';
+// import Flickity from 'react-flickity-component';
 import 'flickity/css/flickity.css';
 
-const flickityOptions = {
-  wrapAround: true, // Включаем wrapAround для бесконечной прокрутки
-  prevNextButtons: true, // Кнопки навигации
-  pageDots: true, // Отключаем точки навигации
-  imagesLoaded: true, // Обеспечивает загрузку изображений перед началом слайдера
-  initialIndex: 1, // Можно задать начальный индекс
-};
+// const flickityOptions = {
+//   wrapAround: true, // Включаем wrapAround для бесконечной прокрутки
+//   prevNextButtons: true, // Кнопки навигации
+//   pageDots: true, // Отключаем точки навигации
+//   imagesLoaded: true, // Обеспечивает загрузку изображений перед началом слайдера
+//   initialIndex: 1, // Можно задать начальный индекс
+// };
 
 const ContentHistory = () => {
   return (
     <>
-    <div className={`${styles.vertical}`}></div>
+    {/* <div className={`${styles.vertical}`}></div>
     <div className={`${styles.horizont}`}></div>
     <div className={`${styles.box}`}></div>
       <div className={stylesKartinka.content}>
@@ -374,25 +374,36 @@ const ContentHistory = () => {
           Путятинский Ренат Валерьевич, нашел инвесторов и восстановил часть
           подвальных помещений пивоварни "Понарт".
         </h2>
+      </div> */}
+      <div className={styles.texter}>
+        <h2 className={styles.text}>
+        КАК ВАРЯТ ПИВО НА ЗАВОДЕ XIX ВЕКА <br />
+        ИСТОРИЯ, ДЕГУСТАЦИЯ, ДОМАШНИЙ ПИВОВАР
+        </h2>
       </div>
       <div className={`${styles.videocontainer} ${styles.horizont}`}>
-        <iframe
+        {/* <iframe
           src="https://www.youtube.com/embed/mCLg4Q82oeA?si=YGL-_3154YtxDNu7"
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerPolicy="strict-origin-when-cross-origin"
           allowFullScreen
-        ></iframe>
+        ></iframe> */}
+        <iframe
+        src="https://rutube.ru/play/embed/e5565e32053da4b3fe3c9f32036ab458"
+         frameBorder="0" 
+         allow="clipboard-write; autoplay"
+            allowFullScreen></iframe>
       </div>
-      <div className={styles.text}>
+      {/* <div className={styles.text}>
         <h2 className={styles.texth2}>
           Сейчас на пивоварне варят пиво по старинной немецкой рецептуре,
           используя пивоваренный солод высокого качества, лучшие сорта хмеля,
           элитные культуры пивных дрожжей и воду из понартовских артезианских
           скважин.
         </h2>
-      </div>
+      </div> */}
     </>
   );
 };

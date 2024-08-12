@@ -1,17 +1,6 @@
-
-
-
 .swiper {
-  max-width: 400px;
-  max-height: 400px;
-  width: 100%;
-  height: 100%;
-}
-
-@media screen and (max-width: 1020px) {
-  .swiper{
-   
-  }
+  width: 290px;
+  height: 420px;
 }
 
 .swiper_slide {
