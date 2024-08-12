@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination } from 'swiper/modules';
+
 import './VKPosts.css';
 
 type VkPostProps = {
@@ -88,7 +88,13 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
       console.error('Некорректный postId:', postId);
     }
   };
-
+const WindowWidth =()=>{
+  const width= window.innerWidth;
+  document.documentElement.style.setProperty('--screen-width', `${width}px`);
+  
+}
+WindowWidth();
+window.addEventListener('resize', WindowWidth);
   return (
     <Swiper
       slidesPerView={3}
@@ -96,7 +102,7 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
       pagination={{
         clickable: true,
       }}
-      modules={[Pagination]}
+     
       className="mySwiper"
       breakpoints={{
         0: {
@@ -112,8 +118,8 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
           spaceBetween: 20,
         },
         1024: {
-          slidesPerView: 3,
-          spaceBetween: 30,
+          slidesPerView: 3.2,
+          spaceBetween: 20,
         },
       }}
     >

@@ -40,7 +40,7 @@ const CalendarComp: React.FC = () => {
 
   return (
     <>
-      <div className={styles.texter}>
+      <div className={styles.texter} id="excursion">
         <p className={styles.text}>
           ПОСЕТИТЕ
           <br /> СЕРДЦЕ ПРУССИИ
