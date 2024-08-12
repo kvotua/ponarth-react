@@ -58,6 +58,8 @@ const SliderVakansii: React.FC = () => {
           modules={[EffectCards]}
           className={styles.swiper}
           onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
+          scrollbar={false}
+          
         >
           {cars.map((car) => (
             <SwiperSlide key={car.id} className={styles.swiper_slide}>

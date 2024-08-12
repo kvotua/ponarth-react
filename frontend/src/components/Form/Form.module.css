@@ -10,7 +10,7 @@ video {
   clip-path: inset(13% 0 12% 0);
 }
 .container_form{
-  height: 700px;
+  height: 633px;
   width: 100%;
   overflow: hidden;
 }
@@ -196,6 +196,9 @@ margin-top: -9%;
 }
 }
 @media screen and (max-width:1020px){
+  .container_form{
+    height: 620px;
+  }
   .form_grid_container{
    padding-top: 9.4%;
   }
@@ -206,7 +209,11 @@ margin-top: -9%;
     width: 460px;
   }
 }
-
+@media screen and (max-width:960px){
+  .container_form{
+    height: 600px;
+  }
+}
 @media screen and (max-width: 900px) {
   video {
     position: relative;
@@ -226,7 +233,7 @@ margin-top: -9%;
     height: 1149px;
   }
   .container2 {
-    height: 100%;
+    height: 115%;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr;
@@ -282,10 +289,13 @@ margin-top: -9%;
 }
 @media screen and (max-width: 720px) {
   .form_grid_container{
-    height: 480px;
+    height: 510px;
   }
 }
 @media screen and (max-width: 620px) {
+  .container_form{
+    height: 950px;
+  }
   video {
     height: 500px;
 
@@ -300,6 +310,10 @@ margin-bottom: 12%;
   }
 }
 @media screen and (max-width: 440px) {
+  .container_form{
+    height: 850px;
+
+  }
   video {
     height: 400px;
 
@@ -327,10 +341,10 @@ margin-bottom: 12%;
 
   }
   .container_form{
-    height: 900px;
+    height: 770px;
   }
   .container2 {
-    height: 95%;
+    height: 800px;
     padding: 0;
   }
   .form_grid_container{
