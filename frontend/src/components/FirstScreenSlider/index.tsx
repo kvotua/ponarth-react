@@ -99,7 +99,7 @@ coverflowEffect: {
     <p>
             Пиво классическое. Сварено по рецептам 1849 года только с использованием натуральных высококачественных ингредиентов
           </p>
-          <a href="#maps">
+          <a href="#maps" className={styles.button_slider}>
           <DelayedButton to='' delay={1} className={styles.button_slider} style={themeButton}>ГДЕ ПОПРОБОВАТЬ?</DelayedButton>
           </a>
     </div>
