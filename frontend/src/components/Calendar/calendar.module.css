@@ -6,7 +6,7 @@
 .calendar_block {
   display: flex;
   flex-direction: column;
-  margin: 8% 8% 0 8%;
+  margin: 20px 6% 0 10%;
   align-items: center;
 }
 
@@ -74,17 +74,17 @@
 }
 
 .reserve_btn {
-  width: 250px !important;
+
+  width: 266px !important;
   display: flex;
-  height: 48px;
-  color: white;
-  background-color: black;
+  height: 51px;
+background: none;
   font-size: 15px;
   border-radius: 1.625rem;
   align-items: center;
   justify-content: center;
   border: none;
-  margin-top: 25px;
+  margin-top: 20px;
   cursor: pointer;
 }
 
@@ -92,10 +92,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 8%;
-  margin-top: 8%;
+  margin-top: 20px;
   min-height: 300px; /* Ensure enough height for swipe detection */
   width: 100%; /* Ensure full width for swipe detection */
+  height: 100%;
 }
 
 .slides {
@@ -110,8 +110,8 @@
   flex: 0 0 auto;
   scroll-snap-align: center;
   margin-right: 30px;
-  max-width: 300px;
-  height: 500px;
+  max-width: 290px;
+  height: 525px;
   box-sizing: border-box;
 }
 
@@ -135,8 +135,10 @@
 .slide img {
   width: 100%;
   height: 90%; /* Adjust height to ensure <p> tags are visible */
+  max-height: 420px;
+  max-width: 290px;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: 5px;
 }
 
 @media only screen and (max-width: 1025px) {
@@ -155,7 +157,7 @@
     scroll-snap-align: center;
     margin-right: 30px;
     max-width: 300px;
-    height: 400px;
+    height: 525px;
     box-sizing: border-box;
   }
   .calendar_block {

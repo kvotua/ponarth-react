@@ -36,6 +36,7 @@ const PartnerForm = () => {
   };
 
   return (
+    <div className={styles.container_form}>
     <div className={styles.container2} ref={containerRef}>
       <video autoPlay muted loop id="myVideo">
         <source src={video} type="video/mp4" />
@@ -92,7 +93,7 @@ const PartnerForm = () => {
                       className={styles.learn_more}
                       style="white"
                       delay={450}
-                      dopstyle={{ marginTop: "32px", width: "100%" }}
+                      dopstyle={{ marginTop: "20px", width: "100%" }}
                     >
                       СТАТЬ ПАРТНЕРОМ
                     </DelayedButton>
@@ -107,6 +108,7 @@ const PartnerForm = () => {
         )}
       </div>
 
+    </div>
     </div>
   );
 };

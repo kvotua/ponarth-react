@@ -15,39 +15,42 @@ import styles from './styles.module.css';
 import { EffectCards } from 'swiper/modules';
 import DelayedButton from '../Buttons/DelayedButton';
 import InputMask from 'react-input-mask';
-
+import { ThemeContext } from "../RightBar";
+import { useContext } from "react";
 const cars = [
   {
     id: 1,
-    title: 'Бригадир смены',
+    title: 'БРИГАДИР СМЕНЫ',
     opisanie: 'Контроль производственных процессов, управление командой на линии.',
     image: pivovar,
   },
   {
     id: 2,
-    title: 'Оператор оборудования',
+    title: 'ОПЕРАТОР ОБОРУДОВАНИЯ',
     opisanie: 'Настройка и обслуживание пивоваренного оборудования.',
     image: kovar,
   },
   {
     id: 3,
-    title: 'Технолог пивоварения',
+    title: 'ТЕХНОЛОГ ПИВОВАРЕНИЯ',
     opisanie: 'Разработка рецептур, контроль качества готовой продукции.',
     image: novar,
   },
   {
     id: 4,
-    title: 'Лаборант-микробиолог:',
+    title: 'ЛАБОРАНТ-МИКРОЛОГ',
     opisanie: 'Проведение анализа сырья и готового пива.',
     image: dovar,
   },
 ];
 
 const SliderVakansii: React.FC = () => {
+  const { theme } = useContext(ThemeContext);
+  const themeButton = theme === "dark" ? "white" : "mixed";
   const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
-    <div className={stylesV.app}>
+    <div className={stylesV.app} >
       <div className={stylesV.swiper_container}>
         <Swiper
           effect="cards"
@@ -55,6 +58,8 @@ const SliderVakansii: React.FC = () => {
           modules={[EffectCards]}
           className={styles.swiper}
           onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
+          scrollbar={false}
+          
         >
           {cars.map((car) => (
             <SwiperSlide key={car.id} className={styles.swiper_slide}>
@@ -68,9 +73,8 @@ const SliderVakansii: React.FC = () => {
       <p>{cars[currentIndex].opisanie}</p>
         <form id="stat_partner" className={stylesV.stat_partner}>
         
-          <div className={stylesV.form_group}>
+          <div className={`${stylesV.form_group} ${theme === "dark" ? stylesV.dark : ""}`}>
             <input
-              className={stylesV.input}
               type="text"
               id="userName"
               name="userName"
@@ -81,7 +85,7 @@ const SliderVakansii: React.FC = () => {
             <label htmlFor="userName">Ваше имя</label>
           </div>
 
-          <div className={stylesV.form_group}>
+          <div className={`${stylesV.form_group} ${theme === "dark" ? stylesV.dark : ""}`}>
             <InputMask
               className={stylesV.input}
               name="phoneNumber"
@@ -98,11 +102,11 @@ const SliderVakansii: React.FC = () => {
             type="submit"
             to=""
             className={stylesV.learn_more}
-            style="mixed"
+            style={themeButton}
             delay={450}
-            dopstyle={{margin:'0 auto', alignContent:'center', marginTop:  '32px', width: '100%' }}
+            dopstyle={{margin:'0 auto', alignContent:'center', marginTop:  '20px', width: '100%' }}
           >
-            СТАТЬ ПАРТНЕРОМ
+            ОСТАВИТЬ ЗАЯВКУ
           </DelayedButton>
         </form>
       </div>

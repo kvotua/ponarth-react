@@ -2,7 +2,7 @@ import { AxiosResponse } from 'axios'
 import api from '../api'
 
 interface ProductData {
-  id?: number
+  id: number
   name: string
   color: string
   description: string // Add this line

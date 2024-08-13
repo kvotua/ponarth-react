@@ -10,9 +10,10 @@ import image1 from "../../assets/calendar1.jpg";
 import image2 from "../../assets/calendar2.jpg";
 import image3 from "../../assets/calendar3.jpg";
 import { ThemeContext } from "../RightBar";
-
+import DelayedButton from "../Buttons/DelayedButton";
 const CalendarComp: React.FC = () => {
   const { theme } = useContext(ThemeContext);
+  const themeButton = theme === "dark" ? "white" : "mixed";
   const [date, setDate] = useState<Date | null>(new Date());
   const [persons, setPersons] = useState<number>(1);
   const onChange: CalendarProps["onChange"] = (value) => {
@@ -39,7 +40,7 @@ const CalendarComp: React.FC = () => {
 
   return (
     <>
-      <div className={styles.texter}>
+      <div className={styles.texter} id="excursion">
         <p className={styles.text}>
           ПОСЕТИТЕ
           <br /> СЕРДЦЕ ПРУССИИ
@@ -105,13 +106,17 @@ const CalendarComp: React.FC = () => {
             </div>
           </div>
 
-          <button
+          {/* <button
             className={`${styles.reserve_btn} ${
               theme === "dark" ? styles.dark : ""
             }`}
           >
             Забронировать
-          </button>
+          </button> */}
+           
+            <DelayedButton to="" delay={1} className={styles.reserve_btn} style={themeButton}>
+            Забронировать
+            </DelayedButton>
         </div>
 
         <div className={styles.photos_block}>
@@ -125,13 +130,13 @@ const CalendarComp: React.FC = () => {
             <div className={styles.slide}>
               <img src={image2} alt="" />
               <p className={styles.slide_p}>
-                #Знакомство с культурным наследием
+                #Рецептуры довоенной восточной Пруссии
               </p>
             </div>
             <div className={styles.slide}>
               <img src={image3} alt="" />
               <p className={styles.slide_p}>
-                #Знакомство с культурным наследием
+                #8 дегустационных сортов пива
               </p>
             </div>
           </div>
