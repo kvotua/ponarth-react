@@ -46,7 +46,7 @@ z-index: 1;
   }
   .button_container{
     grid-area: 1 / 1 / 2 / 2;
-    height: 50%;
+    height: 86px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -69,6 +69,9 @@ z-index: 1;
     transition: 0.3s ease-in-out;
     transform: rotate(-90deg);
   }
+  .button_back:hover{
+    scale: 1.1;
+  }
   .right_container{
     grid-area: 2 / 7 / 4 / 11;
     backdrop-filter: blur(1px);
@@ -85,19 +88,32 @@ z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 3;
   }
   .share_logo > img{
     height: 65%;
     width: 60%;
+  transition: transform 0.5s ease-in-out;
+
+  }
+  .dark{
+    background-color: red;
+  }
+  .logo .dark {
+    filter: brightness(1) invert(1);
+  }
+  .logo:hover {
+    transform: scale(1.05);
   }
   .share_title{
-    grid-area: 1 / 6 / 2 / 10;
+    grid-area: 1 / 6 / 2 / 11;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+
   }
   .share_title > h1{
-    width: 100%;
+    width: 89%;
     height: 60%;
     font-size: 48px;
     font-weight: 375;
@@ -186,7 +202,7 @@ z-index: 1;
   }
   .form_group {
     position: relative;
-    margin-top: 32px;
+    margin-top: 20px;
   }
   .stat_partner {
     width: 250px;
@@ -259,21 +275,11 @@ z-index: 1;
       font-size: 30px;
     }
     .share_title{
-      grid-area: 1/5/2/10;
+      grid-area: 1/6/2/11;
     }
     .right_container_text{
       font-size: 18px;
     }
-  }
-  @media screen and (max-width: 1010px){
-    .masked-background {
-      height: calc((var(--double-screen-height) / 2) - 8%);
-
-    }
-    .outmask_content{
-      height: calc((var(--double-screen-height) / 2) - 8%);
-    }
-
   }
 @media screen and (max-width: 870px){
   .right_container_text{
@@ -283,15 +289,17 @@ z-index: 1;
     font-size: 30px;
   }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 810px) {
   .share_title{
     grid-area: 1/5/2/11;
     padding-right: 3%;
   }
   .share_title > h1{
+    width: 100%;
     font-size: 28px;
   }
 }
+
 @media screen and (max-width: 630px){
 .right_container_text{
   margin-bottom: 10%;
@@ -315,8 +323,8 @@ margin: 0;
 padding: 0;
   }
   .masked_background{
-    mask-image: url(../../assets/UnionMobile.png) !important; 
-    -webkit-mask-image: url(../../assets/UnionMobile.png) !important;
+    mask-image: url(../../assets/UnionMobileCut.png) !important; 
+    -webkit-mask-image: url(../../assets/UnionMobileCut.png) !important;
     height: calc((var(--double-screen-height) / 2) - 8%);
     grid-area: 2 / 1 / 3 / 2;
     margin-top: 250px;
@@ -342,9 +350,10 @@ padding: 0;
   }
 
  .share_title{
-  grid-area: 2 / 2 / 6 / 5;
+  grid-area: 1 / 2 / 4 / 4;
   position: fixed;
 z-index: 1;
+margin-top: 10.5%;
  }
  .share_title>h1{
 margin-left: 8%;
@@ -375,14 +384,17 @@ margin-bottom: 0;
  .share_logo{
   grid-area: 9 / 1 / 10 / 2;
   position: relative;
-  margin-left: 10%;
+  margin-left: 15%;
+  padding-top: 40px;
   width: 92%;
  }
  .share_logo>img{
   width: 100%;
   height: 100%;
+
  }
  .form_container{
   grid-area: 6 / 1 / 10 / 5;
+  margin-top: 10%;
  }
   }

@@ -11,11 +11,13 @@ interface ImageResponse {
   message: string
 }
 
-interface Vacancy {
+export interface Vacancy {
   id: number
   name: string
   description: string
   image: string
+  base64Image?: string
+  fileName?: string // Add this line
 }
 
 export const addVacancy = async (data: VacancyData): Promise<number> => {

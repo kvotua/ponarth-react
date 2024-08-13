@@ -20,7 +20,7 @@ function NewHistory() {
         </div>
       </div>
       <DelayedButton to="/share" delay={750} className={styles.history_a} style={themeButton} dopstyle={{ marginTop: "32px", borderTop: "white"}}>
-            КУПИТЬ АКЦИЮ
+            УЗНАТЬ БОЛЬШЕ
       </DelayedButton>
     </div>
   );
