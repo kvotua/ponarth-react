@@ -1,9 +1,30 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import icon from '../assets/Icon.svg'
 import styles from './styles/addnotificationpage.module.scss'
+import { useEffect, useState } from 'react'
 
 const AddTelegramNotificationPage = () => {
   const navigate = useNavigate()
+  const location = useLocation()
+  const { user } = location.state || {}
+  const { nameAndLastname, roles } = user || {}
+  const [firstName, lastName] = nameAndLastname
+    ? nameAndLastname.split(' ')
+    : ['', '']
+
+  const [formOfExcursion, setFormOfExcursion] = useState(false)
+  const [formVacancy, setFormVacancy] = useState(false)
+  const [formPartner, setFormPartner] = useState(false)
+  const [formShareholder, setFormShareholder] = useState(false)
+
+  useEffect(() => {
+    if (roles) {
+      setFormOfExcursion(roles.includes('Форма экскурсий'))
+      setFormVacancy(roles.includes('Форма вакансии'))
+      setFormPartner(roles.includes('Форма партнеров'))
+      setFormShareholder(roles.includes('Форма акционеров'))
+    }
+  }, [roles])
 
   const handleBackClick = () => {
     navigate('/notifications')
@@ -18,9 +39,18 @@ const AddTelegramNotificationPage = () => {
         <section>
           <h2 className={styles.title}>Заполните данные пользователя</h2>
           <div className={styles.add_notification_input}>
-            <input type="text" placeholder="Имя пользователя" />
-            <input type="text" placeholder="Фамилия пользователя" />
-            <input type="text" placeholder="Телеграм ID" />
+            <input
+              type="text"
+              placeholder="Имя пользователя"
+              value={firstName}
+              readOnly
+            />
+            <input
+              type="text"
+              placeholder="Фамилия пользователя"
+              value={lastName}
+              readOnly
+            />
           </div>
 
           <div className={styles.add_notification_check}>
@@ -32,12 +62,8 @@ const AddTelegramNotificationPage = () => {
                 <p>Форма экскурсии</p>
                 <div>
                   <label className={styles.switch}>
-                    <input type="checkbox" />
+                    <input type="checkbox" checked={formOfExcursion} readOnly />
                     <span className={styles.slider}></span>
-                  </label>
-                  <label className={styles.switch}>
-                    <input type="checkbox" />
-                    <span className={styles.slider_round}></span>
                   </label>
                 </div>
               </div>
@@ -45,12 +71,8 @@ const AddTelegramNotificationPage = () => {
                 <p>Форма вакансий</p>
                 <div>
                   <label className={styles.switch}>
-                    <input type="checkbox" />
+                    <input type="checkbox" checked={formVacancy} readOnly />
                     <span className={styles.slider}></span>
-                  </label>
-                  <label className={styles.switch}>
-                    <input type="checkbox" />
-                    <span className={styles.slider_round}></span>
                   </label>
                 </div>
               </div>
@@ -58,12 +80,17 @@ const AddTelegramNotificationPage = () => {
                 <p>Форма партнеры</p>
                 <div>
                   <label className={styles.switch}>
-                    <input type="checkbox" />
+                    <input type="checkbox" checked={formPartner} readOnly />
                     <span className={styles.slider}></span>
                   </label>
+                </div>
+              </div>
+              <div className={styles.add_notification_checkblock}>
+                <p>Форма акционеров</p>
+                <div>
                   <label className={styles.switch}>
-                    <input type="checkbox" />
-                    <span className={styles.slider_round}></span>
+                    <input type="checkbox" checked={formShareholder} readOnly />
+                    <span className={styles.slider}></span>
                   </label>
                 </div>
               </div>
@@ -75,4 +102,5 @@ const AddTelegramNotificationPage = () => {
     </>
   )
 }
+
 export default AddTelegramNotificationPage
