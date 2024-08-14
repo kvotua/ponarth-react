@@ -137,7 +137,8 @@ min-height: 96vh; */
   .first_screen_par{
     /* grid-area: 5 / 1 / 6 / 2;*/
     gap: unset; 
-    padding: 0 5%;
+    padding: 0 10%;
+    width: 80%;
   }
   .swiper_slide img{
     height: 80%;
