@@ -141,7 +141,7 @@ footer {
 }
 
 .all_items_footer.dark {
-  background-color: #000;
+  background-color: #000 !important;
   color: #fff;
   /* box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.93); */
   /* box-shadow: -10px 1px 10px -10px rgba(255, 255, 255, 0.93), 
@@ -152,10 +152,10 @@ footer {
   transition: box-shadow, background-color 1s ease;
   transition: box-shadow, background-color 1s ease, -webkit-box-shadow;
   .practice{
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(0, 0, 0) !important;
   }
   .practice_logo{
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(0, 0, 0) !important;
   }
 }
 
