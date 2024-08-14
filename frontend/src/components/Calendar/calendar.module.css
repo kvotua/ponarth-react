@@ -1,13 +1,13 @@
 .content {
   display: flex;
   flex-direction: row;
+  margin-left: 10%;
 }
 
 .calendar_block {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 10%;
 }
 
 .button_group {
