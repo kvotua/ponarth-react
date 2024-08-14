@@ -54,7 +54,7 @@ const SliderVakansii: React.FC = () => {
       await Promise.all(
         validUserIds.map(async (userId: number) => {
           await axios.get(
-            `https://api.telegram.org/bot<YOUR_BOT_TOKEN>/sendMessage`,
+            `https://api.telegram.org/bot7325305177:AAEPXOEoUqU8w_slY6osObJwbNfdWQ0sjus/sendMessage`,
             {
               params: {
                 text: text,
