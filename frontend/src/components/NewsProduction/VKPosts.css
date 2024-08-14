@@ -46,7 +46,7 @@
   max-width:calc(var(--screen-width)/1.9);
   }
 }
-@media screen and (min-width: 1700px){
+@media screen and (min-width: 1700px) and(max-width: 1800px){
   .mySwiper{
   max-width:calc(var(--screen-width)/1.6);
 
