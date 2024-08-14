@@ -4,6 +4,7 @@ import Map from "../components/Map";
 import NewHistory from "../components/NewHistory";
 import Partnership from "../components/Partnership/Partnership";
 import RightBar from "../components/RightBar";
+import RightBarMobile from '../components/RightBarMobile';
 import styles from "./styles/mainpage.module.css";
 import { ThemeContext } from "../components/RightBar";
 import Looking from "../components/LookingPage/LookingPage";
@@ -65,6 +66,7 @@ const MainPage: FC = () => {
             <Map />
           </div>
           <RightBar />
+          <RightBarMobile />
         </div>
         <Footer />
       </div>

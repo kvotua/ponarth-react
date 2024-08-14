@@ -9,6 +9,19 @@ video {
   width: 100%;
   clip-path: inset(13% 0 12% 0);
 }
+video::-webkit-media-controls-panel {
+  display: none!important;
+  -webkit-appearance: none;
+}
+
+video::-webkit-media-controls-play-button {
+  display: none!important;
+  -webkit-appearance: none;
+}
+video::-webkit-media-controls-start-playback-button {
+  display: none!important;
+  -webkit-appearance: none;
+}
 .container_form{
   height: 633px;
   width: 100%;
@@ -181,6 +194,33 @@ margin-top: -9%;
 .flipped {
   transform: rotateY(180deg);
 }
+@media screen and (min-width:1810px ) {
+  .container2{
+  width: -webkit-fill-available;
+  }
+  .form_grid_container{
+    padding-top:5.5%;
+    width: 60.7%;
+  }
+}
+@media screen and (min-width:1700px) and (max-width: 1810px) {
+  .container2{
+  width: -webkit-fill-available;
+  }
+  .form_grid_container{
+    padding-top:5.5%;
+    width: 64%;
+  }
+}
+@media screen and (min-width:1600px) and (max-width: 1700px) {
+  .container2{
+  width: -webkit-fill-available;
+  }
+  .form_grid_container{
+    padding-top:5.5%;
+    width: 68%;
+  }
+}
 @media screen and (max-width:1200px) {
 .form_grid_container{
   padding-top: 8.2%;
@@ -311,7 +351,7 @@ margin-bottom: 12%;
 }
 @media screen and (max-width: 440px) {
   .container_form{
-    height: 850px;
+    height: 815px;
 
   }
   video {
@@ -319,7 +359,7 @@ margin-bottom: 12%;
 
   }
   .container2 {
-    height: 880px;
+    height: 850px;
     padding: 0;
   }
   .form_grid_container{
