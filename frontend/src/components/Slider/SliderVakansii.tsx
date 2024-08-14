@@ -13,6 +13,7 @@ import InputMask from "react-input-mask";
 import { ThemeContext } from "../RightBar";
 import { useContext } from "react";
 import { getVacancies, Vacancy } from "../../api/vacancies";
+import axios from "axios";
 
 const SliderVakansii: React.FC = () => {
   const { theme } = useContext(ThemeContext);
@@ -36,6 +37,43 @@ const SliderVakansii: React.FC = () => {
     fetchVacancies();
   }, []);
 
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const userName = (event.target as HTMLFormElement).userName.value;
+    const phoneNumber = (event.target as HTMLFormElement).phoneNumber.value;
+
+    try {
+      const response = await axios.get(
+        "https://backend.ponarth.com/api/site/users/formVacancy"
+      );
+      const validUserIds = response.data;
+
+      const text = `${userName} оставил/оставила заявку на вакансию\nКонтактный номер: ${phoneNumber}`;
+
+      await Promise.all(
+        validUserIds.map(async (userId: number) => {
+          await axios.get(
+            `https://api.telegram.org/bot<YOUR_BOT_TOKEN>/sendMessage`,
+            {
+              params: {
+                text: text,
+                chat_id: userId,
+              },
+            }
+          );
+        })
+      );
+
+      alert("Спасибо за отправку формы!");
+      (event.target as HTMLFormElement).reset();
+
+      console.log("Success: Messages sent to all valid user IDs");
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   return (
     <div className={stylesV.app}>
       <div className={stylesV.swiper_container}>
@@ -57,7 +95,11 @@ const SliderVakansii: React.FC = () => {
       <div className={stylesV.text_container}>
         <h1>{vacancies[currentIndex]?.name}</h1>
         <p>{vacancies[currentIndex]?.description}</p>
-        <form id="stat_partner" className={stylesV.stat_partner}>
+        <form
+          id="stat_partner"
+          className={stylesV.stat_partner}
+          onSubmit={handleSubmit}
+        >
           <div
             className={`${stylesV.form_group} ${
               theme === "dark" ? stylesV.dark : ""
