@@ -36,7 +36,6 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
 
         console.log(response.data); // Вывод ответа API в консоль
 
-        // Проверка на наличие данных
         if (response.data && response.data.response && response.data.response.items) {
           // Фильтрация постов, чтобы оставить только те, у которых есть одна фотография, исключая пост с id 4222 и owner_id -33086364
           const filteredPosts = response.data.response.items.filter((post: Post) =>
@@ -107,17 +106,23 @@ window.addEventListener('resize', WindowWidth);
       breakpoints={{
         0: {
           slidesPerView: 1,
-          spaceBetween: 10,
+          spaceBetween: 0,
         },
         640: {
           slidesPerView: 1,
-          spaceBetween: 10,
+          centeredSlides: true,
+          spaceBetween: 0,
         },
         768: {
           slidesPerView: 2,
           spaceBetween: 20,
         },
         1024: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        
+        1420: {
           slidesPerView: 3.2,
           spaceBetween: 20,
         },

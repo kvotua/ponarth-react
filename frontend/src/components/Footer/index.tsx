@@ -19,7 +19,6 @@ const Footer: FC = () => {
             alt="logo_footer"
           />
         </div>
-
         <div className={styles.info_footer}>
           <a className={styles.footerButton} href="">
             АО "БРАУРЭРАЙ ПОНАРТ"
@@ -34,7 +33,6 @@ const Footer: FC = () => {
             Telegram
           </a>
         </div>
-
         <div className={styles.info_footer}>
           <a className={styles.footerButton} href="#history">
             История

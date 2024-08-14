@@ -20,6 +20,20 @@ interface Product {
 }
 
 const FirstScreenSlider = () => {
+  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleSlideChange = (swiper : SwiperType) => {
+    setActiveIndex(swiper.realIndex);
+  };
+  useEffect(() => {
+    if (swiperInstance) {
+      const bullets = document.querySelectorAll<HTMLDivElement>('.swiper-pagination-bullet-first');
+      bullets.forEach((bullet, index) => {
+        bullet.style.transform = index === activeIndex ? 'scale(1.2)' : 'scale(1)';
+      });
+    }
+  }, [activeIndex, swiperInstance]);
   const { theme } = useContext(ThemeContext);
   const themeButton = theme === "dark" ? "white" : "mixed";
 
@@ -79,6 +93,7 @@ const FirstScreenSlider = () => {
               modifier: 1,
               slideShadows: false,
             },
+
           },
           500: {
             slidesPerView: 1,
@@ -100,6 +115,7 @@ const FirstScreenSlider = () => {
               slideShadows: false,
             },
           },
+
         }}
         pagination={{
           el: ".custom-pagination",
@@ -145,6 +161,7 @@ const FirstScreenSlider = () => {
             >
               ГДЕ ПОПРОБОВАТЬ?
             </DelayedButton>
+
           </a>
         </div>
       </div>
