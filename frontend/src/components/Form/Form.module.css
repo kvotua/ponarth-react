@@ -9,7 +9,7 @@ video {
   width: 100%;
   clip-path: inset(13% 0 12% 0);
 }
-video::-webkit-media-controls-panel {
+video::-webkit-media-controls {
   display: none!important;
   -webkit-appearance: none;
 }
