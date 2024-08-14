@@ -38,7 +38,7 @@ const PartnerForm = () => {
   return (
     <div className={styles.container_form}>
     <div className={styles.container2} ref={containerRef}>
-      <video autoPlay muted loop id="myVideo">
+      <video autoPlay muted loop id="myVideo" preload="auto" >
         <source src={video} type="video/mp4" />
       </video>
       <div className={styles.form_grid_container}>
