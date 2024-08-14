@@ -1,16 +1,11 @@
 .custom-pagination {
-    position: sticky;
+    position: absolute;
     text-align: center;
     transition: 300ms opacity;
     transform: translate3d(0, 0, 0);
     z-index: 10;
     bottom: 12% !important;
     z-index: 1 !important;
-    transition: transform 0.3s ease;
-    /* width: 100% !important; */
-    height: 19.2px !important;
-    width: unset !important;
-
   }
    .swiper-pagination-bullet-active-first{
     scale: 1.5;
@@ -38,7 +33,7 @@
   .custom-pagination.swiper-pagination-disabled {
     display: none !important;
   }
-
+  /* Common Styles */
   .swiper-pagination-fraction,
   .swiper-pagination-custom,
   .swiper-horizontal > .swiper-pagination-firstbullets,
@@ -48,40 +43,32 @@
     left: 0;
     width: 100%;
   }
- 
+  /* Bullets */
   .swiper-pagination-firstbullets-dynamic {
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 0;
   }
-  .swiper-pagination-firstbullets-dynamic .swiper-pagination-bullets {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .swiper-pagination-bullet-first {
-    transform: scale(0) !important;
+  .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-first {
+    transform: scale(0.33);
     position: relative;
-    
   }
- .swiper-pagination-bullet-active-first {
-    transform: scale(1) !important;
+  .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-first {
+    transform: scale(1);
   }
- .swiper-pagination-bullet-active-first-main {
-    transform: scale(1) !important;
+  .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-first-main {
+    transform: scale(1);
   }
-.swiper-pagination-bullet-active-first-prev {
-    transform: scale(1.2) !important;
+  .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-first-prev {
+    transform: scale(0.66);
   }
-.swiper-pagination-bullet-active-first-prev-prev {
-    transform: scale(0.66) !important;
+  .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-first-prev-prev {
+    transform: scale(0.33);
   }
-  .swiper-pagination-firstbullets-dynamic .swiper-pagination-bullet-active-first-next {
-    transform: scale(1.2) !important;
+  .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-first-next {
+    transform: scale(0.66);
   }
-  .swiper-pagination-firstbullets-dynamic .swiper-pagination-bullet-active-first-next-next {
-    transform: scale(0.66) !important;
+  .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-first-next-next {
+    transform: scale(0.33);
   }
   .swiper-pagination-bullet-first {
     width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 8px));
@@ -90,7 +77,6 @@
     border-radius: var(--swiper-pagination-bullet-border-radius, 50%);
     background: var(--swiper-pagination-bullet-inactive-color, #000);
     opacity: var(--swiper-pagination-bullet-inactive-opacity, 0.6);
-    transition: 0.3s;
   }
   button.swiper-pagination-bullet-first {
     border: none;
@@ -153,11 +139,11 @@
     transition: 200ms transform,
       200ms right;
   }
-  
+  /* Fraction */
   .swiper-pagination-fraction {
     color: var(--swiper-pagination-fraction-color, inherit);
   }
-  
+  /* Progress */
   .swiper-pagination-progressbar {
     background: var(--swiper-pagination-progressbar-bg-color, rgba(0, 0, 0, 0.25));
     position: absolute;

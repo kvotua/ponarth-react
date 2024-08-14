@@ -99,9 +99,3 @@ body.dark {
   justify-self: center;
   margin: 0 auto;
 }
-
-@media screen and (max-width: 600px) {
-  :root.dark{
-    background-color: #000;
-  }
-}

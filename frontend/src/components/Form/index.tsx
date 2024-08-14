@@ -88,7 +88,6 @@ const PartnerForm = () => {
                     НОВЫM ПАРТНЕРАМ <br />
                   </h1>
 
-
                   <div className={styles.form_four}>
                     <form
                       id="stat_partner"
