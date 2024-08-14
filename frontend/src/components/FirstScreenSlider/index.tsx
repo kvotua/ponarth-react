@@ -1,6 +1,6 @@
 import styles from './FirstScreenSlider.module.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import './swiper.css';
 import './swiperNavigation.css';
 import './swiperPagination.css';
@@ -10,13 +10,30 @@ import pivoImg2 from '../../assets/bottle2-01.svg';
 import pivoImg3 from '../../assets/bottle3-01.svg';
 import DelayedButton from '../Buttons/DelayedButton';
 import { ThemeContext } from "../RightBar";
+import { Swiper as SwiperType } from 'swiper/types';
 const FirstScreenSlider = () => {
+  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleSlideChange = (swiper : SwiperType) => {
+    setActiveIndex(swiper.realIndex);
+  };
+  useEffect(() => {
+    if (swiperInstance) {
+      const bullets = document.querySelectorAll<HTMLDivElement>('.swiper-pagination-bullet-first');
+      bullets.forEach((bullet, index) => {
+        bullet.style.transform = index === activeIndex ? 'scale(1.2)' : 'scale(1)';
+      });
+    }
+  }, [activeIndex, swiperInstance]);
   const { theme } = useContext(ThemeContext);
   const themeButton = theme === "dark" ? "white" : "mixed";
   return (
     <div className={styles.first_container} content='f' id='sorta'>
         <Swiper
      effect={'coverflow'}
+     onSlideChange={handleSlideChange}
+     onSwiper={setSwiperInstance}
     grabCursor={true}
     centeredSlides={true}
     slidesPerView={3}
@@ -77,7 +94,9 @@ coverflowEffect: {
       clickable: true,
       bulletActiveClass:'swiper-pagination-bullet-active-first',
       bulletClass:'swiper-pagination-bullet-first',
-      modifierClass:'swiper-pagination-first'
+      modifierClass:'swiper-pagination-first',
+      dynamicBullets: true,
+    
     }}
     navigation={ true }
     modules={[Pagination, Navigation, EffectCoverflow ]}
@@ -88,7 +107,20 @@ coverflowEffect: {
     <SwiperSlide className={` ${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg2} alt="" /></SwiperSlide>
     <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
  <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
- <div className="custom-pagination"></div>
+ <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+ <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+ <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+ <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+ 
+ <div className="custom-pagination"
+
+ >   {[...Array(4)].map((_, index) => (
+  <div
+    key={index}
+    className={`swiper-pagination-bullet-first ${activeIndex === index ? 'swiper-pagination-bullet-active-first' : ''}`}
+  />
+))}
+ </div>
     </Swiper>
     <div className={styles.text_slider}>
     <div className={styles.text_in}>

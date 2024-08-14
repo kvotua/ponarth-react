@@ -5,7 +5,6 @@
 .mySwiper {
   width: 100%;
   max-width:calc(var(--screen-width)/1.45);
-
   margin: 0 0 0 10%; /* Центрируем слайдер */
 }
 
