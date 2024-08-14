@@ -107,17 +107,23 @@ window.addEventListener('resize', WindowWidth);
       breakpoints={{
         0: {
           slidesPerView: 1,
-          spaceBetween: 10,
+          spaceBetween: 0,
         },
         640: {
           slidesPerView: 1,
-          spaceBetween: 10,
+          centeredSlides: true,
+          spaceBetween: 0,
         },
         768: {
           slidesPerView: 2,
           spaceBetween: 20,
         },
         1024: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        
+        1420: {
           slidesPerView: 3.2,
           spaceBetween: 20,
         },

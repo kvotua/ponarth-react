@@ -1,4 +1,4 @@
-import styles from './FirstScreenSlider.module.css'
+import styles from './FirstScreenSlider.module.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useContext } from "react";
 import './swiper.css';
@@ -90,16 +90,14 @@ coverflowEffect: {
  <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
  <div className="custom-pagination"></div>
     </Swiper>
-
     <div className={styles.text_slider}>
     <div className={styles.text_in}>
     <h2 className={styles.gradual_appear}>ПИВО</h2>
-    {/* <div className={styles.space}></div> */}
     <div className={styles.first_screen_par}>
     <p>
             Пиво классическое. Сварено по рецептам 1849 года только с использованием натуральных высококачественных ингредиентов
           </p>
-          <a href="#maps">
+          <a href="#maps" className={styles.button_slider}>
           <DelayedButton to='' delay={1} className={styles.button_slider} style={themeButton}>ГДЕ ПОПРОБОВАТЬ?</DelayedButton>
           </a>
     </div>
