@@ -101,7 +101,7 @@ body.dark {
 }
 
 @media screen and (max-width: 600px) {
-  :root{
+  :root.dark{
     background-color: #000;
   }
 }
