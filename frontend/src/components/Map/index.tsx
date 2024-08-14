@@ -8,13 +8,15 @@ import {
   ZoomControl,
   FullscreenControl,
 } from '@pbe/react-yandex-maps';
+import { Map as YMapInstance } from 'yandex-maps'; // Импорт типа карты, если доступен
 
 const PonarthMap: React.FC = () => {
   const [isActive, setIsActive] = useState<boolean>(true);
   const mapOverlayRef = useRef<HTMLDivElement>(null);
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const [isBalloonOpen, setIsBalloonOpen] = useState<boolean>(false);
-  const [zoom,] = useState<number>(10); // Начальный зум
+  const [mapInstance, setMapInstance] = useState<YMapInstance | null>(null); // Типизация экземпляра карты
+  const [zoom] = useState<number>(10); // Начальный зум
 
   const center: [number, number] = [54.681612173134894, 20.486968735086027];
   const additionalPlacemarkCenter: [number, number] = [54.681562787718505, 20.486080532135926];
@@ -48,16 +50,39 @@ const PonarthMap: React.FC = () => {
     }
   };
 
-  const handleBalloonOpen = () => {
-    setIsBalloonOpen(true);
-  };
-
   const handleBalloonClose = () => {
     setIsBalloonOpen(false);
   };
 
-  const handleDelayedBalloonOpen = () => {
-    setTimeout(handleBalloonOpen, 300); // Задержка в 300 мс
+  const smoothCenterChange = (newCenter: [number, number]) => {
+    if (!mapInstance) return;
+
+    const steps = 30;
+    const interval = 8; // интервал обновления в миллисекундах
+
+    const currentCenter = mapInstance.getCenter();
+    const deltaLat = (newCenter[0] - currentCenter[0]) / steps;
+    const deltaLon = (newCenter[1] - currentCenter[1]) / steps;
+
+    let step = 0;
+    const animate = () => {
+      if (step < steps) {
+        step++;
+        mapInstance.setCenter([
+          currentCenter[0] + step * deltaLat,
+          currentCenter[1] + step * deltaLon,
+        ]);
+        setTimeout(animate, interval);
+      } else {
+        mapInstance.setCenter(newCenter); // Устанавливаем точный центр в конце анимации
+      }
+    };
+    animate();
+  };
+
+  const handleDelayedBalloonOpen = (placemarkCenter: [number, number]) => {
+    setIsBalloonOpen(true);
+    smoothCenterChange(placemarkCenter);
   };
 
   return (
@@ -86,6 +111,7 @@ const PonarthMap: React.FC = () => {
               <YMapsMap
                 state={{ center, zoom }}
                 className={styles.map}
+                instanceRef={(instance: YMapInstance) => setMapInstance(instance)} // Сохраняем экземпляр карты
                 modules={[
                   'control.ZoomControl',
                   'control.FullscreenControl',
@@ -109,9 +135,10 @@ const PonarthMap: React.FC = () => {
                     iconImageSize: [130, 130],
                     iconImageOffset: [-32, -64],
                     hideIconOnBalloonOpen: false,
+                    balloonAutoPan: false, // Отключаем автоматическое перемещение карты
                     balloonPanelMaxMapArea: 0, // Отключает автоматическое центрирование карты
                   }}
-                  onBalloonOpen={handleDelayedBalloonOpen}
+                  onBalloonOpen={() => handleDelayedBalloonOpen(center)}
                   onBalloonClose={handleBalloonClose}
                 />
 
@@ -128,9 +155,10 @@ const PonarthMap: React.FC = () => {
                     iconImageSize: [130, 130],
                     iconImageOffset: [-32, -64],
                     hideIconOnBalloonOpen: false,
+                    balloonAutoPan: false, // Отключаем автоматическое перемещение карты
                     balloonPanelMaxMapArea: 0, // Отключает автоматическое центрирование карты
                   }}
-                  onBalloonOpen={handleDelayedBalloonOpen}
+                  onBalloonOpen={() => handleDelayedBalloonOpen(additionalPlacemarkCenter)}
                   onBalloonClose={handleBalloonClose}
                 />
 
@@ -147,9 +175,10 @@ const PonarthMap: React.FC = () => {
                     iconImageSize: [130, 130],
                     iconImageOffset: [-32, -64],
                     hideIconOnBalloonOpen: false,
+                    balloonAutoPan: false, // Отключаем автоматическое перемещение карты
                     balloonPanelMaxMapArea: 0, // Отключает автоматическое центрирование карты
                   }}
-                  onBalloonOpen={handleDelayedBalloonOpen}
+                  onBalloonOpen={() => handleDelayedBalloonOpen(thirdPlacemarkCenter)}
                   onBalloonClose={handleBalloonClose}
                 />
               </YMapsMap>
