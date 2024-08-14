@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import styles from "./history.module.css";
 import DelayenButton from "../Buttons/DelayedButton";
 function History() {
@@ -10,6 +9,7 @@ function History() {
       {word}{" "}
     </span>
   ));
+
   const updateHeight = () => {
     const doubleScreenHeight = window.innerHeight * 2;
     document.documentElement.style.setProperty(
@@ -18,7 +18,7 @@ function History() {
     );
   };
   updateHeight();
-  
+
   return (
     <div className={styles.container_two_page}>
       <div className={styles.two_page} id="history">
