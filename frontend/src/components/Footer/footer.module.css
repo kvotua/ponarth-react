@@ -1,6 +1,17 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   max-height: 20%;
   position: sticky;
   width: 100%;
@@ -11,9 +22,17 @@ footer {
 .footerButton {
   padding-bottom: 5%;
   margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: color 0.1s ease-in-out, -webkit-transform 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out, -webkit-transform 0.1s ease-in-out;
+  -o-transition: transform 0.1s ease-in-out, color 0.1s ease-in-out;
   transition: transform 0.1s ease-in-out, color 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out, color 0.1s ease-in-out, -webkit-transform 0.1s ease-in-out;
   color: #000;
   line-height: 1.5;
   position: relative;
@@ -21,21 +40,35 @@ footer {
 
 .footerButton:hover {
   color: rgb(157, 20, 20);
-  transform: scale(1.05);
-  transform-origin: center; /* Устанавливает центр масштабирования */
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-transform-origin: center;
+      -ms-transform-origin: center;
+          transform-origin: center; /* Устанавливает центр масштабирования */
 }
 
 .logo_footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   width: 230px;
   height: 100%;
   position: relative;
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  transition: -webkit-transform 0.5s ease-in-out;
+  -o-transition: transform 0.5s ease-in-out;
   transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
 }
 
 .logo_footer_img {
@@ -44,74 +77,122 @@ footer {
 }
 
 .dark .logo_footer {
-  filter: brightness(0) invert(1);
+  -webkit-filter: brightness(0) invert(1);
+          filter: brightness(0) invert(1);
   /*Меняет цвет с чёрного на белый */
 }
 
 .logo_footer:hover,
 .practice:hover {
-  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .info_footer {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-rows: 1fr 1fr 1fr 1fr;
   grid-template-rows: repeat(4, 1fr);
   height: 120px;
-  margin: 0 auto;
+  margin: 0 0;
 }
 
 .all_items_footer {
-  justify-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding-bottom: 30px;
   padding-top: 30px;
   width: 1440px;
   background-color: rgba(255, 255, 255);
-  box-shadow: -2px 7px 0px 0px rgba(3, 3, 3, 0.1);
+  -webkit-box-shadow: -2px 7px 0px 0px rgba(3, 3, 3, 0.1);
+          box-shadow: -2px 7px 0px 0px rgba(3, 3, 3, 0.1);
+  -webkit-transition: background-color 1s ease, -webkit-box-shadow;
+  transition: background-color 1s ease, -webkit-box-shadow;
+  -o-transition: box-shadow, background-color 1s ease;
   transition: box-shadow, background-color 1s ease;
+  transition: box-shadow, background-color 1s ease, -webkit-box-shadow;
 }
 
 .practice_logo {
+  background-color: rgba(255, 255, 255);
   margin-right: 5%;
 }
 
 .practice {
   background-repeat: no-repeat;
   background-position: center center;
+  background-color: rgba(255, 255, 255);
   background-size: cover;
   width: 150px;
   height: 30px;
+  -webkit-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
 }
 
 .all_items_footer.dark {
-  background-color: #000;
+  background-color: #000 !important;
   color: #fff;
   /* box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.93); */
   /* box-shadow: -10px 1px 10px -10px rgba(255, 255, 255, 0.93), 
               10px 1px 10px -10px rgba(255, 255, 255, 0.93); */
+  -webkit-transition: background-color 1s ease, -webkit-box-shadow;
+  transition: background-color 1s ease, -webkit-box-shadow;
+  -o-transition: box-shadow, background-color 1s ease;
   transition: box-shadow, background-color 1s ease;
+  transition: box-shadow, background-color 1s ease, -webkit-box-shadow;
+  .practice{
+    background-color: rgb(0, 0, 0) !important;
+  }
+  .practice_logo{
+    background-color: rgb(0, 0, 0) !important;
+  }
 }
 
 .all_items_footer.dark a {
   color: #fff;
+  -webkit-transition: background-color 1s ease, -webkit-box-shadow;
+  transition: background-color 1s ease, -webkit-box-shadow;
+  -o-transition: box-shadow, background-color 1s ease;
   transition: box-shadow, background-color 1s ease;
+  transition: box-shadow, background-color 1s ease, -webkit-box-shadow;
 }
 
 @media screen and (max-width: 600px) {
   footer {
     height: 100vh;
     width: 100vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 
   .all_items_footer {
-    flex-direction: column;
+    box-shadow: unset;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     width: 100%;
     height: 100%;
     padding-bottom: 0px;
@@ -140,8 +221,8 @@ footer {
   }
 
   .practice {
-    height: 140px;
+    height: 100px;
     overflow: hidden;
-    margin-top: -15px;
+    margin-top: -20px;
   }
 }
