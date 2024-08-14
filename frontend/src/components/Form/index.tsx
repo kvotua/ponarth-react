@@ -43,26 +43,24 @@ const PartnerForm = () => {
       const response = await axios.get(
         "https://backend.ponarth.com/api/site/users/partner"
       );
-      const validUserIds = response.data.map((user: { id: string }) => user.id);
+      const validUserIds = response.data;
+      console.log(validUserIds);
 
-      const text = `${userName} оставил/оставила заявку на покупку акций\nКонтактный номер: ${phoneNumber}`;
+      const text = `${userName} оставил/оставила заявку для партнеров.\nКонтактный номер: ${phoneNumber}`;
 
       await Promise.all(
         validUserIds.map(async (userId: number) => {
-          const chat_id = userId; //
-
           await axios.get(
             `https://api.telegram.org/bot7325305177:AAEPXOEoUqU8w_slY6osObJwbNfdWQ0sjus/sendMessage`,
             {
               params: {
                 text: text,
-                chat_id: chat_id,
+                chat_id: userId,
               },
             }
           );
         })
       );
-
       console.log("Success: Messages sent to all valid user IDs");
     } catch (error) {
       console.error("Error:", error);
