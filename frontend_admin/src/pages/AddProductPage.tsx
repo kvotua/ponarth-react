@@ -55,6 +55,7 @@ const AddProductPage: FC = () => {
       RUB: ${product.rub};
       ${product.description}`
       const productId = await addProduct({
+        id: Date.now(), // Generate a unique ID using the current timestamp
         name: product.name,
         description: concatenatedDescription,
         color: product.color,
@@ -100,7 +101,7 @@ const AddProductPage: FC = () => {
               </div>
               <input
                 type="file"
-                accept="image/*"
+                accept="image/*, .svg" // Allow SVG files
                 name="vacanciesimg"
                 onChange={handleImageChange}
                 style={{ display: 'none' }}
