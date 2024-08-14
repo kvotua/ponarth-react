@@ -1,7 +1,7 @@
 /* first_page header */
 .header {
   width: 20%;
-  height: 110vh;
+  height: 120vh;
   border-radius: 2px;
   top: 0;
   left: 0;
@@ -189,13 +189,11 @@
         left: 75%;
       }
     }
-/* 
-    &[disabled] {
-      opacity: 0;
-    } */
   }
 
   .headerOpen {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     position: fixed;
     top: 0;
@@ -209,6 +207,8 @@
   }
 
   .headerClosed {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     position: fixed;
     top: 0;
