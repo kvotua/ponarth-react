@@ -231,27 +231,18 @@
   .swiper-lazy-preloader-black {
     --swiper-preloader-color: #000;
   }
-  /* @keyframes swiper-preloader-spin {
+  @keyframes swiper-preloader-spin {
     0% {
       transform: rotate(0deg);
     }
     100% {
       transform: rotate(360deg);
     }
-  } */
+  }
   /* Slide styles end */
   @media screen and (max-width: 768px) {
   :not(.swiper-slide-active[content='f']).swiper-slide-visible[content='f']>img{
-    padding-top: unset;
-    transition:unset;
-  }
-  .swiper-slide[content='f']{
-    transition: unset;
-  }
-  .swiper-slide-active[content='f']{
-    transition: unset;
-  }
-  .swiper-slide-visible[content='f']{
-    transition: unset;
+    padding-top: 2%;
+    transition: 1s ease-in-out;
   }
 }
