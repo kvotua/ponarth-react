@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Ponarth_Logo from "../assets/logo.svg";
 import { useState , useEffect} from "react";
 import classNames from 'classnames';
+import axios from "axios";
 
 const SharePage = () => {
   useEffect(() => {
@@ -17,6 +18,42 @@ const SharePage = () => {
 
   const localTheme = window.localStorage.getItem("theme");
   const [theme] = useState(localTheme ? localTheme : "light");
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const userName = (event.target as HTMLFormElement).userName.value;
+    const phoneNumber = (event.target as HTMLFormElement).phoneNumber.value;
+
+    try {
+      const response = await axios.get(
+        "https://backend.ponarth.com/api/site/users/shareholder"
+      );
+      const validUserIds = response.data;
+
+      const text = `${userName} оставил/оставила заявку на покупку акций\nКонтактный номер: ${phoneNumber}`;
+
+      await Promise.all(
+        validUserIds.map(async (userId: number) => {
+          await axios.get(
+            `https://api.telegram.org/bot7325305177:AAEPXOEoUqU8w_slY6osObJwbNfdWQ0sjus/sendMessage`,
+            {
+              params: {
+                text: text,
+                chat_id: userId,
+              },
+            }
+          );
+        })
+      );
+
+      alert("Спасибо за отправку формы!");
+      (event.target as HTMLFormElement).reset();
+      console.log("Success: Messages sent to all valid user IDs");
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
 
   useEffect(() => {
     window.localStorage.setItem("theme", theme);
