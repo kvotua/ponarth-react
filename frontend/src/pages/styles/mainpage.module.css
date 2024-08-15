@@ -101,7 +101,9 @@ body.dark {
 }
 
 @media screen and (max-width: 600px) {
-  :root.dark{
-    background-color: #000;
-  }
+
+  /* TODO рут при 600 сделать белым, а при черной теме черной */
+    :root{
+      background-color: var(--background-color);
+    }
 }

@@ -9,19 +9,21 @@ video {
   width: 100%;
   clip-path: inset(13% 0 12% 0);
 }
+
 video::-webkit-media-controls {
-  display: none!important;
+  display: none !important;
   -webkit-appearance: none;
 }
 
 video::-webkit-media-controls-play-button {
-  display: none!important;
+  display: none !important;
   -webkit-appearance: none;
 }
 video::-webkit-media-controls-start-playback-button {
-  display: none!important;
+  display: none !important;
   -webkit-appearance: none;
 }
+
 .container_form{
   height: 633px;
   width: 100%;

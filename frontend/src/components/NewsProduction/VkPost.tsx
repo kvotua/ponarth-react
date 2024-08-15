@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-
-import './VKPosts.css';
+// import React, { useEffect } from 'react';
+// import axios from 'axios';
+import React, { useState, useRef, useEffect } from 'react';
+import image1 from "../../assets/calendar1.jpg";
+import image2 from "../../assets/calendar2.jpg";
+import image3 from "../../assets/calendar3.jpg";
+import styles from './VKPosts.module.scss';
 
 type VkPostProps = {
   groupId: string;
@@ -25,125 +25,75 @@ type Post = {
   }[];
 };
 
-const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [error, setError] = useState<string | null>(null);
+const VkPost: React.FC<VkPostProps> = () => {
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await axios.get(`https://proxy.ponarth.com/api/posts`);
-
-        console.log(response.data); // Вывод ответа API в консоль
-
-        if (response.data && response.data.response && response.data.response.items) {
-          // Фильтрация постов, чтобы оставить только те, у которых есть одна фотография, исключая пост с id 4222 и owner_id -33086364
-          const filteredPosts = response.data.response.items.filter((post: Post) =>
-            !(post.id === 4222 && post.owner_id === -33086364) &&
-            post.attachments && post.attachments.filter(attachment => attachment.type === 'photo').length === 1
-          );
-          setPosts(filteredPosts);
-        } else {
-          setError('Не удалось получить посты');
-        }
-      } catch (error) {
-        if (error instanceof Error) {
-          setError('Ошибка при получении постов: ' + error.message);
-        } else {
-          setError('Неизвестная ошибка');
-        }
-      }
-    };
-
-    fetchPosts();
-  }, [groupId, accessToken]);
-
-  if (error) {
-    return <div>{error}</div>;
+  const WindowWidth =()=>{
+    const width= window.innerWidth;
+    document.documentElement.style.setProperty('--screen-width', `${width}px`);
+    
   }
+  WindowWidth();
+  const images_posts = [image1, image2, image3,image1, image2, image3];
 
-  const truncateText = (text: string, wordLimit: number) => {
-    const words = text.split(' ');
-    if (words.length > wordLimit) {
-      return words.slice(0, wordLimit).join(' ') + '...';
+  window.addEventListener('resize', WindowWidth);
+
+  const [isDragging, setIsDragging] = useState(false);
+  const [scrollStart, setScrollStart] = useState(0);
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
+    setIsDragging(true);
+    setScrollStart(event.clientX);
+    event.preventDefault();
+  };
+
+  const handleMouseMove = (event: MouseEvent) => {
+    if (!isDragging || !sliderRef.current) return;
+    const scrollAmount = scrollStart - event.clientX;
+    sliderRef.current.scrollLeft += scrollAmount;
+    setScrollStart(event.clientX);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  // Добавляем слушатели событий для mousemove и mouseup на уровне окна
+  useEffect(() => {
+    if (isDragging) {
+      const moveHandler = (event: MouseEvent) => handleMouseMove(event);
+      const upHandler = () => handleMouseUp();
+
+      window.addEventListener('mousemove', moveHandler);
+      window.addEventListener('mouseup', upHandler);
+
+      return () => {
+        window.removeEventListener('mousemove', moveHandler);
+        window.removeEventListener('mouseup', upHandler);
+      };
     }
-    return text;
-  };
+  }, [isDragging]);
 
-  const getLargestPhotoUrl = (sizes: { url: string }[]) => {
-    return sizes.reduce((largest, current) => {
-      return current.url.length > largest.url.length ? current : largest;
-    }).url;
-  };
-
-  const handlePostClick = (postId: number, ownerId: number) => {
-    // Проверка на существование postId
-    const postExists = posts.some(post => post.id === postId);
-    if (postExists) {
-      const url = `https://vk.com/wall${ownerId}_${postId}`;
-      console.log('Открытие URL:', url); // Вывод URL в консоль для проверки
-      window.open(url, '_blank');
-    } else {
-      console.error('Некорректный postId:', postId);
-    }
-  };
-const WindowWidth =()=>{
-  const width= window.innerWidth;
-  document.documentElement.style.setProperty('--screen-width', `${width}px`);
-  
-}
-WindowWidth();
-window.addEventListener('resize', WindowWidth);
-  return (
-    <Swiper
-      slidesPerView={3}
-      spaceBetween={10}
-      pagination={{
-        clickable: true,
-      }}
-     
-      className="mySwiper"
-      breakpoints={{
-        0: {
-          slidesPerView: 1,
-          spaceBetween: 0,
-        },
-        640: {
-          slidesPerView: 1,
-          centeredSlides: true,
-          spaceBetween: 0,
-        },
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 20,
-        },
-        1024: {
-          slidesPerView: 3,
-          spaceBetween: 20,
-        },
-        
-        1420: {
-          slidesPerView: 3.2,
-          spaceBetween: 20,
-        },
-      }}
-    >
-      {posts.map(post => (
-        <SwiperSlide key={post.id}>
-          <div className="vk-post" onClick={() => handlePostClick(post.id, post.owner_id)}>
-            {post.attachments && post.attachments.map((attachment, index) => (
-              <div key={index}>
-                {attachment.type === 'photo' && attachment.photo && (
-                  <img src={getLargestPhotoUrl(attachment.photo.sizes)} alt="Post attachment" className="vk-post-image" />
-                )}
-              </div>
-            ))}
-            <p className="vk-post-text">{truncateText(post.text, 13)}</p>
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
-  );
+    return (
+      <div className={styles.photos_block}>
+        <div className={styles.slides}
+              onMouseDown={handleMouseDown}
+              onMouseLeave={handleMouseLeave}
+              ref={sliderRef}
+              style={{ cursor: isDragging ? 'grabbing' : 'grab'}} 
+              >
+                {images_posts.map((slide, index) => (
+                  <div className={styles.slide} key={index}>
+                    <img src={slide} />
+                  </div>
+                ))}
+        </div>
+      </div>
+    );
 };
 
 export default VkPost;

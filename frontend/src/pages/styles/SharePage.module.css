@@ -97,11 +97,16 @@ z-index: 1;
 
   }
   .dark{
-    background-color: red;
+    background-color: rgb(0, 0, 0);
+    h1, h2{
+      color: #ffffff;
+    }
+    .logo{
+      filter: brightness(1) invert(1);
+      background: none;
+    }
   }
-  .logo .dark {
-    filter: brightness(1) invert(1);
-  }
+
   .logo:hover {
     transform: scale(1.05);
   }
