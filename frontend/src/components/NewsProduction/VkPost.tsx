@@ -53,26 +53,24 @@ const VkPost: React.FC<VkPostProps> = () => {
     setScrollStart(event.clientX);
   };
 
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  const handleMouseLeave = () => {
+  const handleMouseUpOrLeave = () => {
     setIsDragging(false);
   };
 
   // Добавляем слушатели событий для mousemove и mouseup на уровне окна
   useEffect(() => {
-    if (isDragging) {
-      const moveHandler = (event: MouseEvent) => handleMouseMove(event);
-      const upHandler = () => handleMouseUp();
+    const moveHandler = (event: MouseEvent) => handleMouseMove(event);
+    const upOrLeaveHandler = () => handleMouseUpOrLeave();
 
+    if (isDragging) {
       window.addEventListener('mousemove', moveHandler);
-      window.addEventListener('mouseup', upHandler);
+      window.addEventListener('mouseup', upOrLeaveHandler);
+      window.addEventListener('mouseleave', upOrLeaveHandler); // Обрабатываем случай, когда мышь покидает окно
 
       return () => {
         window.removeEventListener('mousemove', moveHandler);
-        window.removeEventListener('mouseup', upHandler);
+        window.removeEventListener('mouseup', upOrLeaveHandler);
+        window.removeEventListener('mouseleave', upOrLeaveHandler);
       };
     }
   }, [isDragging]);
@@ -80,8 +78,8 @@ const VkPost: React.FC<VkPostProps> = () => {
     return (
       <div className={styles.photos_block}>
         <div className={styles.slides}
-              onMouseDown={handleMouseDown}
-              onMouseLeave={handleMouseLeave}
+               onMouseDown={handleMouseDown}
+        onMouseLeave={handleMouseUpOrLeave}
               ref={sliderRef}
               style={{ cursor: isDragging ? 'grabbing' : 'grab'}} 
               >
