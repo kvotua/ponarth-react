@@ -4,12 +4,13 @@ import SliderVakansii from "../Slider/SliderVakansii";
 const Looking = () => {
   return (
     <>
-      <div className={styles.div_text} id='vacancy'>
-        <h2 className={styles.texter_six}>МЫ В ПОИСКЕ <br /> СОТРУДНИКОВ</h2>
+      <div className={styles.div_text} id="vacancy">
+        <h2 className={styles.texter_six}>
+          МЫ В ПОИСКЕ <br /> СОТРУДНИКОВ
+        </h2>
       </div>
       <SliderVakansii />
     </>
-
   );
 };
 

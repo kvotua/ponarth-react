@@ -40,22 +40,7 @@
   line-height: 1.5;
   word-wrap: break-word;
 }
-@media screen and (min-width: 1800px){
-  .mySwiper{
-  max-width:calc(var(--screen-width)/1.9);
-  }
-}
-@media screen and (min-width: 1700px) and(max-width: 1800px){
-  .mySwiper{
-  max-width:calc(var(--screen-width)/1.6);
 
-  }
-}
-@media screen and (max-width: 1230px) {
-  .mySwiper{
-    margin: auto;
-  }
-}
 @media (max-width: 1024px) {
   .mySwiper {
     width: 100%;
@@ -76,7 +61,7 @@
   }
 
   .vk-post-image {
-    width: 100%; /* Уменьшаем ширину изображения на мобильных устройствах */
+    width: 90%; /* Уменьшаем ширину изображения на мобильных устройствах */
     margin: 0 auto 20px auto; /* Центрируем изображение и добавляем отступы */
   }
 
@@ -98,8 +83,8 @@
   }
 
   .vk-post-image {
-    width: 100%; /* Ещё больше уменьшаем ширину изображения на очень маленьких экранах */
-    margin: 0; /* Центрируем изображение и добавляем отступы */
+    width: 70%; /* Ещё больше уменьшаем ширину изображения на очень маленьких экранах */
+    margin: 48px; /* Центрируем изображение и добавляем отступы */
   }
 
   .vk-post-text {
