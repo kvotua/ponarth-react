@@ -11,26 +11,25 @@ type VkPostProps = {
   accessToken: string;
 };
 
-type Post = {
-  id: number;
-  owner_id: number;
-  text: string;
-  attachments?: {
-    type: string;
-    photo?: {
-      sizes: {
-        url: string;
-      }[];
-    };
-  }[];
-};
+// type Post = {
+//   id: number;
+//   owner_id: number;
+//   text: string;
+//   attachments?: {
+//     type: string;
+//     photo?: {
+//       sizes: {
+//         url: string;
+//       }[];
+//     };
+//   }[];
+// };
 
 const VkPost: React.FC<VkPostProps> = () => {
 
   const WindowWidth =()=>{
     const width= window.innerWidth;
     document.documentElement.style.setProperty('--screen-width', `${width}px`);
-    
   }
   WindowWidth();
   const images_posts = [image1, image2, image3,image1, image2, image3];
