@@ -6,11 +6,8 @@
     z-index: 10;
     bottom: 12% !important;
     z-index: 1 !important;
-  
     transition: transform 0.3s ease;
-    
     height: 19.2px !important;
-
   }
    .swiper-pagination-bullet-active-first{
     scale: 1.5;
@@ -51,7 +48,6 @@
   /* Bullets */
   .swiper-pagination-firstbullets-dynamic {
     overflow: hidden;
-
   }
  
   .swiper-pagination-bullet-first {
