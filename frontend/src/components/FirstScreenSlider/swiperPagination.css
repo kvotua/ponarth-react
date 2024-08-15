@@ -7,9 +7,8 @@
     bottom: 12% !important;
     z-index: 1 !important;
     transition: transform 0.3s ease;
-    /* width: 100% !important; */
+    
     height: 19.2px !important;
-    width: unset !important;
 
   }
    .swiper-pagination-bullet-active-first{
@@ -51,15 +50,9 @@
  
   .swiper-pagination-firstbullets-dynamic {
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    
   }
-  .swiper-pagination-firstbullets-dynamic .swiper-pagination-bullets {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+ 
   .swiper-pagination-bullet-first {
     transform: scale(0) !important;
     position: relative;
@@ -138,8 +131,8 @@
   .swiper-pagination-horizontal.swiper-paginationfirst-bullets .swiper-pagination-bullet-first {
     margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 6px);
   }
-  .swiper-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
-  .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+  .swiper-horizontal > .swiper-pagination-firstbullets.swiper-pagination-bullets-dynamic,
+  .swiper-pagination-horizontal.swiper-pagination-firstbullets {
     left: 50%;
     transform: translateX(-50%);
     white-space: nowrap;

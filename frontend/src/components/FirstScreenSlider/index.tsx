@@ -96,7 +96,6 @@ coverflowEffect: {
       bulletClass:'swiper-pagination-bullet-first',
       modifierClass:'swiper-pagination-first',
       dynamicBullets: true,
-    
     }}
     navigation={ true }
     modules={[Pagination, Navigation, EffectCoverflow ]}
@@ -111,9 +110,22 @@ coverflowEffect: {
  <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
  <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
  <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
- 
+ <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+    <SwiperSlide className={` ${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg2} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+ <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+ <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+ <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+ <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+ <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+ <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+    <SwiperSlide className={` ${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg2} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+ <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
  <div className="custom-pagination"
-
+//  style={{
+//   transform: `translateX(${(activeIndex * 0.5)+10}vw)`,
+// }}
  >   {[...Array(4)].map((_, index) => (
   <div
     key={index}
