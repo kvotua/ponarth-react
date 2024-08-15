@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './styles/productpage.module.scss'
 import settings from '../assets/settings.svg'
 import delete_btn from '../assets/delete.svg'
@@ -13,10 +13,9 @@ interface Product {
   description: string
   image: string
   base64Image: string
-  color: string // Add the color property
 }
 
-const ProductPage: FC = () => {
+const ProductPage: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([])
   const navigate = useNavigate()
 
@@ -30,7 +29,6 @@ const ProductPage: FC = () => {
           description: product.description,
           image: product.image,
           base64Image: `data:image/jpeg;base64,${product.image}`,
-          color: product.color, // Include the color property
         }))
         setProducts(productsWithDecodedImages)
       } catch (error) {
@@ -60,10 +58,6 @@ const ProductPage: FC = () => {
     product.title.toLowerCase().includes(searchQuery.toLowerCase())
   )
 
-  const handleSettingsClick = (product: Product) => {
-    navigate('/products/add', { state: { product } })
-  }
-
   return (
     <>
       <h1 className={styles.title}>Отображаемые продукты</h1>
@@ -80,13 +74,9 @@ const ProductPage: FC = () => {
             <div className={styles.description_block}>
               <h2>{product.title}</h2>
               <p>{product.description}</p>
-              <p>Цвет: {product.color}</p> {/* Display the color property */}
             </div>
 
-            <div
-              className={styles.settings_btn}
-              onClick={() => handleSettingsClick(product)}
-            >
+            <div className={styles.settings_btn}>
               <img src={settings} alt="" />
             </div>
 

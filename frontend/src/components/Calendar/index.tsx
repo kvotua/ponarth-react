@@ -11,16 +11,11 @@ import image2 from "../../assets/calendar2.jpg";
 import image3 from "../../assets/calendar3.jpg";
 import { ThemeContext } from "../RightBar";
 import DelayedButton from "../Buttons/DelayedButton";
-import axios from "axios";
-
 const CalendarComp: React.FC = () => {
   const { theme } = useContext(ThemeContext);
   const themeButton = theme === "dark" ? "white" : "mixed";
-  const [date, setDate] = useState<Date | null>(null);
+  const [date, setDate] = useState<Date | null>(new Date());
   const [persons, setPersons] = useState<number>(1);
-  const [time, setTime] = useState<string>("");
-  const [selectedButton, setSelectedButton] = useState<string>("");
-
   const onChange: CalendarProps["onChange"] = (value) => {
     setDate(value as Date);
   };
@@ -43,51 +38,6 @@ const CalendarComp: React.FC = () => {
     setPersons((prev) => Math.max(prev - 1, 1));
   };
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    const userName = (event.target as HTMLFormElement).userName.value;
-    const phoneNumber = (event.target as HTMLFormElement).phoneNumber.value;
-
-    if (!userName || !phoneNumber || !date || !time) {
-      alert("Пожалуйста, заполните все поля.");
-      return;
-    }
-
-    try {
-      const response = await axios.get(
-        "https://backend.ponarth.com/api/site/users/excursions"
-      );
-      const validUserIds = response.data;
-
-      const text = `${userName} оставил/оставила заявку на бронь экскурсии\nКонтактный номер: ${phoneNumber}\nДата: ${date?.toLocaleDateString()}\nВремя: ${time}\nКоличество персон: ${persons}`;
-
-      await Promise.all(
-        validUserIds.map(async (userId: number) => {
-          await axios.get(
-            `https://api.telegram.org/bot7325305177:AAEPXOEoUqU8w_slY6osObJwbNfdWQ0sjus/sendMessage`,
-            {
-              params: {
-                text: text,
-                chat_id: userId,
-              },
-            }
-          );
-        })
-      );
-
-      alert("Спасибо за отправку формы!");
-      setDate(null);
-      setPersons(1);
-      setTime("");
-      setSelectedButton("");
-      (event.target as HTMLFormElement).reset();
-      console.log("Success: Messages sent to all valid user IDs");
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
-
   return (
     <>
       <div className={styles.texter} id="excursion">
@@ -101,116 +51,73 @@ const CalendarComp: React.FC = () => {
         12.00 15.00. 19.00
       </p>
       <div className={styles.content}>
-        <form onSubmit={handleSubmit}>
-          <div className={styles.calendar_block}>
-            <Calendar
-              onChange={onChange}
-              value={date}
-              locale="ru-RU"
-              formatMonthYear={(_, date) =>
-                format(date, "LLLL yyyy", { locale: ru })
+        <div className={styles.calendar_block}>
+          <Calendar
+            onChange={onChange}
+            value={date}
+            locale="ru-RU"
+            formatMonthYear={(_, date) =>
+              format(date, "LLLL yyyy", { locale: ru })
+            }
+            tileDisabled={tileDisabled}
+            navigationLabel={({ view, date }) => {
+              if (view === "month") {
+                return (
+                  <span className="react-calendar__navigation__label">
+                    {format(date, "LLLL yyyy", { locale: ru })}
+                  </span>
+                );
               }
-              tileDisabled={tileDisabled}
-              navigationLabel={({ view, date }) => {
-                if (view === "month") {
-                  return (
-                    <span className="react-calendar__navigation__label">
-                      {format(date, "LLLL yyyy", { locale: ru })}
-                    </span>
-                  );
-                }
-                return null;
-              }}
-              prev2Label={null} // Убираем стрелку для предыдущего года
-              next2Label={null} // Убираем стрелку для следующего года
-            />
-            <div className={styles.button_group}>
-              <button
-                type="button"
-                className={`${styles.time_button} ${
-                  selectedButton === "12:00" ? styles.selected : ""
-                }`}
-                onClick={() => {
-                  setTime("12:00");
-                  setSelectedButton("12:00");
-                }}
-              >
-                12:00
-              </button>
-              <button
-                type="button"
-                className={`${styles.time_button} ${
-                  selectedButton === "15:00" ? styles.selected : ""
-                }`}
-                onClick={() => {
-                  setTime("15:00");
-                  setSelectedButton("15:00");
-                }}
-              >
-                15:00
-              </button>
-              <button
-                type="button"
-                className={`${styles.time_button} ${
-                  selectedButton === "19:00" ? styles.selected : ""
-                }`}
-                onClick={() => {
-                  setTime("19:00");
-                  setSelectedButton("19:00");
-                }}
-              >
-                19:00
-              </button>
-            </div>
+              return null;
+            }}
+            prev2Label={null} // Убираем стрелку для предыдущего года
+            next2Label={null} // Убираем стрелку для следующего года
+          />
 
-            <input
-              className={`${styles.input_calendar} ${
-                theme === "dark" ? styles.dark : ""
-              }`}
-              type="text"
-              name="userName"
-              placeholder="Ваше имя"
-            />
-            <InputMask
-              className={`${styles.input_calendar} ${
-                theme === "dark" ? styles.dark : ""
-              }`}
-              mask="+7 (999) 999-99-99"
-              name="phoneNumber"
-              placeholder="Контактный номер телефона"
-            />
-            <div
-              className={`${styles.input_calendar} ${
-                theme === "dark" ? styles.dark : ""
-              }`}
-            >
-              <label>Количество персон</label>
-              <div className={styles.persons_input}>
-                <button type="button" onClick={handleDecrement}>
-                  —
-                </button>
-                <input
-                  type="text"
-                  value={persons}
-                  readOnly
-                  className={theme === "dark" ? styles.dark : ""}
-                />
-                <button type="button" onClick={handleIncrement}>
-                  +
-                </button>
-              </div>
+          <input
+            className={`${styles.input_calendar} ${
+              theme === "dark" ? styles.dark : ""
+            }`}
+            type="text"
+            placeholder="Ваше имя"
+          />
+          <InputMask
+            className={`${styles.input_calendar} ${
+              theme === "dark" ? styles.dark : ""
+            }`}
+            mask="+7 (999) 999-99-99"
+            placeholder="Контактный номер телефона"
+          />
+          <div
+            className={`${styles.input_calendar} ${
+              theme === "dark" ? styles.dark : ""
+            }`}
+          >
+            <label>Количество персон</label>
+            <div className={styles.persons_input}>
+              <button onClick={handleDecrement}>—</button>
+              <input
+                type="text"
+                value={persons}
+                readOnly
+                className={theme === "dark" ? styles.dark : ""}
+              />
+              <button onClick={handleIncrement}>+</button>
             </div>
-
-            <DelayedButton
-              to=""
-              delay={1}
-              className={styles.reserve_btn}
-              style={themeButton}
-            >
-              Забронировать
-            </DelayedButton>
           </div>
-        </form>
+
+          {/* <button
+            className={`${styles.reserve_btn} ${
+              theme === "dark" ? styles.dark : ""
+            }`}
+          >
+            Забронировать
+          </button> */}
+           
+            <DelayedButton to="" delay={1} className={styles.reserve_btn} style={themeButton}>
+            Забронировать
+            </DelayedButton>
+        </div>
 
         <div className={styles.photos_block}>
           <div className={styles.slides}>
@@ -228,7 +135,9 @@ const CalendarComp: React.FC = () => {
             </div>
             <div className={styles.slide}>
               <img src={image3} alt="" />
-              <p className={styles.slide_p}>#8 дегустационных сортов пива</p>
+              <p className={styles.slide_p}>
+                #8 дегустационных сортов пива
+              </p>
             </div>
           </div>
         </div>

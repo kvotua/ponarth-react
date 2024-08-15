@@ -53,11 +53,9 @@ const DelayedButton: React.FC<DelayedButtonProps> = ({
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const delayTimer = setTimeout(() => {
-            entry.target.classList.add(styles.animate);
-          }, 300);
-          entry.target.addEventListener("transitionend", () =>
-            clearTimeout(delayTimer)
-          );
+          entry.target.classList.add(styles.animate);
+        }, 300);
+        entry.target.addEventListener('transitionend', () => clearTimeout(delayTimer));
         }
       });
     });

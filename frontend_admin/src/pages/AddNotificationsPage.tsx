@@ -8,16 +8,9 @@ const AddTelegramNotificationPage = () => {
   const location = useLocation()
   const { user } = location.state || {}
   const { nameAndLastname, roles } = user || {}
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
-
-  useEffect(() => {
-    if (nameAndLastname) {
-      const [first, last] = nameAndLastname.split(' ')
-      setFirstName(first)
-      setLastName(last)
-    }
-  }, [nameAndLastname])
+  const [firstName, lastName] = nameAndLastname
+    ? nameAndLastname.split(' ')
+    : ['', '']
 
   const [formOfExcursion, setFormOfExcursion] = useState(false)
   const [formVacancy, setFormVacancy] = useState(false)
@@ -37,12 +30,6 @@ const AddTelegramNotificationPage = () => {
     navigate('/notifications')
   }
 
-  const handleCheckboxChange =
-    (setter: (value: boolean) => void) =>
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      setter(event.target.checked)
-    }
-
   return (
     <>
       <button className={styles.back_btn} onClick={handleBackClick}>
@@ -56,13 +43,13 @@ const AddTelegramNotificationPage = () => {
               type="text"
               placeholder="Имя пользователя"
               value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
+              readOnly
             />
             <input
               type="text"
               placeholder="Фамилия пользователя"
               value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
+              readOnly
             />
           </div>
 
@@ -75,11 +62,7 @@ const AddTelegramNotificationPage = () => {
                 <p>Форма экскурсии</p>
                 <div>
                   <label className={styles.switch}>
-                    <input
-                      type="checkbox"
-                      checked={formOfExcursion}
-                      onChange={handleCheckboxChange(setFormOfExcursion)}
-                    />
+                    <input type="checkbox" checked={formOfExcursion} readOnly />
                     <span className={styles.slider}></span>
                   </label>
                 </div>
@@ -88,11 +71,7 @@ const AddTelegramNotificationPage = () => {
                 <p>Форма вакансий</p>
                 <div>
                   <label className={styles.switch}>
-                    <input
-                      type="checkbox"
-                      checked={formVacancy}
-                      onChange={handleCheckboxChange(setFormVacancy)}
-                    />
+                    <input type="checkbox" checked={formVacancy} readOnly />
                     <span className={styles.slider}></span>
                   </label>
                 </div>
@@ -101,11 +80,7 @@ const AddTelegramNotificationPage = () => {
                 <p>Форма партнеры</p>
                 <div>
                   <label className={styles.switch}>
-                    <input
-                      type="checkbox"
-                      checked={formPartner}
-                      onChange={handleCheckboxChange(setFormPartner)}
-                    />
+                    <input type="checkbox" checked={formPartner} readOnly />
                     <span className={styles.slider}></span>
                   </label>
                 </div>
@@ -114,11 +89,7 @@ const AddTelegramNotificationPage = () => {
                 <p>Форма акционеров</p>
                 <div>
                   <label className={styles.switch}>
-                    <input
-                      type="checkbox"
-                      checked={formShareholder}
-                      onChange={handleCheckboxChange(setFormShareholder)}
-                    />
+                    <input type="checkbox" checked={formShareholder} readOnly />
                     <span className={styles.slider}></span>
                   </label>
                 </div>

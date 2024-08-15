@@ -55,27 +55,36 @@ public class StoreService {
         }
         return Files.readAllBytes(imagePath);
     }
-    public static void displayDirectory(File dir)
-    {
 
+    public void rewriteImage(byte[] newImage, String oldFilePath, String newFilePath){
         try {
-            File[] files = dir.listFiles();
-            for (File file : files) {
-                if (file.isDirectory()) {
-                    System.out.println(
-                            "directory:"
-                                    + file.getCanonicalPath());
-                    displayDirectory(file);
-                }
-                else {
-                    System.out.println(
-                            "     file:"
-                                    + file.getCanonicalPath());
+            File oldFile = new File(filePath + "/" + oldFilePath);
+            if (oldFile.exists()) {
+                if (oldFile.delete()) {
+                    System.out.println("Старый файл успешно удален: "  + filePath + "/" +  oldFilePath);
+                } else {
+                    System.out.println("Не удалось удалить старый файл: "  + filePath + "/" +  oldFilePath);
                 }
             }
+            FileOutputStream fileOutputStream = new FileOutputStream(filePath + "/" +newFilePath);
+            fileOutputStream.write(newImage);
+            fileOutputStream.close();
+            System.out.println("Файл успешно перезаписан с новым расширением: " + filePath + "/" + newFilePath);
+        } catch (IOException e){
+            System.out.println("Произошла ошибка при перезаписи файла: " + e.getMessage());
         }
-        catch (IOException e) {
-            e.printStackTrace();
+    }
+
+    public void deleteImage(String oldFilePath){
+
+        File oldFile = new File(filePath + "/" + oldFilePath);
+        if (oldFile.exists()) {
+            if (oldFile.delete()) {
+                System.out.println("Старый файл успешно удален: " + filePath + "/" + oldFilePath);
+            } else {
+                System.out.println("Не удалось удалить старый файл: " + filePath + "/" + oldFilePath);
+            }
         }
+
     }
 }
