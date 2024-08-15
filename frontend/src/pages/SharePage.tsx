@@ -3,8 +3,8 @@ import DelayedButton from "../components/Buttons/DelayedButton";
 import InputMask from 'react-input-mask';
 import { Link } from "react-router-dom";
 import Ponarth_Logo from "../assets/logo.svg";
-import { useContext , useEffect} from "react";
-import { ThemeContext } from "../components/RightBar";
+import { useState , useEffect} from "react";
+import classNames from 'classnames';
 
 const SharePage = () => {
   useEffect(() => {
@@ -14,14 +14,25 @@ const SharePage = () => {
     window.scrollTo(0, 0);
     htmlElement.style.scrollBehavior = originalScrollBehavior;
   }, []);
-  const { theme } = useContext(ThemeContext);
-  console.log(theme)
-  if(theme ==="dark"){
-    console.log('!!!')
-  }
+
+  const localTheme = window.localStorage.getItem("theme");
+  const [theme] = useState(localTheme ? localTheme : "light");
+
+  useEffect(() => {
+    window.localStorage.setItem("theme", theme);
+    document.body.style.backgroundColor = theme === "dark" ? "#000" : "#fff";
+  }, [theme]);
+
+  // const toggleTheme = () => {
+  //   setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  // };
+  const curTheme = theme === "dark" ? styles.dark : "";
+  const classes = classNames(styles.margin_container,  curTheme);
+  const classes2 = classNames(styles.logo,  curTheme);
+
   return (
    <>
-   <div className={styles.margin_container}>
+   <div className={classes}>
     <div className={styles.outmask_content}>
   <div className={styles.button_container}>
   <Link to='/home' className={styles.button_back_link}>
@@ -30,7 +41,7 @@ const SharePage = () => {
         </div>
         <div className={`${styles.share_logo}`}>
         <img
-          className={`${styles.logo} ${theme === "dark" ? styles.dark : ""}`}
+          className={classes2}
           src={Ponarth_Logo}
           alt="Логотип"
         />

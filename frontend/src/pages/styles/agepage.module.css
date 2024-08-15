@@ -91,7 +91,7 @@ body {
   }
 }
 .input[type="range"] {
-  -webkit-appearance: none; /* Необходимо для Chrome */
+  --webkit-appearance: none; /* Необходимо для Chrome */
   width: 250px;
   height: 6px;
   background: #ffffff;
@@ -103,7 +103,7 @@ body {
 }
 
 .input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Необходимо для Chrome */
+  --webkit-appearance: none; /* Необходимо для Chrome */
   appearance: none;
   width: 15px;
   height: 15px;
