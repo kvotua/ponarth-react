@@ -15,7 +15,6 @@
 
 .div_text {
   margin: 10%;
-  margin-top: 5%;
   border-bottom: 2px solid #d3d3d3;
   color: #000000;
 }
@@ -39,7 +38,6 @@
 }
 
 .map {
-  margin-bottom: 10%;
   background: url("path_to_your_image.jpg") no-repeat center center;
   z-index: 5;
   border-radius: 10px;
@@ -91,7 +89,6 @@
     height: 420px;
     max-width: 290px;
     margin: 0 auto;
-    margin-bottom: 10%;
   }
   .map_overlay{
     text-align: center;

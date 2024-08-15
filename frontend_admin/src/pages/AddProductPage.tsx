@@ -1,5 +1,5 @@
-import { FC, useState, ChangeEvent } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { FC, useState, ChangeEvent, useEffect } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 import back from '../assets/Icon.svg'
 import add_icon from '../assets/Pluse.svg'
 import styles from './styles/addproductpage.module.scss'
@@ -16,6 +16,9 @@ interface AddProduct {
 }
 
 const AddProductPage: FC = () => {
+  const location = useLocation()
+  const productToEdit = location.state?.product
+
   const [product, setProduct] = useState<AddProduct>({
     og: '',
     ibu: '',
@@ -29,6 +32,44 @@ const AddProductPage: FC = () => {
   const [image, setImage] = useState<File | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [imagePreview, setImagePreview] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (productToEdit) {
+      const descriptionParts = productToEdit.description.split(';')
+      const og =
+        descriptionParts
+          .find((part: string) => part.trim().startsWith('OG:'))
+          ?.split(':')[1]
+          .trim() || ''
+      const ibu =
+        descriptionParts
+          .find((part: string) => part.trim().startsWith('IBU:'))
+          ?.split(':')[1]
+          .trim() || ''
+      const abv =
+        descriptionParts
+          .find((part: string) => part.trim().startsWith('ABV:'))
+          ?.split(':')[1]
+          .trim() || ''
+      const rub =
+        descriptionParts
+          .find((part: string) => part.trim().startsWith('RUB:'))
+          ?.split(':')[1]
+          .trim() || ''
+      const description = descriptionParts.slice(4).join(';').trim()
+
+      setProduct({
+        og,
+        ibu,
+        abv,
+        rub,
+        name: productToEdit.title,
+        description,
+        color: productToEdit.color,
+      })
+      setImagePreview(productToEdit.base64Image)
+    }
+  }, [productToEdit])
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
@@ -55,6 +96,7 @@ const AddProductPage: FC = () => {
       RUB: ${product.rub};
       ${product.description}`
       const productId = await addProduct({
+        id: productToEdit ? productToEdit.id : Date.now(), // Use existing ID if editing
         name: product.name,
         description: concatenatedDescription,
         color: product.color,
@@ -100,7 +142,7 @@ const AddProductPage: FC = () => {
               </div>
               <input
                 type="file"
-                accept="image/*"
+                accept="image/*, .svg" // Allow SVG files
                 name="vacanciesimg"
                 onChange={handleImageChange}
                 style={{ display: 'none' }}

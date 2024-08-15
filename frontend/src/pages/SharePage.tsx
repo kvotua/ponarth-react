@@ -1,6 +1,6 @@
-import styles from './styles/SharePage.module.css';
+import styles from "./styles/SharePage.module.css";
 import DelayedButton from "../components/Buttons/DelayedButton";
-import InputMask from 'react-input-mask';
+import InputMask from "react-input-mask";
 import { Link } from "react-router-dom";
 import Ponarth_Logo from "../assets/logo.svg";
 import { useState , useEffect} from "react";
@@ -10,7 +10,7 @@ const SharePage = () => {
   useEffect(() => {
     const htmlElement = document.documentElement;
     const originalScrollBehavior = htmlElement.style.scrollBehavior;
-    htmlElement.style.scrollBehavior = 'auto';
+    htmlElement.style.scrollBehavior = "auto";
     window.scrollTo(0, 0);
     htmlElement.style.scrollBehavior = originalScrollBehavior;
   }, []);
@@ -85,10 +85,11 @@ const SharePage = () => {
         </div>
         <div className={styles.form_container}>
         <div className={styles.form_four}>
+
                 <form
                   id="stat_partner"
                   className={styles.stat_partner}
-                  // onSubmit={handleSubmit}
+                  onSubmit={handleSubmit}
                 >
                   <div className={styles.form_group}>
                     <input
@@ -104,15 +105,15 @@ const SharePage = () => {
                   </div>
 
                   <div className={styles.form_group}>
-                  <InputMask
-                    className={styles.input}
-                     name="phoneNumber"
-                    mask="+7 ( 999 ) 999 - 9999"
+                    <InputMask
+                      className={styles.input}
+                      name="phoneNumber"
+                      mask="+7 ( 999 ) 999 - 9999"
                       id="phoneNumber"
                       placeholder=" "
                       required
                       autoComplete="off"
-                      ></InputMask>
+                    ></InputMask>
                     <label htmlFor="phoneNumber">Ваш номер телефона</label>
                   </div>
 
@@ -128,15 +129,11 @@ const SharePage = () => {
                   </DelayedButton>
                 </form>
               </div>
-             
+            </div>
+          </div>
         </div>
       </div>
-    
-    
-    </div>
-   </div>
-  
-   </>
+    </>
   );
 };
 
