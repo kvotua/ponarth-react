@@ -6,6 +6,11 @@
     z-index: 10;
     bottom: 12% !important;
     z-index: 1 !important;
+  
+    transition: transform 0.3s ease;
+    
+    height: 19.2px !important;
+
   }
    .swiper-pagination-bullet-active-first{
     scale: 1.5;
@@ -46,10 +51,12 @@
   /* Bullets */
   .swiper-pagination-firstbullets-dynamic {
     overflow: hidden;
-    font-size: 0;
+
   }
-  .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-first {
-    transform: scale(0.33);
+ 
+  .swiper-pagination-bullet-first {
+    transform: scale(0) !important;
+
     position: relative;
   }
   .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-first {
@@ -124,8 +131,8 @@
   .swiper-pagination-horizontal.swiper-paginationfirst-bullets .swiper-pagination-bullet-first {
     margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 6px);
   }
-  .swiper-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
-  .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+  .swiper-horizontal > .swiper-pagination-firstbullets.swiper-pagination-bullets-dynamic,
+  .swiper-pagination-horizontal.swiper-pagination-firstbullets {
     left: 50%;
     transform: translateX(-50%);
     white-space: nowrap;

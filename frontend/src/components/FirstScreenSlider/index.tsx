@@ -100,51 +100,63 @@ const FirstScreenSlider = () => {
               slideShadows: false,
             },
           },
-        }}
-        pagination={{
-          el: ".custom-pagination",
-          clickable: true,
-          bulletActiveClass: "swiper-pagination-bullet-active-first",
-          bulletClass: "swiper-pagination-bullet-first",
-          modifierClass: "swiper-pagination-first",
-        }}
-        navigation={true}
-        modules={[Pagination, Navigation, EffectCoverflow]}
-        className={styles.swiper}
-        content="f"
-        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-      >
-        {products.map((product) => (
-          <SwiperSlide
-            key={product.id}
-            className={` ${styles.default} ${styles.swiper_slide} `}
-            content="f"
-          >
-            <img src={product.base64Image} alt={product.name} />
-          </SwiperSlide>
-        ))}
-        <div className="custom-pagination"></div>
-      </Swiper>
+        },
+      }}
+    pagination={{
+      el: '.custom-pagination',
+      clickable: true,
+      bulletActiveClass:'swiper-pagination-bullet-active-first',
+      bulletClass:'swiper-pagination-bullet-first',
+      modifierClass:'swiper-pagination-first',
+      dynamicBullets: true,
+    }}
+    navigation={ true }
+    modules={[Pagination, Navigation, EffectCoverflow ]}
+    className={styles.swiper} 
+    content='f'
+  >
+    <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+    <SwiperSlide className={` ${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg2} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+ <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+ <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+ <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+ <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+ <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+ <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+    <SwiperSlide className={` ${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg2} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+ <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+ <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+ <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+ <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+ <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+ <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+    <SwiperSlide className={` ${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg2} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+ <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+ <div className="custom-pagination"
+//  style={{
+//   transform: `translateX(${(activeIndex * 0.5)+10}vw)`,
+// }}
+ >   {[...Array(4)].map((_, index) => (
+  <div
+    key={index}
+    className={`swiper-pagination-bullet-first ${activeIndex === index ? 'swiper-pagination-bullet-active-first' : ''}`}
+  />
+))}
+ </div>
+    </Swiper>
+    <div className={styles.text_slider}>
+    <div className={styles.text_in}>
+    <h2 className={styles.gradual_appear}>ПИВО</h2>
+    <div className={styles.first_screen_par}>
+    <p>
+            Пиво классическое. Сварено по рецептам 1849 года только с использованием натуральных высококачественных ингредиентов
+          </p>
+          <a href="#maps" className={styles.button_slider}>
+          <DelayedButton to='' delay={1} className={styles.button_slider} style={themeButton}>ГДЕ ПОПРОБОВАТЬ?</DelayedButton>
 
-      <div className={styles.text_slider}>
-        <div className={styles.text_in}>
-          {products.length > 0 && activeIndex < products.length && (
-            <>
-              <h2 className={styles.gradual_appear}>
-                {products[activeIndex].name}
-              </h2>
-              <p>{products[activeIndex].description}</p>
-            </>
-          )}
-          <a href="#maps">
-            <DelayedButton
-              to=""
-              delay={1}
-              className={styles.button_slider}
-              style={themeButton}
-            >
-              ГДЕ ПОПРОБОВАТЬ?
-            </DelayedButton>
           </a>
         </div>
       </div>
