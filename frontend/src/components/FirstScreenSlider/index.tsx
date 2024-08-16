@@ -8,20 +8,20 @@ import "./swiperNavigation.css";
 import "./swiperPagination.css";
 import DelayedButton from "../Buttons/DelayedButton";
 import { ThemeContext } from "../RightBar";
-import { getProducts, Products } from "../../api/products"; // Import the getProducts function
+import { getProducts, Products } from "../../api/products";
 
 const FirstScreenSlider = () => {
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [products, setProducts] = useState<Products[]>([]); // State to store products
-  const [currentProduct, setCurrentProduct] = useState<Products | null>(null); // State to store current product
+  const [products, setProducts] = useState<Products[]>([]);
+  const [currentProduct, setCurrentProduct] = useState<Products | null>(null);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const productsData = await getProducts();
         setProducts(productsData);
-        setCurrentProduct(productsData[0]); // Set the first product as the current product initially
+        setCurrentProduct(productsData[0]);
       } catch (error) {
         console.error("Error fetching products", error);
       }
