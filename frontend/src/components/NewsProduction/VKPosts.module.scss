@@ -2,7 +2,6 @@
   user-select: none;
   display: flex;
   overflow-x: scroll; /* Change to horizontal scroll */
-  //  max-width: 100vw;
   cursor: grab;
   scroll-snap-type: x mandatory; /* Enable snap scrolling */
 }
@@ -19,7 +18,6 @@
   flex: 0 0 290px;
   scroll-snap-align: center;
   margin-right: 30px;
-  // max-width: 290px;
   box-sizing: border-box;
 }
 

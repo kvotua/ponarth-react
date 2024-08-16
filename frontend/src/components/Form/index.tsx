@@ -70,7 +70,6 @@ const PartnerForm = () => {
 
   return (
     <div className={styles.container_form}>
-      
       <div className={styles.container2} ref={containerRef}>
       <Lottie
           loop
@@ -78,9 +77,6 @@ const PartnerForm = () => {
           play
           className={styles.lottie}
         />
-        {/* <video autoPlay muted loop id="myVideo">
-          <source src={video} type="video/mp4" />
-        </video> */}
         <div className={styles.form_grid_container}>
           {isVisible && (
             <div id="block" className={`${styles.content1} ${styles.fadeIn}`}>

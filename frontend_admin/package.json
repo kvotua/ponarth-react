@@ -1,4 +1,5 @@
 {
+<<<<<<<< HEAD:frontend_admin/package.json
   "name": "frontend",
   "private": true,
   "version": "0.0.0",
@@ -29,5 +30,9 @@
     "sass": "^1.77.8",
     "typescript": "^5.2.2",
     "vite": "^5.3.3"
+========
+  "dependencies": {
+    "@types/yandex-maps": "^2.1.36"
+>>>>>>>> 2cbc3ba44bf594d3e7bf8af14c2ae9b9c735854b:package.json
   }
 }
