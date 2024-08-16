@@ -1,12 +1,13 @@
 import { AxiosResponse } from "axios";
 import api from "./api";
 
-interface Products {
+export interface Products {
   id: number;
   name: string;
   description: string;
   color: string;
   image: string;
+  fileName: string;
 }
 
 export const getProducts = async (): Promise<Products[]> => {
