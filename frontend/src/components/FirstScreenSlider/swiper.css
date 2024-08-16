@@ -43,6 +43,25 @@
     z-index: 1;
     display: block;
   }
+
+img::selection{
+  background-color: rgba(0, 0, 0, 0);
+  }
+
+  p::selection{
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  
+  h1::selection{
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  
+  h2::selection{
+    background-color: rgba(0, 0, 0, 0);
+  }
+
   .swiper-vertical[content='f'] > .swiper-wrapper[content='f'] {
     flex-direction: column;
   }

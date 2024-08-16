@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect, useRef} from "react";
 import styles from "./calendar.module.css";
 import Calendar, { CalendarProps } from "react-calendar";
 import "react-calendar/dist/Calendar.css";
@@ -86,6 +86,44 @@ const CalendarComp: React.FC = () => {
     } catch (error) {
       console.error("Error:", error);
     }
+  };
+
+  const [isDragging, setIsDragging] = useState(false);
+  const [scrollStart, setScrollStart] = useState(0);
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const moveHandler = (event: MouseEvent) => handleMouseMove(event);
+    const upOrLeaveHandler = () => handleMouseUpOrLeave();
+
+    if (isDragging) {
+      window.addEventListener('mousemove', moveHandler);
+      window.addEventListener('mouseup', upOrLeaveHandler);
+      window.addEventListener('mouseleave', upOrLeaveHandler); // Обрабатываем случай, когда мышь покидает окно
+
+      return () => {
+        window.removeEventListener('mousemove', moveHandler);
+        window.removeEventListener('mouseup', upOrLeaveHandler);
+        window.removeEventListener('mouseleave', upOrLeaveHandler);
+      };
+    }
+  }, [isDragging]);
+
+  const handleMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
+    setIsDragging(true);
+    setScrollStart(event.clientX);
+    event.preventDefault();
+  };
+
+  const handleMouseMove = (event: MouseEvent) => {
+    if (!isDragging || !sliderRef.current) return;
+    const scrollAmount = scrollStart - event.clientX;
+    sliderRef.current.scrollLeft += scrollAmount;
+    setScrollStart(event.clientX);
+  };
+
+  const handleMouseUpOrLeave = () => {
+    setIsDragging(false);
   };
 
   return (
@@ -213,7 +251,12 @@ const CalendarComp: React.FC = () => {
         </form>
 
         <div className={styles.photos_block}>
-          <div className={styles.slides}>
+          <div className={styles.slides}
+                         onMouseDown={handleMouseDown}
+                         onMouseLeave={handleMouseUpOrLeave}
+                         ref={sliderRef}
+                         style={{ cursor: isDragging ? 'grabbing' : 'grab'}} 
+                         >
             <div className={styles.slide}>
               <img src={image1} alt="" />
               <p className={styles.slide_p}>

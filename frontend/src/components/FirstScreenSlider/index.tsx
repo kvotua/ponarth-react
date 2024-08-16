@@ -11,6 +11,9 @@ import pivoImg3 from '../../assets/bottle3-01.svg';
 import DelayedButton from '../Buttons/DelayedButton';
 import { ThemeContext } from "../RightBar";
 import { Swiper as SwiperType } from 'swiper/types';
+import DelayedButton from "../Buttons/DelayedButton";
+import { ThemeContext } from "../RightBar";
+
 const FirstScreenSlider = () => {
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -28,6 +31,8 @@ const FirstScreenSlider = () => {
   }, [activeIndex, swiperInstance]);
   const { theme } = useContext(ThemeContext);
   const themeButton = theme === "dark" ? "white" : "mixed";
+
+
   return (
     <div className={styles.first_container} content='f' id='sorta'>
         <Swiper
@@ -102,32 +107,30 @@ coverflowEffect: {
     className={styles.swiper} 
     content='f'
   >
-    <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
-    <SwiperSlide className={` ${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg2} alt="" /></SwiperSlide>
-    <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
- <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
- <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
- <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
- <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
- <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+    
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg2} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg2} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg2} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
 
- <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
-    <SwiperSlide className={` ${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg2} alt="" /></SwiperSlide>
-    <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
- <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
- <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
- <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
- <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
- <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
- <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
-    <SwiperSlide className={` ${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg2} alt="" /></SwiperSlide>
-    <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
- <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
- <div className="custom-pagination"
-//  style={{
-//   transform: `translateX(${(activeIndex * 0.5)+10}vw)`,
-// }}
- >   {[...Array(4)].map((_, index) => (
+ <div className="custom-pagination">   
+  {[...Array(4)].map((_, index) => (
   <div
     key={index}
     className={`swiper-pagination-bullet-first ${activeIndex === index ? 'swiper-pagination-bullet-active-first' : ''}`}
