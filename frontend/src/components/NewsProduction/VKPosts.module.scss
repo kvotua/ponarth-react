@@ -44,6 +44,12 @@
   .slides {
     margin : unset;
   }
-
+  .slide:first-child {
+    margin-left: 50%;
+  }
+  
+  .slide:last-child {
+    margin-right: 50%  !important;
+  }
 
 }

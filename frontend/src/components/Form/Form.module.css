@@ -1,4 +1,4 @@
-video {
+.lottie {
   position: absolute;
   left: 0;
   margin: 0 auto;
@@ -9,21 +9,6 @@ video {
   width: 100%;
   clip-path: inset(13% 0 12% 0);
 }
-
-video::-webkit-media-controls {
-  display: none !important;
-  -webkit-appearance: none;
-}
-
-video::-webkit-media-controls-play-button {
-  display: none !important;
-  -webkit-appearance: none;
-}
-video::-webkit-media-controls-start-playback-button {
-  display: none !important;
-  -webkit-appearance: none;
-}
-
 
 .container_form{
   height: 633px;
@@ -231,7 +216,7 @@ margin-top: -9%;
   }
 }
 @media screen and (max-width: 900px) {
-  video {
+  .lottie  {
     position: relative;
     left: 0;
     margin: 0 auto;
@@ -312,7 +297,7 @@ margin-top: -9%;
   .container_form{
     height: 950px;
   }
-  video {
+  .lottie  {
     height: 500px;
 
   }
@@ -330,7 +315,7 @@ margin-bottom: 12%;
     height: 850px;
 
   }
-  video {
+  .lottie  {
     height: 400px;
 
   }
@@ -351,7 +336,7 @@ margin-bottom: 12%;
 
 }
 @media screen and (max-width: 355px) {
-  video {
+  .lottie  {
     height: 400px;
     width: 200%;
 

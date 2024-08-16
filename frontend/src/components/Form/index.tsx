@@ -3,7 +3,9 @@ import video from "../../assets/final.mp4";
 import { useEffect, useState, useRef, FormEvent } from "react";
 import axios from "axios";
 import DelayedButton from "../Buttons/DelayedButton";
+import Lottie from 'react-lottie-player';
 import InputMask from "react-input-mask";
+import animationData from "../../assets/final.mp4.lottie (3).json"
 
 const PartnerForm = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -69,10 +71,17 @@ const PartnerForm = () => {
 
   return (
     <div className={styles.container_form}>
+      
       <div className={styles.container2} ref={containerRef}>
-        <video autoPlay muted loop id="myVideo">
+      <Lottie
+          loop
+          animationData={animationData}
+          play
+          className={styles.lottie}
+        />
+        {/* <video autoPlay muted loop id="myVideo">
           <source src={video} type="video/mp4" />
-        </video>
+        </video> */}
         <div className={styles.form_grid_container}>
           {isVisible && (
             <div id="block" className={`${styles.content1} ${styles.fadeIn}`}>
