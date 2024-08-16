@@ -172,12 +172,22 @@
 }
 
 @media only screen and (max-width: 1025px) {
+  .slide:first-child {
+    margin-left: 50%;
+  }
+  
+  .slide:last-child {
+    margin-right: 50%;
+  }
   .content {
     display: flex;
     flex-direction: column;
+    margin: unset;
+
   }
   .slides {
     max-width: 100vw;
+    margin: unset;
   }
   .photos_block {
     margin: 0;
