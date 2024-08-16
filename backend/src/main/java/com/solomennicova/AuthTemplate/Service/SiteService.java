@@ -1,9 +1,6 @@
 package com.solomennicova.AuthTemplate.Service;
 
-import com.solomennicova.AuthTemplate.Dto.Site.BeerDto;
-import com.solomennicova.AuthTemplate.Dto.Site.BeerInfoDto;
-import com.solomennicova.AuthTemplate.Dto.Site.VacancyDto;
-import com.solomennicova.AuthTemplate.Dto.Site.VacancyInfoDto;
+import com.solomennicova.AuthTemplate.Dto.Site.*;
 import com.solomennicova.AuthTemplate.Dto.Utils.MappingUtilsBeer;
 import com.solomennicova.AuthTemplate.Dto.Utils.MappingUtilsVacancy;
 import com.solomennicova.AuthTemplate.Entity.Beer;
@@ -68,13 +65,13 @@ public class SiteService {
         if(beer == null){
             throw new BeerNotFoundException("Beer not found");
         }else{
-            beer.setImage(file.getOriginalFilename());
+            String path = storeService.loadImage(file, file.getOriginalFilename());
+            beer.setImage(path);
             beerRepository.save(beer);
-            storeService.loadImage(file, file.getOriginalFilename());
         }
     }
 
-    public void updateBeer(BeerInfoDto beerInfoDto) throws BeerNotFoundException {
+    public void updateBeer(BeerUpdateInfoDto beerInfoDto) throws BeerNotFoundException {
         Beer beer = beerRepository.findById(beerInfoDto.getId()).orElse(null);
         if(beer == null){
             throw new BeerNotFoundException("Beer not found");
@@ -83,12 +80,16 @@ public class SiteService {
             beer.setName(beerInfoDto.getName());
         }
         if(beerInfoDto.getDescription() != null && !beerInfoDto.getDescription().isEmpty()){
-            beer.setName(beerInfoDto.getDescription());
+            beer.setDescription(beerInfoDto.getDescription());
         }
         if(beerInfoDto.getColor() != null && !beerInfoDto.getColor().isEmpty()){
-            beer.setName(beerInfoDto.getColor());
+            beer.setColor(beerInfoDto.getColor());
         }
         beerRepository.save(beer);
+    }
+
+    public static boolean isByteArrayEmpty(byte[] array) {
+        return array == null || array.length == 0;
     }
 
     public void deleteBeer(Long idBeer) throws BeerNotFoundException {
@@ -96,6 +97,7 @@ public class SiteService {
         if(beer == null){
             throw new BeerNotFoundException("Beer not found");
         }
+        storeService.deleteImage(beer.getImage());
         beerRepository.deleteById(idBeer);
     }
 
@@ -124,13 +126,13 @@ public class SiteService {
         if(vacancy == null){
             throw new VacancyNotFoundException("Vacancy not found");
         }else{
-            vacancy.setImage(file.getOriginalFilename());
+            String path = storeService.loadImage(file, file.getOriginalFilename());
+            vacancy.setImage(path);
             vacancyRepository.save(vacancy);
-            storeService.loadImage(file, file.getOriginalFilename());
         }
     }
 
-    public void updateVacancy(VacancyInfoDto vacancyInfoDto) throws VacancyNotFoundException {
+    public void updateVacancy(VacancyUpdateInfoDto vacancyInfoDto) throws VacancyNotFoundException {
         Vacancy vacancy = vacancyRepository.findById(vacancyInfoDto.getId()).orElse(null);
         if(vacancy == null){
             throw new VacancyNotFoundException("Vacancy not found");
@@ -149,6 +151,29 @@ public class SiteService {
         if(vacancy == null){
             throw new VacancyNotFoundException("Vacancy not found");
         }
+        storeService.deleteImage(vacancy.getImage());
         vacancyRepository.deleteById(idVacancy);
+    }
+
+    public void updateImageVacancy(Long id, MultipartFile file) throws VacancyNotFoundException, IOException {
+        Vacancy vacancy = vacancyRepository.findById(id).orElse(null);
+        if(vacancy == null){
+            throw new VacancyNotFoundException("Vacancy not found");
+        }else{
+            String path = storeService.rewriteImage(file.getBytes(), vacancy.getImage(), file.getOriginalFilename());
+            vacancy.setImage(path);
+            vacancyRepository.save(vacancy);
+        }
+    }
+
+    public void updateImageBeer(Long id, MultipartFile file) throws BeerNotFoundException, IOException {
+        Beer beer = beerRepository.findById(id).orElse(null);
+        if(beer == null){
+            throw new BeerNotFoundException("Vacancy not found");
+        }else{
+            String path = storeService.rewriteImage(file.getBytes(), beer.getImage(), file.getOriginalFilename());
+            beer.setImage(path);
+            beerRepository.save(beer);
+        }
     }
 }
