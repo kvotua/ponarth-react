@@ -8,7 +8,7 @@ import { Pagination, Navigation, EffectCoverflow } from "swiper/modules";
 import pivoImg from "../../assets/bottle1-01.svg";
 import pivoImg2 from "../../assets/bottle2-01.svg";
 import pivoImg3 from "../../assets/bottle3-01.svg";
-
+import { Swiper as SwiperType } from 'swiper/types';
 import DelayedButton from "../Buttons/DelayedButton";
 import { ThemeContext } from "../RightBar";
 
@@ -63,6 +63,8 @@ const FirstScreenSlider = () => {
         centeredSlides={true}
         slidesPerView={3}
         spaceBetween={0}
+         onSlideChange={handleSlideChange}
+     onSwiper={setSwiperInstance}
         loop={true}
         coverflowEffect={{
           rotate: 0,
