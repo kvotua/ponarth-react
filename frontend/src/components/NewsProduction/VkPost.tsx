@@ -149,7 +149,7 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
                   .map((attachment, attachmentIndex) => (
                     <div className={styles.slide} key={`${postIndex}-${attachmentIndex}`}  onClick={() => handlePostClick(post.id, post.owner_id)}>
                       <img src={getLargestPhotoUrl(attachment.photo.sizes)} className={'at' + attachmentIndex} />
-                      <p>{truncateText(post.text, 5)}</p>
+                      <p style={{marginTop:'3%'}}>{truncateText(post.text, 5)}</p>
                     </div>
                   )) || null
               ))}
