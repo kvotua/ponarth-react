@@ -14,14 +14,29 @@ import NewsProduction from "../components/NewsProduction";
 import CalendarComp from "../components/Calendar";
 import PartnerForm from "../components/Form";
 const MainPage: FC = () => {
+  
   const localTheme = window.localStorage.getItem("theme");
   const [theme, setTheme] = useState(localTheme ? localTheme : "light");
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth); // Ширина экрана
 
   useEffect(() => {
     window.localStorage.setItem("theme", theme);
-    document.body.style.backgroundColor = theme === "dark" ? "#121212" : "#fff";
-  }, [theme]);
+    const handleResize = () => {
+            setScreenWidth(window.innerWidth);
+        };
+    window.addEventListener('resize', handleResize);
+
+    if (theme === "dark") {
+      if (screenWidth <= 600) {
+          document.body.style.backgroundColor = "black"; // Черный фон при темной теме и ширине экрана <= 600 пикселей
+      } else {
+          document.body.style.backgroundColor = "#121212"; // Темный фон для темной темы
+      }
+    } else {
+        document.body.style.backgroundColor = "#fff"; // Белый фон для светлой темы
+    }
+  }, [theme, screenWidth]);
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));

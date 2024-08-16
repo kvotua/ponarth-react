@@ -24,28 +24,40 @@ public class StoreService {
 
     public String loadImage(MultipartFile file, String filename) throws DontImageException, ImageDontLoadException {
         if (!file.isEmpty()) {
-            if(file.getContentType().contains("image")) {
+            if (file.getContentType().contains("image")) {
                 try {
                     new File(filePath).mkdirs();
                     byte[] bytes = file.getBytes();
-                    String filePathName = filePath + "/" + filename;
-                    BufferedOutputStream stream =
-                            new BufferedOutputStream(new FileOutputStream(new File(filePathName)));
+
+                    String name = filename;
+                    String filePathName = filePath + "/" + name;
+                    File savedFile = new File(filePathName);
+
+                    int counter = 1;
+                    while (savedFile.exists()) {
+                        name = filename.substring(0, filename.lastIndexOf('.')) + "_" + counter +
+                                filename.substring(filename.lastIndexOf('.'));
+                        filePathName = filePath + "/" + name;
+                        savedFile = new File(filePathName);
+                        counter++;
+                    }
+
+                    BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(savedFile));
                     stream.write(bytes);
                     stream.close();
-                    return filePathName;
+
+                    return  name;
                 } catch (Exception e) {
                     throw new ImageDontLoadException(e.getMessage());
                 }
-            }
-            else {
-                throw new DontImageException("Need load image, a give " + file.getContentType());
+            } else {
+                throw new DontImageException("Необходимо загрузить изображение, получен " + file.getContentType());
             }
         } else {
             return "Вам не удалось загрузить " + filename + " потому что файл пустой.";
         }
-
     }
+
 
     public byte[] uploadImage(String filename) throws IOException, DontImageException {
         String path = ".." + filePath;
@@ -56,7 +68,8 @@ public class StoreService {
         return Files.readAllBytes(imagePath);
     }
 
-    public void rewriteImage(byte[] newImage, String oldFilePath, String newFilePath){
+    public String rewriteImage(byte[] newImage, String oldFilePath, String newFilePath){
+        String name = newFilePath;
         try {
             File oldFile = new File(filePath + "/" + oldFilePath);
             if (oldFile.exists()) {
@@ -66,13 +79,28 @@ public class StoreService {
                     System.out.println("Не удалось удалить старый файл: "  + filePath + "/" +  oldFilePath);
                 }
             }
-            FileOutputStream fileOutputStream = new FileOutputStream(filePath + "/" +newFilePath);
+
+            String filePathName = filePath + "/" + name;
+            File savedFile = new File(filePathName);
+
+            int counter = 1;
+            while (savedFile.exists()) {
+                name = newFilePath.substring(0, newFilePath.lastIndexOf('.')) + "_" + counter +
+                        newFilePath.substring(newFilePath.lastIndexOf('.'));
+                filePathName = filePath + "/" + name;
+                savedFile = new File(filePathName);
+                counter++;
+            }
+
+            FileOutputStream fileOutputStream = new FileOutputStream(savedFile);
             fileOutputStream.write(newImage);
             fileOutputStream.close();
-            System.out.println("Файл успешно перезаписан с новым расширением: " + filePath + "/" + newFilePath);
+
+            return name;
         } catch (IOException e){
             System.out.println("Произошла ошибка при перезаписи файла: " + e.getMessage());
         }
+        return name;
     }
 
     public void deleteImage(String oldFilePath){

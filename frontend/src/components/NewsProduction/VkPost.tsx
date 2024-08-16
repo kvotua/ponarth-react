@@ -1,10 +1,6 @@
-import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-
-import './VKPosts.css';
+import React, { useState, useRef, useEffect } from 'react';
+import styles from './VKPosts.module.scss';
 
 type VkPostProps = {
   groupId: string;
@@ -28,20 +24,18 @@ type Post = {
 const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [scrollStart, setScrollStart] = useState(0);
+  const sliderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
         const response = await axios.get(`https://proxy.ponarth.com/api/posts`);
-
-        console.log(response.data); // Вывод ответа API в консоль
-
-        // Проверка на наличие данных
         if (response.data && response.data.response && response.data.response.items) {
-          // Фильтрация постов, чтобы оставить только те, у которых есть одна фотография, исключая пост с id 4222 и owner_id -33086364
           const filteredPosts = response.data.response.items.filter((post: Post) =>
             !(post.id === 4222 && post.owner_id === -33086364) &&
-            post.attachments && post.attachments.filter(attachment => attachment.type === 'photo').length === 1
+            post.attachments && post.attachments.filter(attachment => attachment.type === 'photo') 
           );
           setPosts(filteredPosts);
         } else {
@@ -55,9 +49,23 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
         }
       }
     };
-
     fetchPosts();
-  }, [groupId, accessToken]);
+
+    const moveHandler = (event: MouseEvent) => handleMouseMove(event);
+    const upOrLeaveHandler = () => handleMouseUpOrLeave();
+
+    if (isDragging) {
+      window.addEventListener('mousemove', moveHandler);
+      window.addEventListener('mouseup', upOrLeaveHandler);
+      window.addEventListener('mouseleave', upOrLeaveHandler); // Обрабатываем случай, когда мышь покидает окно
+
+      return () => {
+        window.removeEventListener('mousemove', moveHandler);
+        window.removeEventListener('mouseup', upOrLeaveHandler);
+        window.removeEventListener('mouseleave', upOrLeaveHandler);
+      };
+    }
+  }, [groupId, accessToken, isDragging]);
 
   if (error) {
     return <div>{error}</div>;
@@ -88,57 +96,66 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
       console.error('Некорректный postId:', postId);
     }
   };
-const WindowWidth =()=>{
-  const width= window.innerWidth;
-  document.documentElement.style.setProperty('--screen-width', `${width}px`);
-  
-}
-WindowWidth();
-window.addEventListener('resize', WindowWidth);
-  return (
-    <Swiper
-      slidesPerView={3}
-      spaceBetween={10}
-      pagination={{
-        clickable: true,
-      }}
-     
-      className="mySwiper"
-      breakpoints={{
-        0: {
-          slidesPerView: 1,
-          spaceBetween: 10,
-        },
-        640: {
-          slidesPerView: 1,
-          spaceBetween: 10,
-        },
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 20,
-        },
-        1024: {
-          slidesPerView: 3.2,
-          spaceBetween: 20,
-        },
-      }}
-    >
-      {posts.map(post => (
-        <SwiperSlide key={post.id}>
-          <div className="vk-post" onClick={() => handlePostClick(post.id, post.owner_id)}>
-            {post.attachments && post.attachments.map((attachment, index) => (
-              <div key={index}>
-                {attachment.type === 'photo' && attachment.photo && (
-                  <img src={getLargestPhotoUrl(attachment.photo.sizes)} alt="Post attachment" className="vk-post-image" />
-                )}
-              </div>
-            ))}
-            <p className="vk-post-text">{truncateText(post.text, 13)}</p>
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+
+  const WindowWidth =()=>{
+    const width= window.innerWidth;
+    document.documentElement.style.setProperty('--screen-width', `${width}px`);
+  }
+  WindowWidth();
+
+  window.addEventListener('resize', WindowWidth);
+
+  const handleMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
+    setIsDragging(true);
+    setScrollStart(event.clientX);
+    event.preventDefault();
+  };
+
+  const handleMouseMove = (event: MouseEvent) => {
+    if (!isDragging || !sliderRef.current) return;
+    const scrollAmount = scrollStart - event.clientX;
+    sliderRef.current.scrollLeft += scrollAmount;
+    setScrollStart(event.clientX);
+  };
+
+  const handleMouseUpOrLeave = () => {
+    setIsDragging(false);
+  };
+
+  const postsWithPhotos = posts.filter(post => 
+    post.attachments?.some(attachment => 
+      attachment.type === "photo" && 
+      attachment.photo?.sizes !== undefined && 
+      attachment.photo.sizes.length > 0
+    )
   );
+
+    return (
+      <div className={styles.photos_block}>
+        <div className={styles.slides}
+               onMouseDown={handleMouseDown}
+              onMouseLeave={handleMouseUpOrLeave}
+              ref={sliderRef}
+              style={{ cursor: isDragging ? 'grabbing' : 'grab'}} 
+              >
+              {postsWithPhotos.map((post, postIndex) => (
+                post.attachments
+                  ?.filter(attachment => 
+                    attachment.type === 'photo' && 
+                    attachment.photo && 
+                    attachment.photo.sizes && 
+                    attachment.photo.sizes.length > 0
+                  )
+                  .map((attachment, attachmentIndex) => (
+                    <div className={styles.slide} key={`${postIndex}-${attachmentIndex}`}  onClick={() => handlePostClick(post.id, post.owner_id)}>
+                      <img src={getLargestPhotoUrl(attachment.photo.sizes)} className={'at' + attachmentIndex} />
+                      <p style={{marginTop:'3%'}}>{truncateText(post.text, 5)}</p>
+                    </div>
+                  )) || null
+              ))}
+        </div>
+      </div>
+    );
 };
 
 export default VkPost;

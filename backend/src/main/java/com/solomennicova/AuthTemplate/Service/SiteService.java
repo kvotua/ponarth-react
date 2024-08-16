@@ -65,9 +65,9 @@ public class SiteService {
         if(beer == null){
             throw new BeerNotFoundException("Beer not found");
         }else{
-            beer.setImage(file.getOriginalFilename());
+            String path = storeService.loadImage(file, file.getOriginalFilename());
+            beer.setImage(path);
             beerRepository.save(beer);
-            storeService.loadImage(file, file.getOriginalFilename());
         }
     }
 
@@ -80,10 +80,10 @@ public class SiteService {
             beer.setName(beerInfoDto.getName());
         }
         if(beerInfoDto.getDescription() != null && !beerInfoDto.getDescription().isEmpty()){
-            beer.setName(beerInfoDto.getDescription());
+            beer.setDescription(beerInfoDto.getDescription());
         }
         if(beerInfoDto.getColor() != null && !beerInfoDto.getColor().isEmpty()){
-            beer.setName(beerInfoDto.getColor());
+            beer.setColor(beerInfoDto.getColor());
         }
         beerRepository.save(beer);
     }
@@ -126,9 +126,9 @@ public class SiteService {
         if(vacancy == null){
             throw new VacancyNotFoundException("Vacancy not found");
         }else{
-            vacancy.setImage(file.getOriginalFilename());
+            String path = storeService.loadImage(file, file.getOriginalFilename());
+            vacancy.setImage(path);
             vacancyRepository.save(vacancy);
-            storeService.loadImage(file, file.getOriginalFilename());
         }
     }
 
@@ -160,8 +160,8 @@ public class SiteService {
         if(vacancy == null){
             throw new VacancyNotFoundException("Vacancy not found");
         }else{
-            storeService.rewriteImage(file.getBytes(), vacancy.getImage(), file.getOriginalFilename());
-            vacancy.setImage(file.getOriginalFilename());
+            String path = storeService.rewriteImage(file.getBytes(), vacancy.getImage(), file.getOriginalFilename());
+            vacancy.setImage(path);
             vacancyRepository.save(vacancy);
         }
     }
@@ -171,8 +171,8 @@ public class SiteService {
         if(beer == null){
             throw new BeerNotFoundException("Vacancy not found");
         }else{
-            storeService.rewriteImage(file.getBytes(), beer.getImage(), file.getOriginalFilename());
-            beer.setImage(file.getOriginalFilename());
+            String path = storeService.rewriteImage(file.getBytes(), beer.getImage(), file.getOriginalFilename());
+            beer.setImage(path);
             beerRepository.save(beer);
         }
     }

@@ -13,6 +13,13 @@
   color: #fff;
 }
 
+.swiper_slide img {
+  width: 102%;
+  height: 102%;
+  object-fit: cover;
+  /* border-radius: 5px; */
+}
+
 .swiper_slide:nth-child(1n) {
   background-color: rgb(206, 17, 17);
 }

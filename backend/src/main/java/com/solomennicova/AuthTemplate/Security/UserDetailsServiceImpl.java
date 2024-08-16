@@ -15,7 +15,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -94,13 +96,15 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             user.setUsername(userUpdateDto.getUsername());
         }
         if(userUpdateDto.getRoles() != null && !userUpdateDto.getRoles().isEmpty()) {
+            Set<Role> roles = new HashSet<>();
             for (String role : userUpdateDto.getRoles()) {
                 Role newRole = roleRepository.findByName(role);
                 if (newRole == null) {
                     throw new RoleNotFoundException("Role not found");
                 }
-                user.addRole(newRole);
+                roles.add(newRole);
             }
+            user.setRoles(roles);
         }
         userRepository.save(user);
     }
