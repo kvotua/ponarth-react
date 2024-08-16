@@ -1,11 +1,10 @@
 import styles from "./Form.module.css";
-import video from "../../assets/final.mp4";
 import { useEffect, useState, useRef, FormEvent } from "react";
 import axios from "axios";
 import DelayedButton from "../Buttons/DelayedButton";
 import Lottie from 'react-lottie-player';
 import InputMask from "react-input-mask";
-import animationData from "../../assets/final.mp4.lottie (3).json"
+import animationData from "../../assets/final.mp4.lottie (5).json"
 
 const PartnerForm = () => {
   const [isVisible, setIsVisible] = useState(false);
