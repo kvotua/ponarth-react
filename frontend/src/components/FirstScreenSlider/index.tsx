@@ -11,8 +11,6 @@ import pivoImg3 from '../../assets/bottle3-01.svg';
 import DelayedButton from '../Buttons/DelayedButton';
 import { ThemeContext } from "../RightBar";
 import { Swiper as SwiperType } from 'swiper/types';
-import DelayedButton from "../Buttons/DelayedButton";
-import { ThemeContext } from "../RightBar";
 
 const FirstScreenSlider = () => {
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
