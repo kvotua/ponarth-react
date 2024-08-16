@@ -130,8 +130,6 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
     )
   );
 
-  console.log(postsWithPhotos);
-
     return (
       <div className={styles.photos_block}>
         <div className={styles.slides}

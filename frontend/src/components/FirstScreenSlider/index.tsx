@@ -12,15 +12,6 @@ import { Swiper as SwiperType } from 'swiper/types';
 import DelayedButton from "../Buttons/DelayedButton";
 import { ThemeContext } from "../RightBar";
 
-// interface Product {
-//   id: number;
-//   name: string;
-//   description: string;
-//   color: string;
-//   image: string;
-//   base64Image: string;
-// }
-
 const FirstScreenSlider = () => {
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -38,21 +29,6 @@ const FirstScreenSlider = () => {
   const { theme } = useContext(ThemeContext);
   const themeButton = theme === "dark" ? "white" : "mixed";
 
-  // useEffect(() => {
-  //   const fetchProducts = async () => {
-  //     try {
-  //       const data = await getProducts();
-  //       const productsWithDecodedImages = data.map((product) => ({
-  //         ...product,
-  //         base64Image: `data:image/jpeg;base64,${product.image}`,
-  //       }));
-  //       setProducts(productsWithDecodedImages);
-  //     } catch (error) {
-  //       console.error("Error fetching products", error);
-  //     }
-  //   };
-  //   fetchProducts();
-  // }, []);
 
   return (
     <>
@@ -130,26 +106,26 @@ const FirstScreenSlider = () => {
     content='f'
   >
     
-    <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
-    <SwiperSlide className={` ${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg2} alt="" /></SwiperSlide>
-    <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
-    <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
-    <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
-    <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
-    <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
-    <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
-    <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
-    <SwiperSlide className={` ${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg2} alt="" /></SwiperSlide>
-    <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
-    <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
-    <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
-    <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
-    <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
-    <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
-    <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
-    <SwiperSlide className={` ${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg2} alt="" /></SwiperSlide>
-    <SwiperSlide className={`${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
-    <SwiperSlide className={` ${styles.default} ${styles.swiper_slide} `} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg2} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg2} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg2} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg3} alt="" /></SwiperSlide>
+    <SwiperSlide className={`${styles.default} ${styles.swiper_slide}`} content='f'><img src={pivoImg} alt="" /></SwiperSlide>
 
  <div className="custom-pagination">   
   {[...Array(4)].map((_, index) => (
