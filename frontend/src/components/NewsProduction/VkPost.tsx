@@ -1,8 +1,5 @@
 import axios from 'axios';
 import React, { useState, useRef, useEffect } from 'react';
-import image1 from "../../assets/calendar1.jpg";
-import image2 from "../../assets/calendar2.jpg";
-import image3 from "../../assets/calendar3.jpg";
 import styles from './VKPosts.module.scss';
 
 type VkPostProps = {
@@ -35,12 +32,7 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
     const fetchPosts = async () => {
       try {
         const response = await axios.get(`https://proxy.ponarth.com/api/posts`);
-
-        console.log(response.data); // Вывод ответа API в консоль
-
-        // Проверка на наличие данных
         if (response.data && response.data.response && response.data.response.items) {
-          // Фильтрация постов, чтобы оставить только те, у которых есть одна фотография, исключая пост с id 4222 и owner_id -33086364
           const filteredPosts = response.data.response.items.filter((post: Post) =>
             !(post.id === 4222 && post.owner_id === -33086364) &&
             post.attachments && post.attachments.filter(attachment => attachment.type === 'photo') 
@@ -56,8 +48,6 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
           setError('Неизвестная ошибка');
         }
       }
-
-    
     };
     fetchPosts();
 
@@ -146,7 +136,7 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
       <div className={styles.photos_block}>
         <div className={styles.slides}
                onMouseDown={handleMouseDown}
-        onMouseLeave={handleMouseUpOrLeave}
+              onMouseLeave={handleMouseUpOrLeave}
               ref={sliderRef}
               style={{ cursor: isDragging ? 'grabbing' : 'grab'}} 
               >
