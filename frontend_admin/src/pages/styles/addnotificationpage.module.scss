@@ -20,7 +20,9 @@
   border-radius: 50px;
   border: none;
   margin: 10% 0 10% 0;
+  font-size: 19px;
   font-weight: 700;
+  box-shadow: inset 0px 15px 10px -10px rgba(0, 0, 0, 0.603);
 }
 .add_notification_block {
   max-width: 400px;
@@ -88,7 +90,11 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background: linear-gradient(
+    180deg,
+    rgb(150, 150, 150) 0%,
+    rgb(255, 255, 255) 100%
+  );
   -webkit-transition: 0.4s;
   transition: 0.4s;
   border-radius: 34px;
@@ -108,9 +114,9 @@
 
 input:checked + .slider {
   background: linear-gradient(
-    90deg,
-    rgba(234, 250, 247, 1) 0%,
-    rgba(8, 226, 167, 1) 100%
+    180deg,
+    rgba(8, 226, 167, 1) 0%,
+    rgba(234, 250, 247, 1) 100%
   );
 }
 

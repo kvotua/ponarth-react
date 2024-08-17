@@ -58,13 +58,15 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  gap: 25px;
 }
 .properties_container {
-  width: 50%;
+  width: 40%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 15px;
 }
 
 .img_container {
@@ -85,6 +87,7 @@
   border-radius: 50%;
   width: 69px;
   height: 69px;
+  box-shadow: inset 0px 15px 10px -10px rgba(0, 0, 0, 0.603);
 }
 
 .additional_information {
@@ -93,31 +96,37 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
-}
-
-.money_text {
-  text-align: center;
-  width: 60%;
+  gap: 15px;
 }
 
 .money_container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
+  justify-content: space-between;
+
+  input {
+    width: 40%;
+  }
 }
+.money_text {
+  text-align: center;
+  width: 168px;
+}
+
 .save_btn {
   width: 158px;
   height: 69px;
   border-radius: 50px;
   border: none;
   margin: 10% 0;
-  font-weight: 700;
   background-color: white;
   color: black;
   cursor: pointer;
-  -webkit-appearance: none; /* Remove default styling */
+  font-size: 19px;
+  font-weight: 700;
+  box-shadow: inset 0px 15px 10px -10px rgba(0, 0, 0, 0.603);
+
   -webkit-text-fill-color: initial; /* Reset text fill color */
 }
 
