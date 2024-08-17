@@ -1,4 +1,4 @@
-import { FC, useState, Suspense, lazy, useEffect } from "react";
+import { FC, useState, Suspense, lazy } from "react";
 import { RouteType } from "../types/router.types";
 import { Routes, Route, Navigate } from "react-router-dom";
 import AgePage from "./AgePage";
@@ -12,29 +12,6 @@ const SharePage = lazy(() => import('./SharePage'));
 
 const Router: FC = () => {
   const [ageConfirmed, setAgeConfirmed] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [minimumLoadingTime] = useState<number>(20000);
-
-  useEffect(() => {
-      const startTime = Date.now();
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, minimumLoadingTime);
-
-    const fetchData = async () => {
-      await new Promise(resolve => setTimeout(resolve, 1500)); // Имитация загрузки данных
-    };
-    fetchData().then(() => {
-      const totalLoadingTime = Date.now() - startTime; // Общее время загрузки
-      if (totalLoadingTime < minimumLoadingTime) {
-        setTimeout(() => setLoading(false), minimumLoadingTime - totalLoadingTime);
-      } else {
-        setLoading(false); // Завершаем загрузку, если реальное время загрузки больше минимального
-      }
-    });
-
-    return () => clearTimeout(timer); 
-  }, [minimumLoadingTime]);
 
   const routeConfig: RouteType[] = [
     { title: "MainPage", path: "/home", element: ageConfirmed ? <MainPage/ > : <Navigate to="/age" />},

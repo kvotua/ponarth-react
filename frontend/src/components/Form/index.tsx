@@ -4,7 +4,7 @@ import axios from "axios";
 import DelayedButton from "../Buttons/DelayedButton";
 import Lottie from 'react-lottie-player';
 import InputMask from "react-input-mask";
-import animationData from "../../assets/finalFuul.json"
+import animationData from "../../assets/final5.json"
 
 const PartnerForm = () => {
   const [isVisible, setIsVisible] = useState(false);
