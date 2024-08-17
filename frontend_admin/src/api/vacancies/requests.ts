@@ -16,8 +16,7 @@ export interface Vacancy {
   name: string
   description: string
   image: string
-  base64Image?: string
-  fileName?: string // Add this line
+  fileName?: string
 }
 
 export const addVacancy = async (data: VacancyData): Promise<number> => {
@@ -118,6 +117,32 @@ export const updateVacancy = async (data: Vacancy): Promise<void> => {
     })
   } catch (error) {
     console.error('Error updating vacancy:', error)
+    throw error
+  }
+}
+
+export const updateVacancyImage = async (
+  vacancyId: number,
+  image: File
+): Promise<ImageResponse> => {
+  try {
+    const token = localStorage.getItem('token')
+    const formData = new FormData()
+    formData.append('file', image)
+
+    const response = await api.put<ImageResponse>(
+      `/admin/vacancy/image/update/${vacancyId}`,
+      formData,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+    return response.data
+  } catch (error) {
+    console.error('Error updating image:', error)
     throw error
   }
 }

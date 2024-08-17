@@ -1,37 +1,46 @@
-import { FC, useState } from "react";
+import { FC, useState, Suspense, lazy } from "react";
 import { RouteType } from "../types/router.types";
 import { Routes, Route, Navigate } from "react-router-dom";
-import MainPage from "./MainPage";
-import HistoryPage from "./HistoryPage";
 import AgePage from "./AgePage";
-import SharePage from "./SharePage";
-const routeConfig: RouteType[] = [
-  { title: "MainPage", path: "/home", element: <MainPage /> },
-  { title: "HistoryPage", path: "/history", element: <HistoryPage /> },
-  {title: "SharePage", path: "/share", element: <SharePage />}
-];
+import Loader from "../components/Loader";
+
+const MainPage = lazy(() => import('./MainPage')); // Динамическая загрузка компонента Home
+const HistoryPage = lazy(() => import('./HistoryPage')); // Другие страницы
+const SharePage = lazy(() => import('./SharePage'));
+
+
 
 const Router: FC = () => {
   const [ageConfirmed, setAgeConfirmed] = useState<boolean>(false);
 
+  const routeConfig: RouteType[] = [
+    { title: "MainPage", path: "/home", element: ageConfirmed ? <MainPage/ > : <Navigate to="/age" />},
+    { title: "HistoryPage", path: "/history", element: ageConfirmed ? <HistoryPage />  : <Navigate to="/age" />},
+    {title: "SharePage", path: "/share", element: ageConfirmed ? <SharePage />  : <Navigate to="/age" />}
+  ];
+
   return (
+    <Suspense fallback={<Loader />}>
     <Routes>
       <Route
         path="/"
         element={<Navigate to={ageConfirmed ? "/home" : "/age"} />}
       />
+      
       {routeConfig.map((route) => (
         <Route
           key={route.path}
           path={route.path}
-          element={ageConfirmed ? route.element : <Navigate to="/age" />}
+          element={route.element}
         />
       ))}
+      
       <Route
         path="/age"
         element={<AgePage setAgeConfirmed={setAgeConfirmed} />}
       />
     </Routes>
+    </Suspense>
   );
 };
 

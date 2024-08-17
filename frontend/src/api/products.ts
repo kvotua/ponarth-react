@@ -22,7 +22,7 @@ export const getProducts = async (): Promise<Products[]> => {
     );
     return response.data;
   } catch (error) {
-    console.error("Error fetching vacancies", error);
+    console.error("Error fetching products", error);
     throw error;
   }
 };

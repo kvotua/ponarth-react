@@ -1,9 +1,15 @@
 import { FC, useState, ChangeEvent, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
+import { SketchPicker, ColorResult } from 'react-color'
 import back from '../assets/Icon.svg'
 import add_icon from '../assets/Pluse.svg'
 import styles from './styles/addproductpage.module.scss'
-import { addProduct, uploadProductImage } from '../api/products/requests'
+import {
+  addProduct,
+  updateProduct,
+  updateProductImage,
+  uploadProductImage,
+} from '../api/products/requests'
 
 interface AddProduct {
   og: string
@@ -79,6 +85,15 @@ const AddProductPage: FC = () => {
     }))
   }
 
+  const handleColorChange = (color: ColorResult) => {
+    const rgbaColor = `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`
+    setProduct((prevProduct) => ({
+      ...prevProduct,
+      color: rgbaColor,
+    }))
+    console.log(rgbaColor)
+  }
+
   const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0]
@@ -95,20 +110,32 @@ const AddProductPage: FC = () => {
       ABV: ${product.abv};
       RUB: ${product.rub};
       ${product.description}`
-      const productId = await addProduct({
-        id: productToEdit ? productToEdit.id : Date.now(), // Use existing ID if editing
+
+      const productData = {
+        id: productToEdit ? productToEdit.id : Date.now(),
         name: product.name,
         description: concatenatedDescription,
         color: product.color,
-      })
-      if (image) {
-        await uploadProductImage(productId, image)
+        image: imagePreview || '',
       }
-      alert('Продукт добавлен!')
+
+      if (productToEdit) {
+        await updateProduct(productData)
+        if (image) {
+          await updateProductImage(productToEdit.id, image)
+        }
+        alert('Продукт обновлен!')
+      } else {
+        const productId = await addProduct(productData)
+        if (image) {
+          await uploadProductImage(productId, image)
+        }
+        alert('Продукт добавлен!')
+      }
       window.location.href = '/products'
     } catch (error) {
-      console.error('Error adding product:', error)
-      alert('Ошибка добавления продукта!')
+      console.error('Error saving product:', error)
+      alert('Ошибка сохранения продукта!')
     } finally {
       setIsSubmitting(false)
     }
@@ -142,7 +169,7 @@ const AddProductPage: FC = () => {
               </div>
               <input
                 type="file"
-                accept="image/*, .svg" // Allow SVG files
+                accept="image/*, .svg"
                 name="vacanciesimg"
                 onChange={handleImageChange}
                 style={{ display: 'none' }}
@@ -198,14 +225,7 @@ const AddProductPage: FC = () => {
           onChange={handleInputChange}
           placeholder="Название продукта"
         />
-        <input
-          className={styles.input}
-          type="text"
-          name="color"
-          value={product.color}
-          onChange={handleInputChange}
-          placeholder="Цвет продукта"
-        />
+
         <input
           className={styles.big_input}
           type="text"
@@ -213,6 +233,10 @@ const AddProductPage: FC = () => {
           value={product.description}
           onChange={handleInputChange}
           placeholder="Описание продукта"
+        />
+        <SketchPicker
+          color={product.color}
+          onChangeComplete={handleColorChange}
         />
       </div>
       <button

@@ -19,6 +19,7 @@ interface Products {
   description: string
   color: string
   image: string
+  fileName?: string
 }
 
 export const addProduct = async (data: ProductData): Promise<number> => {
@@ -104,6 +105,47 @@ export const deleteProduct = async (id: number): Promise<void> => {
     })
   } catch (error) {
     console.error('Error deleting product', error)
+    throw error
+  }
+}
+
+export const updateProduct = async (data: Products): Promise<void> => {
+  try {
+    const token = localStorage.getItem('token')
+    await api.put('/admin/beer/update', data, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    })
+  } catch (error) {
+    console.error('Error updating product:', error)
+    throw error
+  }
+}
+
+export const updateProductImage = async (
+  productId: number,
+  image: File
+): Promise<ImageResponse> => {
+  try {
+    const token = localStorage.getItem('token')
+    const formData = new FormData()
+    formData.append('file', image)
+
+    const response = await api.put<ImageResponse>(
+      `/admin/beer/image/update/${productId}`,
+      formData,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+    return response.data
+  } catch (error) {
+    console.error('Error updating image:', error)
     throw error
   }
 }

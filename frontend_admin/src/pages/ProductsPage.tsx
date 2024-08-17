@@ -12,8 +12,24 @@ interface Product {
   title: string
   description: string
   image: string
-  base64Image: string
-  color: string // Add the color property
+  base64Image?: string
+  fileName: string
+  color: string
+}
+
+const getImageSrc = (image: string, fileName: string) => {
+  const extension = fileName.split('.').pop()?.toLowerCase()
+  switch (extension) {
+    case 'svg':
+      return `data:image/svg+xml;base64,${image}`
+    case 'png':
+      return `data:image/png;base64,${image}`
+    case 'jpeg':
+    case 'jpg':
+      return `data:image/jpeg;base64,${image}`
+    default:
+      return ''
+  }
 }
 
 const ProductPage: FC = () => {
@@ -29,10 +45,13 @@ const ProductPage: FC = () => {
           title: product.name,
           description: product.description,
           image: product.image,
-          base64Image: `data:image/jpeg;base64,${product.image}`,
-          color: product.color, // Include the color property
+          fileName: product.fileName,
+          base64Image: product.fileName
+            ? getImageSrc(product.image, product.fileName)
+            : '',
+          color: product.color,
         }))
-        setProducts(productsWithDecodedImages)
+        setProducts(productsWithDecodedImages as Product[])
       } catch (error) {
         console.error('Error fetching products', error)
       }
@@ -74,28 +93,28 @@ const ProductPage: FC = () => {
         {filteredProduct.map((product) => (
           <div key={product.id} className={styles.point}>
             <div className={styles.image_block}>
-              <img src={product.base64Image} alt="image" />{' '}
+              <img src={product.base64Image} alt={product.title} />
             </div>
 
             <div className={styles.description_block}>
               <h2>{product.title}</h2>
               <p>{product.description}</p>
-              <p>Цвет: {product.color}</p> {/* Display the color property */}
+              <p>Цвет: {product.color}</p>
             </div>
 
-            <div
+            <button
               className={styles.settings_btn}
               onClick={() => handleSettingsClick(product)}
             >
               <img src={settings} alt="" />
-            </div>
+            </button>
 
-            <div
+            <button
               className={styles.delete_btn}
               onClick={() => handleDeleteClick(product.id)}
             >
               <img src={delete_btn} alt="" />
-            </div>
+            </button>
           </div>
         ))}
       </div>

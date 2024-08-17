@@ -26,7 +26,7 @@ const AddTelegramNotificationPage = () => {
 
   useEffect(() => {
     if (roles) {
-      setFormOfExcursion(roles.includes('Форма экскурсий'))
+      setFormOfExcursion(roles.includes('Форма экскурсии'))
       setFormVacancy(roles.includes('Форма вакансии'))
       setFormPartner(roles.includes('Форма партнеров'))
       setFormShareholder(roles.includes('Форма акционеров'))

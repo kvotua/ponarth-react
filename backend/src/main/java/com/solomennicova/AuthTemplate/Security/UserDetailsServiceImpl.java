@@ -95,6 +95,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if(userUpdateDto.getUsername() != null && !userUpdateDto.getUsername().isEmpty()) {
             user.setUsername(userUpdateDto.getUsername());
         }
+        if(userUpdateDto.getNameAndLastname() != null && !userUpdateDto.getNameAndLastname().isEmpty()) {
+            user.setNameAndLastname(userUpdateDto.getNameAndLastname());
+        }
         if(userUpdateDto.getRoles() != null && !userUpdateDto.getRoles().isEmpty()) {
             Set<Role> roles = new HashSet<>();
             for (String role : userUpdateDto.getRoles()) {

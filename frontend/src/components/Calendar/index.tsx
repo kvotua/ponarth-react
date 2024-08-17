@@ -30,7 +30,7 @@ const CalendarComp: React.FC = () => {
       const day = date.getDay();
       const today = new Date();
       today.setHours(0, 0, 0, 0);
-      return (day !== 2 && day !== 3 && day !== 4) || date < today;
+      return (day !== 3 && day !== 5 && day !== 6) || date < today;
     }
     return false;
   };
@@ -135,7 +135,7 @@ const CalendarComp: React.FC = () => {
         </p>
       </div>
       <p className={styles.mark}>
-        Каждый вторник, среду и четверг <br />
+        Каждую среду, пятницу и субботу <br />
         12.00 15.00. 19.00
       </p>
       <div className={styles.content}>

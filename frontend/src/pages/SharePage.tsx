@@ -14,6 +14,8 @@ const SharePage = () => {
     htmlElement.style.scrollBehavior = "auto";
     window.scrollTo(0, 0);
     htmlElement.style.scrollBehavior = originalScrollBehavior;
+
+    document.body.style.backgroundColor = theme === "dark" ? "#000" : "#fff";
   }, []);
 
   const localTheme = window.localStorage.getItem("theme");

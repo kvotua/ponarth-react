@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import styles from "./history.module.css";
 import DelayenButton from "../Buttons/DelayedButton";
 function History() {

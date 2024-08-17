@@ -12,7 +12,7 @@
   border: 2px solid grey;
   font-size: 20px;
   border-radius: 4px;
-  background: url("../../assets/3844432-magnifier-search-zoom_110300.svg")
+  background: url('../../assets/3844432-magnifier-search-zoom_110300.svg')
     no-repeat 10px center;
   background-size: 30px;
   padding-left: 50px;
@@ -38,7 +38,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0px 15px 10px -10px rgba(0, 0, 0, 0.603);
   border: none;
   cursor: pointer;
 }
@@ -52,7 +52,7 @@
   width: 90%;
   margin-top: 46px;
   overflow: hidden;
-  
+
   .point {
     min-height: 70px;
     height: auto;
@@ -61,7 +61,7 @@
     justify-content: space-between;
     margin-top: 20px;
 
-    .description_block{
+    .description_block {
       display: flex;
       flex-wrap: wrap;
       flex-direction: column;
@@ -76,7 +76,7 @@
       margin-left: 10px;
     }
 
-    p{
+    p {
       font-size: 12px;
       font-weight: 500;
       line-height: 22px;
@@ -97,36 +97,37 @@
       object-fit: cover;
       border-radius: 12px;
     }
-
     .settings_btn {
       background-color: rgb(255, 255, 255);
+      border-color: white;
       width: 31px;
       height: 31px;
       border-radius: 50%;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       display: flex;
-      align-self: flex-start;
       align-items: center;
       justify-content: center;
-      margin-top: 14px;
       margin-bottom: 20px;
       margin-left: auto;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      border: none;
+      cursor: pointer;
     }
 
     .delete_btn {
       background-color: rgb(255, 255, 255);
+      border-color: white;
       width: 23px;
       height: 23px;
       border-radius: 50%;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       display: flex;
-      align-self: flex-start;
       align-items: center;
       justify-content: center;
-      margin-top: 34px;
+      margin-top: 20px;
       margin-right: 5px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      border: none;
+      cursor: pointer;
     }
-    
   }
 
   .point:last-child {
