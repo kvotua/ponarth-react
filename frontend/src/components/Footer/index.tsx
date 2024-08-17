@@ -78,8 +78,8 @@ const Footer: FC = () => {
           <a className={styles.footerButton} href="#partner">
             Партнерам
           </a>
-          <a className={styles.footerButton} href="">
-            Хочу в команду
+          <a className={styles.footerButton} href="#vacancy">
+            Вакансии
           </a>
           <a className={styles.footerButton} href="#excursion">
             Экскурсии
