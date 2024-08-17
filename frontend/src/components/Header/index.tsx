@@ -47,6 +47,9 @@ const Header: React.FC<HeaderProps> = ({ isBurgerOpen }) => {
             <a className={styles.headerButton} href="#vacancy">
               Вакансии
             </a>
+            <a className={styles.headerButton} href="#share">
+              Акции
+            </a>
             <a className={styles.headerButton} href="#news">
               Новости
             </a>

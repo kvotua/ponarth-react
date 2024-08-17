@@ -37,11 +37,12 @@
 
 .buy_action {
   display: flex;
-  width: 250px;
+  width:100%;
+  height: 100%;
   border-radius: 5px;
   margin: 0 auto;
-  padding-top: 60%;
-  padding-bottom: 5%;
+  // padding-top: 60%;
+  // padding-bottom: 5%;
 }
 
 .learn_more {

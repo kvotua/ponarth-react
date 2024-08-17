@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from './BeforeAfter.module.scss';
-import ponarthNazi from '../../assets/PonarthNazi.png';
-import ponarthNaziMonochrome from '../../assets/PonarthNaziMonochrome.png';
+import ponarthMarkBefore from '../../assets/markBefore.jpg';
+import ponarthMarkAfter from '../../assets/image142.jpeg';
 
 function BeforeAfter() {
     const [sliderPosition, setSliderPosition] = useState(50);
@@ -40,10 +40,10 @@ function BeforeAfter() {
                 onMouseDown={handleInteractionStart}
                 onTouchStart={handleInteractionStart}
             >
-                <img className={`${styles.firstimg} ${styles.beforeAfterImg} `} src={ponarthNaziMonochrome} />
+                <img className={`${styles.firstimg} ${styles.beforeAfterImg} `} src={ponarthMarkAfter} />
 
                 <div className={styles.secondimgwrapper} style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}>
-                    <img className={`${styles.secondimg} ${styles.beforeAfterImg} `} src={ponarthNazi} />
+                    <img className={`${styles.secondimg} ${styles.beforeAfterImg} `} src={ponarthMarkBefore} />
                 </div>
                 <div className={styles.movableshit} style={{ left: `calc(${sliderPosition}% - 1px)` }}>
                     <div className={styles.pointer} />

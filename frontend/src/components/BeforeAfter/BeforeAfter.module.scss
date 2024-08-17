@@ -4,7 +4,7 @@
 }
 
 .firstimg {
-    height: 925px;
+    height: 100%;
 }
 
 .papawrapper {
@@ -16,7 +16,7 @@
     position: relative;
     width: 100%;
     max-width: 1440px;
-    height: 925px;
+    height: 100%;
     aspect-ratio: 14.2 / 7.5;
     margin: auto;
     overflow: hidden;
@@ -29,6 +29,7 @@
     left: 0;
     right: 0;
     width: 100%;
+    height: 100%;
     max-width: 1440px;
     margin: auto;
     overflow: hidden;
