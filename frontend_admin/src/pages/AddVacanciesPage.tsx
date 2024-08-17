@@ -6,6 +6,7 @@ import {
   addVacancy,
   uploadVacancyImage,
   updateVacancy,
+  updateVacancyImage,
 } from '../api/vacancies/requests'
 import button_icon from '../assets/Pluse.svg'
 
@@ -68,6 +69,11 @@ const AddVacanciesPage: FC = () => {
           image: base64Image,
           fileName: image ? image.name : '',
         })
+
+        if (image) {
+          await updateVacancyImage(vacancy.id, image) // Обновляем изображение
+        }
+
         alert('Вакансия обновлена!')
       } else {
         const vacancyId = await addVacancy({

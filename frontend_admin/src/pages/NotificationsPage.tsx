@@ -8,8 +8,9 @@ import { useNavigate } from 'react-router-dom'
 
 const roleSynonyms: Record<string, string> = {
   formVacancy: 'Форма вакансии',
-  formOfExcursion: 'Форма экскурсий',
+  formOfExcursions: 'Форма экскурсии',
   formPartner: 'Форма партнеров',
+  formShareholder: 'Форма акционеров',
 }
 
 const NotificationPage = () => {
