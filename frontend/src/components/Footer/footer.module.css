@@ -141,6 +141,15 @@ footer {
   .practice {
     height: 140px;
     overflow: hidden;
-    margin-top: -45px;
+    /* margin-top: -45px; */
+  }
+
+  .safari_footer{
+    margin-top: -20px;
+    height: 103px;
+  }
+
+  .safari_footer_2{
+    margin-bottom: 10px;
   }
 }
