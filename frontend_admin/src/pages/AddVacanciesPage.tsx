@@ -18,10 +18,12 @@ interface AddVacancy {
 const AddVacanciesPage: FC = () => {
   const location = useLocation()
   const navigate = useNavigate()
+
   const [vacancy, setVacancy] = useState<AddVacancy>({
     vacanciesname: '',
     vacanciesdescription: '',
   })
+  
   const [image, setImage] = useState<File | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [imagePreview, setImagePreview] = useState<string | null>(null)

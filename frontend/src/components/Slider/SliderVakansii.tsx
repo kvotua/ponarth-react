@@ -93,7 +93,7 @@ const SliderVakansii: React.FC = () => {
         </Swiper>
       </div>
       <div className={stylesV.text_container}>
-        <h1>{vacancies[currentIndex]?.name}</h1>
+        <h1 className={stylesV.texth}>{vacancies[currentIndex]?.name}</h1>
         <p>{vacancies[currentIndex]?.description}</p>
         <form
           id="stat_partner"
