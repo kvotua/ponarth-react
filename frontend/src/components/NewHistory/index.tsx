@@ -9,7 +9,7 @@ function NewHistory() {
   const themeButton = theme === "dark" ? "white" : "mixed";
   return (
     <div className={styles.setDirection}>
-      <div className={styles.texter}>
+      <div id="share" className={styles.texter}>
         <h2 className={styles.text}>
           СТАНЬ ЧАСТЬЮ <br />
           НОВОЙ ИСТОРИИ

@@ -42,6 +42,9 @@ const Footer: FC = () => {
           <a className={styles.footerButton} href="#sorta">
             Продукт
           </a>
+          <a className={styles.footerButton} href="#share">
+            Акции
+          </a>
           <a className={styles.footerButton} href="#maps">
             На картах
           </a>

@@ -306,7 +306,7 @@
 .header_menu {
   transform: translateY(-10%);
   display: grid;
-  gap: 15%;
+  gap: 10%;
   height: auto;
   width: 60%;
   color: rgb(0, 0, 0);
@@ -359,7 +359,7 @@
   justify-content: space-between;
   grid-template-columns: 33% 33% 33%;
   align-items: center;
-  padding-top: 50px;
+  padding-top: 30px;
 }
 
 .social_circle1:hover {
