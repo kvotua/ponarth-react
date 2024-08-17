@@ -1,5 +1,10 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from 'react-router-dom'
 import Layout from './components/Layout'
 import ProductPage from './pages/ProductsPage'
 import VacanciesPage from './pages/VacanciesPage'
@@ -23,6 +28,7 @@ const App: React.FC = () => {
             <Route path="vacancies" element={<VacanciesPage />} />
             <Route path="points" element={<PointsPage />} />
             <Route path="notifications" element={<NotificationPage />} />
+            <Route path="" element={<Navigate to="/products" />} />
           </Route>
 
           {/* Child routes */}

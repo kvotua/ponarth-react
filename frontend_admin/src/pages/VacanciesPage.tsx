@@ -11,7 +11,23 @@ export interface Vacancy {
   name: string
   description: string
   image: string
+  fileName: string
   base64Image?: string
+}
+
+const getImageSrc = (image: string, fileName: string) => {
+  const extension = fileName.split('.').pop()?.toLowerCase()
+  switch (extension) {
+    case 'svg':
+      return `data:image/svg+xml;base64,${image}`
+    case 'png':
+      return `data:image/png;base64,${image}`
+    case 'jpeg':
+    case 'jpg':
+      return `data:image/jpeg;base64,${image}`
+    default:
+      return ''
+  }
 }
 
 const VacanciesPage = () => {
@@ -24,9 +40,11 @@ const VacanciesPage = () => {
         const data = await getVacancies()
         const vacanciesWithDecodedImages = data.map((vacancy) => ({
           ...vacancy,
-          base64Image: `data:image/jpeg;base64,${vacancy.image}`, // Decode base64 image
+          base64Image: vacancy.fileName
+            ? getImageSrc(vacancy.image, vacancy.fileName)
+            : '', // Decode base64 image
         }))
-        setVacancies(vacanciesWithDecodedImages)
+        setVacancies(vacanciesWithDecodedImages as Vacancy[])
       } catch (error) {
         console.error('Error fetching vacancies:', error)
       }
@@ -61,7 +79,7 @@ const VacanciesPage = () => {
         {vacancies.map((vacancy) => (
           <div key={vacancy.id} className={styles.vacancies}>
             <div className={styles.image_block}>
-              <img src={vacancy.base64Image} alt="image" />{' '}
+              <img src={vacancy.base64Image} alt={vacancy.name} />
             </div>
 
             <div className={styles.vacanciesblock}>

@@ -37,3 +37,19 @@ export const deleteUser = async (id: number): Promise<void> => {
     throw error
   }
 }
+
+export const updateUser = async (user: User): Promise<User> => {
+  try {
+    const token = localStorage.getItem('token')
+    const response: AxiosResponse<User> = await api.put('/user/update', user, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    })
+    return response.data
+  } catch (error) {
+    console.error('Error updating user', error)
+    throw error
+  }
+}

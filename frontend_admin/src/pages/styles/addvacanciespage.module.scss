@@ -23,7 +23,9 @@
   border-radius: 50px;
   border: none;
   margin: 10% 0 10% 0;
+  font-size: 19px;
   font-weight: 700;
+  box-shadow: inset 0px 15px 10px -10px rgba(0, 0, 0, 0.603);
 }
 .input_container {
   margin: 15% 0 15% 0;
@@ -95,4 +97,6 @@
   border-radius: 50%;
   width: 69px;
   height: 69px;
+
+  box-shadow: inset 0px 15px 10px -10px rgba(0, 0, 0, 0.603);
 }
