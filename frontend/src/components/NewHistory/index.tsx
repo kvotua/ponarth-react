@@ -2,6 +2,7 @@ import { useContext } from "react";
 import styles from "./NewHistory.module.scss";
 import { ThemeContext } from "../RightBar";
 import DelayedButton from "../Buttons/DelayedButton";
+import BeforeAfter from "../BeforeAfter";
 
 function NewHistory() {
   const { theme } = useContext(ThemeContext);
@@ -17,6 +18,7 @@ function NewHistory() {
 
       <div className={styles.mark}>
         <div className={styles.buy_action}>
+        <BeforeAfter />
         </div>
       </div>
       <DelayedButton to="/share" delay={750} className={styles.history_a} style={themeButton} dopstyle={{ marginTop: "32px", borderTop: "white"}}>
