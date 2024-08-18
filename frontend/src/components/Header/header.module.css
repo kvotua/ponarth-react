@@ -8,9 +8,9 @@
   position: sticky;
   background-color: rgba(255, 255, 255, 0.93);
   transition: background-color 1s ease;
-  -webkit-box-shadow:-0.5px 0px 4px 1px rgba(0, 0, 0, 0.16);
+  /* -webkit-box-shadow:-0.5px 0px 4px 1px rgba(0, 0, 0, 0.16);
   -moz-box-shadow:  -0.5px 0px 4px 1px rgba(0, 0, 0, 0.16);
-  box-shadow:  -0.9px 0px 4px 1px rgba(0, 0, 0, 0.16);
+  box-shadow:  -0.9px 0px 4px 1px rgba(0, 0, 0, 0.16); */
 }
 
 .toggle {
