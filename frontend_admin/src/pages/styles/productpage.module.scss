@@ -4,6 +4,7 @@
   line-height: 34px;
   max-width: 100%;
   margin: 0 5%;
+  align-self: flex-start;
 }
 
 .input {
@@ -38,7 +39,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: inset 0px 15px 10px -10px rgba(0, 0, 0, 0.603);
+  box-shadow: inset 0px 15px 10px -10px rgba(0, 0, 0, 0.603),
+    0px 15px 15px -5px rgba(0, 0, 0, 0.3);
   border: none;
   cursor: pointer;
 }
@@ -97,6 +99,13 @@
       object-fit: cover;
       border-radius: 12px;
     }
+    .color_block {
+      width: 50%;
+      height: 10px;
+      border-radius: 3px;
+      margin-left: 10px;
+    }
+
     .settings_btn {
       background-color: rgb(255, 255, 255);
       border-color: white;

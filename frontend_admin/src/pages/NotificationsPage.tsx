@@ -1,10 +1,11 @@
 import styles from './styles/notificationpage.module.scss'
 import settings from '../assets/settings.svg'
 import delete_btn from '../assets/delete.svg'
-
+import default_avatar from '../assets/Sample_User_Icon.png'
 import { useEffect, useState } from 'react'
 import { deleteUser, getUsers, User } from '../api/notifications/requests'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const roleSynonyms: Record<string, string> = {
   formVacancy: 'Форма вакансии',
@@ -28,7 +29,42 @@ const NotificationPage = () => {
             .filter((role) => role !== 'ADMIN')
             .map((role) => roleSynonyms[role] || role),
         }))
-        setUsers(usersWithSynonyms)
+
+        // Fetch Telegram chat details and file path for each user
+        const usersWithTelegramDetails = await Promise.all(
+          usersWithSynonyms.map(async (user) => {
+            try {
+              const chatResponse = await axios.get(
+                `https://api.telegram.org/bot7325305177:AAEPXOEoUqU8w_slY6osObJwbNfdWQ0sjus/getChat?chat_id=${user.id}`
+              )
+              const chatDetails = chatResponse.data.result
+
+              if (chatDetails.photo?.big_file_id) {
+                const fileResponse = await axios.get(
+                  `https://api.telegram.org/bot7325305177:AAEPXOEoUqU8w_slY6osObJwbNfdWQ0sjus/getFile?file_id=${chatDetails.photo.big_file_id}`
+                )
+                const filePath = fileResponse.data.result.file_path
+
+                return {
+                  ...user,
+                  telegramDetails: {
+                    photoUrl: `https://api.telegram.org/file/bot7325305177:AAEPXOEoUqU8w_slY6osObJwbNfdWQ0sjus/${filePath}`,
+                  },
+                }
+              }
+
+              return {
+                ...user,
+                telegramDetails: chatDetails,
+              }
+            } catch (error) {
+              console.error('Error fetching Telegram details', error)
+              return user
+            }
+          })
+        )
+
+        setUsers(usersWithTelegramDetails)
       } catch (error) {
         console.error('Error fetching users', error)
       }
@@ -62,7 +98,11 @@ const NotificationPage = () => {
         {users.map((user) => (
           <div key={user.id} className={styles.notification}>
             <div className={styles.image_block}>
-              <img alt="image" />
+              {user.telegramDetails?.photoUrl ? (
+                <img src={user.telegramDetails.photoUrl} alt="image" />
+              ) : (
+                <img src={default_avatar} alt="image" />
+              )}
             </div>
             <div className={styles.description_block}>
               <h2>{user.nameAndLastname}</h2>

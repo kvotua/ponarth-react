@@ -4,7 +4,7 @@
   line-height: 34px;
   max-width: 100%;
   margin: 0 5%;
-  text-align: center;
+  align-self: flex-start;
 }
 .notification_filter {
   display: flex;
@@ -26,8 +26,8 @@
 
     .image_block {
       align-self: flex-start;
-      min-width: 70px;
-      min-height: 70px;
+      width: 70px;
+      height: 70px;
       margin-right: 10px;
 
       img {
@@ -37,68 +37,68 @@
         border-radius: 12px;
       }
     }
+  }
 
-    .description_block {
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: column;
-      justify-content: end;
-      max-width: 60%;
+  .description_block {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: end;
+    max-width: 60%;
 
-      h2 {
-        font-size: 18px;
-        font-weight: 500;
-        line-height: 22px;
-        margin-left: 10px;
-      }
-      h3 {
-        font-size: 12px;
-        font-weight: 500;
-        line-height: 22px;
-        margin-left: 10px;
-      }
+    h2 {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 22px;
+      margin-left: 10px;
+    }
+    h3 {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 22px;
+      margin-left: 10px;
+    }
 
-      p {
-        font-size: 12px;
-        font-weight: 500;
-        line-height: 22px;
-        margin-left: 10px;
-        color: #717375;
-      }
+    p {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 22px;
+      margin-left: 10px;
+      color: #717375;
     }
-    .settings_btn {
-      background-color: rgb(255, 255, 255);
-      border-color: white;
-      min-width: 31px;
-      min-height: 31px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      margin-left: auto;
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-      border: none;
-      cursor: pointer;
-      align-self: start;
-    }
-    .delete_btn {
-      background-color: rgb(255, 255, 255);
-      border-color: white;
-      min-width: 23px;
-      min-height: 23px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 30px;
-      margin-right: 5px;
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-      border: none;
-      cursor: pointer;
-      align-self: start;
-    }
+  }
+  .settings_btn {
+    background-color: rgb(255, 255, 255);
+    border-color: white;
+    min-width: 31px;
+    min-height: 31px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border: none;
+    cursor: pointer;
+    align-self: start;
+  }
+  .delete_btn {
+    background-color: rgb(255, 255, 255);
+    border-color: white;
+    min-width: 23px;
+    min-height: 23px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    margin-right: 5px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border: none;
+    cursor: pointer;
+    align-self: start;
   }
 }
 
@@ -135,7 +135,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0px 15px 10px -10px rgba(0, 0, 0, 0.603),
+    0px 15px 15px -5px rgba(0, 0, 0, 0.3);
   border: none;
   cursor: pointer;
 

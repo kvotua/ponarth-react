@@ -6,6 +6,9 @@ export interface User {
   username: string
   nameAndLastname: string
   roles: string[]
+  telegramDetails?: {
+    photoUrl?: string
+  }
 }
 
 export const getUsers = async (): Promise<User[]> => {
