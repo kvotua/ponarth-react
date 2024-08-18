@@ -16,12 +16,15 @@ import img2 from "../../assets/Pivo3.png";
 import img3 from "../../assets/photo_2024-08-18_13-44-12.jpg";
 import img4 from "../../assets/photo_2024-08-18_13-44-13.jpg";
 import img5 from "../../assets/bottle1-01.svg";
+import img6 from "../../assets/bottle2-01.svg";
+import img7 from "../../assets/bottle3-01.svg";
 
 const FirstScreenSlider = () => {
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [products, setProducts] = useState<Products[]>([]); // State to store products
   const [currentProduct, setCurrentProduct] = useState<Products | null>(null); // State to store current product
+  const [stretch, setStretch] = useState<number>(190);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -62,6 +65,8 @@ const FirstScreenSlider = () => {
     { id: 'img3', src: img3 },
     { id: 'img4', src: img4 },
     { id: 'img5', src: img5 },
+    { id: 'img6', src: img6 },
+    { id: 'img7', src: img7 },
 ];
   const [visibleSlides, setVisibleSlides] = useState<string[]>([]); 
 
@@ -71,19 +76,66 @@ const FirstScreenSlider = () => {
     );
     setVisibleSlides(visible.map((slide) => slide.querySelector('img')?.getAttribute('data-id') || ''));
 };
+const [isSafari, setIsSafari] = useState(false);
+
+useEffect(() => {
+  if (
+    navigator.userAgent.indexOf("Safari") != -1 &&
+    navigator.userAgent.indexOf("Chrome") == -1
+  ) {
+    setIsSafari(true);
+  }
+}, []);
+const WindowWidth =()=>{
+  const width= window.innerWidth;
+  console.log("Current window width: ", width, " Curr stretch: ", stretch);
+  if(isSafari){
+    if(width > 1200 && stretch !== 190){
+      setStretch(190);
+    }else if(width <= 1200 && stretch !== 90){
+      setStretch(10);
+    }
+  }else{
+    if(width > 1200 && stretch !== 190){
+      setStretch(190);
+    }else if(width <= 1200 && stretch !== 90){
+      setStretch(90);
+    }
+  }
+
+}
+
+useEffect(() => {
+  WindowWidth(); 
+  window.addEventListener('resize', WindowWidth);
+  return () => {
+    window.removeEventListener('resize', WindowWidth);
+  };
+}, []);
+
+useEffect(() => {
+  if (swiperInstance) {
+    swiperInstance.update();
+    console.log("stretch:   " + stretch);
+    console.log(swiperInstance);
+  }
+}, [stretch, swiperInstance]);
 
   return (
     <div className={styles.first_container} content="f" id="sorta">
       <div className={styles.sliders}>
       <Swiper
+        key={stretch}
+        onSwiper={setSwiperInstance} 
         effect={'coverflow'}
+        loop={true}
         grabCursor={true}
         centeredSlides={true}
         slidesPerView={'auto'}
         spaceBetween={100}
         coverflowEffect={{
           rotate: 0,
-          stretch: 190,
+          stretch: stretch,
           depth: 100,
           modifier: 1,
           slideShadows: false,
@@ -96,20 +148,14 @@ const FirstScreenSlider = () => {
         mousewheel 
         modules={[EffectCoverflow, Pagination, Navigation]}
         className={styles.mySwiperBottle}
-        style={{ width: '100%', height: '550px', display: 'flex',alignItems: 'center' }}
         onSlideChange={handleSlideChange}
       >
       {images.map((image) => {
         const isVisible = visibleSlides.includes(image.id); 
         
         return (
-          <SwiperSlide key={image.id} style={{ 
-            backgroundPosition: 'center', 
-          backgroundSize: 'cover', 
-          width: '300px', 
-          height: '500px',
-          opacity: isVisible ? 1 : 0, }}>
-              <img src={image.src} style={{ display: 'block', height: '100%', maxWidth: '300px', objectFit: 'cover', margin: '0 auto' }} data-id={image.id} />
+          <SwiperSlide key={image.id} style={{ opacity: isVisible ? 1 : 0, }} className={styles.slide}>
+              <img src={image.src} className={styles.img_slide} data-id={image.id} />
           </SwiperSlide>
         );
       })}

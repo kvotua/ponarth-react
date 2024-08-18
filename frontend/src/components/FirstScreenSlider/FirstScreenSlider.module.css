@@ -8,13 +8,32 @@
 
 .mySwiperBottle {
   margin: 0 auto; 
+  width: 100%;
+  height: 550px;
+  display: flex;
+  align-items: center;
 }
 
 .sliders{
   display: flex;
   align-items: center;
   grid-area: 1 / 1 / 2 / 12;
+}
 
+.slide{
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 500px;
+  transition: 1s ease;
+}
+
+.img_slide{
+  display: block;
+  height: 100%;
+  max-width: 300px;
+  object-fit: cover;
+  margin: 0 auto;
 }
 
 .button_slider {
@@ -54,6 +73,23 @@
   text-align: justify;
   width: 100%;
 }
+@media screen and (max-width: 1200px)  {
+  .mySwiperBottle{
+    height: 450px;
+  }
+  .sliders{
+    display: flex;
+    align-items: center;
+    grid-area: 1 / 2 / 2 / 10;
+  }
+  .slide{
+    height: 400px;
+    width: 200px;
+  }
+  .img_slide{
+    max-width: 200px;
+  }
+}
 @media screen and (max-width: 850px) {
   .text_in {
     margin: 0 10% 0 10%;
@@ -64,8 +100,17 @@
     grid-template-columns: 1fr !important;
     grid-template-rows: repeat(3, 1fr);
     min-height: unset;
-    height: calc(var(--double-screen-height) / 2);
+    /* height: calc(var(--double-screen-height) / 2); */
     margin-bottom: unset;
+  }
+  .mySwiperBottle {
+    margin-top: 10%;
+    max-width: 300px;
+  }
+  .sliders{
+    display: flex;
+    align-items: center;
+    grid-area: 1 / 1 / 3 / 2;;
   }
   .text_slider {
     grid-area: 3 / 1 / 4 / 2;
@@ -89,8 +134,5 @@
   .first_screen_par {
     gap: unset;
 
-  }
-  .swiper_slide img {
-    height: 80%;
   }
 }

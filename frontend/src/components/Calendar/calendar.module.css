@@ -99,9 +99,9 @@
   font-size: 17px;
 }
 
-.persons_input input:focus {
+.calendar_block input:focus {
   outline: none;
-  border: none;
+  border: 2px rgb(0, 0, 0) solid;
 }
 
 .reserve_btn {
@@ -126,6 +126,54 @@
   width: 100%; /* Ensure full width for swipe detection */
   height: 100%;
 }
+
+.form_group {
+  position: relative;
+  max-width: 250px;
+  margin: 0 auto;
+}
+.form_group:nth-child(2){
+  margin-top: 20px;
+}
+
+.form_group.dark input{
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+}
+.form_group.dark input:focus{
+  border: 2px solid white;
+}
+.form_group.dark label{
+  color: white;
+}
+
+.form_group label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  /* transform: translateY(-50%); */
+  color: rgb(19, 19, 19);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  padding-left: 5%;
+  font-weight: 350;
+  font-size: 16px;
+}
+
+.form_group input:focus {
+  outline: none;
+  border: 2px black solid;
+}
+
+.form_group input::placeholder {
+  color: transparent; /* Скрыть стандартный плейсхолдер */
+}
+
+/* .form_group input:valid + label {
+  display: none;
+} */
+
 
 .slides {
   margin-left: 20px;  
@@ -222,13 +270,25 @@
 }
 
 .input_calendar.dark label {
-  color: #8d8d8d; /* Change label color to white for dark theme */
+  color: #ffffff; /* Change label color to white for dark theme */
 }
 .input_calendar.dark button {
   color: #ffffff; /* Change label color to white for dark theme */
 }
 
-.persons_input input.dark {
+.persons_input.dark input::placeholder{
+  color: #ffffff !important;
+}
+.calendar_block input.dark {
   background-color: #000000; /* Ensure input background matches dark theme */
   color: #ffffff; /* Change input text color to white for better visibility */
+}
+
+.input_name.dark label{
+  color: #ffffff;
+}
+
+.calendar_block input.dark:focus {
+  outline: none;
+  border: 2px rgb(255, 255, 255) solid;
 }
