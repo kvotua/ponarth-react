@@ -48,7 +48,9 @@ const MainPage: FC = () => {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div className={styles.box_shadow}>
+      <div className={`${styles.box_shadow} ${
+              theme === "dark" ? styles.dark : ""
+            }`}>
         <div
           className={
             styles.wrapper +
