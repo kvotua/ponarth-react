@@ -3,12 +3,19 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, EffectCoverflow } from "swiper/modules";
 import { Swiper as SwiperType } from "swiper/types";
 import styles from "./FirstScreenSlider.module.css";
-import "./swiper.css";
-import "./swiperNavigation.css";
-import "./swiperPagination.css";
 import DelayedButton from "../Buttons/DelayedButton";
 import { ThemeContext } from "../RightBar";
 import { getProducts, Products } from "../../api/products"; // Import the getProducts function
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+import img1 from "../../assets/Pivo2.png";
+import img2 from "../../assets/Pivo3.png";
+import img3 from "../../assets/photo_2024-08-18_13-44-12.jpg";
+import img4 from "../../assets/photo_2024-08-18_13-44-13.jpg";
+import img5 from "../../assets/bottle1-01.svg";
 
 const FirstScreenSlider = () => {
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
@@ -30,22 +37,6 @@ const FirstScreenSlider = () => {
     fetchProducts();
   }, []);
 
-  const handleSlideChange = (swiper: SwiperType) => {
-    setActiveIndex(swiper.realIndex);
-    setCurrentProduct(products[swiper.realIndex]); // Update current product based on active slide
-  };
-
-  useEffect(() => {
-    if (swiperInstance) {
-      const bullets = document.querySelectorAll<HTMLDivElement>(
-        ".swiper-pagination-bullet-first"
-      );
-      bullets.forEach((bullet, index) => {
-        bullet.style.transform =
-          index === activeIndex ? "scale(1.2)" : "scale(1)";
-      });
-    }
-  }, [activeIndex, swiperInstance]);
 
   const { theme } = useContext(ThemeContext);
   const themeButton = theme === "dark" ? "white" : "mixed";
@@ -65,105 +56,66 @@ const FirstScreenSlider = () => {
     }
   };
 
+  const images: { id: string; src: string }[] = [
+    { id: 'img1', src: img1 },
+    { id: 'img2', src: img2 },
+    { id: 'img3', src: img3 },
+    { id: 'img4', src: img4 },
+    { id: 'img5', src: img5 },
+];
+  const [visibleSlides, setVisibleSlides] = useState<string[]>([]); 
+
+  const handleSlideChange = (swiper: SwiperType) => {
+    const visible = swiper.slides.filter((slide: HTMLElement) => 
+        slide.classList.contains('swiper-slide-visible')
+    );
+    setVisibleSlides(visible.map((slide) => slide.querySelector('img')?.getAttribute('data-id') || ''));
+};
+
   return (
     <div className={styles.first_container} content="f" id="sorta">
+      <div className={styles.sliders}>
       <Swiper
-        effect={"coverflow"}
-        onSlideChange={handleSlideChange}
-        onSwiper={setSwiperInstance}
+        effect={'coverflow'}
         grabCursor={true}
         centeredSlides={true}
-        slidesPerView={3}
-        spaceBetween={0}
-        loop={true}
+        slidesPerView={'auto'}
+        spaceBetween={100}
         coverflowEffect={{
           rotate: 0,
-          stretch: 20,
-          depth: 250,
+          stretch: 190,
+          depth: 100,
           modifier: 1,
           slideShadows: false,
-          scale: 1,
         }}
-        breakpoints={{
-          769: {
-            slidesPerView: 3,
-            coverflowEffect: {
-              rotate: 0,
-              stretch: 0,
-              depth: 250,
-              modifier: 1,
-              slideShadows: false,
-            },
-          },
-          600: {
-            slidesPerView: 1,
-            coverflowEffect: {
-              rotate: 0,
-              stretch: 420,
-              depth: 100,
-              modifier: 1,
-              slideShadows: false,
-            },
-          },
-          500: {
-            slidesPerView: 1,
-            coverflowEffect: {
-              rotate: 0,
-              stretch: 300,
-              depth: 100,
-              modifier: 1,
-              slideShadows: false,
-            },
-          },
-          320: {
-            slidesPerView: 1,
-            coverflowEffect: {
-              rotate: 0,
-              stretch: 190,
-              depth: 100,
-              modifier: 1,
-              slideShadows: false,
-            },
-          },
-        }}
-        pagination={{
-          el: ".custom-pagination",
+        pagination={{ 
           clickable: true,
-          bulletActiveClass: "swiper-pagination-bullet-active-first",
-          bulletClass: "swiper-pagination-bullet-first",
-          modifierClass: "swiper-pagination-first",
           dynamicBullets: true,
         }}
-        navigation={true}
-        modules={[Pagination, Navigation, EffectCoverflow]}
-        className={styles.swiper}
-        content="f"
+        navigation
+        mousewheel 
+        modules={[EffectCoverflow, Pagination, Navigation]}
+        className={styles.mySwiperBottle}
+        style={{ width: '100%', height: '550px', display: 'flex',alignItems: 'center' }}
+        onSlideChange={handleSlideChange}
       >
-        {products.map((product) => (
-          <SwiperSlide
-            key={product.id}
-            className={`${styles.default} ${styles.swiper_slide}`}
-            content="f"
-          >
-            <img
-              src={getImageSrc(product.image, product.fileName)}
-              alt={product.name}
-            />
+      {images.map((image) => {
+        const isVisible = visibleSlides.includes(image.id); 
+        
+        return (
+          <SwiperSlide key={image.id} style={{ 
+            backgroundPosition: 'center', 
+          backgroundSize: 'cover', 
+          width: '300px', 
+          height: '500px',
+          opacity: isVisible ? 1 : 0, }}>
+              <img src={image.src} style={{ display: 'block', height: '100%', maxWidth: '300px', objectFit: 'cover', margin: '0 auto' }} data-id={image.id} />
           </SwiperSlide>
-        ))}
-        <div className="custom-pagination">
-          {[...Array(products.length)].map((_, index) => (
-            <div
-              key={index}
-              className={`swiper-pagination-bullet-first ${
-                activeIndex === index
-                  ? "swiper-pagination-bullet-active-first"
-                  : ""
-              }`}
-            />
-          ))}
-        </div>
+        );
+      })}
+
       </Swiper>
+      </div>
       <div className={styles.text_slider}>
         <div className={styles.text_in}>
           <h2 className={styles.gradual_appear}>
@@ -188,6 +140,7 @@ const FirstScreenSlider = () => {
         </div>
       </div>
     </div>
+    
   );
 };
 
