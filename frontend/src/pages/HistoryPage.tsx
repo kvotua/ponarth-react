@@ -4,6 +4,7 @@ import styles from "./styles/historypage.module.scss";
 import Footer from "../components/Footer";
 import classNames from 'classnames';
 import { ThemeContext } from "../components/RightBar";
+import { Link } from "react-router-dom";
 
 const HistoryPage = () => {
 
@@ -30,6 +31,11 @@ const HistoryPage = () => {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
     <div className={classes}>
+    <div className={styles.button_container}>
+  <Link to='/home' className={styles.button_back_link}>
+  <button className={styles.button_back}></button>
+  </Link>
+        </div>
       <div className={styles.pageContent}>
         <ContentHistory />
       </div>

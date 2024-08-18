@@ -12,9 +12,11 @@ const ContentHistory = () => {
   const classes = classNames(styles.texter,  curTheme);
   return (
     <>
+  
       <div className={classes}>
         <h2 className={styles.text}>
-        КАК ВАРЯТ ПИВО НА ЗАВОДЕ XIX ВЕКА
+        КАК ВАРЯТ ПИВО <br />
+        НА ЗАВОДЕ XIX ВЕКА
         </h2>
       </div>
       <div className={`${styles.videocontainer} ${styles.horizont}`}>
