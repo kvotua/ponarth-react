@@ -105,3 +105,11 @@ body.dark {
 .box_shadow.dark{
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.93);
 }
+@media screen and (max-width: 1230px){
+  .box_shadow{
+    box-shadow: unset;
+  }
+  .content{
+box-shadow: unset;
+  }
+}
