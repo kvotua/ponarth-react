@@ -340,12 +340,12 @@ background-color: #050906;
   .container2 {
     height: 1000px;
     padding: 0;
-background-color: #050906;
+    background-color: #050906;
 
   }
   .form_grid_container{
     height: 440px;
-margin-bottom: 12%;
+    margin-bottom: 12%;
   }
 }
 @media screen and (max-width: 600px) {
@@ -371,15 +371,19 @@ margin-bottom: 12%;
   .lottie > svg{
     right: -58vw;
   }
+  .bochka{
+    margin: 0 auto !important;
+    width: 95%;
+    /* font-size: 28px !important; */
+  }
   .container2 {
     height: 1000px;
     padding: 0;
-background-color: #050906;
-
+    background-color: #050906;
   }
   .form_grid_container{
     height: 440px;
-margin-bottom: 12%;
+    margin-bottom: 12%;
   }
 }
 
@@ -390,6 +394,10 @@ margin-bottom: 12%;
     width: 210%;
     clip-path: none;
   }
+  .bochka{
+    margin: 0 auto !important;
+    font-size: 28px !important;
+  }
   .lottie > svg{
     right: -58vw;
   }
@@ -399,11 +407,9 @@ margin-bottom: 12%;
   .container2 {
     height: 800px;
     padding: 0;
-background-color: #050906;
-
+    background-color: #050906;
   }
   .form_grid_container{
-    /* height: 400px; */
     margin: unset;
     margin-top: 6%;
   }
