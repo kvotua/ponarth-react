@@ -7,6 +7,10 @@
   text-decoration: none;
 }
 
+*:focus {
+  outline: none;
+}
+
 html,
 body {
   height: 100%;
