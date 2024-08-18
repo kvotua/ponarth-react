@@ -13,6 +13,7 @@ import FirstScreenSlider from '../components/FirstScreenSlider/';
 import NewsProduction from "../components/NewsProduction";
 import CalendarComp from "../components/Calendar";
 import PartnerForm from "../components/Form";
+import RightBarMobile from "../components/RightBarMobile";
 const MainPage: FC = () => {
   
   const localTheme = window.localStorage.getItem("theme");
@@ -82,6 +83,7 @@ const MainPage: FC = () => {
             <Map />
           </div>
           <RightBar />
+          <RightBarMobile />
         </div>
         <Footer />
       </div>
