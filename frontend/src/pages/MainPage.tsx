@@ -9,33 +9,33 @@ import { ThemeContext } from "../components/RightBar";
 import Looking from "../components/LookingPage/LookingPage";
 import Footer from "../components/Footer";
 import History from "../components/History/History";
-import FirstScreenSlider from '../components/FirstScreenSlider/';
+import FirstScreenSlider from "../components/FirstScreenSlider/";
 import NewsProduction from "../components/NewsProduction";
 import CalendarComp from "../components/Calendar";
 import PartnerForm from "../components/Form";
 import RightBarMobile from "../components/RightBarMobile";
+import { VacanciesProvider } from "../components/LookingPage/VacanciesContext";
 const MainPage: FC = () => {
-  
   const localTheme = window.localStorage.getItem("theme");
   const [theme, setTheme] = useState(localTheme ? localTheme : "light");
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth); // Ширина экрана
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     window.localStorage.setItem("theme", theme);
     const handleResize = () => {
-            setScreenWidth(window.innerWidth);
-        };
-    window.addEventListener('resize', handleResize);
+      setScreenWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
 
     if (theme === "dark") {
       if (screenWidth <= 600) {
-          document.body.style.backgroundColor = "black"; // Черный фон при темной теме и ширине экрана <= 600 пикселей
+        document.body.style.backgroundColor = "black";
       } else {
-          document.body.style.backgroundColor = "#121212"; // Темный фон для темной темы
+        document.body.style.backgroundColor = "#121212";
       }
     } else {
-        document.body.style.backgroundColor = "#fff"; // Белый фон для светлой темы
+      document.body.style.backgroundColor = "#fff";
     }
   }, [theme, screenWidth]);
 
@@ -48,46 +48,50 @@ const MainPage: FC = () => {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div className={`${styles.box_shadow} ${
-              theme === "dark" ? styles.dark : ""
-            }`}>
+    <VacanciesProvider>
+      <ThemeContext.Provider value={{ theme, toggleTheme }}>
         <div
-          className={
-            styles.wrapper +
-            (theme === "dark"
-              ? " " + styles.dark + " " + styles.darkWrapper
-              : "")
-          }
+          className={`${styles.box_shadow} ${
+            theme === "dark" ? styles.dark : ""
+          }`}
         >
           <div
-            className={`${styles.burger} ${
-              isBurgerOpen ? styles.burgerClosed : ""
-            }`}
-            onClick={toggleBurger}
+            className={
+              styles.wrapper +
+              (theme === "dark"
+                ? " " + styles.dark + " " + styles.darkWrapper
+                : "")
+            }
           >
-            <span></span>
-            <span></span>
-            <span></span>
+            <div
+              className={`${styles.burger} ${
+                isBurgerOpen ? styles.burgerClosed : ""
+              }`}
+              onClick={toggleBurger}
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <Header isBurgerOpen={isBurgerOpen} />
+            <div className={styles.content}>
+              <FirstScreenSlider />
+              <History />
+              <CalendarComp />
+              <Partnership />
+              <PartnerForm />
+              <Looking />
+              <NewHistory />
+              <NewsProduction />
+              <Map />
+            </div>
+            <RightBar />
+            <RightBarMobile />
           </div>
-          <Header isBurgerOpen={isBurgerOpen} />
-          <div className={styles.content}>
-            <FirstScreenSlider />
-            <History />
-            <CalendarComp />
-            <Partnership />
-            <PartnerForm />
-            <Looking />
-            <NewHistory />
-            <NewsProduction />
-            <Map />
-          </div>
-          <RightBar />
-          <RightBarMobile />
+          <Footer />
         </div>
-        <Footer />
-      </div>
-    </ThemeContext.Provider>
+      </ThemeContext.Provider>
+    </VacanciesProvider>
   );
 };
 
