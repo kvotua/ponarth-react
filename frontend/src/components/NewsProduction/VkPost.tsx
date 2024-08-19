@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './VKPosts.module.scss';
+import classNames from 'classnames';
 
 type VkPostProps = {
   groupId: string;
@@ -27,7 +28,21 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [scrollStart, setScrollStart] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
+  const [isSafari, setIsSafari] = useState(false);
 
+  useEffect(() => {
+    if (
+      navigator.userAgent.indexOf("Safari") != -1 &&
+      navigator.userAgent.indexOf("Chrome") == -1
+    ) {
+      setIsSafari(true);
+    }
+  }, []);
+
+  const classList = classNames('slide', {
+    [styles.slide_safari]: isSafari,
+    [styles.slide]: true, 
+  });
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -57,7 +72,7 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
     if (isDragging) {
       window.addEventListener('mousemove', moveHandler);
       window.addEventListener('mouseup', upOrLeaveHandler);
-      window.addEventListener('mouseleave', upOrLeaveHandler); // Обрабатываем случай, когда мышь покидает окно
+      window.addEventListener('mouseleave', upOrLeaveHandler); 
 
       return () => {
         window.removeEventListener('mousemove', moveHandler);
@@ -86,11 +101,10 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
   };
 
   const handlePostClick = (postId: number, ownerId: number) => {
-    // Проверка на существование postId
     const postExists = posts.some(post => post.id === postId);
     if (postExists) {
       const url = `https://vk.com/wall${ownerId}_${postId}`;
-      console.log('Открытие URL:', url); // Вывод URL в консоль для проверки
+      console.log('Открытие URL:', url); 
       window.open(url, '_blank');
     } else {
       console.error('Некорректный postId:', postId);
@@ -147,9 +161,9 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
                     attachment.photo.sizes.length > 0
                   )
                   .map((attachment, attachmentIndex) => (
-                    <div className={styles.slide} key={`${postIndex}-${attachmentIndex}`}  onClick={() => handlePostClick(post.id, post.owner_id)}>
+                    <div className={classList} key={`${postIndex}-${attachmentIndex}`}  onClick={() => handlePostClick(post.id, post.owner_id)}>
                       <img src={getLargestPhotoUrl(attachment.photo!.sizes)} className={'at' + attachmentIndex} />
-                      <p style={{marginTop:'3%'}}>{truncateText(post.text, 5)}</p>
+                      <p style={{marginTop:'3%'}}>{truncateText(post.text, 8)}</p>
                     </div>
                   )) || null
               ))}
