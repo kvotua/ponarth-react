@@ -46,8 +46,7 @@ const FirstScreenSlider = () => {
       setIsSafari(false);
     }
 
-    setProductsData(images);
-    setCurrentProduct(images[0]);
+
 
     WindowWidth();
     window.addEventListener("resize", WindowWidth);
@@ -168,6 +167,7 @@ const FirstScreenSlider = () => {
     );
     const activeIndex = swiper.realIndex;
     setCurrentProduct(productsData[activeIndex]);
+    setProductsData(images);
   };
 
   const WindowWidth = () => {
