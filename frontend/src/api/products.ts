@@ -8,6 +8,7 @@ export interface Products {
   color: string;
   image: string;
   fileName: string;
+  src: string;
 }
 
 export const getProducts = async (): Promise<Products[]> => {

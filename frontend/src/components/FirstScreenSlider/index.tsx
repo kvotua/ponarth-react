@@ -15,28 +15,128 @@ const FirstScreenSlider = () => {
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
   const [currentProduct, setCurrentProduct] = useState<Products | null>(null);
   const [stretch, setStretch] = useState<number>(190);
-  const [images, setImages] = useState<{ id: string; src: string }[]>([]);
+  const [images, setImages] = useState<Products[]>([]);
   const [productsData, setProductsData] = useState<Products[]>([]);
+  const [isSafari, setIsSafari] = useState(false);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const products = await getProducts();
-        setProductsData(products);
-        setCurrentProduct(products[0]);
 
-        const imagesData = products.map((product, index) => ({
-          id: `img${index + 1}`,
-          src: getImageSrc(product.image, product.fileName),
-        }));
-        setImages(imagesData);
+        const imagesData: Products[] = products;
+        const adjustedImages = adjustImagesArray(imagesData);
+        setImages(adjustedImages);
+
+        console.log("Length of images array:", adjustedImages);
+        console.log("Длина массива текста", products.length);
       } catch (error) {
         console.error("Error fetching products", error);
       }
     };
 
     fetchProducts();
+
+    if (
+      navigator.userAgent.indexOf("Safari") != -1 &&
+      navigator.userAgent.indexOf("Chrome") == -1
+    ) {
+      setIsSafari(true);
+    } else {
+      setIsSafari(false);
+    }
+
+    setProductsData(images);
+    setCurrentProduct(images[0]);
+
+    WindowWidth();
+    window.addEventListener("resize", WindowWidth);
+    return () => {
+      window.removeEventListener("resize", WindowWidth);
+    };
   }, []);
+
+  const adjustImagesArray = (images: Products[]): Products[] => {
+    const length = images.length;
+
+    if (length === 0) {
+      console.warn("Warning: Images array is empty.");
+    } else if (length === 1) {
+      const imgasf: Products[] = [
+        images[0],
+        {
+          id: images[0].id + 10,
+          src: images[0].image,
+          name: images[0].name,
+          description: images[0].description,
+          image: images[0].image,
+          color: "",
+          fileName: images[0].fileName,
+        },
+        {
+          id: images[0].id + 20,
+          src: images[0].image,
+          name: images[0].name,
+          description: images[0].description,
+          image: images[0].image,
+          color: "",
+          fileName: images[0].fileName,
+        },
+        {
+          id: images[0].id + 30,
+          src: images[0].image,
+          name: images[0].name,
+          description: images[0].description,
+          image: images[0].fileName,
+          color: "",
+          fileName: images[0].fileName,
+        },
+      ];
+      return imgasf;
+    } else if (length === 2) {
+      const imgasf: Products[] = [
+        images[0],
+        images[1],
+        {
+          id: images[0].id + 20,
+          src: images[0].image,
+          name: images[0].name,
+          description: images[0].description,
+          image: images[0].image,
+          color: "",
+          fileName: images[0].fileName,
+        },
+        {
+          id: images[1].id + 30,
+          src: images[1].image,
+          name: images[1].name,
+          description: images[1].description,
+          image: images[1].image,
+          color: "",
+          fileName: images[1].fileName,
+        },
+      ];
+      return imgasf;
+    } else if (length === 3) {
+      const imgasf: Products[] = [
+        images[0],
+        images[1],
+        images[2],
+        {
+          id: images[1].id + 30,
+          src: images[1].image,
+          name: images[1].name,
+          description: images[1].description,
+          image: images[1].image,
+          color: "",
+          fileName: images[1].fileName,
+        },
+      ];
+      return imgasf;
+    }
+
+    return images;
+  };
 
   const { theme } = useContext(ThemeContext);
   const themeButton = theme === "dark" ? "white" : "mixed";
@@ -55,7 +155,6 @@ const FirstScreenSlider = () => {
         return "";
     }
   };
-
   const [visibleSlides, setVisibleSlides] = useState<string[]>([]);
 
   const handleSlideChange = (swiper: SwiperType) => {
@@ -67,24 +166,9 @@ const FirstScreenSlider = () => {
         (slide) => slide.querySelector("img")?.getAttribute("data-id") || ""
       )
     );
-    console.log(visibleSlides);
-
     const activeIndex = swiper.realIndex;
     setCurrentProduct(productsData[activeIndex]);
   };
-
-  const [isSafari, setIsSafari] = useState(false);
-
-  useEffect(() => {
-    if (
-      navigator.userAgent.indexOf("Safari") != -1 &&
-      navigator.userAgent.indexOf("Chrome") == -1
-    ) {
-      setIsSafari(true);
-    } else {
-      setIsSafari(false);
-    }
-  }, []);
 
   const WindowWidth = () => {
     const width = window.innerWidth;
@@ -103,14 +187,6 @@ const FirstScreenSlider = () => {
       }
     }
   };
-
-  useEffect(() => {
-    WindowWidth();
-    window.addEventListener("resize", WindowWidth);
-    return () => {
-      window.removeEventListener("resize", WindowWidth);
-    };
-  }, []);
 
   useEffect(() => {
     if (swiperInstance) {
@@ -149,7 +225,7 @@ const FirstScreenSlider = () => {
           onSlideChange={handleSlideChange}
         >
           {images.map((image) => {
-            const isVisible = visibleSlides.includes(image.id);
+            const isVisible = visibleSlides.includes(image.id.toString());
 
             return (
               <SwiperSlide
@@ -158,7 +234,7 @@ const FirstScreenSlider = () => {
                 className={styles.slide}
               >
                 <img
-                  src={image.src}
+                  src={getImageSrc(image.image, image.fileName)}
                   className={styles.img_slide}
                   data-id={image.id}
                 />
@@ -175,7 +251,7 @@ const FirstScreenSlider = () => {
           <div className={styles.first_screen_par}>
             <p>
               <p>{isSafari}</p>
-              {currentProduct?.description ||
+              {currentProduct?.description.split(";")[4] ||
                 "Пиво классическое. Сварено по рецептам 1849 года только с использованием натуральных высококачественных ингредиентов"}
             </p>
             <a href="#maps" className={styles.button_slider}>
