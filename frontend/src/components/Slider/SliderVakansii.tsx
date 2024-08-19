@@ -65,7 +65,7 @@ const SliderVakansii: React.FC = () => {
         })
       );
 
-      alert("Спасибо за отправку формы!");
+      alert("Спасибо за отклик!\nНаша команда свяжется с Вами в ближайшее время.");
       (event.target as HTMLFormElement).reset();
 
       console.log("Success: Messages sent to all valid user IDs");
