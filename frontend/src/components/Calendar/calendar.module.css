@@ -127,10 +127,9 @@
   height: 100%;
 }
 
-/* .form_group {
+ .form_group {
   position: relative;
-  max-width: 250px;
-  margin: 0 auto;
+
 }
 .form_group:nth-child(2){
   margin-top: 20px;
@@ -152,22 +151,21 @@
   position: absolute;
   top: 50%;
   left: 10px;
- 
   pointer-events: none;
   transition: all 0.3s ease;
   padding-left: 5%;
   font-weight: 350;
   font-size: 16px;
+  z-index: 6;
 }
 
 .form_group input:focus {
   outline: none;
   border: 2px black solid;
 }
-
 .form_group input::placeholder {
   color: transparent; 
-} */
+} 
 
 /* .form_group input:valid + label {
   display: none;
