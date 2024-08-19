@@ -127,7 +127,7 @@
   height: 100%;
 }
 
-.form_group {
+/* .form_group {
   position: relative;
   max-width: 250px;
   margin: 0 auto;
@@ -152,8 +152,7 @@
   position: absolute;
   top: 50%;
   left: 10px;
-  /* transform: translateY(-50%); */
-  color: rgb(19, 19, 19);
+ 
   pointer-events: none;
   transition: all 0.3s ease;
   padding-left: 5%;
@@ -167,8 +166,8 @@
 }
 
 .form_group input::placeholder {
-  color: transparent; /* Скрыть стандартный плейсхолдер */
-}
+  color: transparent; 
+} */
 
 /* .form_group input:valid + label {
   display: none;

@@ -84,15 +84,18 @@ useEffect(() => {
     navigator.userAgent.indexOf("Chrome") == -1
   ) {
     setIsSafari(true);
+  }else{
+    setIsSafari(false);
   }
 }, []);
+
 const WindowWidth =()=>{
   const width= window.innerWidth;
   console.log("Current window width: ", width, " Curr stretch: ", stretch);
   if(isSafari){
     if(width > 1200 && stretch !== 190){
       setStretch(190);
-    }else if(width <= 1200 && stretch !== 90){
+    }else if(width <= 1200 && stretch !== 10){
       setStretch(10);
     }
   }else{
