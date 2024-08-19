@@ -21,8 +21,8 @@ import img7 from "../../assets/bottle3-01.svg";
 
 const FirstScreenSlider = () => {
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [products, setProducts] = useState<Products[]>([]); // State to store products
+  // const [activeIndex, setActiveIndex] = useState(0);
+  // const [products, setProducts] = useState<Products[]>([]); // State to store products
   const [currentProduct, setCurrentProduct] = useState<Products | null>(null); // State to store current product
   const [stretch, setStretch] = useState<number>(190);
 
@@ -30,7 +30,7 @@ const FirstScreenSlider = () => {
     const fetchProducts = async () => {
       try {
         const productsData = await getProducts();
-        setProducts(productsData);
+        // setProducts(productsData);
         setCurrentProduct(productsData[0]); // Set the first product as the current product initially
       } catch (error) {
         console.error("Error fetching products", error);
@@ -44,20 +44,20 @@ const FirstScreenSlider = () => {
   const { theme } = useContext(ThemeContext);
   const themeButton = theme === "dark" ? "white" : "mixed";
 
-  const getImageSrc = (image: string, fileName: string) => {
-    const extension = fileName.split(".").pop()?.toLowerCase();
-    switch (extension) {
-      case "svg":
-        return `data:image/svg+xml;base64,${image}`;
-      case "png":
-        return `data:image/png;base64,${image}`;
-      case "jpeg":
-      case "jpg":
-        return `data:image/jpeg;base64,${image}`;
-      default:
-        return "";
-    }
-  };
+  // const getImageSrc = (image: string, fileName: string) => {
+  //   const extension = fileName.split(".").pop()?.toLowerCase();
+  //   switch (extension) {
+  //     case "svg":
+  //       return `data:image/svg+xml;base64,${image}`;
+  //     case "png":
+  //       return `data:image/png;base64,${image}`;
+  //     case "jpeg":
+  //     case "jpg":
+  //       return `data:image/jpeg;base64,${image}`;
+  //     default:
+  //       return "";
+  //   }
+  // };
 
   const images: { id: string; src: string }[] = [
     { id: 'img1', src: img1 },
@@ -84,15 +84,18 @@ useEffect(() => {
     navigator.userAgent.indexOf("Chrome") == -1
   ) {
     setIsSafari(true);
+  }else{
+    setIsSafari(false);
   }
 }, []);
+
 const WindowWidth =()=>{
   const width= window.innerWidth;
   console.log("Current window width: ", width, " Curr stretch: ", stretch);
   if(isSafari){
     if(width > 1200 && stretch !== 190){
       setStretch(190);
-    }else if(width <= 1200 && stretch !== 90){
+    }else if(width <= 1200 && stretch !== 10){
       setStretch(10);
     }
   }else{
@@ -169,6 +172,7 @@ useEffect(() => {
           </h2>
           <div className={styles.first_screen_par}>
             <p>
+              <p>{isSafari}</p>
               {currentProduct?.description ||
                 "Пиво классическое. Сварено по рецептам 1849 года только с использованием натуральных высококачественных ингредиентов"}
             </p>

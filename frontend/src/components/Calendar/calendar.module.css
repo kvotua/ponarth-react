@@ -85,6 +85,7 @@
   width: 30px;
   font-size: 30px;
   font-weight: 200;
+  color: black !important;
 }
 
 .input_calendar label {
@@ -122,15 +123,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 300px; /* Ensure enough height for swipe detection */
-  width: 100%; /* Ensure full width for swipe detection */
+  min-height: 300px;
+  width: 100%; 
   height: 100%;
 }
 
-.form_group {
+ .form_group {
   position: relative;
-  max-width: 250px;
-  margin: 0 auto;
+
 }
 .form_group:nth-child(2){
   margin-top: 20px;
@@ -152,29 +152,21 @@
   position: absolute;
   top: 50%;
   left: 10px;
-  /* transform: translateY(-50%); */
-  color: rgb(19, 19, 19);
   pointer-events: none;
   transition: all 0.3s ease;
   padding-left: 5%;
   font-weight: 350;
   font-size: 16px;
+  z-index: 6;
 }
 
 .form_group input:focus {
   outline: none;
   border: 2px black solid;
 }
-
 .form_group input::placeholder {
-  color: transparent; /* Скрыть стандартный плейсхолдер */
-}
-
-/* .form_group input:valid + label {
-  display: none;
-} */
-
-
+  color: transparent; 
+} 
 .slides {
   margin-left: 20px;  
   display: flex;

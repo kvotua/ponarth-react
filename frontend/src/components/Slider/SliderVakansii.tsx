@@ -1,41 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/css";
 import "swiper/css/effect-cards";
-
 import stylesV from "./Vaksnsii.module.scss";
 import styles from "./styles.module.css";
-
 import { EffectCards } from "swiper/modules";
 import DelayedButton from "../Buttons/DelayedButton";
 import InputMask from "react-input-mask";
 import { ThemeContext } from "../RightBar";
-import { useContext } from "react";
-import { getVacancies, Vacancy } from "../../api/vacancies";
 import axios from "axios";
+import { useVacancies } from "../LookingPage/VacanciesContext";
 
 const SliderVakansii: React.FC = () => {
   const { theme } = useContext(ThemeContext);
   const themeButton = theme === "dark" ? "white" : "mixed";
+  const { vacancies } = useVacancies();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [vacancies, setVacancies] = useState<Vacancy[]>([]);
-
-  useEffect(() => {
-    const fetchVacancies = async () => {
-      try {
-        const data = await getVacancies();
-        const vacanciesWithDecodedImages = data.map((vacancy) => ({
-          ...vacancy,
-          base64Image: `data:image/jpeg;base64,${vacancy.image}`,
-        }));
-        setVacancies(vacanciesWithDecodedImages);
-      } catch (error) {
-        console.error("Error fetching vacancies", error);
-      }
-    };
-    fetchVacancies();
-  }, []);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -65,7 +45,9 @@ const SliderVakansii: React.FC = () => {
         })
       );
 
-      alert("Спасибо за отправку формы!");
+      alert(
+        "Спасибо за отклик!\nНаша команда свяжется с Вами в ближайшее время."
+      );
       (event.target as HTMLFormElement).reset();
 
       console.log("Success: Messages sent to all valid user IDs");

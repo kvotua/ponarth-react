@@ -31,6 +31,7 @@ margin-top: -9%;
   grid-template-rows: repeat(1, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  z-index: 10;
 }
 .content1 {
   width: 540px;

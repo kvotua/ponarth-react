@@ -11,7 +11,7 @@
 }
 
 .react-calendar__navigation__label {
-  pointer-events: none; /* Disable hover effect */
+  pointer-events: none; 
 }
 
 .react-calendar__navigation {
@@ -29,9 +29,14 @@
 .react-calendar__tile--now {
   border-radius: 50%;
   background-color: rgb(227, 227, 227) !important;
-  color: white; /* Optional: to make the text color white for better contrast */
+  color: white;
 }
-
+.react-calendar__month-view__days__day{
+  color: black;
+}
+.react-calendar__tile--active:enabled:hover, .react-calendar__tile--active:enabled:focus, .react-calendar__tile--active{
+  color: white !important;
+}
 .react-calendar__navigation span {
   font-size: 17px;
   color: #000000;
@@ -55,7 +60,9 @@
   font-weight: bold;
   color: #00000098;
 }
-
+.react-calendar__month-view__days__day--weekend {
+  color: #000000;
+}
 .react-calendar__month-view__weekdays__weekday {
   padding: 0.5em;
   text-transform: capitalize;

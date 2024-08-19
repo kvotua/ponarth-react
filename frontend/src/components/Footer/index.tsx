@@ -3,10 +3,13 @@ import styles from "./footer.module.css";
 import { ThemeContext } from "../RightBar";
 import Ponarth_firmenny_blok_01 from "../../assets/logo.svg";
 import Practice_logo from "../../assets/Practice_logo.svg";
-import classNames from 'classnames';
+import classNames from "classnames";
+import { useVacancies } from "../LookingPage/VacanciesContext";
+
 const Footer: FC = () => {
   const { theme } = useContext(ThemeContext);
   const [isSafari, setIsSafari] = useState(false);
+  const { vacancies } = useVacancies();
 
   useEffect(() => {
     if (
@@ -17,12 +20,12 @@ const Footer: FC = () => {
     }
   }, []);
 
-  const classList = classNames('footer_items', {
+  const classList = classNames("footer_items", {
     [styles.safari_footer]: isSafari,
     [styles.practice]: true, // Этот класс всегда будет добавлен
   });
 
-  const classList2 = classNames('footer_items', {
+  const classList2 = classNames("footer_items", {
     [styles.safari_footer_2]: isSafari,
     [styles.logo_footer]: true, // Этот класс всегда будет добавлен
   });
@@ -73,14 +76,16 @@ const Footer: FC = () => {
         </div>
         <div className={styles.info_footer}>
           <a className={styles.footerButton} href="#news">
-              Новости
+            Новости
           </a>
           <a className={styles.footerButton} href="#partner">
             Партнерам
           </a>
-          <a className={styles.footerButton} href="#vacancy">
-            Вакансии
-          </a>
+          {vacancies.length > 0 && (
+            <a className={styles.footerButton} href="#vacancy">
+              Вакансии
+            </a>
+          )}
           <a className={styles.footerButton} href="#excursion">
             Экскурсии
           </a>
