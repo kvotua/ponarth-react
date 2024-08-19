@@ -12,7 +12,7 @@ import image3 from "../../assets/calendar3.jpg";
 import { ThemeContext } from "../RightBar";
 import DelayedButton from "../Buttons/DelayedButton";
 import axios from "axios";
-
+import classNames from 'classnames';
 const CalendarComp: React.FC = () => {
   const { theme } = useContext(ThemeContext);
   const themeButton = theme === "dark" ? "white" : "mixed";
@@ -20,7 +20,21 @@ const CalendarComp: React.FC = () => {
   const [persons, setPersons] = useState<number>(1);
   const [time, setTime] = useState<string>("");
   const [selectedButton, setSelectedButton] = useState<string>("");
+  const [isSafari, setIsSafari] = useState(false);
 
+  useEffect(() => {
+    if (
+      navigator.userAgent.indexOf("Safari") != -1 &&
+      navigator.userAgent.indexOf("Chrome") == -1
+    ) {
+      setIsSafari(true);
+    }
+  }, []);
+
+  const classList = classNames('slide', {
+    [styles.slide_safari]: isSafari,
+    [styles.slide]: true, 
+  });
   const onChange: CalendarProps["onChange"] = (value) => {
     setDate(value as Date);
   };
@@ -277,7 +291,7 @@ const CalendarComp: React.FC = () => {
                 #Рецептуры довоенной восточной Пруссии
               </p>
             </div>
-            <div className={styles.slide}>
+            <div className={classList}>
               <img src={image3} alt="" />
               <p className={styles.slide_p}>#8 дегустационных сортов пива</p>
             </div>
