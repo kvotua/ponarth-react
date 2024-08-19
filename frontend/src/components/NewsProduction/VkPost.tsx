@@ -40,7 +40,7 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
   }, []);
 
   const classList = classNames('slide', {
-    [styles.slide_safari]: true,
+    [styles.slide_safari]: isSafari,
     [styles.slide]: true, 
   });
   useEffect(() => {
