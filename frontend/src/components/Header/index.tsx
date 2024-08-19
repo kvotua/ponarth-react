@@ -1,7 +1,8 @@
+import React, { useContext } from "react";
 import styles from "./header.module.css";
 import Ponarth_Logo from "../../assets/logo.svg";
-import { useContext } from "react";
 import { ThemeContext } from "../RightBar";
+import { useVacancies } from "../LookingPage/VacanciesContext";
 
 interface HeaderProps {
   isBurgerOpen: boolean;
@@ -9,6 +10,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ isBurgerOpen }) => {
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const { vacancies } = useVacancies();
 
   return (
     <header
@@ -44,9 +46,11 @@ const Header: React.FC<HeaderProps> = ({ isBurgerOpen }) => {
             <a className={styles.headerButton} href="#partner">
               Партнерство
             </a>
-            <a className={styles.headerButton} href="#vacancy">
-              Вакансии
-            </a>
+            {vacancies.length > 0 && (
+              <a className={styles.headerButton} href="#vacancy">
+                Вакансии
+              </a>
+            )}
             <a className={styles.headerButton} href="#share">
               Акции
             </a>
