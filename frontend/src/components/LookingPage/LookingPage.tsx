@@ -6,7 +6,7 @@ const Looking = () => {
     <>
       <div className={styles.div_text} id="vacancy">
         <h2 className={styles.texter_six}>
-          МЫ В ПОИСКЕ <br /> СОТРУДНИКОВ
+           ПОИСКЕ <br /> СОТРУДНИКОВ
         </h2>
       </div>
       <SliderVakansii />

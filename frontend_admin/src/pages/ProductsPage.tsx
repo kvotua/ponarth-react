@@ -93,13 +93,16 @@ const ProductPage: FC = () => {
         {filteredProduct.map((product) => (
           <div key={product.id} className={styles.point}>
             <div className={styles.image_block}>
-              <img src={product.base64Image} alt={product.title} />
+              <img
+                src={product.base64Image}
+                alt={product.title}
+                style={{ border: `6px solid ${product.color}` }}
+              />
             </div>
 
             <div className={styles.description_block}>
               <h2>{product.title}</h2>
               <p>{product.description}</p>
-              <p>Цвет: {product.color}</p>
             </div>
 
             <button

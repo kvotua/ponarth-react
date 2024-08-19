@@ -13,6 +13,7 @@ import FirstScreenSlider from '../components/FirstScreenSlider/';
 import NewsProduction from "../components/NewsProduction";
 import CalendarComp from "../components/Calendar";
 import PartnerForm from "../components/Form";
+import RightBarMobile from "../components/RightBarMobile";
 const MainPage: FC = () => {
   
   const localTheme = window.localStorage.getItem("theme");
@@ -48,7 +49,9 @@ const MainPage: FC = () => {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div className={styles.box_shadow}>
+      <div className={`${styles.box_shadow} ${
+              theme === "dark" ? styles.dark : ""
+            }`}>
         <div
           className={
             styles.wrapper +
@@ -80,6 +83,7 @@ const MainPage: FC = () => {
             <Map />
           </div>
           <RightBar />
+          <RightBarMobile />
         </div>
         <Footer />
       </div>

@@ -1,12 +1,16 @@
 .texter {
-  margin: 8%;
+  margin: 10%;
   border-bottom: 2px solid #d3d3d3;
 }
 
 .text {
   font-weight: 400;
 }
-
+@media screen and (max-width: 600px) {
+  .texter{
+    margin-top: 100px;
+  }
+}
 
 .videocontainer {
   position: relative;

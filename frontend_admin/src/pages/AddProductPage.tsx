@@ -237,6 +237,7 @@ const AddProductPage: FC = () => {
         <SketchPicker
           color={product.color}
           onChangeComplete={handleColorChange}
+          className={styles.color_picker}
         />
       </div>
       <button

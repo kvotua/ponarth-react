@@ -76,7 +76,7 @@ const CalendarComp: React.FC = () => {
         })
       );
 
-      alert("Спасибо за отправку формы!");
+      alert("Спасибо за отклик! Наша команда свяжется с Вами в ближайшее время.");
       setDate(null);
       setPersons(1);
       setTime("");
@@ -200,23 +200,31 @@ const CalendarComp: React.FC = () => {
                 19:00
               </button>
             </div>
-
+            <div className={`${styles.form_group} ${
+                theme === "dark" ? styles.dark : ""
+              }`}>
             <input
               className={`${styles.input_calendar} ${
                 theme === "dark" ? styles.dark : ""
               }`}
               type="text"
               name="userName"
-              placeholder="Ваше имя"
-            />
+              placeholder=""
+            /><label htmlFor="userName">Ваше имя</label>
+            </div>
+            <div className={`${styles.form_group} ${
+                theme === "dark" ? styles.dark : ""
+              }`}>
             <InputMask
               className={`${styles.input_calendar} ${
                 theme === "dark" ? styles.dark : ""
               }`}
               mask="+7 (999) 999-99-99"
               name="phoneNumber"
-              placeholder="Контактный номер телефона"
+              placeholder=""
             />
+            <label htmlFor="phoneNumber">Ваш номер телефона</label>
+            </div>
             <div
               className={`${styles.input_calendar} ${
                 theme === "dark" ? styles.dark : ""

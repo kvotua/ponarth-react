@@ -83,13 +83,13 @@ const PartnerForm = () => {
         </video> */}
         <div className={styles.form_grid_container}>
           {isVisible && (
-            <div id="block" className={`${styles.content1} ${styles.fadeIn}`}>
+            <div id="block" className={`${styles.content1}`}>
               <div
                 className={`${styles.flipper} ${
                   isFlipped ? styles.flipped : ""
                 }`}
               >
-                <div className={styles.front}>
+                <div className={`${styles.front} ${styles.fadeIn}`}>
                   <h1 className={styles.bochka}>
                     ДВЕ ГОСТЕВЫЕ <br />
                     БОЧКИ ПИВА <br />
