@@ -91,7 +91,7 @@ const SliderVakansii: React.FC = () => {
               type="text"
               id="userName"
               name="userName"
-              placeholder=" "
+              placeholder=""
               required
               autoComplete="off"
             />
@@ -108,7 +108,7 @@ const SliderVakansii: React.FC = () => {
               name="phoneNumber"
               mask="+7 ( 999 ) 999 - 9999"
               id="phoneNumber"
-              placeholder=" "
+              placeholder=""
               required
               autoComplete="off"
             />
