@@ -172,6 +172,7 @@ useEffect(() => {
           </h2>
           <div className={styles.first_screen_par}>
             <p>
+              <p>{isSafari}</p>
               {currentProduct?.description ||
                 "Пиво классическое. Сварено по рецептам 1849 года только с использованием натуральных высококачественных ингредиентов"}
             </p>

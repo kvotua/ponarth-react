@@ -11,7 +11,7 @@ export interface Button {
 const buttons: Button[] = [
   { label: 'Продукты', path: '/products', id: '1' },
   { label: 'Вакансии', path: '/vacancies', id: '2' },
-  { label: 'Точки', path: '/points', id: '3' },
+  // { label: 'Точки', path: '/points', id: '3' },
   { label: 'Уведомления', path: '/notifications', id: '4' },
 ]
 
