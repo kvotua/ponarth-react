@@ -167,6 +167,12 @@
 .form_group input::placeholder {
   color: transparent; 
 } 
+.form_group input:focus + label{
+  display: none;
+}
+/* .form_group input:valid + label {
+  display: none;
+} */
 .slides {
   margin-left: 20px;  
   display: flex;

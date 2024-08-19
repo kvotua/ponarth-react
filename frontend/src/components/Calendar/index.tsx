@@ -217,13 +217,15 @@ const CalendarComp: React.FC = () => {
             <div className={`${styles.form_group} ${
                 theme === "dark" ? styles.dark : ""
               }`}>
-            <input
+            <input 
               className={`${styles.input_calendar} ${
                 theme === "dark" ? styles.dark : ""
               }`}
               type="text"
               name="userName"
               placeholder=""
+              required
+              autoComplete="off"
             /><label htmlFor="userName">Ваше имя</label>
             </div>
             <div className={`${styles.form_group} ${
@@ -236,6 +238,8 @@ const CalendarComp: React.FC = () => {
               mask="+7 (999) 999-99-99"
               name="phoneNumber"
               placeholder=""
+              required
+              autoComplete="off"
             />
             <label htmlFor="phoneNumber">Ваш номер телефона</label>
             </div>

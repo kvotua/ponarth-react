@@ -21,6 +21,22 @@ const SharePage = () => {
   const localTheme = window.localStorage.getItem("theme");
   const [theme] = useState(localTheme ? localTheme : "light");
 
+  const [isSafari, setIsSafari] = useState(false);
+
+  useEffect(() => {
+    if (
+      navigator.userAgent.indexOf("Safari") != -1 &&
+      navigator.userAgent.indexOf("Chrome") == -1
+    ) {
+      setIsSafari(true);
+    }
+  }, []);
+
+  const classList = classNames('slide', {
+    [styles.share_title]: true, 
+    [styles.safari]: isSafari,
+  });
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -85,7 +101,7 @@ const SharePage = () => {
           alt="Логотип"
         />
 </div>
-<div className={styles.share_title}>
+<div className={classList}>
 <h1>
 СТАНЬТЕ АКЦИОНЕРОМ 
 <br />

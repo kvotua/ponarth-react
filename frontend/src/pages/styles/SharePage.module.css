@@ -355,16 +355,21 @@ padding: 0;
   }
 
  .share_title{
-  grid-area: 1 / 2 / 4 / 4;
+  grid-area:unset;
+  margin: unset;
   position: fixed;
-z-index: 1;
-margin-top: 10.5%;
+  z-index: 1;
+  margin-top: 10.5%;
+  justify-content: unset;
+  justify-self: end;
  }
  .share_title>h1{
-margin-left: 8%;
-font-size: 28px;
-text-align: left;
-margin-right: 4%;
+  margin-left: 20%;
+  font-size: 28px;
+  text-align: left;
+ }
+ .safari > h1{
+  margin-left: 40% !important;
  }
  .social{
   grid-area: 1 / 2 / 2 / 5;
