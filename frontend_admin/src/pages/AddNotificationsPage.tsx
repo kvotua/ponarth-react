@@ -2,6 +2,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import icon from '../assets/Icon.svg'
 import styles from './styles/addnotificationpage.module.scss'
 import { useEffect, useState } from 'react'
+import { updateUser, User } from '../api/notifications/requests'
 
 const AddTelegramNotificationPage = () => {
   const navigate = useNavigate()
@@ -10,6 +11,7 @@ const AddTelegramNotificationPage = () => {
   const { nameAndLastname, roles } = user || {}
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
+  const [userData, setUserData] = useState<User | null>(null)
 
   useEffect(() => {
     if (nameAndLastname) {
@@ -18,6 +20,12 @@ const AddTelegramNotificationPage = () => {
       setLastName(last)
     }
   }, [nameAndLastname])
+
+  useEffect(() => {
+    if (user) {
+      setUserData(user)
+    }
+  }, [user])
 
   const [formOfExcursion, setFormOfExcursion] = useState(false)
   const [formVacancy, setFormVacancy] = useState(false)
@@ -42,6 +50,30 @@ const AddTelegramNotificationPage = () => {
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setter(event.target.checked)
     }
+
+  const handleSaveClick = async () => {
+    if (userData) {
+      const updatedUser = {
+        id: userData.id,
+        username: userData.username,
+        nameAndLastname: `${firstName} ${lastName}`,
+        roles: [
+          'ADMIN',
+          formOfExcursion && 'formOfExcursions',
+          formVacancy && 'formVacancy',
+          formPartner && 'formPartner',
+          formShareholder && 'formShareholder',
+        ].filter(Boolean) as string[],
+      }
+      try {
+        await updateUser(updatedUser)
+        alert('Пользователь успешно обновлен')
+        navigate('/notifications')
+      } catch (error) {
+        console.error('Ошибка при обновлении пользователя', error)
+      }
+    }
+  }
 
   return (
     <>
@@ -126,7 +158,9 @@ const AddTelegramNotificationPage = () => {
             </section>
           </div>
         </section>
-        <button className={styles.save_btn}>Сохранить</button>
+        <button className={styles.save_btn} onClick={handleSaveClick}>
+          Сохранить
+        </button>
       </section>
     </>
   )
