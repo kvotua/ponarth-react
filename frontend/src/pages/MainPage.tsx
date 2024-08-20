@@ -74,7 +74,7 @@ const MainPage: FC = () => {
               <span></span>
             </div>
             <Header isBurgerOpen={isBurgerOpen} />
-            <div className={styles.content}>
+            <div className={styles.content} onClick={isBurgerOpen ? toggleBurger : undefined}>
               <FirstScreenSlider />
               <History />
               <CalendarComp />
