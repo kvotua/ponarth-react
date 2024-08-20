@@ -46,8 +46,6 @@ const FirstScreenSlider = () => {
       setIsSafari(false);
     }
 
-
-
     WindowWidth();
     window.addEventListener("resize", WindowWidth);
     return () => {
