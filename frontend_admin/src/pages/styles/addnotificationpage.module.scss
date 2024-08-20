@@ -58,17 +58,18 @@
 .check_section {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  margin: 10% 0 10% 0;
+  justify-content: space-between;
+  width: 80%;
+  margin-top: 15%;
+  margin-bottom: 10%;
+  align-self: center;
+  gap: 20px;
 }
 
 .add_notification_checkblock {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  margin-bottom: 20px;
+  justify-content: space-between;
   width: 100%;
 }
 
@@ -109,6 +110,17 @@
   background-color: white;
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider:before:after {
+  content: '';
+  height: 14px;
+  width: 14px;
+  background-color: gray;
   border-radius: 50%;
 }
 

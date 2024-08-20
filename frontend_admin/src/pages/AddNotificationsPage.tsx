@@ -31,6 +31,7 @@ const AddTelegramNotificationPage = () => {
   const [formVacancy, setFormVacancy] = useState(false)
   const [formPartner, setFormPartner] = useState(false)
   const [formShareholder, setFormShareholder] = useState(false)
+  const [isAdmin, setIsAdmin] = useState(false)
 
   useEffect(() => {
     if (roles) {
@@ -38,6 +39,7 @@ const AddTelegramNotificationPage = () => {
       setFormVacancy(roles.includes('Форма вакансии'))
       setFormPartner(roles.includes('Форма партнеров'))
       setFormShareholder(roles.includes('Форма акционеров'))
+      setIsAdmin(roles.includes('Администратор'))
     }
   }, [roles])
 
@@ -58,7 +60,7 @@ const AddTelegramNotificationPage = () => {
         username: userData.username,
         nameAndLastname: `${firstName} ${lastName}`,
         roles: [
-          'ADMIN',
+          isAdmin && 'ADMIN',
           formOfExcursion && 'formOfExcursions',
           formVacancy && 'formVacancy',
           formPartner && 'formPartner',
@@ -103,6 +105,20 @@ const AddTelegramNotificationPage = () => {
               Выберите обращения с сайта, которые может видеть пользователь
             </h2>
             <section className={styles.check_section}>
+              <div className={styles.add_notification_checkblock}>
+                <p>Администратор</p>
+                <div>
+                  <label className={styles.switch}>
+                    <input
+                      type="checkbox"
+                      checked={isAdmin}
+                      onChange={handleCheckboxChange(setIsAdmin)}
+                    />
+                    <span className={styles.slider}></span>
+                  </label>
+                </div>
+              </div>
+
               <div className={styles.add_notification_checkblock}>
                 <p>Форма экскурсии</p>
                 <div>
