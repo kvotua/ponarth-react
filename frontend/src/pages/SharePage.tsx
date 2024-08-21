@@ -91,7 +91,9 @@ const SharePage = () => {
     <div className={styles.outmask_content}>
   <div className={styles.button_container}>
   <Link to='/home' className={styles.button_back_link}>
-  <button className={styles.button_back}></button>
+  <button className={`${styles.button_back} ${
+                theme === "dark" ? styles.dark : ""
+              }`}></button>
   </Link>
         </div>
         <div className={`${styles.share_logo}`}>

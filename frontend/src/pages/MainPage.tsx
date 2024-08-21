@@ -92,6 +92,8 @@ const MainPage: FC = () => {
             <div
               className={`${styles.burger} ${
                 isBurgerOpen ? styles.burgerClosed : ""
+              } ${
+                theme === "dark" ? styles.dark : ""
               }`}
               onClick={toggleBurger}
             >

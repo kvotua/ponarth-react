@@ -50,7 +50,10 @@ body.dark {
   top: 40px;
   gap: 3px;
 }
-
+.burger.dark{
+  border: 2px solid white;
+  background-color: #ffffff5f;
+}
 .burger span {
   display: block; /* или inline-block */
   width: 14px;
@@ -60,7 +63,9 @@ body.dark {
   border-radius: 3px;
   transition: transform 0.3s ease; /* Add transition for smooth effect */
 }
-
+.burger.dark span{
+  background-color: white !important;
+}
 .burgerClosed span:nth-child(1) {
   transform: rotate(45deg) translate(3px, 3px);
 }
