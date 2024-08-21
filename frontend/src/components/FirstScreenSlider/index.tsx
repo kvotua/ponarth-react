@@ -1,42 +1,38 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect, useRef, FC } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, EffectCoverflow } from "swiper/modules";
 import { Swiper as SwiperType } from "swiper/types";
 import styles from "./FirstScreenSlider.module.css";
 import DelayedButton from "../Buttons/DelayedButton";
 import { ThemeContext } from "../RightBar";
-import { getProducts, Products } from "../../api/products";
+import {Products } from "../../api/products";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-const FirstScreenSlider = () => {
-  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
+interface Product{
+  id: number;
+  name: string;
+  description: string;
+  color: string;
+  image: string;
+  fileName: string;
+  src: string;
+}
+
+interface FisrtSliderProps{
+  products: Product[]
+}
+
+const FirstScreenSlider: FC<FisrtSliderProps> = ({products}) => {
   const [currentProduct, setCurrentProduct] = useState<Products | null>(null);
   const [stretch, setStretch] = useState<number>(190);
   const [images, setImages] = useState<Products[]>([]);
   const [productsData, setProductsData] = useState<Products[]>([]);
   const [isSafari, setIsSafari] = useState(false);
-
+  const swiperRef = useRef<SwiperType | null>(null);
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const products = await getProducts();
-
-        const imagesData: Products[] = products;
-        const adjustedImages = adjustImagesArray(imagesData);
-        setImages(adjustedImages);
-
-        console.log("Length of images array:", adjustedImages);
-        console.log("Длина массива текста", products.length);
-      } catch (error) {
-        console.error("Error fetching products", error);
-      }
-    };
-
-    fetchProducts();
-
     if (
       navigator.userAgent.indexOf("Safari") != -1 &&
       navigator.userAgent.indexOf("Chrome") == -1
@@ -167,13 +163,11 @@ const FirstScreenSlider = () => {
     setCurrentProduct(productsData[activeIndex]);
     setProductsData(images);
   };
-
   const WindowWidth = () => {
     const width = window.innerWidth;
-    console.log("Current window width: ", width, " Curr stretch: ", stretch);
     if (isSafari) {
-      if (width > 1200 && stretch !== 190) {
-        setStretch(190);
+      if (width > 1200 && stretch !== 195) {
+        setStretch(195);
       } else if (width <= 1200 && stretch !== 10) {
         setStretch(10);
       }
@@ -185,21 +179,27 @@ const FirstScreenSlider = () => {
       }
     }
   };
-
+  const handleSwiperInit = () => {
+    const imagesData: Products[] = products;
+    const adjustedImages = adjustImagesArray(imagesData);
+    setImages(adjustedImages);
+  };
   useEffect(() => {
-    if (swiperInstance) {
-      swiperInstance.update();
-      console.log("stretch:   " + stretch);
-      console.log(swiperInstance);
+
+    if (swiperRef.current) {
+      swiperRef.current.setProgress(0)
+      swiperRef.current.update(); // Принудительно обновляем Swiper после загрузки
     }
-  }, [stretch, swiperInstance]);
+  }, [stretch]);
 
   return (
     <div className={styles.first_container} content="f" id="sorta">
       <div className={styles.sliders}>
         <Swiper
           key={stretch}
-          onSwiper={setSwiperInstance}
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
+          initialSlide={0}
+          onInit={handleSwiperInit}
           effect={"coverflow"}
           loop={true}
           grabCursor={true}
@@ -224,7 +224,6 @@ const FirstScreenSlider = () => {
         >
           {images.map((image) => {
             const isVisible = visibleSlides.includes(image.id.toString());
-
             return (
               <SwiperSlide
                 key={image.id}

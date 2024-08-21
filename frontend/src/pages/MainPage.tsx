@@ -15,7 +15,7 @@ import CalendarComp from "../components/Calendar";
 import PartnerForm from "../components/Form";
 import RightBarMobile from "../components/RightBarMobile";
 import { VacanciesProvider } from "../components/LookingPage/VacanciesContext";
-import { getProducts } from "../api/products";
+import { getProducts, Products } from "../api/products";
 import Loader from "../components/Loader";
 const MainPage: FC = () => {
   const localTheme = window.localStorage.getItem("theme");
@@ -23,7 +23,7 @@ const MainPage: FC = () => {
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [loading, setLoading] = useState<boolean>(true);
-
+  const [products, setProducts]= useState<Products[]>([]);
   useEffect(() => {
     window.localStorage.setItem("theme", theme);
     const handleResize = () => {
@@ -57,6 +57,7 @@ const MainPage: FC = () => {
         const response = await getProducts();
         // Обработка данных, если необходимо
         setLoading(true);
+        setProducts(response);
         return response;
       } catch (err) {
         console.error("Ошибка при загрузке данных", err);
@@ -103,7 +104,7 @@ const MainPage: FC = () => {
               className={styles.content}
               onClick={isBurgerOpen ? toggleBurger : undefined}
             >
-              <FirstScreenSlider />
+              <FirstScreenSlider products={products} />
               <History />
               <CalendarComp />
               <Partnership />
