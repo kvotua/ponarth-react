@@ -15,11 +15,14 @@ import CalendarComp from "../components/Calendar";
 import PartnerForm from "../components/Form";
 import RightBarMobile from "../components/RightBarMobile";
 import { VacanciesProvider } from "../components/LookingPage/VacanciesContext";
+import { getProducts } from "../api/products";
+import Loader from "../components/Loader";
 const MainPage: FC = () => {
   const localTheme = window.localStorage.getItem("theme");
   const [theme, setTheme] = useState(localTheme ? localTheme : "light");
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     window.localStorage.setItem("theme", theme);
@@ -46,6 +49,28 @@ const MainPage: FC = () => {
   const toggleBurger = () => {
     setIsBurgerOpen((prevIsBurgerOpen) => !prevIsBurgerOpen);
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Здесь вы можете заменить URL на ваш реальный API
+        const response = await getProducts();
+        // Обработка данных, если необходимо
+        setLoading(true);
+        return response;
+      } catch (err) {
+        console.error("Ошибка при загрузке данных", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <Loader />; // Показать прелоадер, пока данные загружаются
+  }
 
   return (
     <VacanciesProvider>
@@ -74,7 +99,10 @@ const MainPage: FC = () => {
               <span></span>
             </div>
             <Header isBurgerOpen={isBurgerOpen} />
-            <div className={styles.content} onClick={isBurgerOpen ? toggleBurger : undefined}>
+            <div
+              className={styles.content}
+              onClick={isBurgerOpen ? toggleBurger : undefined}
+            >
               <FirstScreenSlider />
               <History />
               <CalendarComp />
