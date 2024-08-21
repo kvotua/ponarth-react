@@ -151,9 +151,18 @@ const FirstScreenSlider: FC<FisrtSliderProps> = ({products}) => {
   const [visibleSlides, setVisibleSlides] = useState<string[]>([]);
 
   const handleSlideChange = (swiper: SwiperType) => {
-    const visible = swiper.slides.filter((slide: HTMLElement) =>
-      slide.classList.contains("swiper-slide-visible")
-    );
+    let visible;
+    if(isSafari){
+      visible = swiper.slides.filter((slide: HTMLElement) =>
+        slide.classList.contains("swiper-slide-fully-visible")
+      );
+    }
+    else{
+        visible = swiper.slides.filter((slide: HTMLElement) =>
+        slide.classList.contains("swiper-slide-visible")
+      );
+    }
+
     setVisibleSlides(
       visible.map(
         (slide) => slide.querySelector("img")?.getAttribute("data-id") || ""
@@ -166,10 +175,10 @@ const FirstScreenSlider: FC<FisrtSliderProps> = ({products}) => {
   const WindowWidth = () => {
     const width = window.innerWidth;
     if (isSafari) {
-      if (width > 1200 && stretch !== 195) {
-        setStretch(195);
-      } else if (width <= 1200 && stretch !== 10) {
-        setStretch(10);
+      if (width > 1200 && stretch !== 190) {
+        setStretch(190);
+      } else if (width <= 1200 && stretch !== 0) {
+        setStretch(0);
       }
     } else {
       if (width > 1200 && stretch !== 190) {
@@ -227,7 +236,7 @@ const FirstScreenSlider: FC<FisrtSliderProps> = ({products}) => {
             return (
               <SwiperSlide
                 key={image.id}
-                style={{ opacity: isVisible ? 1 : 0 }}
+                style={{filter: isVisible? 'opacity(100%)' : 'opacity(0)' , willChange: 'opacity' }}
                 className={styles.slide}
               >
                 <img
