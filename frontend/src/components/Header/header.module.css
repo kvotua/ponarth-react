@@ -1,6 +1,7 @@
 /* first_page header */
 .header {
   width: 20%;
+  min-width: 220px;
   height: 120vh;
   border-radius: 2px;
   top: 0;
@@ -199,7 +200,7 @@
     top: 0;
     left: 0;
     width: 30%;
-    z-index: 8;
+    z-index: 12;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     background-color: #dadada81;
@@ -214,7 +215,7 @@
     top: 0;
     left: 0;
     width: 30%;
-    z-index: 8;
+    z-index: 12;
     backdrop-filter: blur(10px);
     background-color: #dadada81;
     animation: headerDisappear 0.5s ease-in-out forwards;
@@ -268,7 +269,7 @@
     top: 0;
     left: 0;
     width: 75%;
-    z-index: 8; /* Убедитесь, что значение z-index достаточно высокое */
+    z-index: 12; /* Убедитесь, что значение z-index достаточно высокое */
     animation: headerAppear 0.3s ease-in-out forwards;
   }
 
@@ -278,7 +279,7 @@
     top: 0;
     left: 0;
     width: 75%;
-    z-index: 8; /* Убедитесь, что значение z-index достаточно высокое */
+    z-index: 12; /* Убедитесь, что значение z-index достаточно высокое */
     animation: headerDisappear 0.3s ease-in-out forwards;
   }
   .right_menu {
@@ -292,14 +293,26 @@
 
   .all_menu {
     display: grid;
-    gap: 15%;
+    gap: 70% !important;
     position: sticky;
     left: 0;
     width: 189px;
     margin: 0 auto;
-    padding: 42px 0;
+    padding: 25px 0;
     z-index: 1;
     list-style-type: none;
+  }
+  .social{
+    width: 180px !important;
+  }
+  .header_menu{
+    width: 180px !important;
+  transform: translateY(-20%) !important;
+
+  }
+  .logo{
+    width: 180px !important;
+    height: 140px !important;
   }
 }
 
@@ -308,7 +321,7 @@
   display: grid;
   gap: 10%;
   height: auto;
-  width: 113px;
+  width: 138px;
   color: rgb(0, 0, 0);
 }
 
@@ -341,8 +354,8 @@
   background-position: center;
   background: none;
   transition: transform 0.5s ease-in-out;
-  width: 113px;
-  height: 91px;
+  width: 138px;
+  height: 108.9px;
 }
 
 .dark.logo {
@@ -355,7 +368,7 @@
 
 .social {
   display: flex;
-  width: 60%;
+  width: 138px;
   justify-content: space-between;
   grid-template-columns: 33% 33% 33%;
   align-items: center;

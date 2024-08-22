@@ -15,12 +15,15 @@ import CalendarComp from "../components/Calendar";
 import PartnerForm from "../components/Form";
 import RightBarMobile from "../components/RightBarMobile";
 import { VacanciesProvider } from "../components/LookingPage/VacanciesContext";
+import { getProducts, Products } from "../api/products";
+import Loader from "../components/Loader";
 const MainPage: FC = () => {
   const localTheme = window.localStorage.getItem("theme");
   const [theme, setTheme] = useState(localTheme ? localTheme : "light");
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-
+  const [loading, setLoading] = useState<boolean>(true);
+  const [products, setProducts]= useState<Products[]>([]);
   useEffect(() => {
     window.localStorage.setItem("theme", theme);
     const handleResize = () => {
@@ -47,6 +50,29 @@ const MainPage: FC = () => {
     setIsBurgerOpen((prevIsBurgerOpen) => !prevIsBurgerOpen);
   };
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Здесь вы можете заменить URL на ваш реальный API
+        const response = await getProducts();
+        // Обработка данных, если необходимо
+        setLoading(true);
+        setProducts(response);
+        return response;
+      } catch (err) {
+        console.error("Ошибка при загрузке данных", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <Loader />; // Показать прелоадер, пока данные загружаются
+  }
+
   return (
     <VacanciesProvider>
       <ThemeContext.Provider value={{ theme, toggleTheme }}>
@@ -66,6 +92,8 @@ const MainPage: FC = () => {
             <div
               className={`${styles.burger} ${
                 isBurgerOpen ? styles.burgerClosed : ""
+              } ${
+                theme === "dark" ? styles.dark : ""
               }`}
               onClick={toggleBurger}
             >
@@ -74,8 +102,11 @@ const MainPage: FC = () => {
               <span></span>
             </div>
             <Header isBurgerOpen={isBurgerOpen} />
-            <div className={styles.content}>
-              <FirstScreenSlider />
+            <div
+              className={styles.content}
+              onClick={isBurgerOpen ? toggleBurger : undefined}
+            >
+              <FirstScreenSlider products={products} />
               <History />
               <CalendarComp />
               <Partnership />

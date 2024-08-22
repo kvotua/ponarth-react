@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 const roleSynonyms: Record<string, string> = {
+  ADMIN: 'Администратор',
   formVacancy: 'Форма вакансии',
   formOfExcursions: 'Форма экскурсии',
   formPartner: 'Форма партнеров',
@@ -25,12 +26,9 @@ const NotificationPage = () => {
         const usersWithSynonyms = data.map((user) => ({
           ...user,
           nameAndLastname: user.nameAndLastname.replace(';', ' '),
-          roles: user.roles
-            .filter((role) => role !== 'ADMIN')
-            .map((role) => roleSynonyms[role] || role),
+          roles: user.roles.map((role) => roleSynonyms[role] || role),
         }))
 
-        // Fetch Telegram chat details and file path for each user
         const usersWithTelegramDetails = await Promise.all(
           usersWithSynonyms.map(async (user) => {
             try {

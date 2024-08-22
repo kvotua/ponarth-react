@@ -9,34 +9,29 @@ interface TokenValidatorProps {
 const TokenValidator: React.FC<TokenValidatorProps> = ({ children }) => {
   const location = useLocation()
   const [isTokenValid, setIsTokenValid] = useState<boolean | null>(null)
-  const [username, setUsername] = useState<string | null>(null)
 
-  const validateToken = useCallback(
-    async (token: string) => {
-      try {
-        const response = await axios.get(
-          'https://backend.ponarth.com/api/auth/validateToken',
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        )
-
-        if (response.status === 200) {
-          localStorage.setItem('token', token)
-          setIsTokenValid(true)
-          setUsername(response.data.username)
-        } else {
-          await requestNewToken(response.data.username)
+  const validateToken = useCallback(async (token: string) => {
+    try {
+      const response = await axios.get(
+        'https://backend.ponarth.com/api/auth/validateToken',
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
-      } catch (error) {
-        await requestNewToken(username)
-        console.error('Error validating token:', error)
+      )
+
+      if (response.status === 200) {
+        localStorage.setItem('token', token)
+        setIsTokenValid(true)
+      } else {
+        await requestNewToken(response.data.username)
       }
-    },
-    [username]
-  )
+    } catch (error) {
+      await requestNewToken(null)
+      console.error('Error validating token:', error)
+    }
+  }, [])
 
   const requestNewToken = async (username: string | null) => {
     if (!username) {

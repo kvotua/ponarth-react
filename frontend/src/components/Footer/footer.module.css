@@ -7,7 +7,6 @@ footer {
   height: 100%;
   z-index: 0;
   /* box-shadow:  -0.9px 0px 4px 1px rgba(0, 0, 0, 0.16); */
-
 }
 
 .footerButton {
@@ -27,6 +26,13 @@ footer {
   transform-origin: center; /* Устанавливает центр масштабирования */
 }
 
+.dark .footerButton:hover {
+  transition: transform 0.1s ease-in-out, color 0.1s ease-in-out;
+  color: rgb(157, 20, 20);
+  transform: scale(1.05);
+  transform-origin: center; /* Устанавливает центр масштабирования */
+}
+
 .logo_footer {
   display: flex;
   justify-content: center;
@@ -41,8 +47,8 @@ footer {
 }
 
 .logo_footer_img {
-  height: 91px;
-  width: 113px;
+  width: 138px;
+  height: 108.79px;
 }
 
 .dark .logo_footer {
@@ -146,12 +152,12 @@ footer {
     /* margin-top: -45px; */
   }
 
-  .safari_footer{
+  .safari_footer {
     margin-top: -20px;
     height: 103px;
   }
 
-  .safari_footer_2{
+  .safari_footer_2 {
     margin-bottom: 10px;
   }
 }

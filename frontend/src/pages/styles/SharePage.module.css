@@ -72,6 +72,12 @@ z-index: 1;
   .button_back:hover{
     scale: 1.1;
   }
+  .button_back.dark{
+    background-color: rgb(0, 0, 0);
+    background-image: url(../../assets/expand_less_white.svg);
+    box-shadow: 0px 2px 8px rgba(255, 255, 255, 0.16); 
+    border:  1px solid white;
+  } 
   .right_container{
     grid-area: 2 / 7 / 4 / 11;
     backdrop-filter: blur(1px);

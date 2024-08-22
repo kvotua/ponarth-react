@@ -1,45 +1,13 @@
 import React, { useRef, useState, MouseEvent } from 'react';
 import styles from '../Map/map.module.css';
-import {
-  YMaps,
-  Map as YMapsMap,
-  Placemark,
-  TrafficControl,
-  ZoomControl,
-  FullscreenControl,
-} from '@pbe/react-yandex-maps';
-import { Map as YMapInstance } from 'yandex-maps'; // Импорт типа карты, если доступен
+import { YMaps, Map, Placemark, ZoomControl} from '@pbe/react-yandex-maps';
 
 const PonarthMap: React.FC = () => {
   const [isActive, setIsActive] = useState<boolean>(true);
   const mapOverlayRef = useRef<HTMLDivElement>(null);
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const [isBalloonOpen, setIsBalloonOpen] = useState<boolean>(false);
-  const [mapInstance, setMapInstance] = useState<YMapInstance | null>(null); // Типизация экземпляра карты
-  const [zoom] = useState<number>(10); // Начальный зум
-
-  const center: [number, number] = [54.681612173134894, 20.486968735086027];
-  const additionalPlacemarkCenter: [number, number] = [54.681562787718505, 20.486080532135926];
-  const thirdPlacemarkCenter: [number, number] = [54.72457696830196, 20.541960143062454];
-
-  const iconContent = 'Ponarth';
-  const hintContent = 'Калининград, предприятие Ponarth';
-  const infoContent = `
-    <div class="${styles.vitrine_content} ${isBalloonOpen ? styles.show : ''}">
-      <h3>Пивоварня Ponarth</h3>
-      <p style="color: black !important;">Калининград, Киевский пер., 1</p>
-      <p style="color: black !important;">Режим работы: 10:00-22:00</p>
-    </div>
-  `;
-
-  const thirdPlacemarkInfoContent = `
-    <div class="${styles.vitrine_content} ${isBalloonOpen ? styles.show : ''}">
-      <h3>Магазин Пивоварни Ponarth</h3>
-      <p style="color: black !important;">Калининград, ул. Кубышева 68</p>
-      <p style="color: black !important;">Режим работы: 11:00-00:00</p>
-    </div>
-  `;
-
+ 
   const activateMap = (): void => {
     setIsActive(false);
   };
@@ -49,42 +17,20 @@ const PonarthMap: React.FC = () => {
       setIsActive(true);
     }
   };
-
-  const handleBalloonClose = () => {
-    setIsBalloonOpen(false);
-  };
-
-  const smoothCenterChange = (newCenter: [number, number]) => {
-    if (!mapInstance) return;
-
-    const steps = 30;
-    const interval = 8; // интервал обновления в миллисекундах
-
-    const currentCenter = mapInstance.getCenter();
-    const deltaLat = (newCenter[0] - currentCenter[0]) / steps;
-    const deltaLon = (newCenter[1] - currentCenter[1]) / steps;
-
-    let step = 0;
-    const animate = () => {
-      if (step < steps) {
-        step++;
-        mapInstance.setCenter([
-          currentCenter[0] + step * deltaLat,
-          currentCenter[1] + step * deltaLon,
-        ]);
-        setTimeout(animate, interval);
-      } else {
-        mapInstance.setCenter(newCenter); // Устанавливаем точный центр в конце анимации
-      }
-    };
-    animate();
-  };
-
-  const handleDelayedBalloonOpen = (placemarkCenter: [number, number]) => {
-    setIsBalloonOpen(true);
-    smoothCenterChange(placemarkCenter);
-  };
-
+  const points = [
+    {
+        coordinates: [54.681612173134894, 20.486968735086027],
+        name: 'Калининградский зоопарк'
+    },
+    {
+        coordinates: [54.681562787718505, 20.486080532135926],
+        name: 'Кафедральный собор'
+    },
+    // {
+    //     coordinates: [54.72457696830196, 20.541960143062454],
+    //     name: 'Музей янтаря'
+    // }
+];
   return (
     <div className={styles.Map} onClick={deactivateMap}>
       <div className={styles.six_page} id="maps">
@@ -108,81 +54,37 @@ const PonarthMap: React.FC = () => {
               Нажмите чтобы увидеть карту
             </div>
             <YMaps>
-              <YMapsMap
-                state={{ center, zoom }}
-                className={styles.map}
-                instanceRef={(instance: YMapInstance) => setMapInstance(instance)} // Сохраняем экземпляр карты
-                modules={[
-                  'control.ZoomControl',
-                  'control.FullscreenControl',
-                  'control.SearchControl',
-                  'control.TrafficControl',
-                ]}>
+               <Map 
+                  defaultState={{ center: [54.681562787718505, 20.486080532135926], zoom: 13 }}  
+                   className={styles.map}
+                   
+               >
                 <ZoomControl options={{ position: { right: 10, top: 70 } }} />
-                <FullscreenControl options={{ position: { left: 10, top: 10 } }} />
-                <TrafficControl />
-
-                <Placemark
-                  geometry={center}
-                  properties={{
-                    iconContent: iconContent,
-                    hintContent: hintContent,
-                    balloonContent: infoContent,
-                  }}
-                  options={{
-                    iconLayout: 'default#image',
-                    iconImageHref: 'src/assets/Group 8.svg',
-                    iconImageSize: [130, 130],
-                    iconImageOffset: [-32, -64],
-                    hideIconOnBalloonOpen: false,
-                    balloonAutoPan: false, // Отключаем автоматическое перемещение карты
-                    balloonPanelMaxMapArea: 0, // Отключает автоматическое центрирование карты
-                  }}
-                  onBalloonOpen={() => handleDelayedBalloonOpen(center)}
-                  onBalloonClose={handleBalloonClose}
-                />
-
-                <Placemark
-                  geometry={additionalPlacemarkCenter}
-                  properties={{
-                    iconContent: iconContent,
-                    hintContent: hintContent,
-                    balloonContent: infoContent,
-                  }}
-                  options={{
-                    iconLayout: 'default#image',
-                    iconImageHref: 'src/assets/Group 8.svg',
-                    iconImageSize: [130, 130],
-                    iconImageOffset: [-32, -64],
-                    hideIconOnBalloonOpen: false,
-                    balloonAutoPan: false, // Отключаем автоматическое перемещение карты
-                    balloonPanelMaxMapArea: 0, // Отключает автоматическое центрирование карты
-                  }}
-                  onBalloonOpen={() => handleDelayedBalloonOpen(additionalPlacemarkCenter)}
-                  onBalloonClose={handleBalloonClose}
-                />
-
-                <Placemark
-                  geometry={thirdPlacemarkCenter}
-                  properties={{
-                    iconContent: 'Третья метка',
-                    hintContent: 'Без дополнительной информации',
-                    balloonContent: thirdPlacemarkInfoContent,
-                  }}
-                  options={{
-                    iconLayout: 'default#image',
-                    iconImageHref: 'src/assets/Group 8.svg',
-                    iconImageSize: [130, 130],
-                    iconImageOffset: [-32, -64],
-                    hideIconOnBalloonOpen: false,
-                    balloonAutoPan: false, // Отключаем автоматическое перемещение карты
-                    balloonPanelMaxMapArea: 0, // Отключает автоматическое центрирование карты
-                  }}
-                  onBalloonOpen={() => handleDelayedBalloonOpen(thirdPlacemarkCenter)}
-                  onBalloonClose={handleBalloonClose}
-                />
-              </YMapsMap>
-            </YMaps>
+                  {points.map((point, index) => (
+                   <Placemark 
+                   key={index} 
+                   geometry={point.coordinates} 
+                   properties={{
+                    balloonContentHeader: point.name,
+                    balloonContentBody: point.name,
+                    balloonContentFooter: 'Нажмите для закрытия'
+                }}
+                   options={{
+                    iconLayout: 'default#image', // Используем стандартный стиль иконки
+                    iconImageHref: 'src/assets/Group 8.svg', // URL иконки
+                    iconImageSize: [124, 124], // Размер иконки
+                    iconImageOffset: [-12, -24] // Смещение иконки, чтобы указатель указывал вниз
+                }}
+              //   onClick={(e: any) => {
+              //     const target = e.get('target'); // Получаем целевой объект
+              //     target.properties.set('balloonContent', point.name); // Устанавливаем содержимое всплывающего окна
+              //     target.balloon.open(); // Открываем всплывающее окно
+              // }}
+               >
+               </Placemark>
+                      ))}
+               </Map>
+           </YMaps>
           </div>
         </div>
       </div>
