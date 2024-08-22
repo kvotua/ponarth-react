@@ -6,7 +6,7 @@ const PonarthMap: React.FC = () => {
   const [isActive, setIsActive] = useState<boolean>(true);
   const mapOverlayRef = useRef<HTMLDivElement>(null);
   const mapContainerRef = useRef<HTMLDivElement>(null);
-  const [isBalloonOpen, setIsBalloonOpen] = useState<boolean>(false);
+
  
   const activateMap = (): void => {
     setIsActive(false);
