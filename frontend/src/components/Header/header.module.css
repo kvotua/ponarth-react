@@ -36,8 +36,9 @@
     display: none;
   }
   .toggle {
-    top: 47px;
-    right: 30px;
+    top: 105.5px;
+    margin-top: 75vh;
+    right: 47px;
     display: block;
     transform: rotate(0deg) scale(2);
     --night: 0px;
@@ -239,6 +240,11 @@
     border: none;
     font-size: 24px;
     cursor: pointer;
+  }
+  .social{
+    position: absolute;
+    top: -55px;
+    padding-top: unset !important;
   }
 }
 
