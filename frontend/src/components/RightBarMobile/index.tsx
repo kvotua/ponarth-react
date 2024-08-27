@@ -12,14 +12,14 @@ const RightBarMobile = () => {
       };
 
       useEffect(() => {
-        const updateFlexHeight = () => {
-          const doubleScreenHeight = window.innerHeight;
-          document.documentElement.style.setProperty(
-            "--flexing-screen-height",
-            `${doubleScreenHeight}px`
-          );
-        };
-        updateFlexHeight();
+        // const updateFlexHeight = () => {
+        //   const doubleScreenHeight = window.innerHeight;
+        //   document.documentElement.style.setProperty(
+        //     "--flexing-screen-height",
+        //     `${doubleScreenHeight}px`
+        //   );
+        // };
+        // updateFlexHeight();
         const handleScroll = () => {
           if (window.scrollY > 800) {
             setIsVisible(true);

@@ -37,7 +37,8 @@
   }
   .toggle {
     top: 105.5px;
-    margin-top: calc(var(--flexing-screen-height) / 100 * 75);
+    margin-top: 75vh;
+    bottom: 20vh;
 
     right: 47px;
     display: block;
