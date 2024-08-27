@@ -1,7 +1,3 @@
-.props{
-  --flexing-screen-height: 100vh;
-  
-}
 .dark {
     background-color: black;
   }
@@ -11,12 +7,11 @@
    padding: 1%;
    position: absolute;
    left: calc(var(--screen-width) - 73px);
+   transition: 0.5s ease-in-out;
 
   }
   .expand_less {
-    // top: 96px;
-    // margin-top: calc(var(--flexing-screen-height) / 100 * 75);
-    // margin-top: 75vh;
+ transition: opacity 0.5s ease-in-out;
     bottom: 34px;
     width: 33.2px;
     height: 33.2px;

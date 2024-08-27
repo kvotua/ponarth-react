@@ -39,14 +39,18 @@ return () => {
 }, []);
 return (
 <div className={styles.container_menu}>
- {isVisible && (
  <button
   className={`${styles.expand_less} ${
     theme === "dark" ? styles.dark : ""
   }`}
+  style={
+    {
+      opacity: !isVisible ? "0" : "1",
+        transition: "all .2s ease-in",
+    }
+  }
   onClick={scrollToTop}
 ></button>
-)}
 </div>
 )
 }
