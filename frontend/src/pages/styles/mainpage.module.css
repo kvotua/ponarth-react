@@ -48,18 +48,18 @@ body.dark {
   background-color: white;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
   left: 34px;
-  top: 96px;
-  margin-top: 75vh;
+  bottom: 34px;
   gap: 3px;
-}
-.burger.burgerClosed{
-  background-color: #ffffff5f;
-  box-shadow: unset;
 }
 .burger.dark{
   border: 2px solid white;
-  background-color: #ffffff5f;
+  background-color: black;
 }
+.burger.burgerClosed{
+  background-color: unset;
+  box-shadow: unset;
+}
+
 .burger span {
   display: block; /* или inline-block */
   width: 14px;

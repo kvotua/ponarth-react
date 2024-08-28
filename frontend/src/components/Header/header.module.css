@@ -2,7 +2,7 @@
 .header {
   width: 20%;
   min-width: 220px;
-  height: 120vh;
+  height: 101%;
   border-radius: 2px;
   top: 0;
   left: 0;
@@ -28,16 +28,50 @@
 .header_menu {
   transition: box-shadow, background-color 1s ease;
 }
+.logo{
+  margin-bottom: 20%;
+}
 .header_menu {
+  width: 138px;
   padding-left: 0px;
 }
+.headerButton{
+  margin-top: 20%;
+}
+.social{
+  display: none;
+}
+.social_in{
+    display: flex;
+    width: 138px;
+    justify-content: space-between;
+    grid-template-columns: 33% 33% 33%;
+    align-items: center;
+    margin-top: 20%;
+    z-index: 2;
+}
 @media only screen and (max-width: 1230px) {
+  .social_in{
+    display: none;
+  }
+  .all_menu {
+    display: grid;
+    align-items: center;
+    justify-content: center; 
+    position: sticky;
+    left: 0;
+    width: 189px;
+    margin: 0 auto;
+    padding-top: unset !important;
+    z-index: 1;
+    list-style-type: none;
+  }
   .header {
     display: none;
   }
   .toggle {
-    top: 105.5px;
-    margin-top: 75vh;
+    bottom: 43px;
+    z-index: 2;
     right: 47px;
     display: block;
     transform: rotate(0deg) scale(2);
@@ -61,7 +95,7 @@
     --sun-opacity: 1;
     --moon-opacity: 0;
     appearance: none;
-    position: absolute;
+    position: fixed;
     font-size: 1em;
     width: 30px;
     aspect-ratio: 2;
@@ -242,9 +276,20 @@
     cursor: pointer;
   }
   .social{
-    position: absolute;
-    top: -55px;
+    position: fixed;
+    width: 100%;
+    top: 34px;
     padding-top: unset !important;
+  }
+  .social {
+    display: flex;
+    width: 60% !important;
+    padding: 0 20%;
+    justify-content: space-between;
+    grid-template-columns: 33% 33% 33%;
+    align-items: center;
+    padding-top: 30px;
+    z-index: 2;
   }
 }
 
@@ -269,11 +314,15 @@
   }
 }
 @media (max-width: 599px) {
+  .headerButton{
+    margin-top: 10%;
+  }
   .headerOpen {
     display: block;
     position: fixed;
     top: 0;
     left: 0;
+    height: 101%;
     width: 75%;
     z-index: 12; /* Убедитесь, что значение z-index достаточно высокое */
     animation: headerAppear 0.3s ease-in-out forwards;
@@ -299,12 +348,13 @@
 
   .all_menu {
     display: grid;
-    gap: 70% !important;
+    align-items: center;
+    justify-content: center; 
     position: sticky;
     left: 0;
     width: 189px;
     margin: 0 auto;
-    padding: 25px 0;
+    padding-top: unset !important;
     z-index: 1;
     list-style-type: none;
   }
@@ -313,27 +363,26 @@
   }
   .header_menu{
     width: 180px !important;
-  transform: translateY(-20%) !important;
+  /* transform: translateY(-20%) !important; */
 
   }
   .logo{
     width: 180px !important;
+    margin-bottom: 10%;
     height: 140px !important;
   }
 }
 
 .header_menu {
-  transform: translateY(-10%);
   display: grid;
-  gap: 10%;
-  height: auto;
+  /* gap: 10%;
   width: 138px;
-  color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0); */
 }
 
 .header_all_menu {
   width: 100%;
-  height: 50%;
+  height: 100%;
   margin: 0 auto;
 }
 
@@ -341,14 +390,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 80%;
   position: sticky;
-  top: 96px;
+  padding-top: 96px;
   left: 0;
   width: 100%;
-  height: 30%;
+  height: 100%;
   margin: 0 auto;
-  justify-content: space-between;
 }
 
 .logo {
@@ -372,14 +419,7 @@
   transform: scale(1.05);
 }
 
-.social {
-  display: flex;
-  width: 138px;
-  justify-content: space-between;
-  grid-template-columns: 33% 33% 33%;
-  align-items: center;
-  padding-top: 30px;
-}
+
 
 .social_circle1:hover {
   background-image: url(../../assets/ponarthColor.png);
