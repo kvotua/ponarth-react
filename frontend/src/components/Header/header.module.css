@@ -38,7 +38,22 @@
 .headerButton{
   margin-top: 20%;
 }
+.social{
+  display: none;
+}
+.social_in{
+    display: flex;
+    width: 138px;
+    justify-content: space-between;
+    grid-template-columns: 33% 33% 33%;
+    align-items: center;
+    margin-top: 20%;
+    z-index: 2;
+}
 @media only screen and (max-width: 1230px) {
+  .social_in{
+    display: none;
+  }
   .all_menu {
     display: grid;
     align-items: center;
@@ -266,6 +281,16 @@
     top: 34px;
     padding-top: unset !important;
   }
+  .social {
+    display: flex;
+    width: 60% !important;
+    padding: 0 20%;
+    justify-content: space-between;
+    grid-template-columns: 33% 33% 33%;
+    align-items: center;
+    padding-top: 30px;
+    z-index: 2;
+  }
 }
 
 @keyframes headerAppear {
@@ -394,16 +419,7 @@
   transform: scale(1.05);
 }
 
-.social {
-  display: flex;
-  width: 60% !important;
-  padding: 0 20%;
-  justify-content: space-between;
-  grid-template-columns: 33% 33% 33%;
-  align-items: center;
-  padding-top: 30px;
-  z-index: 2;
-}
+
 
 .social_circle1:hover {
   background-image: url(../../assets/ponarthColor.png);
