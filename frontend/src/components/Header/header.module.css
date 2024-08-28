@@ -32,12 +32,25 @@
   margin-bottom: 30%;
 }
 .header_menu {
+  width: 138px;
   padding-left: 0px;
 }
 .headerButton{
-  margin-top: 30%;
+  margin-top: 10%;
 }
 @media only screen and (max-width: 1230px) {
+  .all_menu {
+    display: grid;
+    align-items: center;
+    justify-content: center; 
+    position: sticky;
+    left: 0;
+    width: 189px;
+    margin: 0 auto;
+    padding-top: unset !important;
+    z-index: 1;
+    list-style-type: none;
+  }
   .header {
     display: none;
   }
@@ -248,9 +261,9 @@
     cursor: pointer;
   }
   .social{
-    position: absolute;
+    position: fixed;
     width: 100%;
-
+    top: 34px;
     padding-top: unset !important;
   }
 }
@@ -310,8 +323,6 @@
 
   .all_menu {
     display: grid;
-    /* align-items: flex-start; */
-    /* gap: 70% !important; */
     align-items: center;
     justify-content: center; 
     position: sticky;
@@ -319,7 +330,6 @@
     width: 189px;
     margin: 0 auto;
     padding-top: unset !important;
-    /* padding: 25px 0; */
     z-index: 1;
     list-style-type: none;
   }
@@ -386,7 +396,8 @@
 
 .social {
   display: flex;
-  width: 138px;
+  width: 60% !important;
+  padding: 0 20%;
   justify-content: space-between;
   grid-template-columns: 33% 33% 33%;
   align-items: center;
