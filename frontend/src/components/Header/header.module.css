@@ -29,14 +29,14 @@
   transition: box-shadow, background-color 1s ease;
 }
 .logo{
-  margin-bottom: 30%;
+  margin-bottom: 20%;
 }
 .header_menu {
   width: 138px;
   padding-left: 0px;
 }
 .headerButton{
-  margin-top: 10%;
+  margin-top: 20%;
 }
 @media only screen and (max-width: 1230px) {
   .all_menu {
