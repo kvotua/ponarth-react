@@ -13,6 +13,8 @@ const Header: React.FC<HeaderProps> = ({ isBurgerOpen }) => {
   const { vacancies } = useVacancies();
 
   return (
+    <>
+
     <header
       className={`${styles.header} ${theme === "dark" ? styles.dark : ""} ${
         isBurgerOpen ? styles.headerOpen : styles.headerClosed
@@ -116,6 +118,12 @@ const Header: React.FC<HeaderProps> = ({ isBurgerOpen }) => {
         </div>
       </div>
     </header>
+    <div className={`${styles.test} ${
+        isBurgerOpen ? styles.headerBackOpen : styles.headerBackClosed
+      }`}>
+
+    </div>
+    </>
   );
 };
 

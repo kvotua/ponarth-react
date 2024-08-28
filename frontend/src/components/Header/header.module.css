@@ -2,7 +2,7 @@
 .header {
   width: 20%;
   min-width: 220px;
-  height: 101%;
+  height: 100%;
   border-radius: 2px;
   top: 0;
   left: 0;
@@ -70,7 +70,7 @@
     display: none;
   }
   .toggle {
-    bottom: 43px;
+    bottom: 45px;
     z-index: 2;
     right: 47px;
     display: block;
@@ -236,9 +236,7 @@
     left: 0;
     width: 30%;
     z-index: 12;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    background-color: #dadada81;
+  background-color: unset;
     animation: headerAppear 0.4s ease-in-out forwards;
   }
 
@@ -291,6 +289,17 @@
     padding-top: 30px;
     z-index: 2;
   }
+  .test{
+    position: fixed;
+    top: 0;
+    left: 0;
+    -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      background-color: #dadada81;
+    width: 75%;
+    height: 130vh;
+    z-index: 10;
+  }
 }
 
 @keyframes headerAppear {
@@ -322,7 +331,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    height: 101%;
+    height: 100%;
     width: 75%;
     z-index: 12; /* Убедитесь, что значение z-index достаточно высокое */
     animation: headerAppear 0.3s ease-in-out forwards;
@@ -335,6 +344,26 @@
     left: 0;
     width: 75%;
     z-index: 12; /* Убедитесь, что значение z-index достаточно высокое */
+    animation: headerDisappear 0.3s ease-in-out forwards;
+  }
+  .headerBackOpen {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 75%;
+    z-index: 11; /* Убедитесь, что значение z-index достаточно высокое */
+    animation: headerAppear 0.3s ease-in-out forwards;
+  }
+
+  .headerBackClosed {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 75%;
+    z-index: 11; /* Убедитесь, что значение z-index достаточно высокое */
     animation: headerDisappear 0.3s ease-in-out forwards;
   }
   .right_menu {
