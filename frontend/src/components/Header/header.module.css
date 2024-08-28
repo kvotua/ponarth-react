@@ -2,7 +2,7 @@
 .header {
   width: 20%;
   min-width: 220px;
-  height: 100%;
+  height: 100vh;
   border-radius: 2px;
   top: 0;
   left: 0;
@@ -71,8 +71,9 @@
   }
   .toggle {
     bottom: 45px;
-    z-index: 2;
+    z-index:12;
     right: 47px;
+    left: calc(30% - 94px);
     display: block;
     transform: rotate(0deg) scale(2);
     --night: 0px;
@@ -95,7 +96,7 @@
     --sun-opacity: 1;
     --moon-opacity: 0;
     appearance: none;
-    position: fixed;
+    position: fixed !important;
     font-size: 1em;
     width: 30px;
     aspect-ratio: 2;
@@ -225,8 +226,18 @@
         left: 75%;
       }
     }
+  
   }
+  .toggleClosed{
+opacity: 0;
+animation: ToggleDisappear 0.5s ease-in-out forwards;
 
+  }
+  .toggleOpen{
+opacity: 1;
+animation: ToggleAppear 0.4s ease-in-out;
+
+  }
   .headerOpen {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -297,8 +308,34 @@
       backdrop-filter: blur(10px);
       background-color: #dadada81;
     width: 75%;
-    height: 130vh;
+    height: 150vh;
     z-index: 10;
+  }
+  .headerBackOpen {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30%;
+    z-index: 11;
+  background-color: unset;
+    animation: headerAppear 0.4s ease-in-out forwards;
+  }
+
+  .headerBackClosed {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30%;
+    z-index: 11;
+    backdrop-filter: blur(10px);
+    background-color: #dadada81;
+    animation: headerDisappear 0.5s ease-in-out forwards;
   }
 }
 
@@ -322,6 +359,32 @@
     transform: translateX(-100%);
   }
 }
+@keyframes ToggleAppear {
+  from {
+    opacity: 0;
+    transform: translateX(-400%);
+    scale: 2;
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    scale: 2;
+  }
+}
+@keyframes ToggleDisappear {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+    scale: 2;
+
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-400%);
+    scale: 2;
+
+  }
+}
 @media (max-width: 599px) {
   .headerButton{
     margin-top: 10%;
@@ -331,7 +394,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
+    height: 100vh;
     width: 75%;
     z-index: 12; /* Убедитесь, что значение z-index достаточно высокое */
     animation: headerAppear 0.3s ease-in-out forwards;
@@ -351,7 +414,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
+    height: 150vh;
     width: 75%;
     z-index: 11; /* Убедитесь, что значение z-index достаточно высокое */
     animation: headerAppear 0.3s ease-in-out forwards;
@@ -366,6 +429,19 @@
     z-index: 11; /* Убедитесь, что значение z-index достаточно высокое */
     animation: headerDisappear 0.3s ease-in-out forwards;
   }
+  .toggle{
+    left: calc(75% - 94px);
+
+  }
+  .toggleClosed{
+    opacity: 0;
+    animation: ToggleDisappear 0.3s ease-in-out forwards;
+      }
+      .toggleOpen{
+    opacity: 1;
+    animation: ToggleAppear 0.3s ease-in-out forwards;
+    
+      }
   .right_menu {
     display: none;
   }
