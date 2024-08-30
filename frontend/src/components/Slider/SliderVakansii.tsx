@@ -111,6 +111,8 @@ const SliderVakansii: React.FC = () => {
               placeholder=""
               required
               autoComplete="off"
+              type="tel"
+
             />
             <label htmlFor="phoneNumber">Ваш номер телефона</label>
           </div>

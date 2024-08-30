@@ -170,6 +170,8 @@ const SharePage = () => {
                       placeholder=" "
                       required
                       autoComplete="off"
+                      type="tel"
+
                     ></InputMask>
                     <label htmlFor="phoneNumber">Ваш номер телефона</label>
                   </div>
