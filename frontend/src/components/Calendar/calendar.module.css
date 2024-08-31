@@ -277,7 +277,7 @@
   color: #ffffff; /* Change label color to white for dark theme */
 }
 .input_calendar.dark button {
-  color: #ffffff; /* Change label color to white for dark theme */
+  color: #ffffff !important; /* Change label color to white for dark theme */
 }
 
 .persons_input.dark input::placeholder{
