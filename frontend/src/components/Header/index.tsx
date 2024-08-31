@@ -13,6 +13,8 @@ const Header: React.FC<HeaderProps> = ({ isBurgerOpen }) => {
   const { vacancies } = useVacancies();
 
   return (
+    <>
+
     <header
       className={`${styles.header} ${theme === "dark" ? styles.dark : ""} ${
         isBurgerOpen ? styles.headerOpen : styles.headerClosed
@@ -44,14 +46,6 @@ const Header: React.FC<HeaderProps> = ({ isBurgerOpen }) => {
               ></div>
             </a>
           </div>
-      <input
-        id="themeToggle"
-        type="checkbox"
-        role="switch"
-        className={styles.toggle}
-        checked={theme === "dark" ? true : false}
-        onClick={toggleTheme}
-      />
       <div className={styles.header_all_menu}>
         <div className={styles.all_menu}>
           <img
@@ -116,6 +110,22 @@ const Header: React.FC<HeaderProps> = ({ isBurgerOpen }) => {
         </div>
       </div>
     </header>
+    <input
+        id="themeToggle"
+        type="checkbox"
+        role="switch"
+        className={`${styles.toggle} ${
+          isBurgerOpen ? styles.toggleOpen : styles.toggleClosed
+        }`}
+        checked={theme === "dark" ? true : false}
+        onClick={toggleTheme}
+      />
+    <div className={`${styles.test} ${
+        isBurgerOpen ? styles.headerBackOpen : styles.headerBackClosed
+      }`}>
+
+    </div>
+    </>
   );
 };
 
