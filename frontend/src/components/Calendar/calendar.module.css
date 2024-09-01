@@ -164,15 +164,18 @@
   outline: none;
   border: 2px black solid;
 }
+.form_group input:focus{
+  height: 28.4px;
+}
 .form_group input::placeholder {
   color: transparent; 
 } 
 .form_group input:focus + label{
   display: none;
 }
-/* .form_group input:valid + label {
+.form_group input:valid + label {
   display: none;
-} */
+} 
 .slides {
   margin-left: 20px;  
   display: flex;
