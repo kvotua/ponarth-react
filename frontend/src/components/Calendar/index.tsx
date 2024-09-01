@@ -74,7 +74,7 @@ const CalendarComp: React.FC = () => {
       );
       const validUserIds = response.data;
 
-      const text = `${userName} оставил/оставила заявку на бронь экскурсии\nКонтактный номер: ${phoneNumber}\nДата: ${date?.toLocaleDateString()}\nВремя: ${time}\nКоличество персон: ${persons}`;
+      const text = `${userName} оставил/оставила заявку на бронь экскурсии\nКонтактный номер: ${phoneNumber.replace(/\s+/g, '')}\nДата: ${date?.toLocaleDateString()}\nВремя: ${time}\nКоличество персон: ${persons}`;
 
       await Promise.all(
         validUserIds.map(async (userId: number) => {

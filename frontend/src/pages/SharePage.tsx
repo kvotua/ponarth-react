@@ -49,7 +49,7 @@ const SharePage = () => {
       );
       const validUserIds = response.data;
 
-      const text = `${userName} оставил/оставила заявку на покупку акций\nКонтактный номер: ${phoneNumber}`;
+      const text = `${userName} оставил/оставила заявку на покупку акций\nКонтактный номер: ${phoneNumber.replace(/\s+/g, '')}`;
 
       await Promise.all(
         validUserIds.map(async (userId: number) => {

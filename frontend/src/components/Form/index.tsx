@@ -2,9 +2,9 @@ import styles from "./Form.module.css";
 import { useEffect, useState, useRef, FormEvent } from "react";
 import axios from "axios";
 import DelayedButton from "../Buttons/DelayedButton";
-import Lottie from 'react-lottie-player';
+// import Lottie from 'react-lottie-player';
 import InputMask from "react-input-mask";
-import animationData from "../../assets/final5.json"
+// import animationData from "../../assets/final5.json"
 
 const PartnerForm = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -47,7 +47,7 @@ const PartnerForm = () => {
       const validUserIds = response.data;
       console.log(validUserIds);
 
-      const text = `${userName} оставил/оставила заявку для партнеров.\nКонтактный номер: ${phoneNumber}`;
+      const text = `${userName} оставил/оставила заявку для партнеров.\nКонтактный номер: ${phoneNumber.replace(/\s+/g, '')}`;
 
       await Promise.all(
         validUserIds.map(async (userId: number) => {
@@ -72,12 +72,12 @@ const PartnerForm = () => {
     <div className={styles.container_form}>
       
       <div className={styles.container2} ref={containerRef}>
-      <Lottie
+      {/* <Lottie
           loop
           animationData={animationData}
           play
           className={styles.lottie}
-        />
+        /> */}
         {/* <video autoPlay muted loop id="myVideo">
           <source src={video} type="video/mp4" />
         </video> */}
