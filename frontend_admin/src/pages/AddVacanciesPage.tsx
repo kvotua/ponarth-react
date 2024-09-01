@@ -24,7 +24,7 @@ const AddVacanciesPage: FC = () => {
     vacanciesname: '',
     vacanciesdescription: '',
   })
-  
+
   const [image, setImage] = useState<File | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [imagePreview, setImagePreview] = useState<string | null>(null)
@@ -52,6 +52,13 @@ const AddVacanciesPage: FC = () => {
   const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0]
+      const fileSizeInMB = file.size / 1024 / 1024
+
+      if (fileSizeInMB > 5) {
+        alert('Размер файла не должен превышать 5 МБ')
+        return
+      }
+
       setImage(file)
       setImagePreview(URL.createObjectURL(file))
     }
