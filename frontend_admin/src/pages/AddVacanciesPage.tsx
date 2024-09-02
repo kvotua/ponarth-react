@@ -59,8 +59,21 @@ const AddVacanciesPage: FC = () => {
         return
       }
 
-      setImage(file)
-      setImagePreview(URL.createObjectURL(file))
+      const img = new Image()
+      const width = 5000
+      const height = 5080
+      img.onload = () => {
+        if (img.width > width || img.height > height) {
+          alert(
+            `Разрешение изображения не должно превышать  ${width}x${height}`
+          )
+          return
+        }
+
+        setImage(file)
+        setImagePreview(URL.createObjectURL(file))
+      }
+      img.src = URL.createObjectURL(file)
     }
   }
 
