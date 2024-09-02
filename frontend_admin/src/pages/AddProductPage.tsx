@@ -105,8 +105,8 @@ const AddProductPage: FC = () => {
       }
 
       const img = new Image()
-      const width = 5000
-      const height = 5080
+      const width = 8000
+      const height = 8000
       img.onload = () => {
         if (img.width > width || img.height > height) {
           alert(
