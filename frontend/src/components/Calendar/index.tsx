@@ -222,10 +222,11 @@ const CalendarComp: React.FC = () => {
                 theme === "dark" ? styles.dark : ""
               }`}
               type="text"
-              name="userName"
-              placeholder=""
-              required
-              autoComplete="off"
+                          id="userName"
+                          name="userName"
+                          placeholder=" "
+                          required
+                          autoComplete="off"
             /><label htmlFor="userName">Ваше имя</label>
             </div>
             <div className={`${styles.form_group} ${
