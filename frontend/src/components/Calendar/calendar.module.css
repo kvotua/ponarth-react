@@ -151,7 +151,7 @@
 .form_group label {
   position: absolute;
   top: 50%;
-  left: 10px;
+  left: 11.5px;
   pointer-events: none;
   transition: all 0.3s ease;
   padding-left: 5%;
@@ -164,15 +164,15 @@
   outline: none;
   border: 2px black solid;
 }
+.form_group input:focus{
+  height: 28.4px;
+}
 .form_group input::placeholder {
   color: transparent; 
 } 
-.form_group input:focus + label{
+.form_group input:valid + label {
   display: none;
-}
-/* .form_group input:valid + label {
-  display: none;
-} */
+} 
 .slides {
   margin-left: 20px;  
   display: flex;
@@ -277,7 +277,7 @@
   color: #ffffff; /* Change label color to white for dark theme */
 }
 .input_calendar.dark button {
-  color: #ffffff; /* Change label color to white for dark theme */
+  color: #ffffff !important; /* Change label color to white for dark theme */
 }
 
 .persons_input.dark input::placeholder{

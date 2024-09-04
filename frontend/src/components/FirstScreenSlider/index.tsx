@@ -152,10 +152,18 @@ const FirstScreenSlider: FC<FisrtSliderProps> = ({products}) => {
 
   const handleSlideChange = (swiper: SwiperType) => {
     let visible;
+    const width = window.innerWidth;
     if(isSafari){
-      visible = swiper.slides.filter((slide: HTMLElement) =>
-        slide.classList.contains("swiper-slide-fully-visible")
-      );
+      if (width > 1000){
+        visible = swiper.slides.filter((slide: HTMLElement) =>
+          slide.classList.contains("swiper-slide-visible")
+        );
+      }else{
+        visible = swiper.slides.filter((slide: HTMLElement) =>
+          slide.classList.contains("swiper-slide-fully-visible")
+        );
+      }
+     
     }
     else{
         visible = swiper.slides.filter((slide: HTMLElement) =>
@@ -236,7 +244,7 @@ const FirstScreenSlider: FC<FisrtSliderProps> = ({products}) => {
             return (
               <SwiperSlide
                 key={image.id}
-                style={{filter: isVisible? 'opacity(100%)' : 'opacity(0)' , willChange: 'opacity' }}
+                style={isVisible? {filter: isVisible? 'opacity(100%)' : 'opacity(0)', opacity: '1' , willChange: 'filter'}: {filter: isVisible? 'opacity(100%)' : 'opacity(0)', opacity: '0' , willChange: 'filter'}}
                 className={styles.slide}
               >
                 <img

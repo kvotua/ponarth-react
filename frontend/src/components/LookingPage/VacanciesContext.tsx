@@ -28,9 +28,11 @@ export const VacanciesProvider: React.FC<VacanciesProviderProps> = ({
     const fetchVacancies = async () => {
       try {
         const data = await getVacancies();
-        const vacanciesWithDecodedImages = data.map((vacancy) => ({
+        const filteredVacancies = data.filter(vacancy => vacancy.image !== null);
+        const vacanciesWithDecodedImages = filteredVacancies.map((vacancy) => ({
           ...vacancy,
           base64Image: `data:image/jpeg;base64,${vacancy.image}`,
+
         }));
         setVacancies(vacanciesWithDecodedImages);
       } catch (error) {

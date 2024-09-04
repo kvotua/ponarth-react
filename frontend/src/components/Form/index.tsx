@@ -47,7 +47,7 @@ const PartnerForm = () => {
       const validUserIds = response.data;
       console.log(validUserIds);
 
-      const text = `${userName} оставил/оставила заявку для партнеров.\nКонтактный номер: ${phoneNumber}`;
+      const text = `${userName} оставил/оставила заявку для партнеров.\nКонтактный номер: ${phoneNumber.replace(/\s+/g, '')}`;
 
       await Promise.all(
         validUserIds.map(async (userId: number) => {
@@ -124,6 +124,7 @@ const PartnerForm = () => {
                           placeholder=" "
                           required
                           autoComplete="off"
+                          type="tel"
                         ></InputMask>
                         <label htmlFor="phoneNumber">Ваш номер телефона</label>
                       </div>

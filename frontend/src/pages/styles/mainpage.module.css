@@ -31,7 +31,9 @@ body.dark {
   transition: box-shadow, background-color 1s ease;
 }
 .content{
+  z-index: 2;
   box-shadow:inset 0px 0px 8px 0px rgba(0,0,0, 0.16);
+  /* position: absolute; */
 
 }
 .burger {

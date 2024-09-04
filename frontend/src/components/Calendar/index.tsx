@@ -74,7 +74,7 @@ const CalendarComp: React.FC = () => {
       );
       const validUserIds = response.data;
 
-      const text = `${userName} оставил/оставила заявку на бронь экскурсии\nКонтактный номер: ${phoneNumber}\nДата: ${date?.toLocaleDateString()}\nВремя: ${time}\nКоличество персон: ${persons}`;
+      const text = `${userName} оставил/оставила заявку на бронь экскурсии\nКонтактный номер: ${phoneNumber.replace(/\s+/g, '')}\nДата: ${date?.toLocaleDateString()}\nВремя: ${time}\nКоличество персон: ${persons}`;
 
       await Promise.all(
         validUserIds.map(async (userId: number) => {
@@ -222,10 +222,11 @@ const CalendarComp: React.FC = () => {
                 theme === "dark" ? styles.dark : ""
               }`}
               type="text"
-              name="userName"
-              placeholder=""
-              required
-              autoComplete="off"
+                          id="userName"
+                          name="userName"
+                          placeholder=" "
+                          required
+                          autoComplete="off"
             /><label htmlFor="userName">Ваше имя</label>
             </div>
             <div className={`${styles.form_group} ${
@@ -240,6 +241,8 @@ const CalendarComp: React.FC = () => {
               placeholder=""
               required
               autoComplete="off"
+              type="tel"
+
             />
             <label htmlFor="phoneNumber">Ваш номер телефона</label>
             </div>
