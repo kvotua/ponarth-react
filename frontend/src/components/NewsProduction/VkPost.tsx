@@ -66,20 +66,23 @@ const VkPost: React.FC<VkPostProps> = ({ groupId, accessToken }) => {
     };
     fetchPosts();
 
-    const moveHandler = (event: MouseEvent) => handleMouseMove(event);
-    const upOrLeaveHandler = () => handleMouseUpOrLeave();
+    const width = window.innerWidth;
+    if(width > 1000){
+      const moveHandler = (event: MouseEvent) => handleMouseMove(event);
+      const upOrLeaveHandler = () => handleMouseUpOrLeave();
 
-    if (isDragging) {
-      window.addEventListener('mousemove', moveHandler);
-      window.addEventListener('mouseup', upOrLeaveHandler);
-      window.addEventListener('mouseleave', upOrLeaveHandler); 
+      if (isDragging) {
+        window.addEventListener('mousemove', moveHandler);
+        window.addEventListener('mouseup', upOrLeaveHandler);
+        window.addEventListener('mouseleave', upOrLeaveHandler); 
 
-      return () => {
-        window.removeEventListener('mousemove', moveHandler);
-        window.removeEventListener('mouseup', upOrLeaveHandler);
-        window.removeEventListener('mouseleave', upOrLeaveHandler);
-      };
-    }
+        return () => {
+          window.removeEventListener('mousemove', moveHandler);
+          window.removeEventListener('mouseup', upOrLeaveHandler);
+          window.removeEventListener('mouseleave', upOrLeaveHandler);
+        };
+      }
+  }
   }, [groupId, accessToken, isDragging]);
 
   if (error) {

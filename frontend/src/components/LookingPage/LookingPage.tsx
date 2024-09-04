@@ -5,7 +5,6 @@ import { useVacancies } from "./VacanciesContext";
 
 const Looking: React.FC = () => {
   const { vacancies } = useVacancies();
-
   if (vacancies.length === 0) {
     return null;
   }

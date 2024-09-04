@@ -9,7 +9,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ firstName, lastName, avatarUrl }) => {
-  const defaultName = 'Гусь утка'
+  const defaultName = 'Загрузка...'
 
   return (
     <div className={styles.wrapper}>
@@ -18,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({ firstName, lastName, avatarUrl }) => {
           <img
             src={
               avatarUrl ||
-              'https://masterpiecer-images.s3.yandex.net/fa066d4962eb11ee8c6d168cdf1572ce:upscaled'
+              'https://i0.wp.com/www.stignatius.co.uk/wp-content/uploads/2020/10/default-user-icon.jpg?fit=415%2C415&ssl=1'
             }
             alt=""
           />

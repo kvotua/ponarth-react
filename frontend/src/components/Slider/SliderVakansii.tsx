@@ -29,7 +29,7 @@ const SliderVakansii: React.FC = () => {
       );
       const validUserIds = response.data;
 
-      const text = `${userName} оставил/оставила заявку на вакансию\nКонтактный номер: ${phoneNumber}`;
+      const text = `${userName} оставил/оставила заявку на вакансию\nКонтактный номер: ${phoneNumber.replace(/\s+/g, '')}`;
 
       await Promise.all(
         validUserIds.map(async (userId: number) => {
@@ -111,6 +111,8 @@ const SliderVakansii: React.FC = () => {
               placeholder=""
               required
               autoComplete="off"
+              type="tel"
+
             />
             <label htmlFor="phoneNumber">Ваш номер телефона</label>
           </div>

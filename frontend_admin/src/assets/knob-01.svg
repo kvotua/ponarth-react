@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 27 27">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#_Безымянный_градиент);
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: url(#_Безымянный_градиент_2);
+        stroke-width: 5px;
+      }
+    </style>
+    <linearGradient id="_Безымянный_градиент" data-name="Безымянный градиент" x1="13.5" y1="49.65957" x2="13.5" y2="22.65957" gradientTransform="translate(0 49.65957) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#eaeaea"/>
+      <stop offset="1" stop-color="#f4f4f4"/>
+    </linearGradient>
+    <linearGradient id="_Безымянный_градиент_2" data-name="Безымянный градиент 2" x1="13.5" y1="49.65957" x2="13.5" y2="22.65957" gradientTransform="translate(0 49.65957) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#ececec"/>
+    </linearGradient>
+  </defs>
+  <circle class="cls-1" cx="13.5" cy="13.5" r="13.5"/>
+  <circle class="cls-2" cx="13.5" cy="13.5" r="11"/>
+</svg>

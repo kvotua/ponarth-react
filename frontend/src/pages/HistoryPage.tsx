@@ -18,6 +18,12 @@ const HistoryPage = () => {
   const [theme, setTheme] = useState(localTheme ? localTheme : "light");
 
   useEffect(() => {
+    const htmlElement = document.documentElement;
+    const originalScrollBehavior = htmlElement.style.scrollBehavior;
+    htmlElement.style.scrollBehavior = "auto";
+    window.scrollTo(0, 0);
+    htmlElement.style.scrollBehavior = originalScrollBehavior;
+
     window.localStorage.setItem("theme", theme);
     document.body.style.backgroundColor = theme === "dark" ? "#000" : "#fff";
   }, [theme]);

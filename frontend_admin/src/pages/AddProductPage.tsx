@@ -97,8 +97,28 @@ const AddProductPage: FC = () => {
   const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0]
-      setImage(file)
-      setImagePreview(URL.createObjectURL(file))
+      const fileSizeInMB = file.size / 1024 / 1024
+
+      if (fileSizeInMB > 5) {
+        alert('Размер файла не должен превышать 5 МБ')
+        return
+      }
+
+      const img = new Image()
+      const width = 8000
+      const height = 8000
+      img.onload = () => {
+        if (img.width > width || img.height > height) {
+          alert(
+            `Разрешение изображения не должно превышать  ${width}x${height}`
+          )
+          return
+        }
+
+        setImage(file)
+        setImagePreview(URL.createObjectURL(file))
+      }
+      img.src = URL.createObjectURL(file)
     }
   }
 

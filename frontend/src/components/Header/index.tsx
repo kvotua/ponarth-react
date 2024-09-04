@@ -13,19 +13,39 @@ const Header: React.FC<HeaderProps> = ({ isBurgerOpen }) => {
   const { vacancies } = useVacancies();
 
   return (
+    <>
+
     <header
       className={`${styles.header} ${theme === "dark" ? styles.dark : ""} ${
         isBurgerOpen ? styles.headerOpen : styles.headerClosed
       }`}
     >
-      <input
-        id="themeToggle"
-        type="checkbox"
-        role="switch"
-        className={styles.toggle}
-        checked={theme === "dark" ? true : false}
-        onClick={toggleTheme}
-      />
+       <div className={styles.social}>
+            <a
+              href="https://untappd.com/b/brauerei-ponarth-pivovarnya-ponart-pshenichnoe/2206518"
+              target="_blank"
+            >
+              <div
+                className={`${styles.social_circle1} ${
+                  theme === "dark" ? styles.dark : ""
+                }`}
+              ></div>
+            </a>
+            <a href="https://vk.com/ponarth" target="_blank">
+              <div
+                className={`${styles.social_circle2} ${
+                  theme === "dark" ? styles.dark : ""
+                }`}
+              ></div>
+            </a>
+            <a href="https://t.me/ponarth_1849" target="_blank">
+              <div
+                className={`${styles.social_circle3} ${
+                  theme === "dark" ? styles.dark : ""
+                }`}
+              ></div>
+            </a>
+          </div>
       <div className={styles.header_all_menu}>
         <div className={styles.all_menu}>
           <img
@@ -61,7 +81,7 @@ const Header: React.FC<HeaderProps> = ({ isBurgerOpen }) => {
               На картах
             </a>
           </div>
-          <div className={styles.social}>
+          <div className={styles.social_in}>
             <a
               href="https://untappd.com/b/brauerei-ponarth-pivovarnya-ponart-pshenichnoe/2206518"
               target="_blank"
@@ -90,6 +110,22 @@ const Header: React.FC<HeaderProps> = ({ isBurgerOpen }) => {
         </div>
       </div>
     </header>
+    <input
+        id="themeToggle"
+        type="checkbox"
+        role="switch"
+        className={`${styles.toggle} ${
+          isBurgerOpen ? styles.toggleOpen : styles.toggleClosed
+        }`}
+        checked={theme === "dark" ? true : false}
+        onClick={toggleTheme}
+      />
+    <div className={`${styles.test} ${
+        isBurgerOpen ? styles.headerBackOpen : styles.headerBackClosed
+      }`}>
+
+    </div>
+    </>
   );
 };
 

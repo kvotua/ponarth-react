@@ -25,11 +25,7 @@ const PonarthMap: React.FC = () => {
     {
         coordinates: [54.681562787718505, 20.486080532135926],
         name: 'Кафедральный собор'
-    },
-    // {
-    //     coordinates: [54.72457696830196, 20.541960143062454],
-    //     name: 'Музей янтаря'
-    // }
+    }
 ];
   return (
     <div className={styles.Map} onClick={deactivateMap}>
@@ -65,21 +61,8 @@ const PonarthMap: React.FC = () => {
                    key={index} 
                    geometry={point.coordinates} 
                    properties={{
-                    balloonContentHeader: point.name,
-                    balloonContentBody: point.name,
-                    balloonContentFooter: 'Нажмите для закрытия'
-                }}
-                   options={{
-                    iconLayout: 'default#image', // Используем стандартный стиль иконки
-                    iconImageHref: 'src/assets/Group 8.svg', // URL иконки
-                    iconImageSize: [124, 124], // Размер иконки
-                    iconImageOffset: [-12, -24] // Смещение иконки, чтобы указатель указывал вниз
-                }}
-              //   onClick={(e: any) => {
-              //     const target = e.get('target'); // Получаем целевой объект
-              //     target.properties.set('balloonContent', point.name); // Устанавливаем содержимое всплывающего окна
-              //     target.balloon.open(); // Открываем всплывающее окно
-              // }}
+                    balloonContent: point.name
+                }} 
                >
                </Placemark>
                       ))}
