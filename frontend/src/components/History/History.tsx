@@ -11,7 +11,7 @@ function History() {
   ));
 
   const updateHeight = () => {
-    const doubleScreenHeight = window.innerHeight * 2;
+    const doubleScreenHeight = window.screen.height  * 2;
     document.documentElement.style.setProperty(
       "--double-screen-height",
       `${doubleScreenHeight}px`
@@ -19,7 +19,6 @@ function History() {
   };
 
   updateHeight();
-  
   return (
     <div className={styles.container_two_page}>
       <div className={styles.two_page} id="history">

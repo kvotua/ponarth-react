@@ -5,8 +5,10 @@ import Ponarth_firmenny_blok_01 from "../../assets/logo.svg";
 import Practice_logo from "../../assets/Practice_logo.svg";
 import classNames from "classnames";
 import { useVacancies } from "../LookingPage/VacanciesContext";
-
-const Footer: FC = () => {
+interface FooterProps{
+  onClick?: () => void;
+}
+const Footer: FC<FooterProps> = ({onClick}) => {
   const { theme } = useContext(ThemeContext);
   const [isSafari, setIsSafari] = useState(false);
   const { vacancies } = useVacancies();
@@ -16,22 +18,27 @@ const Footer: FC = () => {
       navigator.userAgent.indexOf("Safari") != -1 &&
       navigator.userAgent.indexOf("Chrome") == -1
     ) {
+   
       setIsSafari(true);
     }
   }, []);
 
-  const classList = classNames("footer_items", {
+  const classList = classNames( {
     [styles.safari_footer]: isSafari,
     [styles.practice]: true, // Этот класс всегда будет добавлен
   });
 
-  const classList2 = classNames("footer_items", {
+  const classList2 = classNames( {
     [styles.safari_footer_2]: isSafari,
     [styles.logo_footer]: true, // Этот класс всегда будет добавлен
   });
+  const classList3 = classNames( {
+    [styles.safari_footer_info]: isSafari,
+    [styles.info_footer]: true, // Этот класс всегда будет добавлен
+  });
 
   return (
-    <footer className={theme === "dark" ? styles.dark : ""}>
+    <footer className={theme === "dark" ? styles.dark : ""} onClick={onClick}>
       <div
         className={`${styles.all_items_footer} ${
           theme === "dark" ? styles.dark : ""
@@ -45,7 +52,7 @@ const Footer: FC = () => {
           />
         </div>
 
-        <div className={styles.info_footer}>
+        <div className={classList3}>
           <a className={styles.footerButton} href="">
             АО "БРАУРЭРАЙ ПОНАРТ"
           </a>
@@ -60,7 +67,7 @@ const Footer: FC = () => {
           </a>
         </div>
 
-        <div className={styles.info_footer}>
+        <div className={classList3}>
           <a className={styles.footerButton} href="#history">
             История
           </a>
@@ -74,7 +81,7 @@ const Footer: FC = () => {
             На картах
           </a>
         </div>
-        <div className={styles.info_footer}>
+        <div className={classList3}>
           <a className={styles.footerButton} href="#news">
             Новости
           </a>
