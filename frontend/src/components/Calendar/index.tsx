@@ -30,7 +30,6 @@ const CalendarComp: React.FC = () => {
       setIsSafari(true);
     }
   }, []);
-
   const classList = classNames('slide', {
     [styles.slide_safari]: isSafari,
     [styles.slide]: true, 

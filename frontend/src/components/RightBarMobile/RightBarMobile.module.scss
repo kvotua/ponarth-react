@@ -46,3 +46,8 @@
         display: none;
     }
 }
+@media screen and (max-height: 700px) {
+  .expand_less{
+    bottom: 24px;
+  }
+}

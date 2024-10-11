@@ -31,6 +31,7 @@ const FirstScreenSlider: FC<FisrtSliderProps> = ({products}) => {
   const [images, setImages] = useState<Products[]>([]);
   const [productsData, setProductsData] = useState<Products[]>([]);
   const [isSafari, setIsSafari] = useState(false);
+  const [isVisibleProduct, setIsVisibleProduct] = useState(false);
   const swiperRef = useRef<SwiperType | null>(null);
   useEffect(() => {
     if (
@@ -47,8 +48,11 @@ const FirstScreenSlider: FC<FisrtSliderProps> = ({products}) => {
     return () => {
       window.removeEventListener("resize", WindowWidth);
     };
+    
   }, []);
-
+  useEffect(() => {
+    setIsVisibleProduct(true);
+  }, [currentProduct]);
   const adjustImagesArray = (images: Products[]): Products[] => {
     const length = images.length;
 
@@ -179,6 +183,11 @@ const FirstScreenSlider: FC<FisrtSliderProps> = ({products}) => {
     const activeIndex = swiper.realIndex;
     setCurrentProduct(productsData[activeIndex]);
     setProductsData(images);
+    setIsVisibleProduct(false)
+    setTimeout(() => {
+    setIsVisibleProduct(true)
+      
+    }, 1);
   };
   const WindowWidth = () => {
     const width = window.innerWidth;
@@ -208,7 +217,7 @@ const FirstScreenSlider: FC<FisrtSliderProps> = ({products}) => {
       swiperRef.current.update(); // Принудительно обновляем Swiper после загрузки
     }
   }, [stretch]);
-
+console.log(currentProduct?.description.split(";")[4])
   return (
     <div className={styles.first_container} content="f" id="sorta">
       <div className={styles.sliders}>
@@ -259,10 +268,10 @@ const FirstScreenSlider: FC<FisrtSliderProps> = ({products}) => {
       </div>
       <div className={styles.text_slider}>
         <div className={styles.text_in}>
-          <h2 className={styles.gradual_appear}>
+          <h2 className={`${styles.gradual_appear} ${isVisibleProduct ? styles.fade_in : ""}`}>
             {currentProduct?.name || "ПИВО"}
           </h2>
-          <div className={styles.first_screen_par}>
+          <div className={`${styles.first_screen_par} ${isVisibleProduct ? styles.fade_in : ""}`}>
             <p>
               <p>{isSafari}</p>
               {currentProduct?.description.split(";")[4] ||
@@ -272,7 +281,7 @@ const FirstScreenSlider: FC<FisrtSliderProps> = ({products}) => {
               <DelayedButton
                 to=""
                 delay={1}
-                className={styles.button_slider}
+                className={`${styles.button_slider} ${isVisibleProduct ? styles.appear_button : ""}`}
                 style={themeButton}
               >
                 ГДЕ ПОПРОБОВАТЬ?
