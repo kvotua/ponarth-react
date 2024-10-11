@@ -104,10 +104,10 @@ footer {
   color: #fff;
   transition: box-shadow, background-color 1s ease;
 }
-/* 
+
 @media screen and (max-width: 807px) {
   footer {
-    height: calc((var(--double-screen-height)/2));
+    height: calc((var(--double-screen-height)/2) - 30px);
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -134,7 +134,7 @@ footer {
   }
 
   .info_footer {
-    height: 29%;
+    height: 180px;
 
     a {
       overflow: hidden;
@@ -143,12 +143,12 @@ footer {
 
   .practice_logo {
     margin-right: 0;
-    height: 100px;
   }
 
   .practice {
-    height: 80px;
+    height: 140px;
     overflow: hidden;
+    /* margin-top: -45px; */
   }
 
   .safari_footer {
@@ -167,34 +167,9 @@ footer {
   .safari_footer_info> a{
 height: 35px;
   }
-} */
-/* @media screen and (max-height: 580px) {
+}
+@media screen and (max-height: 630px) {
   .safari_footer_info> a{
-    height: 1.4rem;
+    height: 1rem;
       }
-      .safari_footer{
-        margin-top: unset;
-        height: 100px;
-      }
-} */
-.prop{
-  --screen-height: 100vh;
-}
-@media screen and (max-width: 807px) {
-footer{
-  height: var(--screen-height);
-  width: 100%;
-  padding: unset;
-}
-.test{
-  background-color: beige;
-  width: 100%;
-  height: 100%;
-  display: flex;
-align-items: center;
-  flex-direction: column;
-}
-.safari_test{
-  padding: calc(var(--screen-height)/100*10) 0 0 0;
-}
 }

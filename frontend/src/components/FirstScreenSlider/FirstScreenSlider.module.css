@@ -55,13 +55,15 @@
   gap: 20px;
 }
 .gradual_appear {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
   color: black;
   font-size: 40px;
   font-weight: 300;
   text-transform: uppercase;
   line-height: 62px;
 }
-.first_screen_par{
+.first_screen_par {
   display: grid;
   gap: 20px;
   color: black;
@@ -72,24 +74,6 @@
   text-align: justify;
   width: 100%;
 }
-.gradual_appear {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-.first_screen_par {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.appear_button {
-  opacity: 1;
-  transition: opacity 0.5s ease;
-}
-
-.fade_in {
-  opacity: 1;
-}
-
 @media screen and (max-width: 1200px)  {
   .mySwiperBottle{
     height: 450px;

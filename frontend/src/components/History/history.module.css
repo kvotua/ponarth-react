@@ -232,15 +232,6 @@ transform: scale(1.05);
   }
 }
 
-@media screen and (max-height: 600px) {
-  .text_two_page{
-    font-size: 30px;
-    line-height: 40px;
-  }
-  .hoverable{
-    font-size: 13px;
-  }
-}
 @keyframes appear {
   from {
     opacity: 0;
