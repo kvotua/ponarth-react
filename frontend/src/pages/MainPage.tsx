@@ -119,7 +119,7 @@ const MainPage: FC = () => {
             <RightBar />
             <RightBarMobile />
           </div>
-          <Footer />
+          <Footer  onClick={isBurgerOpen ? toggleBurger : undefined}  />  
         </div>
       </ThemeContext.Provider>
     </VacanciesProvider>

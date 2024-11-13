@@ -126,3 +126,8 @@ body.dark {
 box-shadow: unset;
   }
 }
+@media screen and (max-height: 700px) {
+  .burger{
+    bottom: 24px;
+  }
+}

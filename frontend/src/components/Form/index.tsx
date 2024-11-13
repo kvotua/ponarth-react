@@ -4,7 +4,7 @@ import axios from "axios";
 import DelayedButton from "../Buttons/DelayedButton";
 import Lottie from 'react-lottie-player';
 import InputMask from "react-input-mask";
-import animationData from "../../assets/final5.json"
+// import animationData from "../../assets/final5.json"
 
 const PartnerForm = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -52,7 +52,7 @@ const PartnerForm = () => {
       await Promise.all(
         validUserIds.map(async (userId: number) => {
           await axios.get(
-            `https://api.telegram.org/bot7325305177:AAEPXOEoUqU8w_slY6osObJwbNfdWQ0sjus/sendMessage`,
+            `https://api.telegram.org/bot8110753865:AAE5wI51onb539rxjZcOAttMTWiEw4_2rls/sendMessage`,
             {
               params: {
                 text: text,
@@ -74,7 +74,7 @@ const PartnerForm = () => {
       <div className={styles.container2} ref={containerRef}>
       <Lottie
           loop
-          animationData={animationData}
+          // animationData={animationData}
           play
           className={styles.lottie}
         />

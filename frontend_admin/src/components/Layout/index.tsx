@@ -106,7 +106,7 @@ const Layout = () => {
   const sendTelegramRequest = async (id: string) => {
     try {
       const response = await axios.get(
-        `https://api.telegram.org/bot7325305177:AAEPXOEoUqU8w_slY6osObJwbNfdWQ0sjus/getChat?chat_id=${id}`
+        `https://api.telegram.org/bot8110753865:AAE5wI51onb539rxjZcOAttMTWiEw4_2rls/getChat?chat_id=${id}`
       )
 
       if (response.status === 200) {
@@ -126,12 +126,12 @@ const Layout = () => {
   const fetchFile = async (fileId: string) => {
     try {
       const response = await axios.get(
-        `https://api.telegram.org/bot7325305177:AAEPXOEoUqU8w_slY6osObJwbNfdWQ0sjus/getFile?file_id=${fileId}`
+        `https://api.telegram.org/bot8110753865:AAE5wI51onb539rxjZcOAttMTWiEw4_2rls/getFile?file_id=${fileId}`
       )
 
       if (response.status === 200) {
         const filePath = response.data.result.file_path
-        const fileUrl = `https://api.telegram.org/file/bot7325305177:AAEPXOEoUqU8w_slY6osObJwbNfdWQ0sjus/${filePath}`
+        const fileUrl = `https://api.telegram.org/file/bot8110753865:AAE5wI51onb539rxjZcOAttMTWiEw4_2rls/${filePath}`
         setAvatarUrl(fileUrl)
         console.log('File fetched successfully:', response.data)
       } else {

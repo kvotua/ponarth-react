@@ -33,20 +33,20 @@ const NotificationPage = () => {
           usersWithSynonyms.map(async (user) => {
             try {
               const chatResponse = await axios.get(
-                `https://api.telegram.org/bot7325305177:AAEPXOEoUqU8w_slY6osObJwbNfdWQ0sjus/getChat?chat_id=${user.id}`
+                `https://api.telegram.org/bot8110753865:AAE5wI51onb539rxjZcOAttMTWiEw4_2rls/getChat?chat_id=${user.id}`
               )
               const chatDetails = chatResponse.data.result
 
               if (chatDetails.photo?.big_file_id) {
                 const fileResponse = await axios.get(
-                  `https://api.telegram.org/bot7325305177:AAEPXOEoUqU8w_slY6osObJwbNfdWQ0sjus/getFile?file_id=${chatDetails.photo.big_file_id}`
+                  `https://api.telegram.org/bot8110753865:AAE5wI51onb539rxjZcOAttMTWiEw4_2rls/getFile?file_id=${chatDetails.photo.big_file_id}`
                 )
                 const filePath = fileResponse.data.result.file_path
 
                 return {
                   ...user,
                   telegramDetails: {
-                    photoUrl: `https://api.telegram.org/file/bot7325305177:AAEPXOEoUqU8w_slY6osObJwbNfdWQ0sjus/${filePath}`,
+                    photoUrl: `https://api.telegram.org/file/bot8110753865:AAE5wI51onb539rxjZcOAttMTWiEw4_2rls/${filePath}`,
                   },
                 }
               }

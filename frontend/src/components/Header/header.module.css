@@ -611,3 +611,11 @@ animation: ToggleAppear 0.4s ease-in-out;
   font-weight: bold;
   /* font-size: 20px; */
 }
+@media screen and (max-height: 700px) {
+  .logo{
+    margin-bottom: unset;
+  }
+  .toggle{
+    bottom: 35px;
+  }
+}
