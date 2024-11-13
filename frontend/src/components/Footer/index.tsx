@@ -34,7 +34,7 @@ const Footer: FC<FooterProps> = ({onClick}) => {
 
   const classList = classNames( {
     [styles.safari_test]: isSafari,
-    [styles.test]: true, // Этот класс всегда будет добавлен
+    [styles.practice]: true, // Этот класс всегда будет добавлен
   });
 
   const classList2 = classNames( {
@@ -49,15 +49,13 @@ const Footer: FC<FooterProps> = ({onClick}) => {
   return (
     <footer className={theme === "dark" ? styles.dark : ""} onClick={onClick}>
       <div
-        // className={`${styles.all_items_footer} ${
-        //   theme === "dark" ? styles.dark : ""
-        // }`}
-        className={classList}
+        className={`${styles.all_items_footer} ${
+          theme === "dark" ? styles.dark : ""
+        }`}
+        // className={classList}
       >
-        <div>111111111111111111111111111111111111</div>
-        <div>1</div>
-        <div>2</div>
-        {/* <div className={classList2}>
+
+        <div className={classList2}>
           <img
             className={styles.logo_footer_img}
             src={Ponarth_firmenny_blok_01}
@@ -118,7 +116,7 @@ const Footer: FC<FooterProps> = ({onClick}) => {
               alt="logo_Practice"
             />
           </a>
-        </div> */}
+        </div>
 
       </div>
     </footer>
