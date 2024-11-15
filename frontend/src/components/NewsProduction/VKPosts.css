@@ -5,19 +5,19 @@
 .mySwiper {
   width: 100%;
   max-width:calc(var(--screen-width)/1.45);
-  margin: 0 0 0 10%; /* Центрируем слайдер */
+  margin: 0 0 0 10%; 
 }
 
 .vk-post {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Центрируем содержимое по вертикали */
-  align-items: center; /* Центрируем содержимое по горизонтали */
+  justify-content: center; 
+  align-items: center;
   padding: 5px;
   background-color: transparent;
   width: 100%;
   box-sizing: border-box;
-  min-height: 300px; /* Устанавливаем минимальную высоту для всех записей */
+  min-height: 300px; 
 }
 
 .vk-post-image {

@@ -1,6 +1,6 @@
 .margin_container{
   margin: 0 2% 0 2%;
-  height: calc(var(--double-screen-height) / 2);
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,7 +10,7 @@
   position: absolute;
   z-index: unset;
   width: 100%;
-  height: calc((var(--double-screen-height) / 2) - 4%);
+  height: 100vh;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(4, 1fr);
