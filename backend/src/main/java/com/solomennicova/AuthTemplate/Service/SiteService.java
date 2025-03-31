@@ -65,7 +65,7 @@ public class SiteService {
         if(beer == null){
             throw new BeerNotFoundException("Beer not found");
         }else{
-            String path = storeService.loadImage(file, file.getOriginalFilename());
+            String path = storeService.loadImage(file, file.getOriginalFilename(), 400);
             beer.setImage(path);
             beerRepository.save(beer);
         }
@@ -126,7 +126,7 @@ public class SiteService {
         if(vacancy == null){
             throw new VacancyNotFoundException("Vacancy not found");
         }else{
-            String path = storeService.loadImage(file, file.getOriginalFilename());
+            String path = storeService.loadImage(file, file.getOriginalFilename(), 450);
             vacancy.setImage(path);
             vacancyRepository.save(vacancy);
         }

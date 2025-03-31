@@ -11,7 +11,7 @@ function NewsProduction() {
       <div className={styles.content_seven_page}>
         <h2 className={styles.texter_seven}>
           НОВОСТИ <br />
-          ПРОИЗВОДСТВА
+          {/* ПРОИЗВОДСТВА */}
         </h2>
       </div>
       <VKPosts groupId={groupId} accessToken={accessToken} />

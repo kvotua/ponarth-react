@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.awt.Image;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -22,12 +23,35 @@ public class StoreService {
     @Value("${store.path}")
     private String filePath;
 
-    public String loadImage(MultipartFile file, String filename) throws DontImageException, ImageDontLoadException {
+    public static void resizeImage(BufferedImage originalImage, OutputStream outputStream, int targetHeight) throws Exception {
+        int originalWidth = originalImage.getWidth();
+        int originalHeight = originalImage.getHeight();
+
+        int targetWidth = (int) ((double) originalWidth / originalHeight * targetHeight);
+        BufferedImage outputImage = new BufferedImage(targetWidth, targetHeight, BufferedImage.TYPE_INT_ARGB); // Используем TYPE_INT_ARGB для поддержки прозрачности
+
+        // Сжимаем изображение
+        outputImage.getGraphics().drawImage(originalImage.getScaledInstance(targetWidth, targetHeight, Image.SCALE_SMOOTH), 0, 0, null);
+        ImageIO.write(outputImage, "png", outputStream); // Сохраняем в формате PNG
+    }
+
+
+    public String loadImage(MultipartFile file, String filename, int height) throws DontImageException, ImageDontLoadException {
         if (!file.isEmpty()) {
             if (file.getContentType().contains("image")) {
                 try {
                     new File(filePath).mkdirs();
                     byte[] bytes = file.getBytes();
+
+                    // Проверяем размер файла
+                    if (bytes.length > 700 * 1024) {
+                        BufferedImage originalImage = ImageIO.read(new ByteArrayInputStream(bytes));
+
+                        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                        resizeImage(originalImage, baos, height);
+
+                        bytes = baos.toByteArray();
+                    }
 
                     String name = filename;
                     String filePathName = filePath + "/" + name;
@@ -42,11 +66,12 @@ public class StoreService {
                         counter++;
                     }
 
-                    BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(savedFile));
-                    stream.write(bytes);
-                    stream.close();
+                    // Сохраняем изображение
+                    try (BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(savedFile))) {
+                        stream.write(bytes);
+                    }
 
-                    return  name;
+                    return name;
                 } catch (Exception e) {
                     throw new ImageDontLoadException(e.getMessage());
                 }
@@ -57,6 +82,7 @@ public class StoreService {
             return "Вам не удалось загрузить " + filename + " потому что файл пустой.";
         }
     }
+
 
 
     public byte[] uploadImage(String filename) throws IOException, DontImageException {

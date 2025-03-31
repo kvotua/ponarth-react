@@ -10,6 +10,9 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { Autoplay } from "swiper/modules";
+
+
 
 interface Product{
   id: number;
@@ -33,107 +36,51 @@ const FirstScreenSlider: FC<FisrtSliderProps> = ({products}) => {
   const [isSafari, setIsSafari] = useState(false);
   const [isVisibleProduct, setIsVisibleProduct] = useState(false);
   const swiperRef = useRef<SwiperType | null>(null);
-  useEffect(() => {
-    if (
-      navigator.userAgent.indexOf("Safari") != -1 &&
-      navigator.userAgent.indexOf("Chrome") == -1
-    ) {
-      setIsSafari(true);
-    } else {
-      setIsSafari(false);
-    }
+  const [showPdf, setShowPdf] = useState(false);
 
-    WindowWidth();
-    window.addEventListener("resize", WindowWidth);
-    return () => {
-      window.removeEventListener("resize", WindowWidth);
+  useEffect(() => {
+    const userAgent = navigator.userAgent;
+    setIsSafari(userAgent.includes("Safari") && !userAgent.includes("Chrome"));
+  
+    const handleResize = () => {
+      WindowWidth();
     };
-    
-  }, []);
+  
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []); 
+
   useEffect(() => {
     setIsVisibleProduct(true);
   }, [currentProduct]);
+
   const adjustImagesArray = (images: Products[]): Products[] => {
     const length = images.length;
-
+  
     if (length === 0) {
       console.warn("Warning: Images array is empty.");
-    } else if (length === 1) {
-      const imgasf: Products[] = [
-        images[0],
-        {
-          id: images[0].id + 10,
-          src: images[0].image,
-          name: images[0].name,
-          description: images[0].description,
-          image: images[0].image,
-          color: "",
-          fileName: images[0].fileName,
-        },
-        {
-          id: images[0].id + 20,
-          src: images[0].image,
-          name: images[0].name,
-          description: images[0].description,
-          image: images[0].image,
-          color: "",
-          fileName: images[0].fileName,
-        },
-        {
-          id: images[0].id + 30,
-          src: images[0].image,
-          name: images[0].name,
-          description: images[0].description,
-          image: images[0].fileName,
-          color: "",
-          fileName: images[0].fileName,
-        },
-      ];
-      return imgasf;
-    } else if (length === 2) {
-      const imgasf: Products[] = [
-        images[0],
-        images[1],
-        {
-          id: images[0].id + 20,
-          src: images[0].image,
-          name: images[0].name,
-          description: images[0].description,
-          image: images[0].image,
-          color: "",
-          fileName: images[0].fileName,
-        },
-        {
-          id: images[1].id + 30,
-          src: images[1].image,
-          name: images[1].name,
-          description: images[1].description,
-          image: images[1].image,
-          color: "",
-          fileName: images[1].fileName,
-        },
-      ];
-      return imgasf;
-    } else if (length === 3) {
-      const imgasf: Products[] = [
-        images[0],
-        images[1],
-        images[2],
-        {
-          id: images[1].id + 30,
-          src: images[1].image,
-          name: images[1].name,
-          description: images[1].description,
-          image: images[1].image,
-          color: "",
-          fileName: images[1].fileName,
-        },
-      ];
-      return imgasf;
+      return [];
     }
-
-    return images;
+  
+    const imgasf: Products[] = [...images]; // Начинаем с оригинального массива
+  
+    for (let i = 0; i < Math.max(0, 4 - length); i++) {
+      imgasf.push({
+        id: images[0].id + (i + 1) * 10,
+        src: images[0].image,
+        name: images[0].name,
+        description: images[0].description,
+        image: images[0].image,
+        color: "",
+        fileName: images[0].fileName,
+      });
+    }
+  
+    return imgasf;
   };
+  
 
   const { theme } = useContext(ThemeContext);
   const themeButton = theme === "dark" ? "white" : "mixed";
@@ -152,43 +99,33 @@ const FirstScreenSlider: FC<FisrtSliderProps> = ({products}) => {
         return "";
     }
   };
+
   const [visibleSlides, setVisibleSlides] = useState<string[]>([]);
 
   const handleSlideChange = (swiper: SwiperType) => {
-    let visible;
     const width = window.innerWidth;
-    if(isSafari){
-      if (width > 1000){
-        visible = swiper.slides.filter((slide: HTMLElement) =>
-          slide.classList.contains("swiper-slide-visible")
-        );
-      }else{
-        visible = swiper.slides.filter((slide: HTMLElement) =>
-          slide.classList.contains("swiper-slide-fully-visible")
-        );
-      }
-     
-    }
-    else{
-        visible = swiper.slides.filter((slide: HTMLElement) =>
-        slide.classList.contains("swiper-slide-visible")
-      );
+    let visible;
+
+    if (isSafari) {
+      visible = width > 1000
+        ? swiper.slides.filter((slide: HTMLElement) => slide.classList.contains("swiper-slide-visible"))
+        : swiper.slides.filter((slide: HTMLElement) => slide.classList.contains("swiper-slide-fully-visible"));
+    } else {
+      visible = swiper.slides.filter((slide: HTMLElement) => slide.classList.contains("swiper-slide-visible"));
     }
 
-    setVisibleSlides(
-      visible.map(
-        (slide) => slide.querySelector("img")?.getAttribute("data-id") || ""
-      )
-    );
+    const visibleIds = visible.map(slide => slide.querySelector("img")?.getAttribute("data-id") || "");
     const activeIndex = swiper.realIndex;
+
+    // Обновляем состояния
+    setVisibleSlides(visibleIds);
     setCurrentProduct(productsData[activeIndex]);
     setProductsData(images);
-    setIsVisibleProduct(false)
-    setTimeout(() => {
-    setIsVisibleProduct(true)
-      
-    }, 1);
+    setIsVisibleProduct(true); // Устанавливаем видимость сразу
   };
+  
+
+  
   const WindowWidth = () => {
     const width = window.innerWidth;
     if (isSafari) {
@@ -217,7 +154,9 @@ const FirstScreenSlider: FC<FisrtSliderProps> = ({products}) => {
       swiperRef.current.update(); // Принудительно обновляем Swiper после загрузки
     }
   }, [stretch]);
+
 console.log(currentProduct?.description.split(";")[4])
+
   return (
     <div className={styles.first_container} content="f" id="sorta">
       <div className={styles.sliders}>
@@ -243,8 +182,11 @@ console.log(currentProduct?.description.split(";")[4])
             clickable: true,
             dynamicBullets: true,
           }}
-          mousewheel
-          modules={[EffectCoverflow, Pagination, Navigation]}
+          autoplay={{
+            delay: 3000, // Задержка между прокрутками в миллисекундах
+            disableOnInteraction: false, // Не отключать автопрокрутку при взаимодействии
+          }}
+          modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
           className={styles.mySwiperBottle}
           onSlideChange={handleSlideChange}
         >
@@ -269,24 +211,23 @@ console.log(currentProduct?.description.split(";")[4])
       <div className={styles.text_slider}>
         <div className={styles.text_in}>
           <h2 className={`${styles.gradual_appear} ${isVisibleProduct ? styles.fade_in : ""}`}>
-            {currentProduct?.name || "ПИВО"}
+            {currentProduct?.name}
           </h2>
           <div className={`${styles.first_screen_par} ${isVisibleProduct ? styles.fade_in : ""}`}>
             <p>
               <p>{isSafari}</p>
-              {currentProduct?.description.split(";")[4] ||
-                "Пиво классическое. Сварено по рецептам 1849 года только с использованием натуральных высококачественных ингредиентов"}
+              {currentProduct?.description.split(";")[4]} 
             </p>
-            <a href="#maps" className={styles.button_slider}>
               <DelayedButton
-                to=""
+                to="/journal"
                 delay={1}
                 className={`${styles.button_slider} ${isVisibleProduct ? styles.appear_button : ""}`}
                 style={themeButton}
+                onClick={() => setShowPdf(true)}
               >
-                ГДЕ ПОПРОБОВАТЬ?
+                УЗНАТЬ БОЛЬШЕ
               </DelayedButton>
-            </a>
+              
           </div>
         </div>
       </div>

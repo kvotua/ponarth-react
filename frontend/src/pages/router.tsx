@@ -4,6 +4,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import AgePage from "./AgePage";
 import Loader from "../components/Loader";
 import MainPage from "./MainPage";
+import Journal from "./Journal";
 const HistoryPage = lazy(() => import("./HistoryPage")); // Другие страницы
 const SharePage = lazy(() => import("./SharePage"));
 
@@ -25,6 +26,11 @@ const Router: FC = () => {
       title: "SharePage",
       path: "/share",
       element: ageConfirmed ? <SharePage /> : <Navigate to="/age" />,
+    },
+    {
+      title: "Journal",
+      path: "/journal",
+      element: ageConfirmed ? <Journal /> : <Navigate to="/age" />,
     },
   ];
 

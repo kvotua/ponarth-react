@@ -17,6 +17,7 @@ import RightBarMobile from "../components/RightBarMobile";
 import { VacanciesProvider } from "../components/LookingPage/VacanciesContext";
 import { getProducts, Products } from "../api/products";
 import Loader from "../components/Loader";
+
 const MainPage: FC = () => {
   const localTheme = window.localStorage.getItem("theme");
   const [theme, setTheme] = useState(localTheme ? localTheme : "light");
@@ -24,22 +25,24 @@ const MainPage: FC = () => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [loading, setLoading] = useState<boolean>(true);
   const [products, setProducts]= useState<Products[]>([]);
+
   useEffect(() => {
     window.localStorage.setItem("theme", theme);
     const handleResize = () => {
       setScreenWidth(window.innerWidth);
     };
+
     window.addEventListener("resize", handleResize);
 
     if (theme === "dark") {
-      if (screenWidth <= 600) {
-        document.body.style.backgroundColor = "black";
-      } else {
-        document.body.style.backgroundColor = "#121212";
-      }
+      document.body.style.backgroundColor = screenWidth <= 600 ? "black" : "#121212";
     } else {
       document.body.style.backgroundColor = "#fff";
     }
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, [theme, screenWidth]);
 
   const toggleTheme = () => {
@@ -52,11 +55,9 @@ const MainPage: FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       try {
-        // Здесь вы можете заменить URL на ваш реальный API
         const response = await getProducts();
-        // Обработка данных, если необходимо
-        setLoading(true);
         setProducts(response);
         return response;
       } catch (err) {
@@ -65,12 +66,11 @@ const MainPage: FC = () => {
         setLoading(false);
       }
     };
-
     fetchData();
   }, []);
 
   if (loading) {
-    return <Loader />; // Показать прелоадер, пока данные загружаются
+    return <Loader />; 
   }
 
   return (
