@@ -15,7 +15,6 @@
 
 .vacancieslistblock {
   width: 90%;
-  margin-top: 46px;
   color: black;
   .vacancies {
     display: flex;
@@ -37,9 +36,7 @@
     object-fit: cover;
     border-radius: 12px;
   }
-  .vacancies:last-child {
-    margin-bottom: 20px;
-  }
+  margin-bottom: 20px;
 }
 
 .settings_btn {

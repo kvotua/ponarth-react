@@ -1,6 +1,7 @@
-import { FC, useState, ChangeEvent, useEffect } from 'react'
+import { FC, useState, ChangeEvent, useEffect, useRef, useLayoutEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import icon from '../assets/Icon.svg'
+import TextareaAutosize from 'react-textarea-autosize';
 import styles from './styles/addvacanciespage.module.scss'
 import {
   addVacancy,
@@ -28,6 +29,8 @@ const AddVacanciesPage: FC = () => {
   const [image, setImage] = useState<File | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [imagePreview, setImagePreview] = useState<string | null>(null)
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  
 
   useEffect(() => {
     if (location.state && location.state.vacancy) {
@@ -42,6 +45,24 @@ const AddVacanciesPage: FC = () => {
   }, [location.state])
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+  
+    const { name, value } = event.target
+    setVacancy((prevVacancy) => ({
+      ...prevVacancy,
+      [name]: value,
+    }))
+  }
+
+  const handleTextAreaChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    if (textareaRef.current) {
+      const lineHeight = 24;
+      const rows = Math.max(
+        2,
+        Math.ceil(textareaRef.current.scrollHeight / lineHeight)
+      );
+      textareaRef.current.rows = rows;
+      console.log(rows);
+    }
     const { name, value } = event.target
     setVacancy((prevVacancy) => ({
       ...prevVacancy,
@@ -128,6 +149,18 @@ const AddVacanciesPage: FC = () => {
       reader.onerror = (error) => reject(error)
     })
   }
+  useLayoutEffect(() => {
+    const timer = setTimeout(() => {
+      if (textareaRef.current) {
+        const event = {
+          target: textareaRef.current,
+        } as React.ChangeEvent<HTMLTextAreaElement>;
+        handleTextAreaChange(event);
+      }
+    }, 100); // Небольшая задержка для гарантии применения стилей
+  
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
@@ -149,14 +182,15 @@ const AddVacanciesPage: FC = () => {
           </label>
 
           <label>
-            <input
-              className={styles.second_input}
-              type="text"
-              name="vacanciesdescription"
-              value={vacancy.vacanciesdescription}
-              onChange={handleInputChange}
-              placeholder="Описание вакансии"
-            />
+          <TextareaAutosize
+            className={styles.big_input}
+            name="description"
+            value={vacancy.vacanciesdescription}
+            onChange={handleTextAreaChange}
+            placeholder="Описание продукта"
+            minRows={2}
+            maxRows={10}
+          />
           </label>
           <h2>Добавьте изображение вакансии</h2>
           <section

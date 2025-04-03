@@ -7,6 +7,14 @@
   align-self: flex-start;
 }
 
+.clamped_text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Ограничение в 2 строки */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Добавляет "..." в конце */
+}
+
 .input {
   width: 90%;
   height: 49px;
@@ -53,6 +61,7 @@
 .points_list {
   width: 90%;
   overflow: hidden;
+  margin-bottom: 20px;
 
   .point {
     min-height: 70px;
@@ -137,8 +146,5 @@
       cursor: pointer;
     }
   }
-
-  .point:last-child {
-    margin-bottom: 20px;
-  }
+  
 }

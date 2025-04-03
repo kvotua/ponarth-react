@@ -44,11 +44,10 @@ const ProductPage: FC = () => {
           id: product.id,
           title: product.name,
           description: product.description,
-          image: product.image,
+          image: product.fileName
+          ? getImageSrc(product.image, product.fileName)
+          : product.image,
           fileName: product.fileName,
-          base64Image: product.fileName
-            ? getImageSrc(product.image, product.fileName)
-            : '',
           color: product.color,
         }))
         setProducts(productsWithDecodedImages as Product[])
@@ -94,7 +93,7 @@ const ProductPage: FC = () => {
           <div key={product.id} className={styles.point}>
             <div className={styles.image_block}>
               <img
-                src={product.base64Image}
+                src={product.image}
                 alt={product.title}
                 style={{ border: `6px solid ${product.color}` }}
               />
@@ -102,7 +101,7 @@ const ProductPage: FC = () => {
 
             <div className={styles.description_block}>
               <h2>{product.title}</h2>
-              <p>{product.description}</p>
+              <p className={styles.clamped_text}>{product.description}</p>
             </div>
 
             <button

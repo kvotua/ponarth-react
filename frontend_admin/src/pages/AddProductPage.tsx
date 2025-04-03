@@ -1,4 +1,4 @@
-import { FC, useState, ChangeEvent, useEffect } from 'react'
+import { FC, useState, ChangeEvent, useEffect, useRef, useLayoutEffect} from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { SketchPicker, ColorResult } from 'react-color'
 import back from '../assets/Icon.svg'
@@ -21,6 +21,44 @@ interface AddProduct {
   color: string
 }
 
+function getBase64FileSize(base64String: string): number | null {
+  if (!base64String) return null;
+
+  try {
+    // Удаляем data-URL префикс если есть (например: "data:image/png;base64,...")
+    const base64Data = base64String.includes(',') 
+      ? base64String.split(',')[1] 
+      : base64String;
+
+    // Проверяем валидность Base64 (должна содержать только разрешенные символы)
+    if (!/^[A-Za-z0-9+/]+={0,2}$/.test(base64Data)) {
+      throw new Error('Invalid Base64 string');
+    }
+
+    // Вычисляем длину без padding символов '='
+    const padding = (base64Data.match(/=+$/) || [''])[0].length;
+    const cleanBase64 = base64Data.replace(/=+$/, '');
+
+    // Основная формула расчета размера
+    const sizeInBytes = (cleanBase64.length * 3) / 4 - padding;
+
+    // Возвращаем округленное значение (размер не может быть дробным)
+    return Math.ceil(sizeInBytes);
+  } catch (error) {
+    console.error('Error calculating Base64 file size:', error);
+    return null;
+  }
+}
+function formatFileSize(bytes: number, decimals: number = 2): string {
+  if (bytes === 0) return '0 Bytes';
+
+  const k = 1024;
+  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+  return `${parseFloat((bytes / Math.pow(k, i)).toFixed(decimals))} ${sizes[i]}`;
+}
+
 const AddProductPage: FC = () => {
   const location = useLocation()
   const productToEdit = location.state?.product
@@ -37,7 +75,9 @@ const AddProductPage: FC = () => {
 
   const [image, setImage] = useState<File | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [fileSize, setFileSize] = useState()
   const [imagePreview, setImagePreview] = useState<string | null>(null)
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     if (productToEdit) {
@@ -73,7 +113,8 @@ const AddProductPage: FC = () => {
         description,
         color: productToEdit.color,
       })
-      setImagePreview(productToEdit.base64Image)
+      setImagePreview(productToEdit.image)
+      setFileSize(formatFileSize(getBase64FileSize(productToEdit.image)));
     }
   }, [productToEdit])
 
@@ -84,6 +125,26 @@ const AddProductPage: FC = () => {
       [name]: value,
     }))
   }
+
+
+
+  const handleTextAreaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    if (textareaRef.current) {
+      const lineHeight = 24;
+      const rows = Math.max(
+        2,
+        Math.ceil(textareaRef.current.scrollHeight / lineHeight)
+      );
+      textareaRef.current.rows = rows;
+      console.log(rows);
+    }
+    const { name, value } = event.target;
+
+    setProduct((prevProduct) => ({
+      ...prevProduct,
+      [name]: value,
+    }));
+  };
 
   const handleColorChange = (color: ColorResult) => {
     const rgbaColor = `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`
@@ -105,8 +166,8 @@ const AddProductPage: FC = () => {
       }
 
       const img = new Image()
-      const width = 8000
-      const height = 8000
+      const width = 800   
+      const height = 800
       img.onload = () => {
         if (img.width > width || img.height > height) {
           alert(
@@ -117,6 +178,7 @@ const AddProductPage: FC = () => {
 
         setImage(file)
         setImagePreview(URL.createObjectURL(file))
+        setFileSize(formatFileSize(file.size));
       }
       img.src = URL.createObjectURL(file)
     }
@@ -167,12 +229,33 @@ const AddProductPage: FC = () => {
     navigate('/products')
   }
 
+  useLayoutEffect(() => {
+    const timer = setTimeout(() => {
+      if (textareaRef.current) {
+        const event = {
+          target: textareaRef.current,
+        } as React.ChangeEvent<HTMLTextAreaElement>;
+        handleTextAreaChange(event);
+      }
+    }, 100); // Небольшая задержка для гарантии применения стилей
+  
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <>
+    <div className={styles.image_and_properties}>
       <button className={styles.back_btn} onClick={handleBackClick}>
         <img src={back} alt="" />
       </button>
       <p className={styles.title}>Добавьте изображение продукта</p>
+      {/* <button className={styles.back_btn} style={{opacity: 0, // Прозрачность
+              pointerEvents: 'none', // Отключает взаимодействие
+              cursor: 'not-allowed', // Меняет курсор
+              background: 'transparent', // Прозрачный фон
+              border: 'none' }} onClick={handleBackClick}>
+        <img src={back} alt="" />
+      </button> */}
+      </div>
       <div className={styles.image_and_properties_block}>
         <section
           className={styles.img_container}
@@ -224,6 +307,8 @@ const AddProductPage: FC = () => {
           />
         </div>
       </div>
+      <p>Имя файла на сервере: {productToEdit.fileName} {fileSize}</p>
+
       <p className={styles.title}>Заполните дополнительную информацию</p>
       <div className={styles.additional_information}>
         <div className={styles.money_container}>
@@ -246,12 +331,12 @@ const AddProductPage: FC = () => {
           placeholder="Название продукта"
         />
 
-        <input
+        <textarea
           className={styles.big_input}
-          type="text"
           name="description"
+          ref={textareaRef}
           value={product.description}
-          onChange={handleInputChange}
+          onChange={handleTextAreaChange}
           placeholder="Описание продукта"
         />
         <SketchPicker
