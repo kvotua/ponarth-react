@@ -200,6 +200,8 @@ console.log(currentProduct?.description.split(";")[4])
               >
                 <img
                   src={getImageSrc(image.image, image.fileName)}
+                  loading="lazy"
+                  decoding="async"
                   className={styles.img_slide}
                   data-id={image.id}
                 />
@@ -227,7 +229,6 @@ console.log(currentProduct?.description.split(";")[4])
               >
                 УЗНАТЬ БОЛЬШЕ
               </DelayedButton>
-              
           </div>
         </div>
       </div>
